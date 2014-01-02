@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orderErrorLog">
+	<!-- 以下与实体类的中字段一致 -->
+	<sql id="selectId">
+		id,orderid,CreatedAt,message
+	</sql>
+	<select id="query" resultType="OrderErrorLog" parameterType="java.util.HashMap">
+		select
+		<include refid="selectId" />
+		from o_order_error_log t
+		<where>
+			<if test="t.id != null and t.id  != ''">
+				id=#{id} 
+				</if>
+		</where>
+	</select>
+	
+	<select id="getById" parameterType="long" resultType="Order">
+		select
+		<include refid="selectId" />
+		from o_order_error_log where id=#{id}
+	</select>
+	
+
+	<!-- 总记录数 -->
+	<select id="count" parameterType="Order" resultType="int">
+		select count(0) from o_order_error_log
+	</select>
+	<!-- 增加用户 -->
+	<insert id="add" parameterType="Order">
+		insert into o_order_error_log(orderid,createdAt,message)
+		values (
+		#{orderid},
+		#{createdAt},
+		#{message}
+		)
+	</insert>
+
+
+</mapper>

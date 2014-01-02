@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="12" height="35"><img src="${pageContext.servletContext.contextPath }/images/tab_18.gif" width="12" height="35" /></td>
+        <td width="12" height="35"><img src="../images/tab_18.gif" width='12' height='35' /></td>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td class="STYLE4">&nbsp;&nbsp;总记录数:${pageView.rowCount}条 |每页显示:${pageView.pageSize}条 | 总页数:${pageView.pageCount}页</td>
@@ -42,6 +42,6 @@
             </table></td>
           </tr>
         </table></td>
-        <td width="16"><img src="${pageContext.servletContext.contextPath }/images/tab_20.gif" width="16" height="35" /></td>
+        <td width="16"><img src="../images/tab_20.gif" width="16" height="35" /></td>
       </tr>
     </table>

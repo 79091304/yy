@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+	<!-- 以下与实体类的中字段一致 -->
+	<sql id="selectId">
+		id,username,nickname,password,state,type,guid,createdAt,changedAt
+	</sql>
+	<!--resultType="User" 每返回一条结果封装到User里 -->
+	<select id="query" resultType="User" parameterType="java.util.HashMap">
+		select
+		<include refid="selectId" />
+		from u_user_active
+		<where>
+			<if test="t.userName != null and t.userName != ''">
+				username like '%${t.username}%'
+				</if>
+			<if test="t.userNickname != null and t.userNickname != ''">
+				and nickname like '%${t.nickname}%'
+				</if>
+		</where>
+	</select>
+	<!-- 总记录数 -->
+	<select id="countByname" parameterType="User" resultType="int">
+		select count(0) from u_user
+		<where>
+			<if test="userName != null and userName != ''">
+				username like '%${username}%'
+				</if>
+			<if test="userNickname != null and userNickname != ''">
+				and nickname like '%${nickname}%'
+				</if>
+		</where>
+	</select>
+	
+	<select id="getByDate" resultType="User" parameterType="java.util.HashMap">
+		select
+		<include refid="selectId" />
+		from u_user t 
+		<where>
+			1=1 
+			<if test="startDate != null and startDate  != ''">
+			 	<![CDATA[ and  t.createdAt > date_add(#{startDate}, interval -1 day) ]]> 	
+			</if>
+			<if test="startDate != null and startDate  != ''">
+				<![CDATA[ and t.createdAt < date_add(#{startDate}, interval +1 day) ]]> 	
+			</if>
+		</where>
+	</select>
+	
+	<!-- 增加用户 -->
+	<insert id="add" parameterType="User">
+		insert into u_user(username,nickname,password,state,type,guid,changedAt)
+		values (#{username},
+		#{nickname},
+		#{password}, #{state},
+		#{type},
+		#{guid},
+		 #{changedAt}
+		)
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+		delete from u_user where
+		id=#{id}
+	</delete>
+	<select id="getById" parameterType="String" resultType="User">
+		select
+		<include refid="selectId" />
+		from u_user where id=#{id}
+	</select>
+	<update id="update" parameterType="User">
+		update u_user
+		<set>
+			<if test="username != null and username != ''">
+				username=#{username},
+			</if>
+			<if test="nickname != null and nickname != ''">
+				nickname=#{nickname},
+			</if>
+			<if test="password != null and password != ''">
+				password=#{password},
+			</if>
+			<if test="state != null and state != ''">
+				state=#{state},
+			</if>
+			<if test="type != null and type != ''">
+				type=#{type},
+			</if>
+			<if test="guid != null and guid != ''">
+				guid=#{guid},
+			</if>
+			<if test="changedAt != null and changedAt != ''">
+				changedAt=#{changedAt}
+			</if>
+			
+		</set>
+		where id=#{id}
+	</update>
+	
+	
+	
+	<!-- 根据用户名查出userId -->
+	<select id="queryUserName" parameterType="String" resultType="User">
+	  select
+	  <include refid="selectId"/>
+	  from user where username=#{username}
+	</select>
+</mapper>

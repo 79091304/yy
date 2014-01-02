@@ -5,11 +5,7 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring-application.xml,classpath:spring-security.xml</param-value>
-	</context-param>
-	<context-param>
-		<param-name>ssi_spring_securityRootKey</param-name>
-		<param-value>ssi_spring_security</param-value>
+		<param-value>classpath:spring-application.xml</param-value>
 	</context-param>
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
@@ -49,26 +45,16 @@
 
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
-		<url-pattern>*.html</url-pattern>
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 	
-	  <!-- 权限  Spring Security3.1 的权限过滤-->
-  <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>
-            org.springframework.web.filter.DelegatingFilterProxy
-        </filter-class>
-   </filter>
-    <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/background/*</url-pattern>
-    </filter-mapping>
+
 	
 	<!-- 对于请求的get方法，解决乱码问题 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<!-- org.springframework.web.filter.CharacterEncodingFilter -->
-		<filter-class>com.lanyuan.util.EncodingFilter</filter-class>
+		<filter-class>com.ifeng.util.EncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
