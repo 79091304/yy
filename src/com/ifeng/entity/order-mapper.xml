@@ -47,10 +47,10 @@
 		<where>
 			1=1 
 			<if test="startDate != null and startDate  != ''">
-			 	<![CDATA[ and  t.createdAt > date_add(#{startDate}, interval -1 day) ]]> 	
+			 	<![CDATA[ and  t.createdAt>str_to_date(#{startDate},'%Y-%m-%d %H:%i:%s') ]]> 	
 			</if>
-			<if test="startDate != null and startDate  != ''">
-				<![CDATA[ and t.createdAt < date_add(#{startDate}, interval +1 day) ]]> 	
+			<if test="endtDate != null and endtDate  != ''">
+				<![CDATA[ and t.createdAt<str_to_date(#{endtDate},'%Y-%m-%d %H:%i:%s') ]]> 	
 			</if>
 		</where>
 	</select>
@@ -64,7 +64,7 @@
 		insert into o_order(type,orderid,state,price,createdAt,changedAt,userid,userkey,guid,source)
 		values (#{type},
 		#{orderid},
-		#{price}, #{createdAt},
+		#{price}, null,
 		#{changedAt},
 		#{userid},
 		#{userkey},
@@ -88,9 +88,6 @@
 			</if>
 			<if test="price != null and price != ''">
 				price=#{price},
-			</if>
-			<if test="createdAt != null and createdAt != ''">
-				createdAt=#{createdAt},
 			</if>
 			<if test="changedAt != null and changedAt != ''">
 				changedAt=#{changedAt},

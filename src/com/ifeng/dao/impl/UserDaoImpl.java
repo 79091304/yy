@@ -32,17 +32,17 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 
 	@Override
 	public List<User> getUserByDate(String startDate, String endDate) {
-		Map<String,Date> data = new HashMap<String, Date>();
-		if(StringUtils.isEmpty(startDate)){
-			data.put("startDate", DateUtils.parseStringToDate(startDate));
+		Map<String,String> data = new HashMap<String, String>();
+		if(!StringUtils.isEmpty(startDate)){
+			data.put("startDate",startDate);
 		}
 		else{
-			data.put("startDate", new Date());
+			data.put("startDate", DateUtils.getCurrentDate());
 		}
-		if(StringUtils.isEmpty(endDate)){
-			data.put("endDate", DateUtils.parseStringToDate(endDate));
+		if(!StringUtils.isEmpty(endDate)){
+			data.put("endDate", endDate);
 		}else{
-			data.put("endDate", new Date());
+			data.put("endDate", DateUtils.getCurrentDate());
 		}
 		
 		return getSqlSession().selectList("user.getByDate",data);

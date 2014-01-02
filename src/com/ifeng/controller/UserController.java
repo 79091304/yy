@@ -15,6 +15,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifeng.util.DateUtils;
@@ -34,7 +35,7 @@ public class UserController {
 	MemCachedManager1 cache = MemCachedManager1.getInstance();
 	
 	@RequestMapping("getUserInfo")
-	public void getUserInfo(String sid,HttpServletRequest request,HttpServletResponse response){
+	public void getUserInfo( String sid,HttpServletRequest request,HttpServletResponse response){
 		PrintWriter writer = null;
 		try {
 			writer = response.getWriter();
@@ -42,7 +43,6 @@ public class UserController {
 			e.printStackTrace();
 		}
 		log.info("查询用户信息");
-		//{code:1,message:\u64cd\u4f5c\u6210\u529f,data:{gender:,guid:41586433,image:,imageStatus:0,mail:79091304@qq.com,mailStatus:1,mobile:null,mobileStatus:0,nickname:null,nicknameStatus:0,questionStatus:0,res:0,userStatus:2,username:}}
 		String param = Util._callHttp("https://id.ifeng.com/api/getuserinfo?sid=", sid);
 		if(StringUtils.isNotEmpty(param)){
 			JSONObject jobject = JSONObject.fromObject(param);
@@ -60,7 +60,7 @@ public class UserController {
 				response.addCookie(cookie);
 				log.info("params:"+params+",sid="+sid+",b:"+b);
 				writer.print(1);
-				String realIp = request.getHeader("X-Real-IP");
+				String realIp = request.getRemoteAddr();
 				log.info("用户IP："+realIp);
 				if(StringUtils.isNotEmpty(sid)){
 					UserActivedRecords.pushUserCache(sid, guid, realIp,true);
@@ -122,7 +122,11 @@ public class UserController {
 			UserActivedRecords.flushLoginToBlockQueue();
 			writer.write("手动持久化用户登录信息到DB"+DateUtils.getCurrentDate()+"用户数量："+loginSize);
 			UserActivedRecords.flushLogoutToBlockQueue();
-			writer.write("手动持久化用户退出信息到DB"+DateUtils.getCurrentDate()+"用户数量：�"+logoutSize);
+			writer.write("手动持久化用户退出信息到DB"+DateUtils.getCurrentDate()+"用户数量："+logoutSize);
 		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("\u672a\u767b\u5f55");
 	}
 }

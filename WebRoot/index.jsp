@@ -45,6 +45,8 @@
 											href="javascript:ChangeValidCode('chkcode');" class="red">看不清，换一个</a></p>
         <p class="butmar2">
           <input type="button" value="登录" onclick="login()" class="but1 " />
+          <a class="red" href="https://id.ifeng.com/findpass/inputid">忘记密码</a>
+          </p>
           
 	</form>
       </div>
@@ -422,11 +424,11 @@ function doMove(obj, json, fnEnd){
 <div id="top" style="display:none">
   <div class="small">
     <ul>
-      <li class="" style="opacity: 0.4; "><img src="../../images/01.jpg"></li>
-      <li class="" style="opacity: 0.4; "><img src="../../images/02.jpg"></li>
-      <li style="opacity: 0.96; " class="hove"><img src="../../images/03.jpg"></li>
-      <li style="opacity: 0.4; " class=""><img src="../../images/01.jpg"></li>
-      <li style="opacity: 0.4; " class=""><img src="../../images/03.jpg"></li>
+      <li class="" style="opacity: 0.4; "><img src="images/01.jpg"/></li>
+      <li class="" style="opacity: 0.4; "><img src="images/02.jpg"/></li>
+      <li style="opacity: 0.96; " class="hove"><img src="images/03.jpg"/></li>
+      <li style="opacity: 0.4; " class=""><img src="images/01.jpg"/></li>
+      <li style="opacity: 0.4; " class=""><img src="images/03.jpg"/></li>
     </ul>
   </div>
 </div>

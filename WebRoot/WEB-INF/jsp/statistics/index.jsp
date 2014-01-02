@@ -1,12 +1,13 @@
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*,org.apache.commons.lang.*"
     pageEncoding="UTF-8"%>
+<jsp:include page="../common/taglib.jsp"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>统计页面</title>
-<script language="javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.4.4.min.js"></script>
+<script language="javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -26,16 +27,15 @@ $(function(){
  PrintWriter write =  response.getWriter();
 %>
 <body>
-<form id="form" name="form" action="<%=request.getContextPath() %>/StatisticsServlet" method="post">
-<input name="key" type="hidden" value="52468ddfsedf">
-<input type="hidden" id="selectType" name="selectType" value="0">
+<form id="form" name="form" action="<%=request.getContextPath() %>/statistics/index.htm" method="post">
+<input id="selectType" type="hidden" value="" >
 <table align="center">
 	<tr>
 		<td>
-			开始时间：<input id="startTime" name="startTime" value="<%=request.getAttribute("startTime")==null ? "" : request.getAttribute("startTime") %>" class="Wdate" type="text" onClick="WdatePicker()">
+			开始时间：<input id="startTime" name="startTime" value="<%=request.getAttribute("startTime")==null ? "" : request.getAttribute("startTime") %>" class="Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
 		</td>
 		<td>
-			结束时间：<input id="endTime" name="endTime" value="<%=request.getAttribute("endTime")== null ?"" :request.getAttribute("endTime") %>" class="Wdate" type="text" onClick="WdatePicker()">
+			结束时间：<input id="endTime" name="endTime" value="<%=request.getAttribute("endTime")== null ?"" :request.getAttribute("endTime") %>" class="Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
 		</td>
 	</tr>
 	<tr>
@@ -82,14 +82,6 @@ $(function(){
 		</td>
 	</tr>
 	
-	<tr>
-		<td>
-			<a id="userDetail" ><font color="red">查看用户详情</font></a>
-		</td>
-		<td>
-			<a id="orderDetail"><font color="red">查看订单详情</font></a>
-		</td>
-	</tr>
 	<tr>
 		<td>
 			<a id="userDetail" ><font color="red">查看用户详情</font></a>

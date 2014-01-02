@@ -42,7 +42,7 @@
 		$.ajax({
 			type:'post',
 			dataType:'text',
-			url:'LogoutServlet',
+			url:'log/logout.htm',
 			success:function(data){
 			}
 		});

@@ -47,16 +47,16 @@ public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao {
 
 	@Override
 	public List<Order> getOrderByDate(String startDate, String endDate) {
-		Map<String,Date> data = new HashMap<String, Date>();
+		Map<String,String> data = new HashMap<String, String>();
 		if(StringUtils.isNotEmpty(startDate)){
-			data.put("startDate", DateUtils.parseStringToDate(startDate));
+			data.put("startDate", startDate);
 		}else{
-			data.put("startDate", new Date());
+			data.put("startDate", DateUtils.getCurrentDate());
 		}
 		if(StringUtils.isNotEmpty(endDate)){
-			data.put("endDate", DateUtils.parseStringToDate(endDate));
+			data.put("endDate", endDate);
 		}else{
-			data.put("endDate", new Date());
+			data.put("endDate", DateUtils.getCurrentDate());
 		}
 		return this.getSqlSession().selectList(this.getClassName()+".getByDate", data);
 	}

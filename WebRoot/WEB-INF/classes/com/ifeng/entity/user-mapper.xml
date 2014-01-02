@@ -40,10 +40,10 @@
 		<where>
 			1=1 
 			<if test="startDate != null and startDate  != ''">
-			 	<![CDATA[ and  t.createdAt > date_add(#{startDate}, interval -1 day) ]]> 	
+			 	<![CDATA[ and  t.createdAt>str_to_date(#{startDate},'%Y-%m-%d %H:%i:%s') ]]> 	
 			</if>
-			<if test="startDate != null and startDate  != ''">
-				<![CDATA[ and t.createdAt < date_add(#{startDate}, interval +1 day) ]]> 	
+			<if test="endtDate != null and endtDate  != ''">
+				<![CDATA[ and t.createdAt<str_to_date(#{endtDate},'%Y-%m-%d %H:%i:%s') ]]> 	
 			</if>
 		</where>
 	</select>

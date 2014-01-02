@@ -170,7 +170,7 @@ width:172px;	height:96px;
 /*主播*/
 .zhub{ background:#ffeef4; padding:0 15px 20px 15px}
 .zhub li { float:left; line-height:25px; text-align:center; padding:0 7px;}
-.zhub li img{ width:107px; height:107px; display:block}
+.zhub li img{ width:107px; height:85px; display:block}
 .cont1 ul.ljf2 li{margin:0 0 20px 36px;float:left;line-height:24px; position: relative}
 .ljf2{ border-top:4px solid #3f0010;}
 .ljf2 h4{ line-height:40px; font-size:20px; font-family:"微软雅黑";padding-left:35px; color:#ea0c6a; background:#ffb2ca; margin-bottom:30px}

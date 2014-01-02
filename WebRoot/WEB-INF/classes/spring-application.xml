@@ -44,7 +44,7 @@
 		<property name="properties">
 			<props>
 				<prop key="dialect">com.ifeng.pulgin.jdbc.dialet.H2Dialect</prop>
-				<prop key="pageSqlId">.*query.*</prop>
+				<prop key="pageSqlId">.*queryPage.*</prop>
 			</props>
 		</property>
 	</bean>
