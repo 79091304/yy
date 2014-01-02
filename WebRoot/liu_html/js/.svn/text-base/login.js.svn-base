@@ -1,0 +1,39 @@
+//获取用户信息
+	function login(){
+		$.ajax({
+			type:'post',
+			dataType:'jsonp',
+			url:'https://id.ifeng.com/api/login?',
+			data:'u='+document.getElementById("name").value+'&k='+document.getElementById("pwd").value+'&type=2&comefrom=6&auth='+document.getElementById("auth").value,
+			success:function(data){
+				if(data.code==1){//登录成功
+				var date = data.data.token;
+				setCookie("cookie",date);
+				 $.ajax({
+					type:'post',
+					dataType:'text',
+					url:'../loginServlet?sid='+data.data.token,
+					success:function(data){
+						if(data=="1"){
+							//获取用户信息成功
+							window.location.href="main.html";
+						}else{
+							window.location.href="main.html";
+						}
+					}
+				});  
+				}else{
+					
+				}
+			}
+		});
+	}
+	function setCookie(name,value)	//两个参数，一个是cookie的名子，一个是值
+{
+    //var Days = 30; 	//此 cookie 将被保存 30 天
+    //var exp  = new Date()();    //new Date()("December 31, 9998");
+    //exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    //document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+    //document.cookie = name + "="+ escape (value) + ";expires=";
+    document.cookie = name + "="+ escape (value);
+}

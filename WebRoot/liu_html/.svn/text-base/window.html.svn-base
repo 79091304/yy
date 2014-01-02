@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>凤凰音乐美女秀场</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="css/jquery.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div class="window">
+<div class="tit5"><span name="#tab1">用户登录</span><span class="cur2"  name="#tab2">用户注册</span><em class="close"></em></div>
+<div class="from" id="tab1">
+  <p><label>用户名：</label><input  type="text" class="input1 input2" /></p>
+  <p><label>密码：</label><input  type="text" class="input1 input2" /><span class="jpicon"></span></p>
+   <p>
+        <label>验证码：</label>
+        <input  id="auth" name="auth" type="text" class="input1 input3" />
+        <span><img id="chkcode" src="https://id.ifeng.com/index.php/public/authcode" /></span> 
+       <a href="javascript:document.getElementById('chkcode').src='https://id.ifeng.com/index.php/public/authcode'" class="red">看不清，换一个</a> 
+        </p>
+  <p class="butmar2"><input type="button" value="登录" class="but2 " onclick="login()"/>
+  <a href="#">立刻注册&gt;&gt;</a></p>
+</div>
+<div class="from from2" id="tab2">
+  <p><label>用户名：</label><input  type="text" class="input1 input2" /></p>
+  <p><label>密码：</label><input  type="text" class="input1 input2" /><span class="jpicon"></span></p>
+  <p><label>重复密码：</label><input  type="text" class="input1 input2" /><span class="jpicon"></span></p>
+  <p><label>验证码：</label><input  type="text" class="input1 input3" /> <span><img src="images/yzm.png" /></span></p>
+  <p class="red msg2"><label> </label>看不清，换一个</p>
+  <p class="butmar2"><input type="button" value="注册" class="but2 " />
+  </p>
+</div>
+</div>
+ <script>
+    function resetTabs(){
+        $(".from").hide(); //Hide all content
+        $(".tit5 span").attr("class",""); //Reset id's      
+    }
+
+    var myUrl = window.location.href; //get URL
+    var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For localhost/tabs.html#tab2, myUrlTab = #tab2     
+    var myUrlTabName = myUrlTab.substring(0,4); // For the above example, myUrlTabName = #tab
+
+    (function(){
+        $(".from").hide(); // Initially hide all content
+        $(".tit5 span:first").attr("class","cur1"); 
+        $(".from:first").fadeIn(); // Show first tab content
+        
+        $(".tit5 span").on("click",function(e) {
+            e.preventDefault();
+            if ($(this).attr("class") == "cur1"){ //detection for current tab
+             return       
+            }
+            else{             
+            resetTabs();
+            $(this).attr("class","cur1"); // Activate this
+            $($(this).attr('name')).fadeIn(); // Show content for current tab
+            }
+        });
+
+        for (i = 1; i <= $(".tit5 span.").length; i++) {
+          if (myUrlTab == myUrlTabName + i) {
+              resetTabs();
+              $("a[name='"+myUrlTab+"']").attr("class","cur1"); // Activate url tab
+              $(myUrlTab).fadeIn(); // Show url tab content        
+          }
+        }
+    })()
+  </script> 
+</body>
+</html>

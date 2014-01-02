@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="css/jquery.js" type="text/javascript"></script>
+<script language="javascript">
+	$(function(){
+		document.getElementById("reg").innerText=getCookie("reg");
+	});
+	function getCookie(name)	//取cookies函数        
+	{
+    	var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+    	try{
+     		if(arr != null){
+     		   return decodeURI(arr[2]); 
+     		} else{
+     			return null;
+     		}
+  		 }catch(err){
+   	
+  		 }
+
+	}
+</script>
+</head>
+
+<body>
+<div class="iBody">
+  <h1 class="logo"><a href="index.html"><img src="images/logo.png" /></a></h1>
+  <p class="headright"><a href="#" class="icon1">加入收藏</a><a href="#" class="icon2">下载客户端</a></p>
+</div>
+<div class="iBody">
+  <h4 class="tit4">用户登录</h4>
+  <p class="reg">已经是注册用户？请直接<strong><a href="login.html?reg" class="red">登录</a></strong></p>
+  <div class="loginbg">
+    <div class="from" id="tab1">
+     <p style="font-size:14px;">
+	提交成功，请到 <span id="reg" class="red"></span> 中查阅验证邮件！ 
+  点击邮件中的链接，即可浏览凤凰音乐美女秀场</p>
+    </div>
+  </div>
+</div>
+<div class="footer"> <span class="logo"><a href="http://mm.yue.ifeng.com"><img src="images/logo.png" /></a></span>
+  <p><a href="http://www.ifeng.com/corp/about/">关于凤凰新媒体</a> |<a href="http://mm.yue.ifeng.com
+"> 秀场首页</a> | <a href="http://yue.ifeng.com">音乐首页</a> | <span style="color:#000">客服电话:4008109890 | 客服邮箱: wireless@ifeng.com</span><br />
+    [<a href="images/icp.jpg">京ICP证030609号</a>] [<a href="images/wlwhjy.jpg">文网文[2010]136号</a>]<br />
+    凤凰新媒体 版权所有<br />
+  Copyright © 2013 Phoenix New Media Limited All Rights Reserved.</p>
+</div>
+</body>
+</html>

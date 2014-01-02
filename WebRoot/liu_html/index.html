@@ -1,0 +1,666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>凤凰音乐美女秀场</title>
+<script src="css/jquery.js" type="text/javascript"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	$(function(){
+		var url = window.location.href;
+		var ary=url.split("?");
+		 $.ajax({
+			type:'post',
+			dataType:'text',
+			url:'../log/login.htm',
+			data:'',
+			success:function(data){
+			var name = data.split("nickname=");
+			if(name.length>1){
+				logo_in();
+							$("#windowbg").hide();
+							$("#welcome1").hide();
+							//$("#welcome1").append("<p class='wellcome f12'><img src='images/userlogo.gif' /> <strong>欢迎您：<u class='red'>LIXUE</u> </strong>[<a href='#'>退出</a>]</p> ");
+							$("#div1").prepend("<p id='welcome2' class='wellcome f12'><img src='images/userlogo.jpg' /> <strong>欢迎您：<u class='red'>"+name[1]+"</u> </strong>[<a href='#'onclick='removeCookie()'>退出</a>]</p> ");
+			}else{
+			}
+					
+			}
+		});
+		$.ajax({
+			type:'post',
+			dataType:'json',
+			url:'../bodyServlet?uid=1',
+			data:'',
+			success:function(data){
+				var myobj=eval(data); 
+				for(var i=0;i<myobj.length;i++){ 
+					var username = decodeURI(myobj[i].username);
+					var num = myobj[i].wealthrank;
+					if(num>19){
+						$("#xiu").append("<li><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+myobj[i].rid
+					+"'><img src='"+myobj[i].pospic+"' width='156' height='118' /><br /> "+username
+					+"</a><br /><span class='textbg'></span> <span class='text'>"+myobj[i].count+
+					"</span> <span class='pj'><img src='http://vr0.6.cn/imges/live/levelIco_v4/"+(num-10)+".gif' /></span> <span class='gray'>开播时间:"+
+					myobj[i].starttime+"</span> </li>"); 
+					}else{
+						$("#xiu").append("<li><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+myobj[i].rid
+					+"'><img src='"+myobj[i].pospic+"' width='156' height='118' /><br /> "+username
+					+"</a><br /><span class='textbg'></span> <span class='text'>"+myobj[i].count+
+					"</span> <span class='pj'><u id='a"+num+"'></u></span> <span class='gray'>"+
+					myobj[i].starttime+"</span> </li>"); 
+					}
+				}  
+				 for(var j=myobj.length-4;j<myobj.length;j++){
+					$("#tui").append(" <li><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+myobj[j].rid+"'><img width='61' height='50' src='"+myobj[j].pospic+"'/></a></li>");
+				} 
+			}
+		});
+		 $.ajax({
+			type:'post',
+			dataType:'json',
+			url:'../bodyServlet?uid=2',
+			data:'',
+			success:function(data){
+				var myobj=eval(data); 
+				var d = myobj.d;
+				var w = myobj.w;
+				var m = myobj.m;
+				var a = myobj.a;
+				//日榜
+				for(var i=0;i<d.length;i++){
+					var num = d[i].wealthrank;
+						if(num<=19){
+						$("#d").append("<li n="+(i+1)+" rid='"+(d[i].rid)+"' username='"+d[i].username+"' num='"+num+"' pic='"+d[i].pic+"'><span>"+(i+1)+"</span><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+d[i].rid+"'>"+d[i].username+"</a><em><u id='a"+num+"'></u></em></li>");
+						}else{
+						$("#d").append("<li n="+(i+1)+" rid='"+(d[i].rid)+"' username='"+d[i].username+"' num='"+(num-10)+"' pic='"+d[i].pic+"'><span>"+(i+1)+"</span><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+d[i].rid+"'>"+d[i].username+"</a><em><img src='http://vr0.6.cn/imges/live/levelIco_v4/"+(num-10)+".gif' /></src></em></li>");
+						}
+				}
+				$.each($("#d li"),function(){
+				   var n=$(this).attr("n");
+				   var rid=$(this).attr("rid");
+				   var username=$(this).attr("username");
+				   var num=$(this).attr("num");
+				   var pic=$(this).attr("pic");
+				   if(n==1){
+				   		if(num>=19){
+				   			$(this).attr("class","cur");
+				        	$(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif" /></em>');
+				   		}else{
+				   			$(this).attr("class","cur");
+				         $(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><u id="a'+num+'"></u></em>');
+				   		}
+				   }
+				   if(num>=19){
+				   		 $(this).hover(function(){
+				   		 $(this).attr("class","cur");
+				         $(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif" /></em>');
+				         },function(){				   
+				         $(this).attr("class","");
+				         $(this).html('<span>'+n+'</span><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'">'+username+'</a><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif"/></em>');
+				  		 });
+				   }else{
+						$(this).hover(function(){
+				   		 $(this).attr("class","cur");
+				         $(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><u id="a'+num+'"></u></em>');
+				         },function(){				   
+				         $(this).attr("class","");
+				         $(this).html('<span>'+n+'</span><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'">'+username+'</a><em><u id="a'+num+'"></u></em>');
+				  		 });				   
+				   }
+				   });
+				//周榜
+				for(var i=0;i<w.length;i++){
+					var num = w[i].wealthrank;
+					if(num<20){
+						$("#w").append("<li n="+(i+1)+" rid='"+(w[i].rid)+"' username='"+w[i].username+"' num='"+num+"' pic='"+w[i].pic+"'><span>"+(i+1)+"</span><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+w[i].rid+"'>"+w[i].username+"</a><em><u id='a"+num+"'></u></em></li>");
+					}else{
+						$("#w").append("<li n="+(i+1)+" rid='"+(w[i].rid)+"' username='"+w[i].username+"' num='"+(num-10)+"' pic='"+w[i].pic+"'><span>"+(i+1)+"</span><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+w[i].rid+"'>"+w[i].username+"</a><em><img src='http://vr0.6.cn/imges/live/levelIco_v4/"+(num-10)+".gif' /></src></em></li>");
+					}
+				}
+				$.each($("#w li"),function(){
+				   var n=$(this).attr("n");
+				   var rid=$(this).attr("rid");
+				   var username=$(this).attr("username");
+				   var num=$(this).attr("num");
+				   var pic=$(this).attr("pic");
+				   if(n==1){
+				   		$(this).attr("class","cur");
+				        $(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif" /></em>');
+				   }
+				   if(num>=19){
+				   		 $(this).hover(function(){
+				   		 $(this).attr("class","cur");
+				   		 $(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif" /></em>');
+				   		 },function(){				   
+				   		 $(this).attr("class","");
+				   		 $(this).html('<span>'+n+'</span><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'">'+username+'</a><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif"/></em>');
+				   		 });
+				   }else{
+				   		$(this).hover(function(){
+				   		 $(this).attr("class","cur");
+				   		 $(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><u id="a'+num+'"></u></em>');
+				   		 },function(){				   
+				   		 $(this).attr("class","");
+				   		 $(this).html('<span>'+n+'</span><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'">'+username+'</a><em><u id="a'+num+'"></u></em>');
+				   		 });
+				   }
+				   });
+				//月榜
+				for(var i=0;i<m.length-3;i++){
+					var num = m[i].wealthrank;
+					if(num<20){
+						$("#m").append("<li n="+(i+1)+" rid='"+(m[i].rid)+"' username='"+m[i].username+"' num='"+num+"' pic='"+m[i].pic+"'><span>"+(i+1)+"</span><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+m[i].rid+"'>"+m[i].username+"</a><em><u id='a"+num+"'></u></em></li>");
+					}else{
+						$("#m").append("<li n="+(i+1)+" rid='"+(m[i].rid)+"' username='"+m[i].username+"' num='"+(num-10)+"' pic='"+m[i].pic+"'><span>"+(i+1)+"</span><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+m[i].rid+"'>"+m[i].username+"</a><em><img src='http://vr0.6.cn/imges/live/levelIco_v4/"+(num-10)+".gif' /></src></em></li>");
+					}
+				}
+				$.each($("#m li"),function(){
+				   var n=$(this).attr("n");
+				   var rid=$(this).attr("rid");
+				   var username=$(this).attr("username");
+				   var num=$(this).attr("num");
+				   var pic=$(this).attr("pic");
+				   if(n==1){
+				   		$(this).attr("class","cur");
+				        $(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif" /></em>');
+				   }
+				   if(num>=19){
+				   		$(this).hover(function(){
+				  	 	$(this).attr("class","cur");
+				   		$(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif" /></em>');
+				   		},function(){				   
+				   		$(this).attr("class","");
+				   		$(this).html('<span>'+n+'</span><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'">'+username+'</a><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif"/></em>');
+				   		});
+				    }else{
+				    	$(this).hover(function(){
+				  	 	$(this).attr("class","cur");
+				   		$(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><u id="a'+num+'"></u></em>');
+				   		},function(){				   
+				   		$(this).attr("class","");
+				   		$(this).html('<span>'+n+'</span><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'">'+username+'</a><em><u id="a'+num+'"></u></em>');
+				   		});
+				    }
+				   });
+				   
+				   //超榜
+				for(var i=0;i<a.length-3;i++){
+					var num = a[i].wealthrank;
+					if(num<20){
+						$("#a").append("<li n="+(i+1)+" rid='"+(a[i].rid)+"' username='"+a[i].username+"' num='"+num+"' pic='"+a[i].pic+"'><span>"+(i+1)+"</span><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+a[i].rid+"'>"+a[i].username+"</a><em><u id='a"+num+"'></u></em></li>");
+					}else{
+						$("#a").append("<li n="+(i+1)+" rid='"+(a[i].rid)+"' username='"+a[i].username+"' num='"+(num-10)+"' pic='"+a[i].pic+"'><span>"+(i+1)+"</span><a href='http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/"+a[i].rid+"'>"+a[i].username+"</a><em><img src='http://vr0.6.cn/imges/live/levelIco_v4/"+(num-10)+".gif' /></src></em></li>");
+					}
+				}
+				$.each($("#a li"),function(){
+				   var n=$(this).attr("n");
+				   var rid=$(this).attr("rid");
+				   var username=$(this).attr("username");
+				   var num=$(this).attr("num"); 
+				   var pic=$(this).attr("pic");
+				   if(n==1){
+				   		$(this).attr("class","cur");
+				        $(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif" /></em>');
+				   }
+				   if(num>=19){
+				   		$(this).hover(function(){
+				   		$(this).attr("class","cur");
+				   		$(this).html('<span>'+n+'</span><b class="imgs"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif" /></em>');
+				   		},function(){				   
+				   		$(this).attr("class","");
+				  		 $(this).html('<span>'+n+'</span><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'">'+username+'</a><em><img src="http://vr0.6.cn/imges/live/levelIco_v4/'+num+'.gif"/></em>');
+				  		 });
+				  	}else{
+				  		$(this).hover(function(){
+				   		$(this).attr("class","cur");
+				   		$(this).html('<span>'+n+'</span><b class="imgs"><a href="#"><img src='+pic+' width="62" height="62"/></a></b><tt><a href="#">'+username+'<br /></a></tt><em><u id="a'+num+'"></em>');
+				   		},function(){				   
+				   		$(this).attr("class","");
+				  		 $(this).html('<span>'+n+'</span><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http://v.6.cn/'+rid+'">'+username+'</a><em><u id="a'+num+'"></u></em>');
+				  		 });
+				  	}
+				   });
+			}
+		}); 
+	});
+	
+	function removeCookie(){
+		$.ajax({
+			type:'post',
+			url:'../removeCookie',
+			success:function(data){
+				document.location.reload();
+			}	
+			});
+	}
+	function getCookie(name)	//取cookies函数        
+	{
+    	var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+    	try{
+     		if(arr != null){
+     		   return decodeURI(arr[2]); 
+     		} else{
+     			return null;
+     		}
+  		 }catch(err){
+   	
+  		 }
+
+	}
+	
+			//获取用户信息
+	function login(){
+		$.ajax({
+			type:'post',
+			dataType:'jsonp',
+			url:'https://id.ifeng.com/api/login?',
+			data:'u='+document.getElementById("name").value+'&k='+document.getElementById("pwd").value+'&type=2&comefrom=6&auth='+document.getElementById("auth").value,
+			success:function(data){
+				if(data.code==1){//登录成功
+				var date = data.data.token;
+				var name = data.data.uname;
+				setCookie("cookie",date);
+				 $.ajax({
+					type:'post',
+					dataType:'text',
+					url:'../getuserinfoServlet?sid='+data.data.token,
+					success:function(data){
+						if(data=="1"){
+							//获取用户信息成功
+							//window.location.href="main.html";
+							logo_in();
+							$("#windowbg").hide();
+							$("#welcome1").hide();
+							//$("#welcome1").append("<p class='wellcome f12'><img src='images/userlogo.gif' /> <strong>欢迎您：<u class='red'>LIXUE</u> </strong>[<a href='#'>退出</a>]</p> ");
+							$("#div1").prepend("<p id='welcome2' class='wellcome f12'><img src='images/userlogo.jpg' /> <strong>欢迎您：<u class='red'>"+name+"</u> </strong>[<a href='#'onclick='removeCookie()'>退出</a>]</p> ");
+						}else{
+							//window.location.href="main.html";
+						}
+					}
+				});  
+				}else{
+					document.getElementById("loginfail").innerHTML="<font color='red'>"+data.message+"</font>";
+					ChangeValidCode("chkcode");
+				}
+			}
+		});
+	}
+	
+	//邮箱注册
+	function submitReg(){
+		var uid="";
+			 $.ajax({
+			type:'post',
+			dataType:'jsonp',
+			url:'https://id.ifeng.com/api/register?u='+document.form2.email.value+'&k='+document.form2.pwd1.value+'&comefrom=6&auth='+document.form2.auth.value+'&type=2',
+			success:function(data){
+				if(data.code==1){
+				document.getElementById("fail").innerHTML="";
+				setCookie("reg",document.form2.email.value);
+				//注册成功跳转到登录页
+				window.location.href="reg1.html";
+				}else{
+					document.getElementById("regfail").innerHTML="<font color='red'>"+data.message+"</font>";
+					ChangeValidCode("chkcode2");
+				}
+			}
+		}); 
+	}
+	
+	function setCookie(name,value)	//两个参数，一个是cookie的名子，一个是值
+{
+    //var Days = 30; 	//此 cookie 将被保存 30 天
+    //var exp  = new Date()();    //new Date()("December 31, 9998");
+    //exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    //document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+    //document.cookie = name + "="+ escape (value) + ";expires=";
+    document.cookie = name + "="+ escape (value);
+}
+</script>
+
+</head>
+
+<body>
+<div id="blackbg"></div>
+<div class="iBody">
+  <h1 class="logo"><br /></h1><h1 class="logo"><a href="http://mm.yue.ifeng.com" ><img src="images/logo.png" /></a></h1>
+  <p class="headright"><a href="javascript:void(0);" onClick="window.external.AddFavorite(document.location.href,'凤凰音乐美女秀场')">加入收藏</a><a href="http://yue.ifeng.com" class="icon2">凤凰音乐首页</a></p>
+</div>
+<div class="navi">
+  <p class="iBody"><a href="http://yue.ifeng.com" class="cur">凤凰音乐</a><a href="main.html">六间房<img src="images/hot.png" /></a></p>
+</div>
+<div class="iBody pad-top">
+   <!--焦点图开始替换-->
+  <div class="left">
+    <div class="newsimg">
+       <div class="imgbox" style="display:block"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F198251%3Fcoop%3D1023"><img src="images/01.jpg"></a> <span class="textbg"></span> <span class="text">☜Sweet丶大妈☞ 来袭</span></div>
+
+      <div class="imgbox"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F7778%3Fcoop%3D1023"><img src="images/02.jpg"> </a><span class="textbg"></span> <span class="text">❤❤Panda貓°，国宝也开唱</span></div>
+
+      <div class="imgbox"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F875555%3Fcoop%3D1023"><img src="images/03.jpg"> </a><span class="textbg"></span> <span class="text">Zqc★、醉倾城灬音动人</span></div>
+ <p class="tab"><i class="cur">1</i><i>2</i><i>3</i></p>
+    </div>
+  </div>
+  <!--焦点图替换结束-->
+  <div id="div1" class="Right">
+  <p id="welcome1" class="wellcome"><b>欢迎来到凤凰音乐美女秀场！</b>
+       <!--登录开始-->
+      <input type="button" class="loginbut"  value="登 录" onClick="openme()" />
+      <br />
+      <a style=" cursor:pointer" onClick="openme()" >快速注册>></a>
+    <script type="text/javascript"> 
+function openme(){
+ document.getElementById('blackbg').style.display='block';
+ document.getElementById('windowbg').style.display='block';
+}
+function closeme(){
+ document.getElementById('blackbg').style.display='none';
+ document.getElementById('windowbg').style.display='none';
+}
+ function logo_in(){
+//验证
+//转向...
+//myform.action=""
+//myform.submit()
+closeme();
+}
+</script>
+    <div id="windowbg">
+      <div class="window">
+        <div id="divlogin" class="tit5"><span name="#tab1">用户登录</span><span class="cur2"  name="#tab2">用户注册</span><em class="close" onClick="closeme()"></em></div>
+        <div class="from" id="tab1">
+        <p id="loginfail"></p>
+    <form name="form1">
+      <p>
+        <label>用户名：</label>
+        <input id="name" type="text" class="input1 input2" />
+      </p>
+      <p>
+        <label>密码：</label>
+        <input  id="pwd" type="password" class="input1 input2" />
+        <span class="jpicon"></span></p>
+      <p>
+        <label>验证码：</label>
+        <input  id="auth" type="text" class="input1 input3" />
+        <span><img id="chkcode" src="https://id.ifeng.com/index.php/public/authcode" /></span>
+        <p class="red msg2">
+            <label> </label>
+           <a href="javascript:ChangeValidCode('chkcode');" class="red">看不清，换一个</a>
+         </p>
+        </p>
+      <p class="butmar3">
+        <input type="button" value="登录" class="but2" onclick="login()"/>
+        </p>
+        </form>
+    </div>
+        <div class="from from2" id="tab2">
+        <p id="regfail"></p>
+          <form name="form2">
+    <span id="fail"></span>
+      <p>
+        <label>电子邮箱：</label>
+        <input  id="email" name="email" type="text" class="input1 input2"/>
+      </p>
+      <p>
+        <label>密码：</label>
+        <input id="password1" type="password" name="pwd1" class="input1 input2" />
+        <span class="jpicon"></span></p>
+      <p>
+        <label>确认密码：</label>
+        <input id="passoword2" type="password" name="pwd2" class="input1 input2"/>
+        <span class="jpicon"></span><span id="tishi" class="msg4"></span></p>
+      <p>
+        <label>验证码：</label>
+        <input  id="auth" name="auth" type="text" class="input1 input3" />
+        <span><img id="chkcode2" src="https://id.ifeng.com/index.php/public/authcode" title="kanbuqing"/></img></span> 
+       <p class="red msg2">
+            <label> </label>
+             <a href="javascript:ChangeValidCode('chkcode2');" class="red">看不清，换一个</a>  
+         </p>
+          </p>
+      <p class="butmar3">
+        <input type="button" value="注册" class="but2 " onclick="submitReg()"/></p>
+       </form>
+        </div>
+      </div>
+    </div>
+    <script>
+    function ChangeValidCode(id){
+    	document.getElementById(id).src="https://id.ifeng.com/index.php/public/authcode?time="+new Date().getTime();
+    }
+    function resetTabs(){
+        $(".from").hide(); //Hide all content
+        $(".tit5 span").attr("class",""); //Reset id's      
+    }
+
+    var myUrl = window.location.href; //get URL
+    var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For localhost/tabs.html#tab2, myUrlTab = #tab2     
+    var myUrlTabName = myUrlTab.substring(0,4); // For the above example, myUrlTabName = #tab
+
+    (function(){
+        $(".from").hide(); // Initially hide all content
+        $(".tit5 span:first").attr("class","cur1"); 
+        $(".from:first").fadeIn(); // Show first tab content
+        
+        $(".tit5 span").on("click",function(e) {
+            e.preventDefault();
+            if ($(this).attr("class") == "cur1"){ //detection for current tab
+             return       
+            }
+            else{             
+            resetTabs();
+            $(this).attr("class","cur1"); // Activate this
+            $($(this).attr('name')).fadeIn(); // Show content for current tab
+            }
+        });
+        for (i = 1; i <= $(".tit5 span").length; i++) {
+          if (myUrlTab == myUrlTabName + i) {
+              resetTabs();
+              $("a[name='"+myUrlTab+"']").attr("class","cur1"); // Activate url tab
+              $(myUrlTab).fadeIn(); // Show url tab content        
+          }
+        }
+    })();
+  </script> 
+    <!--登录结束--></p>
+ <!--精彩节目时间表开始替换-->
+    <h3>最红女主播</h3>
+    <div class="weektit"> <a href="#" class="cur">MON</a> <a href="#">TUE</a> <a href="#">WED</a> <a href="#">THU</a> <a href="#">FRI</a> <a href="#">SAT</a> <a href="#">SUN</a> </div>
+    <div class="cont1">
+      <div style="display:block" id="mon">
+        <a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F8058%3Fcoop%3D1023"><dl>
+          <dd>♣╮樂樂こ<br />
+            <span class="gray">经典再现</span></dd>
+          <dd class="line-60">点我呦，亲!</dd>
+          <dt>播放</dt>
+        </dl></a>
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F875555%3Fcoop%3D1023">Zqc★、醉倾城灬<br />
+            经典再现</a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F875555%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt>播放</dt>
+        </dl>
+      </div>
+      <div id="tue">
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F7778%3Fcoop%3D1023">❤❤Panda貓°<br />
+            <span class="gray">2经典再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F7778%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt>播放</dt>
+        </dl>
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F198251%3Fcoop%3D1023">☜Sweet丶大妈☞<br />
+            <span class="gray">经典再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F198251%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F198251%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+      </div>
+      <div id="wed">
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9920%3Fcoop%3D1023">请叫我林晓小。<br />
+            <span class="gray">经典3再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9920%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9920%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F1116%3Fcoop%3D1023">今天灬♥福<br />
+            <span class="gray">经典再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F1116%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F1116%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+      </div>
+      <div id="thu">
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F52824%3Fcoop%3D1023">韓流ღღ兰妮<br />
+            <span class="gray">经典4再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F52824%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F52824%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F1788%3Fcoop%3D1023">☜旋晕▓跑跑☞<br />
+            <span class="gray">经典再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F1788%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F1788%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+      </div>
+      <div id="fri">
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F2250%3Fcoop%3D1023">☜✿ヽ小小☞<br />
+            <span class="gray">经典5再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F2250%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F2250%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9980%3Fcoop%3D1023">◤ゞ.苗苗ゞ.◥<br />
+            <span class="gray">经典再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9980%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9980%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+      </div>
+      <div id="sat">
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F32328%3Fcoop%3D1023">〓兔小雅〓<br />
+            <span class="gray">经典6再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F32328%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F32328%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F250438%3Fcoop%3D1023">____の翠花<br />
+            <span class="gray">经典6再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F32328%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F32328%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+    </div>
+      <div id="sun">
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9089%3Fcoop%3D1023">＋♪♪红太狼89<br />
+            <span class="gray">经典7再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9089%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F9089%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+        <dl>
+          <dd><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F999888%3Fcoop%3D1023">❤❤梓萱<br />
+            <span class="gray">经典再现</span></a></dd>
+          <dd class="line-60"><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F999888%3Fcoop%3D1023">点我呦，亲!</a></dd>
+          <dt><a href="http://mm.yue.ifeng.com/liu_html/main.html?bgurl=http%3A%2F%2Fv.6.cn%2F999888%3Fcoop%3D1023">播放</a></dt>
+        </dl>
+      </div>
+    </div>
+ <!--精彩节目时间表替换结束-->
+    <h3>主播在线</h3>
+    <ul id="tui" class="cont2 imgs">
+      <!-- <li><a href="#"><img src="images/temp2.jpg" /></a></li>
+      <li><a href="#"><img src="images/temp2.jpg" /></a></li>
+      <li><a href="#"><img src="images/temp2.jpg" /></a></li>
+      <li><a href="#"><img src="images/temp2.jpg" /></a></li>
+      <li><a href="#"><img src="images/temp2.jpg" /></a></li>
+      <li><a href="#"><img src="images/temp2.jpg" /></a></li>
+      <li class="mar-r-n"><a href="#"><img src="images/temp2.jpg" /></a></li> -->
+    </ul>
+  </div>
+</div>
+<div class="iBody">
+  <div class="left">
+    <h2><strong style="color:#911D22">6.CN</strong> 6间房秀场</h2>
+    <ul id ="xiu" class="cont3 imgs">
+    </ul>
+  </div>
+  <div class="Right">
+    <h3 class="mar-top20">明星排行（日/周）</h3>
+    <div class="menutab"> <a href="#" class="cur">日榜</a> <a href="#">周榜</a></div>
+    <div class="numcont nn" >
+      <ul id ="d" class="bottomline" style="display:block">
+      	
+      </ul>
+      <ul id="w" class="bottomline">
+        
+      </ul>
+      
+    </div>
+    <h3>明星排行（月）</h3>
+    <div class="numcont" style="margin-top:-20px" >
+      <ul id="m" class="bottomline" >
+      	
+      </ul>
+    </div>
+    <h3>明星排行（超级）</h3>
+    <div class="numcont" style="margin-top:-20px">
+      	<ul id="a" class="bottomline">
+      	
+      	</ul>
+    </div>
+  </div>
+</div>
+<div class="footer"> <span class="logo"><a href="http://mm.yue.ifeng.com"><img src="images/logo.png" /></a></span>
+  <p><a href="http://www.ifeng.com/corp/about/">关于凤凰新媒体</a> |<a href="http://mm.yue.ifeng.com
+"> 秀场首页</a> | <a href="http://yue.ifeng.com">音乐首页</a> | <span style="color:#000">客服电话:4008109890 | 客服邮箱: wireless@ifeng.com</span><br />
+    [<a href="images/icp.jpg">京ICP证030609号</a>] [<a href="images/wlwhjy.jpg">文网文[2010]136号</a>]<br />
+    凤凰新媒体 版权所有<br />
+  Copyright © 2013 Phoenix New Media Limited All Rights Reserved.</p>
+</div>
+<script type="text/javascript">
+   function cur(ele){ 
+     $(ele).addClass("cur").siblings().removeClass("cur");
+   }
+   
+   function tab(id_tab,tag_tab,id_con,tag_con,act){
+if(!act){ act="click"};
+if(act=="click"){
+$(id_tab).find(tag_tab).each(function(i){
+$(id_tab).find(tag_tab).eq(i).click(
+function(){
+cur(this);
+$(id_con).find(tag_con).eq(i).show().siblings(tag_con).hide();
+})           
+})  
+     }
+  if(act=="mouseover"){
+$(id_tab).find(tag_tab).each(function(i){
+$(id_tab).find(tag_tab).eq(i).mouseover(
+function(){
+cur(this);
+$(id_con).find(tag_con).eq(i).show().siblings(tag_con).hide();
+})           
+})  
+     } 
+   }
+  tab(".menutab","a",".nn","ul","mouseover");
+  tab(".weektit","a",".cont1","div","mouseover");
+  
+ $(".numcont ul li").hover(
+  function () {
+    $(this).addClass("cur");
+  },
+  function () {
+    $(this).removeClass("cur");
+  }
+);
+tab(".tab","i",".newsimg",".imgbox","mouseover");
+ </script>
+  <script>
+    var sta_collection_time = new Date().getTime();
+  </script>
+<script src="http://y3.ifengimg.com/sta_collection.3.3.10.min.js" id="sta_collection_new"></script>
+</body>
+</html>
