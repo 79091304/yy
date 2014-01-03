@@ -29,7 +29,7 @@ public class BaseDaoImpl<T>  extends SqlSessionDaoSupport implements BaseDao<T>{
 		ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
 		Class<T> clazz = (Class) pt.getActualTypeArguments()[0];
 		//clazz.getSimpleName().toString().toLowerCase(); 这里是获取实体类的简单名称，再把类名转为小写
-		return clazz.getSimpleName().toString().toLowerCase();
+		return clazz.getSimpleName().toString();
 	}
 	public int add(T t) {
 		return getSqlSession().insert(this.getClassName()+".add",t);

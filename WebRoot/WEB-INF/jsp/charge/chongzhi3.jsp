@@ -1,25 +1,29 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>充值</title>
-<link href="../css/chz.css" rel="stylesheet" type="text/css" />
-<script src="../css/jquery.js" type="text/javascript"></script>
-
+<link href="../../../css/chz.css" rel="stylesheet" type="text/css" />
+<script src="../../../js/jquery.js" type="text/javascript"></script>
 </head>
 
 <body class="czbody">
 <div class="czhead">
   <div class="iBody">
     <h1 class="logo"><a href="http://mm.yue.ifeng.com"><img src="../images/cz_logo.png" /></a></h1>
-    <span class="back"><a href="http://mm.yue.ifeng.com">返回秀场首页</a></span> </div>
+    <span class="back">返回秀场首页</span>
+  </div>
 </div>
-<div class="iBody">
+<div class="iBody" style="background:#fff">
   <h4 class="tit4">充值 &gt; 支付宝充值</h4>
-  <div class="wmsg">
-   <p class="green">√  恭喜你，充值成功！</p>
-   <p><a href="main.html" class="but2 "> 返回</a>
-</p>
+<div class="wmsg">
+   <p class="red2">充值失败，请重试！</p>
+    <p class="red2" id="fail">
+    	${fail }
+    </p>
+   <p><a href="main.html"  class="but2 " />返回</a></p>
 
 </div>
 </div>
@@ -29,6 +33,6 @@
     网络文化许可证文网文[2010]163号 粤ICP备10240715号<br />
     ©2003-2013 Xunlei.com 版权所有</p>
 </div>
-   
+
 </body>
 </html>

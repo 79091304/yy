@@ -32,7 +32,7 @@ public class OrderController {
 	private OrderService orderService;
 
 	@RequestMapping("liu/createOrder")
-	public void createOrder(String userkey, String chargeccount,
+	public String createOrder(String userkey, String chargeccount,
 			String orderid, HttpServletRequest request,
 			HttpServletResponse response) {
 		// 缺少token验证
@@ -63,16 +63,9 @@ public class OrderController {
 			request.setAttribute("orderid", orderid);
 			if (i > 0) {
 				log.info("下单，订单号是： " + orderid);
-				try {
-					request.getRequestDispatcher("/liu_html/chongzhi.jsp")
-							.forward(request, response);
-				} catch (ServletException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 			}
 		}
+		return "charge/chongzhi";
 	}
 	
 	@RequestMapping("queryOrderByUserkey")

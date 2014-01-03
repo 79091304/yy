@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>充值</title>
-<link href="../css/chz.css" rel="stylesheet" type="text/css" />
-<script src="../js/jquery.js" type="text/javascript"></script>
+<link href="../../../css/chz.css" rel="stylesheet" type="text/css" />
+<script src="../../../js/jquery.js" type="text/javascript"></script>
 
 </head>
 <%
@@ -21,7 +21,7 @@ String orderid = (String)request.getAttribute("orderid");
 <body class="czbody">
 <div class="czhead">
   <div class="iBody">
-    <h1 class="logo"><a href="http://mm.yue.ifeng.com"><img src="../images/cz_logo.png" /></a></h1>
+    <h1 class="logo"><a href="http://mm.yue.ifeng.com"><img src="../../../images/cz_logo.png" /></a></h1>
     <span class="back"><a href="http://mm.yue.ifeng.com">返回秀场首页</a></span>
   </div>
 </div>
@@ -74,7 +74,7 @@ String orderid = (String)request.getAttribute("orderid");
       <p class="line"></p>
       <div class="chongzhi-bar"><strong class="pr-30">全部充值方式：</strong><span name="#cz1" class="cur">支付宝充值</span><span name="#cz2">电话卡充值</span><span name="#cz3">储蓄卡充值</span><span name="#cz4">信用卡充值</span></div>
 	 <div class="chongzhicont" id="cz1">
-	  <form name="chongzhi5" action="../chargeServletIfeng" method="post">
+	  <form name="chongzhi5" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
 	  	 <input type="hidden" name="chargeType" value="0"/>
      	<input id="transAmt3" name="transAmt" type="hidden" value="<%=chargecount%>"/>
      	<input id="" name="" type="hidden" value=""/>
@@ -84,7 +84,7 @@ String orderid = (String)request.getAttribute("orderid");
       	<input name="subject" type="hidden" value="六币"/>
        	<input id="bill_no" name="bill_no" type="hidden" value="<%=orderid%>"/>
        	 <input id="login_name" name="login_name" type="hidden" value="<%=userkey%>"/>
-       <p><label class="lab"><input name="" type="radio" value="" /><img src="../images/log-logo5.jpg" /></label></p>
+       <p><label class="lab"><input name="" type="radio" value="" /><img src="../../../images/log-logo5.jpg" /></label></p>
       <p class="butmar1">
         <input name="" type="submit" class="but1" value="提交" />
       </p>
@@ -92,15 +92,15 @@ String orderid = (String)request.getAttribute("orderid");
      </div>
 	 
 	 <div class="chongzhicont" id="cz2">
-	 <form name="chongzhi4" action="../chargeServletIfeng" method="post">
+	 <form name="chongzhi4" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
      <input type="hidden" name="chargeType" value="4"/>
       <input id="transAmt2" name="transAmt" type="hidden" value="<%=chargecount%>"/>
       <input name="subject" type="hidden" value="六币"/>
        <input id="bill_no1" name="bill_no" type="hidden" value="<%=orderid%>"/>
         <input id="login_name1" name="login_name" type="hidden" value="<%=userkey%>"/>
-       <p><label class="lab"><input name="payment_method" type="radio" value="36" /><img src="../images/log-logo1.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="37" /><img src="../images/log-logo2.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="" /><img src="../images/log-logo3.jpg" /></label></p>
+       <p><label class="lab"><input name="payment_method" type="radio" value="36" /><img src="../../../images/log-logo1.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="37" /><img src="../../../images/log-logo2.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="" /><img src="../../../images/log-logo3.jpg" /></label></p>
        <p>
-		<label class="lab"><input name="payment_method" type="radio" value="27" /><img src="../images/log-logo4.jpg" /></label></p>
+		<label class="lab"><input name="payment_method" type="radio" value="27" /><img src="../../../images/log-logo4.jpg" /></label></p>
       <p class="butmar1">
         <input name="" type="submit" class="but1" value="提交" />
       </p>
@@ -114,7 +114,7 @@ String orderid = (String)request.getAttribute("orderid");
 
  
  
-     <form name="chongzhi1"  action="../chargeServlet" method="post">
+     <form name="chongzhi1"  action="<%=request.getContextPath() %>/charge/chargeByGoodPay.htm" method="post">
      	<input type="hidden" name="chargeType" value="2"/>
      	<span id="fail"></span>
      	<input id="typeId" name="typeId" type="hidden" value="1"/>
@@ -147,7 +147,7 @@ String orderid = (String)request.getAttribute("orderid");
 兴业银行、民生银行、广发银行、中信银行、邮储银行、光大银行、浦发银行<br />
 上海银行、华夏银行</span></p>
 	
-	 <form name="chongzhi2" action="../chargeServlet" method="post">
+	 <form name="chongzhi2" action="<%=request.getContextPath() %>/charge/chargeByGoodPay.htm" method="post">
      	<input type="hidden" name="chargeType" value="3"/>
      	<input id="accountId1" name="accountId" type="hidden" value="<%=userkey%>"/>
      	<input id="userkey1" name="userkey" type="hidden" value="<%=userkey%>"/>
@@ -236,11 +236,7 @@ String orderid = (String)request.getAttribute("orderid");
         }
     })()
   </script> 
- <script>
-    var sta_collection_time = new Date().getTime();
-  </script>
-<script src="http://y3.ifengimg.com/sta_collection.3.3.10.min.js" id="sta_collection_new"></script>
-</body>
+ 
 <script language="javascript">
 	var uname="";
 	var chargecount="";
@@ -261,7 +257,7 @@ String orderid = (String)request.getAttribute("orderid");
 		$.ajax({
 			type:'post',
 			dataType:'json',
-			url:'../order/queryOrderByUserkey.htm?',
+			url:'../../../order/queryOrderByUserkey.htm?',
 			data:'name='+<%=(String)request.getAttribute("userkey")%>,
 			success:function (data){
 				var date = data.date;
@@ -300,7 +296,7 @@ String orderid = (String)request.getAttribute("orderid");
 			async:false,
 			type:'post',
 			dataType:'text',
-			url:'../charge/getCode.htm?',
+			url:'../../../charge/getCode.htm?',
 			data:'channelId=7&accountId='+uname+'&categoryId=01&mobile='+document.chongzhi1.mobile.value+'&randnum='+res,
 			success:function(data){
 			}
@@ -361,7 +357,7 @@ String orderid = (String)request.getAttribute("orderid");
 			async:false,
 			type:'post',
 			dataType:'text',
-			url:'../charge/getCode.htm?',
+			url:'../../../charge/getCode.htm?',
 			data:'channelId=7&accountId='+uname+'&categoryId=01&mobile='+document.chongzhi2.mobile.value+'&randnum='+res,
 			success:function(data){
 			}
@@ -378,10 +374,15 @@ String orderid = (String)request.getAttribute("orderid");
 		$.ajax({
 			type:'post',
 			dataType:'text',
-			url:'LogoutServlet',
+			url:'../../../log/logout.htm',
 			success:function(data){
 			}
 		});
 	}
 </script>
+<script>
+    var sta_collection_time = new Date().getTime();
+  </script>
+<script src="http://y3.ifengimg.com/sta_collection.3.3.10.min.js" id="sta_collection_new"></script>
+</body>
 </html>

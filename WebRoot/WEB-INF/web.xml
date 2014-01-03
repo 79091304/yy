@@ -71,8 +71,8 @@
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list><!--
-
+	</welcome-file-list>
+	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/404/404.jsp</location>
@@ -81,7 +81,7 @@
 		<exception-type>java.lang.Exception</exception-type>
 		<location>/error.jsp</location>
 	</error-page>
-	--><!-- 指明对于如下资源文件不采用spring的过滤器 -->
+	<!-- 指明对于如下资源文件不采用spring的过滤器 -->
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.css</url-pattern>

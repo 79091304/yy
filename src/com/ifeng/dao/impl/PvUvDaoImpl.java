@@ -12,7 +12,7 @@ public class PvUvDaoImpl extends BaseDaoImpl<PvUv> implements PvUvDao {
 
 	@Override
 	public PvUv getByDate(int date) {
-		return this.getSqlSession().selectOne("pvUv.getByDate",date);
+		return this.getSqlSession().selectOne(this.getClassName()+".getByDate",date);
 	}
 
 	

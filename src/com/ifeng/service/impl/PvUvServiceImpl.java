@@ -1,13 +1,13 @@
 package com.ifeng.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.ifeng.dao.PvUvDao;
 import com.ifeng.entity.PvUv;
 import com.ifeng.service.PvUvService;
 
-@Repository("pvUvService")
+@Service("pvUvService")
 public class PvUvServiceImpl implements PvUvService{
 
 	@Autowired

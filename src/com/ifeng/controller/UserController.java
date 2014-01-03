@@ -13,11 +13,13 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ifeng.dao.UserActiveInfoDao;
 import com.ifeng.util.DateUtils;
 import com.ifeng.util.MemCachedManager1;
 import com.ifeng.util.UserActivedRecords;
@@ -33,6 +35,9 @@ public class UserController {
 
 	Logger log = Logger.getLogger(UserController.class);
 	MemCachedManager1 cache = MemCachedManager1.getInstance();
+	
+	@Autowired
+	private UserActiveInfoDao userActiveInfoDao;
 	
 	@RequestMapping("getUserInfo")
 	public void getUserInfo( String sid,HttpServletRequest request,HttpServletResponse response){
@@ -100,6 +105,7 @@ public class UserController {
 	
 	@RequestMapping("flushUserInfoToDb")
 	public void flushUserInfoToDb(String commond , HttpServletRequest request,HttpServletResponse response){
+		UserActivedRecords uar = new UserActivedRecords(userActiveInfoDao);
 		log.info("将用户登录或者退出信息持久化到DB");
 		PrintWriter writer = null;
 		try {
@@ -109,19 +115,19 @@ public class UserController {
 		}
 		int loginSize = UserActivedRecords.LoginUserInfo.size();
 		if(loginSize > 200){
-			UserActivedRecords.flushLoginToBlockQueue();
+			uar.flushLoginToBlockQueue();
 			writer.write("定时登录用户持久化DB"+DateUtils.getCurrentDate()+"用户数量："+loginSize);
 		}
 		
 		int logoutSize = UserActivedRecords.LogoutUserInfo.size();
 		if(logoutSize > 200){
-			UserActivedRecords.flushLogoutToBlockQueue();
+			uar.flushLogoutToBlockQueue();
 			writer.write("定时退出用户持久化DB"+DateUtils.getCurrentDate()+"用户数量："+logoutSize);
 		}
 		if(StringUtils.isNotEmpty(commond)){
-			UserActivedRecords.flushLoginToBlockQueue();
+			uar.flushLoginToBlockQueue();
 			writer.write("手动持久化用户登录信息到DB"+DateUtils.getCurrentDate()+"用户数量："+loginSize);
-			UserActivedRecords.flushLogoutToBlockQueue();
+			uar.flushLogoutToBlockQueue();
 			writer.write("手动持久化用户退出信息到DB"+DateUtils.getCurrentDate()+"用户数量："+logoutSize);
 		}
 	}

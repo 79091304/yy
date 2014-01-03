@@ -15,9 +15,7 @@
     http://www.springframework.org/schema/aop 
      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
     
-    <!--  定时器开关  开始-->  
-    <task:annotation-driven/>  
-    <!--  定时器开关  结束-->   
+   
     	<!-- 标注类型 的事务配置 -->
 	<tx:annotation-driven/>
 	<!-- 读取资源文件 -->
@@ -63,15 +61,12 @@
 			</list>
 		</property>
 	</bean>
-	<!-- 用自动扫描 就要用mybatis的接口,仓储类接口，这个项目没有用到ｍｙｂｂａｉｔｓ的接口方式所以不要以下扫描
-		否则会出现
-		org.mybatis.spring.mapper.MapperScannerConfigurer$Scanner.main No MyBatis mapper was found in 'com.ifeng.dao.impl' package. Please check your configuration.
-		警告
-	 -->
-	<!-- 
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.ifeng.dao.impl" />
-	</bean> -->
+	 
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+	  <constructor-arg index="1" value="BATCH" />
+	</bean>
+	
 	<!-- 事务配置 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
@@ -102,10 +97,9 @@
     </aop:config> -->
 
 	<!-- 使用Spring组件扫描的方式来实现自动注入bean -->
-	<context:component-scan base-package="com.ifeng.security"/>
+	<context:component-scan base-package="com.ifeng.base"/>
 	<context:component-scan base-package="com.ifeng.dao"/>
 	<context:component-scan base-package="com.ifeng.service"/>
-	<context:component-scan base-package="com.ifeng.log"/>
 	<!-- 隐式地向 Spring 容器注册  -->
 	<context:annotation-config/>
 </beans>

@@ -3,7 +3,7 @@ package com.ifeng.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.ifeng.common.Instant;
 import com.ifeng.dao.OrderDao;
@@ -14,7 +14,7 @@ import com.ifeng.service.OrderService;
  * @author zhang_zhanhui
  *
  */
-@Repository("orderService")
+@Service("orderService")
 public class OrderServiceImpl implements OrderService {
 
 	@Autowired

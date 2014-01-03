@@ -1,7 +1,6 @@
 package com.ifeng.dao.impl;
 
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,11 +22,11 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("userName", userName);
 		map.put("userPassword", userPassword);
-		return (Integer)getSqlSession().selectOne("user.countUser",map);
+		return (Integer)getSqlSession().selectOne(this.getClassName()+".countUser",map);
 	}
 
 	public User querySingleUser(String userName) {
-		return (User)getSqlSession().selectOne("user.queryUserName",userName);
+		return (User)getSqlSession().selectOne(this.getClassName()+".queryUserName",userName);
 	}
 
 	@Override
@@ -45,7 +44,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 			data.put("endDate", DateUtils.getCurrentDate());
 		}
 		
-		return getSqlSession().selectList("user.getByDate",data);
+		return getSqlSession().selectList(this.getClassName()+".getByDate",data);
 	}
 
 	

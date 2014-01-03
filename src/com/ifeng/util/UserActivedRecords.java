@@ -18,7 +18,7 @@ import com.ifeng.entity.UserActiveInfo;
  */
 public  class UserActivedRecords {
 	
-
+	
 	public static List<UserActiveInfo> LoginUserInfo = new ArrayList<UserActiveInfo>();
 	
 	public static List<UserActiveInfo> LogoutUserInfo = new ArrayList<UserActiveInfo>();
@@ -27,13 +27,19 @@ public  class UserActivedRecords {
 	
 	private static BlockingQueue<UserActiveInfo> logoutQueue = new ArrayBlockingQueue<UserActiveInfo>(50);
 	
-	private static UserActiveInfoDao dao = new UserActiveInfoDaoImpl();
+	
+	private  UserActiveInfoDao userActiveInfoDao;
+	
+	public UserActivedRecords(UserActiveInfoDao userActiveInfoDao ){
+		this.userActiveInfoDao = userActiveInfoDao;
+	}
+	
 	/**
 	 * 将登录信息持久化到DB
 	 * @param data
 	 * @param flag 
 	 */
-	public static void flushLoginToBlockQueue(){
+	public void flushLoginToBlockQueue(){
 		Logger log = Logger.getLogger(UserActivedRecords.class);
 		List<UserActiveInfo> delList = new ArrayList<UserActiveInfo>();
 		if(!LoginUserInfo.isEmpty()){
@@ -53,7 +59,7 @@ public  class UserActivedRecords {
 				log.info("将登录信息持久化到DB");
 				UserActiveInfo qud = loginQueue.poll();
 				if(null != qud)
-				dao.saveUserInfoLogin(qud);
+					userActiveInfoDao.saveUserInfoLogin(qud);
 			}
 		}
 	}
@@ -63,7 +69,7 @@ public  class UserActivedRecords {
 	 * @param data
 	 * @param flag 
 	 */
-	public static void flushLogoutToBlockQueue(){
+	public  void flushLogoutToBlockQueue(){
 		Logger log = Logger.getLogger(UserActivedRecords.class);
 		List<UserActiveInfo> delList = new ArrayList<UserActiveInfo>();
 		if(!LogoutUserInfo.isEmpty()){
@@ -84,7 +90,7 @@ public  class UserActivedRecords {
 				log.info("将用户退出信息持久化到DB");
 				UserActiveInfo qud = logoutQueue.poll();
 				if(null != qud){
-					dao.saveUserInfoLogout(qud);
+					userActiveInfoDao.saveUserInfoLogout(qud);
 				}
 			}
 		}

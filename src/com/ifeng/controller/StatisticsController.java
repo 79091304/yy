@@ -49,7 +49,6 @@ public class StatisticsController {
 		}
 		if(StringUtils.isEmpty(type)){
 			List<User> users = userService.queryOrderByDate(null, null);
-			
 			List<Order> orders = orderService.queryOrderByDate(null, null);
 			double sumPrice = 0;
 			double payedPrice = 0;

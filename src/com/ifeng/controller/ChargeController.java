@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ifeng.common.Instant;
 import com.ifeng.entity.Order;
 import com.ifeng.service.OrderService;
 import com.ifeng.util.PaySubmitByUser;
@@ -43,7 +44,7 @@ public class ChargeController {
 	 * @param chargeType
 	 * @param response
 	 */
-	@RequestMapping("chargeIfeng")
+	@RequestMapping("chargeByIfeng")
 	public void chargeByIfeng(String bill_no, String login_name, String body,
 			String transAmt, String payment_method, String extra,
 			String mobile, String chargeType, HttpServletResponse response) {
@@ -95,12 +96,12 @@ public class ChargeController {
 	 * @throws ServletException 
 	 */
 	@RequestMapping("chargeByGoodPay")
-	public void chargeByGoodPay(String userkey,String orderid,String cardNo,String usrName,
+	public String chargeByGoodPay(String userkey,String orderid,String cardNo,String usrName,
 			String mobile,String transAmt,String authCode,String typeId,
 			String accountId,String input,String period,String cvvCode,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
-			log.info("into ChargeServlet ...");
 			usrName = URLEncoder.encode(usrName,"UTF-8");
 			String randnum=Util.rand();
+			String result = null;
 			String param="";
 			if((StringUtils.isNotEmpty(userkey))&&(StringUtils.isNotEmpty(orderid))&&(StringUtils.isNotEmpty(cardNo))&&(
 					StringUtils.isNotEmpty((usrName))&&(StringUtils.isNotEmpty(mobile))&&(StringUtils.isNotEmpty(transAmt))&&(
@@ -110,32 +111,31 @@ public class ChargeController {
 				if(typeId.equals("2")){//充值类型
 					if((StringUtils.isNotEmpty(period))&&(StringUtils.isNotEmpty(cvvCode))){
 						sign=Util.Md5("channelId=7&accountId="+accountId+"&categoryId=01&transAmt="+transAmt+"&randnum="+randnum+"||u9Y%)!a1z");
-						param = Util._callHttp("http://211.151.175.47/interface/pay.php?", "typeId="+typeId+"&channelId=7&accountId="+accountId+"&categoryId=01&cardNo="+cardNo+"&usrName="+usrName+"&mobile="+mobile+"&transAmt="+transAmt+"&authCode="+authCode+"&randnum="+randnum+"&cvvCode="+cvvCode+"&period="+period+"&sign="+sign);
+						param = Util._callHttp(Instant.CHARGE_GOOGPAY_URL, "typeId="+typeId+"&channelId=7&accountId="+accountId+"&categoryId=01&cardNo="+cardNo+"&usrName="+usrName+"&mobile="+mobile+"&transAmt="+transAmt+"&authCode="+authCode+"&randnum="+randnum+"&cvvCode="+cvvCode+"&period="+period+"&sign="+sign);
 					}
 				}else if(typeId.equals("1")){//
 					sign=Util.Md5("channelId=7&accountId="+accountId+"&categoryId=01&transAmt="+transAmt+"&randnum="+randnum+"||u9Y%)!a1z");
-					param = Util._callHttp("http://211.151.175.47/interface/pay.php?", "typeId="+typeId+"&channelId=7&accountId="+accountId+"&categoryId=01&cardNo="+cardNo+"&usrName="+usrName+"&mobile="+mobile+"&transAmt="+transAmt+"&authCode="+authCode+"&randnum="+randnum+"&sign="+sign);
+					param = Util._callHttp(Instant.CHARGE_GOOGPAY_URL, "typeId="+typeId+"&channelId=7&accountId="+accountId+"&categoryId=01&cardNo="+cardNo+"&usrName="+usrName+"&mobile="+mobile+"&transAmt="+transAmt+"&authCode="+authCode+"&randnum="+randnum+"&sign="+sign);
 				}
 				
 				if(param.contains("0000")){//充值成功
 					int i = orderService.payForOrder(orderid);
 					if(i > 0){
 						log.info("更新订单状态，订单号"+orderid+"已支付");
-						sendByLiu(transAmt, orderid, userkey, sign, request, response);
+						result = sendByLiu(transAmt, orderid, userkey, sign, request, response);
 					}
 				}else{//充值失败
 					//
 					log.info("充值失败 orderid is  "+orderid+",order_m:"+transAmt+",user_id:"+userkey+",param:"+param);
-					Cookie cookie = new Cookie("fail", URLEncoder.encode(param,"UTF-8"));
-					response.addCookie(cookie);
-					request.getRequestDispatcher("liu_html/chongzhi3.html").forward(request, response);
+					request.setAttribute("fail", URLEncoder.encode(param,"UTF-8"));
+					result = "charge/chongzhi3";
 				}
 				}else{
 					log.info("参数不完整 user is : "+userkey);
-					Cookie cookie = new Cookie("fail", "1");
-					response.addCookie(cookie);
-					request.getRequestDispatcher("liu_html/chongzhi3.html").forward(request, response);
+					request.setAttribute("fail", "参数不完整");
+					result = "charge/chongzhi3";
 				}
+			return result;
 	}
 	
 	/**
@@ -149,7 +149,7 @@ public class ChargeController {
 	 * @throws IOException 
 	 * @throws ServletException 
 	 */
-	private void sendByLiu(String transAmt, String orderid , String userkey ,String sign,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
+	private String sendByLiu(String transAmt, String orderid , String userkey ,String sign,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
 			int price = Integer.parseInt(transAmt)/100;
 			transAmt = String.valueOf(price);
 			Order order = orderService.getByOrderid(orderid);
@@ -165,14 +165,14 @@ public class ChargeController {
 			if(params.contains("0")){//发货成功
 				orderService.sendForOrder(orderid);
 				log.info("六间房发货成功 orderid is : "+orderid+",login_name is : "+userkey);
-				request.getRequestDispatcher("liu_html/chongzhi2.html").forward(request, response);
+				return "charge/chongzhi2";
 			}else{//发货失败
 				int d = orderService.sendFailForOrder(orderid);
 				log.info("订单发货失败，订单号："+orderid);
 				if(d>0){//
 					log.info("支付成功、发货失败 orderid is "+orderid+",order_m:"+transAmt+",user_id:"+userkey);
 				}
-				request.getRequestDispatcher("liu_html/chongzhi2.html").forward(request, response);
+				return "charge/chongzhi2";
 			}
 	}
 	

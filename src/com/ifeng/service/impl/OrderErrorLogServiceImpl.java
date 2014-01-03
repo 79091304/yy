@@ -1,13 +1,13 @@
 package com.ifeng.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.ifeng.dao.OrderErrorLogDao;
 import com.ifeng.entity.OrderErrorLog;
 import com.ifeng.service.OrderErrorLogService;
 
-@Repository("orderErrorLogService")
+@Service("orderErrorLogService")
 public class OrderErrorLogServiceImpl implements OrderErrorLogService {
 
 	@Autowired

@@ -89,6 +89,9 @@ $(function(){
 		<td>
 			<a id="orderDetail"><font color="red">查看订单详情</font></a>
 		</td>
+		<td>
+			<a href="http://mm.yue.ifeng.com/statistics/queryPvUv.htm">查看PVUV</a>
+		</td>
 	</tr>
 	<tr>
 		<td align="center" colspan="2">

@@ -307,7 +307,7 @@ A.h_menu:hover {
 																				<font color="blue" size="3">你的IP已经记录，请勿进行非法操作！！</font><BR>
 																				<BR>
 																				<BR>
-																			<P>蓝缘欢迎你.........</P>
+																			<P>亲，去其他地方转转.........</P>
 																		</TD>
 																		<TD rowSpan=2><IMG height=239
 																			src="error_r2_c3.gif"

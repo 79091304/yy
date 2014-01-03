@@ -23,4 +23,6 @@ public class Instant {
 	public static final int CHARGE_TYPE_BANKCARD = 1;//储蓄卡
 	
 	public static final int CHARGE_TYPE_CREDIT = 3;//信用卡
+	
+	public static final String CHARGE_GOOGPAY_URL = "http://211.151.175.47/interface/pay.php?";
 }
