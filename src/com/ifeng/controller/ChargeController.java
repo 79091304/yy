@@ -50,7 +50,7 @@ public class ChargeController {
 			String mobile, String chargeType, HttpServletResponse response) {
 		String product_id = "1";
 		String subject = "liubi";
-		String return_url = "http://mm.yue.ifeng.com/liu_html/back.jsp"; // 返回页面
+		String return_url = "http://mm.yue.ifeng.com/chargeBack/getChargeResult.htm"; // 返回页面
 		String notify_url = "http://mm.yue.ifeng.com/chargeBack/notice.htm"; // 回调接口
 		String sign_type = "MD5";
 		String sign = "u7h39cn62";

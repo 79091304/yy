@@ -19,21 +19,24 @@ public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao {
 
 	@Override
 	public Order getOrderByOrderId(String orderid) {
-		return this.getSqlSession().selectOne(this.getClassName()+".getByOrderid", orderid);
+		Map<String,String> data = new HashMap<String, String>();
+		data.put("orderid", orderid);
+		return this.getSqlSession().selectOne(this.getClassName()+".getByOrderid", data);
 	}
 
 	@Override
 	public int updateOrderState(String orderid, int state) {
-		Map<Object, Object> map = new HashMap<Object, Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("state", state);
 		map.put("orderid", orderid);
 		map.put("changedAt", new Date());
-		return this.getSqlSession().update(this.getClassName()+".updateState", map);
+		int result = this.getSqlSession().update(this.getClassName()+".updateState", map);
+		return result;
 	}
 
 	@Override
 	public int updateOrderType(String orderid, int type) {
-		Map<Object, Object> map = new HashMap<Object, Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("type", type);
 		map.put("orderid", orderid);
 		map.put("changedAt", new Date());

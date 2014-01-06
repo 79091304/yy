@@ -3,9 +3,8 @@ package com.ifeng.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
@@ -61,6 +60,7 @@ public class ChargeBackController {
 				//查询订单
 				Order order = orderService.getByOrderid(bill_no);
 				JSONObject obj = new JSONObject(); 
+				userkey = order.getUserkey();
 				obj.put("order_token", order.getId());     //我方订单号
 				obj.put("order_m", price);    //订单价格
 				obj.put("user_id", order.getUserkey());     //guid
@@ -98,5 +98,11 @@ public class ChargeBackController {
 			log.info("支付回调失败，订单号："+bill_no+" "+subject);
 			writer.print("fail:"+"订单号"+bill_no+" "+subject);
 		}
+	}
+	
+	@RequestMapping("getChargeResult")
+	public String getChargeResult(String trade_status,HttpServletRequest request){
+		request.setAttribute("trade_status", trade_status);
+		return "charge/back";
 	}
 }

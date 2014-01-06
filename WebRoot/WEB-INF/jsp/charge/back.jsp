@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <div class="iBody">
-  <h1 class="logo"><a href="../../../liu_html/index.html"><img src="../../../images/logo.png" /></a></h1>
+  <h1 class="logo"><a href="http://mm.yue.ifeng.com"><img src="../../../images/logo.png" /></a></h1>
   <p class="headright"><a href="#" class="icon1">加入收藏</a><a href="#" class="icon2">下载客户端</a></p>
 </div>
 <div class="iBody">

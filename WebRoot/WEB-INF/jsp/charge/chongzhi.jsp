@@ -52,8 +52,8 @@ String orderid = (String)request.getAttribute("orderid");
     </div>
     <h4 class="tit4">投诉与建议</h4>
     <div class="conts" style="height:183px;">
-      <p><img src="../images/telephone.png" /> 4008109890 </p>
-      <p><img src="../images/mail.png" /> 投诉与建议 </p>
+      <p><img src="../../../images/telephone.png" /> 4008109890 </p>
+      <p><img src="../../../images/mail.png" /> 投诉与建议 </p>
       <p><span class="gray">工作时间：</span>08:00-23:00 </p>
     </div>
   </div>

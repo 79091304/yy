@@ -11,13 +11,13 @@
 		<include refid="selectId" />
 		from o_order t
 		<where>
-			<if test="t.id != null and t.id  != ''">
+			<if test="id != null and id  != ''">
 				id=#{id} 
 				</if>
 		</where>
 	</select>
 	
-	<select id="getById" parameterType="java.lang.String" resultType="Order">
+	<select id="getById" parameterType="long" resultType="Order">
 		select
 		<include refid="selectId" />
 		from o_order where id=#{id}
@@ -29,12 +29,12 @@
 		from o_order where userkey=#{userkey}
 	</select>
 	
-	<select id="getByOrderid" resultType="Order" parameterType="java.lang.String">
+	<select id="getByOrderid" parameterType="java.util.HashMap" resultType="Order" >
 		select
 		<include refid="selectId" />
 		from o_order t
 		<where>
-			<if test="t.orderid != null and t.orderid  != ''">
+			<if test="orderid != null and orderid  != ''">
 				orderid=#{orderid} 
 				</if>
 		</where>
@@ -63,7 +63,7 @@
 	<insert id="add" parameterType="Order">
 		insert into o_order(type,orderid,state,price,createdAt,changedAt,userid,userkey,guid,source)
 		values (#{type},
-		#{orderid},
+		#{orderid},#{state},
 		#{price}, null,
 		#{changedAt},
 		#{userid},

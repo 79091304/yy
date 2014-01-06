@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -57,6 +56,8 @@ public class OrderController {
 			order.setType(Instant.CHARGE_TYPE_EMPTY);
 			order.setState(Instant.ORDER_EMPTY);
 			order.setGuid(guid);
+			order.setUserkey(userkey);
+			order.setSource(Instant.CHARGE_SOURCE_LIU);
 			int i = orderService.createOrder(order);
 			request.setAttribute("userkey", userkey);
 			request.setAttribute("chargecount", chargecount);
@@ -86,7 +87,7 @@ public class OrderController {
 	
 	}
 	
-	@RequestMapping("liu/CheckOrder")
+	@RequestMapping("liu/checkOrder")
 	public void checkOrder(String orderid,HttpServletRequest requset,HttpServletResponse response){
 		log.info("六间房发货订单验证...");
 		PrintWriter out = null;
