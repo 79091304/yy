@@ -88,8 +88,7 @@
 	
 	//邮箱注册
 	function submitReg(){
-		var uid="";
-			 $.ajax({
+			$.ajax({
 			type:'post',
 			dataType:'jsonp',
 			url:'https://id.ifeng.com/api/register?u='+document.form2.email.value+'&k='+document.form2.pwd1.value+'&comefrom=6&auth='+document.form2.auth.value+'&type=2',
@@ -99,7 +98,7 @@
 					$.ajax({
 						type:'post',
 						dataType:'text',
-						url:"RegisterBackServlet?mail="+$('#email').val()+"&pwd="+$('#password1').val(),
+						url:"user/register.htm?mail="+$('#email').val()+"&pwd="+$('#password1').val(),
 						success:function(data){}
 							});
 				document.getElementById("fail").innerHTML="";

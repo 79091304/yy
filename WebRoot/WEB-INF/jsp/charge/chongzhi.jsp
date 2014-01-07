@@ -1,3 +1,4 @@
+<%@include file="../common/taglib.jsp" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page import="org.apache.commons.lang.StringUtils"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -7,16 +8,14 @@
 <title>充值</title>
 <link href="../../../css/chz.css" rel="stylesheet" type="text/css" />
 <script src="../../../js/jquery.js" type="text/javascript"></script>
-
+<script src="../../../js/jquery.cookie.js" type="text/javascript"></script>
 </head>
 <%
-String userkey = (String)request.getAttribute("userkey");
 String chargecount = (String)request.getAttribute("chargecount");
 int liubi=0;
 if(StringUtils.isNotEmpty(chargecount)){
 	liubi = Integer.parseInt(chargecount)*100;
 }
-String orderid = (String)request.getAttribute("orderid");
 %>
 <body class="czbody">
 <div class="czhead">
@@ -30,7 +29,7 @@ String orderid = (String)request.getAttribute("orderid");
   <div class="cz-left">
     <h4 class="tit4">用户信息</h4>
     <div class="conts">
-      <p><strong id="hello" class="f15"><%=userkey %></strong><br />
+      <p><strong id="hello" class="f15">${userkey}</strong><br />
 <a href="javascript:removeCookie()">[退出]</a></p>
 <div class="jilulist">
     <p class="f15">最近充值记录：</p>
@@ -44,8 +43,15 @@ String orderid = (String)request.getAttribute("orderid");
 </table>
    <div class="tb">
    <table width="238" border="0" cellpadding="0" cellspacing="0">
-   <span id='czjl'>
-   </span>
+   <c:forEach items="${orders }" var="order">
+   		<tr>
+   			<td><fmt:formatDate value="${order.createdAt }" pattern="yyyyMMdd hh:MM:ss" /> </td>
+   			<td>${order.id }</td>
+   			<td>${order.price }</td>
+   			<td>${order.state == 2 ? '成功':'失败' }</td>
+   		</tr>
+   </c:forEach>
+ 	
 </table>
 </div>
 </div>
@@ -63,7 +69,7 @@ String orderid = (String)request.getAttribute("orderid");
     <div class="conts2">
     <form name="priceform">
       <p class="pl-20">账户余额：<strong class="red f15">0</strong></p>
-      <p class="pl-20">充值账号：<span id="un"><%=userkey %></span> </p>
+      <p class="pl-20">充值账号：<span id="un">${userkey}</span> </p>
        <p class="pl-20">六币数量：
        <span id="money"><%=liubi %></span>
       </p >
@@ -82,8 +88,8 @@ String orderid = (String)request.getAttribute("orderid");
       	<input name="show_url" type="hidden" value="show_url"/>
       	<input name="payment_method" type="hidden" value="13"/>
       	<input name="subject" type="hidden" value="六币"/>
-       	<input id="bill_no" name="bill_no" type="hidden" value="<%=orderid%>"/>
-       	 <input id="login_name" name="login_name" type="hidden" value="<%=userkey%>"/>
+       	<input id="bill_no" name="bill_no" type="hidden" value="${orderid}"/>
+       	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
        <p><label class="lab"><input name="" type="radio" value="" /><img src="../../../images/log-logo5.jpg" /></label></p>
       <p class="butmar1">
         <input name="" type="submit" class="but1" value="提交" />
@@ -96,8 +102,8 @@ String orderid = (String)request.getAttribute("orderid");
      <input type="hidden" name="chargeType" value="4"/>
       <input id="transAmt2" name="transAmt" type="hidden" value="<%=chargecount%>"/>
       <input name="subject" type="hidden" value="六币"/>
-       <input id="bill_no1" name="bill_no" type="hidden" value="<%=orderid%>"/>
-        <input id="login_name1" name="login_name" type="hidden" value="<%=userkey%>"/>
+       <input id="bill_no1" name="bill_no" type="hidden" value="${orderid}"/>
+        <input id="login_name1" name="login_name" type="hidden" value="${userkey}"/>
        <p><label class="lab"><input name="payment_method" type="radio" value="36" /><img src="../../../images/log-logo1.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="37" /><img src="../../../images/log-logo2.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="" /><img src="../../../images/log-logo3.jpg" /></label></p>
        <p>
 		<label class="lab"><input name="payment_method" type="radio" value="27" /><img src="../../../images/log-logo4.jpg" /></label></p>
@@ -118,9 +124,9 @@ String orderid = (String)request.getAttribute("orderid");
      	<input type="hidden" name="chargeType" value="2"/>
      	<span id="fail"></span>
      	<input id="typeId" name="typeId" type="hidden" value="1"/>
-     	<input id="accountId" name="accountId" type="hidden" value="<%=userkey%>"/>
-     	<input id="userkey" name="userkey" type="hidden" value="<%=userkey%>"/>
-     	<input id="orderid" name="orderid" type="hidden" value="<%=orderid%>"/>
+     	<input id="accountId" name="accountId" type="hidden" value="${userkey}"/>
+     	<input id="userkey" name="userkey" type="hidden" value="${userkey}"/>
+     	<input id="orderid" name="orderid" type="hidden" value="${orderid}"/>
      	<input id="transAmt" name="transAmt" type="hidden" value="<%=liubi%>"/>
 		
         <p><label>卡　号：</label>
@@ -149,9 +155,9 @@ String orderid = (String)request.getAttribute("orderid");
 	
 	 <form name="chongzhi2" action="<%=request.getContextPath() %>/charge/chargeByGoodPay.htm" method="post">
      	<input type="hidden" name="chargeType" value="3"/>
-     	<input id="accountId1" name="accountId" type="hidden" value="<%=userkey%>"/>
-     	<input id="userkey1" name="userkey" type="hidden" value="<%=userkey%>"/>
-     	<input id="orderid1" name="orderid" type="hidden" value="<%=orderid%>"/>
+     	<input id="accountId1" name="accountId" type="hidden" value="${userkey}"/>
+     	<input id="userkey1" name="userkey" type="hidden" value="${userkey}"/>
+     	<input id="orderid1" name="orderid" type="hidden" value="${orderid}"/>
      	<input id="transAmt1" name="transAmt" type="hidden" value="<%=liubi%>"/>
      <span name="fail2"></span>
      <input name="typeId" type="hidden" value="2"/>
@@ -189,7 +195,7 @@ String orderid = (String)request.getAttribute("orderid");
 </div>
 	<div class="footer">
 		<span class="logo"><a href="http://mm.yue.ifeng.com"><img
-				src="../images/footlogo.png" /></a></span>
+				src="../../../images/footlogo.png" /></a></span>
 		<p>
 			<a href="http://www.ifeng.com/corp/about/">关于凤凰新媒体</a> |<a
 				href="http://mm.yue.ifeng.com
@@ -253,30 +259,7 @@ String orderid = (String)request.getAttribute("orderid");
 			auth2();
 		});
 		
-		//查询用户充值记录
-		$.ajax({
-			type:'post',
-			dataType:'json',
-			url:'../../../order/queryOrderByUserkey.htm?',
-			data:'name='+<%=(String)request.getAttribute("userkey")%>,
-			success:function (data){
-				var date = data.date;
-				if(date!=null){
-					for(var i=0;i<date.length;i++){
-						$("#czjl").append("<tr><td>"+date[i].starttime+"</td><td>"+date[i].id+"</td><td>"+date[i].chargeccount+"</td><td>"+date[i].result+"</td></tr>");
-					}
-				}
-				
-			},
-			error:function(data){
-				var date = data.date;
-				if(date!=null){
-					for(var i=0;i<date.length;i++){
-						$("#czjl").append("<tr><td>"+date[i].starttime+"</td><td>"+date[i].id+"</td><td>"+date[i].chargeccount+"</td><td>"+date[i].result+"</td></tr>");
-					}
-				}
-			}
-		});
+		
 		
 	});
 		

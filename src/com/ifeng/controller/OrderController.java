@@ -41,6 +41,10 @@ public class OrderController {
 		String chargecount = null;
 		int price = 0;
 		if (StringUtils.isNotEmpty(userkey)) {
+			//查询用户支付记录
+			List<Order> orders = orderService.queryOrderByUser(userkey);
+			request.setAttribute("orders", orders);
+			
 			if (StringUtils.isNotEmpty(chargeccount)) {
 				price = Integer.parseInt(chargeccount) / 100;
 				chargecount = String.valueOf(price);
@@ -69,23 +73,7 @@ public class OrderController {
 		return "charge/chongzhi";
 	}
 	
-	@RequestMapping("queryOrderByUserkey")
-	public void queryOrder(String name,HttpServletResponse response){
-		PrintWriter writer = null;
-		try {
-			writer = response.getWriter();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		log.info("查询用户充值记录，userkey"+name);
-		if(StringUtils.isNotEmpty(name)){
-			List<Order> orders = orderService.queryOrderByUser(name);
-			JSONObject json = new JSONObject();
-			json.put("date", orders);
-			writer.print(json);
-		}
 	
-	}
 	
 	@RequestMapping("liu/checkOrder")
 	public void checkOrder(String orderid,HttpServletRequest requset,HttpServletResponse response){

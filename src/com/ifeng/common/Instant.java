@@ -4,7 +4,9 @@ public class Instant {
 
 	public static final String GUID_EMPTY = "-1";
 	
-	public static final int USER_NOMAL = 1;//正常用户
+	public static final int USER_STATE_NOMAL = 1;//正常用户
+	
+	public static final int USER_TYPE_EMPTYP = 0;//缺省值。应该是用户导入来源六间房、YY等
 	
 	public static final int ORDER_EMPTY= 0;//默认订单状态
 	

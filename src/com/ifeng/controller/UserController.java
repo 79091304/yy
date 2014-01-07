@@ -17,7 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ifeng.common.Instant;
 import com.ifeng.dao.UserActiveInfoDao;
+import com.ifeng.entity.User;
+import com.ifeng.service.UserService;
 import com.ifeng.util.DateUtils;
 import com.ifeng.util.MemCachedManager1;
 import com.ifeng.util.UserActivedRecords;
@@ -36,6 +39,9 @@ public class UserController {
 	
 	@Autowired
 	private UserActiveInfoDao userActiveInfoDao;
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping("getUserInfo")
 	public void getUserInfo( String sid,HttpServletRequest request,HttpServletResponse response){
@@ -130,7 +136,32 @@ public class UserController {
 		}
 	}
 	
-	public static void main(String[] args) {
-		System.out.println("\u672a\u767b\u5f55");
+	@RequestMapping("register")
+	public void register(String mail,String pwd,HttpServletResponse response){
+		PrintWriter writer = null;
+		try {
+			writer = response.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		log.info("记录用户注册");
+		if(StringUtils.isNotEmpty(pwd)){
+			pwd = Util.Md5(pwd);
+		}
+		if(StringUtils.isNotEmpty(mail) && StringUtils.isNotEmpty(pwd)){
+			User user = new User();
+			user.setCreatedAt(new Date());
+			user.setEmail(mail);
+			user.setPassword(pwd);
+			user.setType(Instant.USER_TYPE_EMPTYP);
+			user.setState(Instant.USER_STATE_NOMAL);
+			user.setUsername(mail);
+			int count = userService.add(user);
+			if(count >0){
+				writer.write("用户邮箱："+mail);
+			}else{
+				writer.write("注册失败");
+			}
+		}
 	}
 }
