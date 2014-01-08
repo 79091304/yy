@@ -1,14 +1,14 @@
-<%@include file="../common/taglib.jsp" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page import="org.apache.commons.lang.StringUtils"%>
+<%@include file="../common/taglib.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>充值</title>
-<link href="../../../css/chz.css" rel="stylesheet" type="text/css" />
-<script src="../../../js/jquery.js" type="text/javascript"></script>
-<script src="../../../js/jquery.cookie.js" type="text/javascript"></script>
+<link href="${ctx}/css/chz.css" rel="stylesheet" type="text/css" />
+<script src="${ctx}/js/jquery.js" type="text/javascript"></script>
+<script src="${ctx}/js/jquery.cookie.js" type="text/javascript"></script>
 </head>
 <%
 String chargecount = (String)request.getAttribute("chargecount");
@@ -20,7 +20,7 @@ if(StringUtils.isNotEmpty(chargecount)){
 <body class="czbody">
 <div class="czhead">
   <div class="iBody">
-    <h1 class="logo"><a href="http://mm.yue.ifeng.com"><img src="../../../images/cz_logo.png" /></a></h1>
+    <h1 class="logo"><a href="http://mm.yue.ifeng.com"><img src="${ctx}/images/cz_logo.png" /></a></h1>
     <span class="back"><a href="http://mm.yue.ifeng.com">返回秀场首页</a></span>
   </div>
 </div>
@@ -58,8 +58,8 @@ if(StringUtils.isNotEmpty(chargecount)){
     </div>
     <h4 class="tit4">投诉与建议</h4>
     <div class="conts" style="height:183px;">
-      <p><img src="../../../images/telephone.png" /> 4008109890 </p>
-      <p><img src="../../../images/mail.png" /> 投诉与建议 </p>
+      <p><img src="${ctx }/images/telephone.png" /> 4008109890 </p>
+      <p><img src="${ctx }/images/mail.png" /> 投诉与建议 </p>
       <p><span class="gray">工作时间：</span>08:00-23:00 </p>
     </div>
   </div>
@@ -78,7 +78,53 @@ if(StringUtils.isNotEmpty(chargecount)){
       </p>
       </form>
       <p class="line"></p>
-      <div class="chongzhi-bar"><strong class="pr-30">全部充值方式：</strong><span name="#cz1" class="cur">支付宝充值</span><span name="#cz2">电话卡充值</span><span name="#cz3">储蓄卡充值</span><span name="#cz4">信用卡充值</span></div>
+      <div class="chongzhi-bar">
+	      <strong class="pr-30">充值方式：</strong>
+	      <span name="#cz5" class="cur">网银充值</span>
+	      <span name="#cz6">财付通</span>
+	      <span name="#cz1" >支付宝充值</span>
+	      <span name="#cz2">电话卡充值</span>
+	      <span name="#cz3">储蓄卡充值</span>
+	      <span name="#cz4">信用卡充值</span>
+      </div>
+      
+   <div class="chongzhicont" id="cz5">
+   	<form action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
+	  	 <input type="hidden" name="chargeType" value="5"/>
+     	<input  name="transAmt" type="hidden" value="<%=chargecount%>"/>
+     	 <input name="body" type="hidden" value="body"/>
+      	<input name="show_url" type="hidden" value="show_url"/>
+      	<input name="subject" type="hidden" value="六币"/>
+       	<input id="bill_no" name="bill_no" type="hidden" value="${orderid}"/>
+       	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
+       <p><label class="lab"><input name="payment_method" type="radio" value="14" /><img src="${ctx}/images/99bill.jpg" width="90" height="27" /></label><label class="lab"><input name="payment_method" type="radio" value="1" /><img src="${ctx}/images/yibao.jpg" width="90" height="27"/></label><label class="lab"><input name="payment_method" type="radio" value="21" /><img src="${ctx}/images/icbc.jpg" width="90" height="27"/></label><br />
+			<label class="lab"><input name="payment_method" type="radio" value="22" /><img src="${ctx}/images/cmb.jpg" width="90" height="27"/></label><label class="lab"><input name="payment_method" type="radio" value="23" /><img src="${ctx}/images/abc.jpg" width="90" height="27"/></label><br />
+			<label class="lab"><input name="payment_method" type="radio" value="24" /><img src="${ctx}/images/ccb.jpg"width="90" height="27" /></label><label class="lab"><input name="payment_method" type="radio" value="28" /><img src="${ctx}/images/boc.jpg"width="90" height="27" /></label><label class="lab"><input name="payment_method" type="radio" value="29" /><img src="${ctx}/images/bocom.jpg" width="90" height="27"/></label><br />
+			<label class="lab"><input name="payment_method" type="radio" value="30" /><img src="${ctx}/images/cmbc.jpg" width="90" height="27" /></label><label class="lab"><input name="payment_method" type="radio" value="31" /><img src="${ctx}/images/cib.jpg" width="90" height="27"/></label>
+		</p>
+      <p class="butmar1">
+        <input name="" type="submit" class="but1" value="提交" />
+      </p>
+      </form>
+   </div>
+      
+     <div class="chongzhicont" id="cz6">
+     <form action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
+	  	 <input type="hidden" name="chargeType" value="6"/>
+     	<input  name="transAmt" type="hidden" value="<%=chargecount%>"/>
+     	 <input name="body" type="hidden" value="body"/>
+      	<input name="show_url" type="hidden" value="show_url"/>
+      	<input name="subject" type="hidden" value="六币"/>
+       	<input id="bill_no" name="bill_no" type="hidden" value="${orderid}"/>
+       	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
+       <p><label class="lab"><input name="payment_method" type="radio" value="41" /><img src="${ctx}/images/cft.jpg" width="90" height="27" /></label></p>
+      <p class="butmar1">
+        <input name="" type="submit" class="but1" value="提交" />
+      </p>
+      </form>
+     </div>
+      
+      
 	 <div class="chongzhicont" id="cz1">
 	  <form name="chongzhi5" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
 	  	 <input type="hidden" name="chargeType" value="0"/>
@@ -90,7 +136,7 @@ if(StringUtils.isNotEmpty(chargecount)){
       	<input name="subject" type="hidden" value="六币"/>
        	<input id="bill_no" name="bill_no" type="hidden" value="${orderid}"/>
        	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
-       <p><label class="lab"><input name="" type="radio" value="" /><img src="../../../images/log-logo5.jpg" /></label></p>
+       <p><label class="lab"><input name="" type="radio" value="" /><img src="${ctx}/images/log-logo5.jpg" /></label></p>
       <p class="butmar1">
         <input name="" type="submit" class="but1" value="提交" />
       </p>
@@ -104,9 +150,9 @@ if(StringUtils.isNotEmpty(chargecount)){
       <input name="subject" type="hidden" value="六币"/>
        <input id="bill_no1" name="bill_no" type="hidden" value="${orderid}"/>
         <input id="login_name1" name="login_name" type="hidden" value="${userkey}"/>
-       <p><label class="lab"><input name="payment_method" type="radio" value="36" /><img src="../../../images/log-logo1.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="37" /><img src="../../../images/log-logo2.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="" /><img src="../../../images/log-logo3.jpg" /></label></p>
+       <p><label class="lab"><input name="payment_method" type="radio" value="36" /><img src="${ctx}/images/log-logo1.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="37" /><img src="${ctx}/images/log-logo2.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="" /><img src="${ctx}/images/log-logo3.jpg" /></label></p>
        <p>
-		<label class="lab"><input name="payment_method" type="radio" value="27" /><img src="../../../images/log-logo4.jpg" /></label></p>
+		<label class="lab"><input name="payment_method" type="radio" value="27" /><img src="${ctx}/images/log-logo4.jpg" /></label></p>
       <p class="butmar1">
         <input name="" type="submit" class="but1" value="提交" />
       </p>
@@ -195,7 +241,7 @@ if(StringUtils.isNotEmpty(chargecount)){
 </div>
 	<div class="footer">
 		<span class="logo"><a href="http://mm.yue.ifeng.com"><img
-				src="../../../images/footlogo.png" /></a></span>
+				src="${ctx }/images/footlogo.png" /></a></span>
 		<p>
 			<a href="http://www.ifeng.com/corp/about/">关于凤凰新媒体</a> |<a
 				href="http://mm.yue.ifeng.com
