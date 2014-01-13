@@ -1,8 +1,6 @@
-@charset "utf-8";
-/* CSS Document */
 html, body, div, p, h1, h2, h3, h4, blockquote, pre, form, fieldset, ol, ul, li, dl, dd, dt, table, tbody, thead, tfoot, tr, th, td {
 	margin:0;padding:0}
-body {font:12px/18px "寰蒋闆呴粦" Tahoma;color:#000; background:#ffd0dd url(../images/htmlbg.jpg) no-repeat center 126px;}
+body {font:12px/18px "微软雅黑" Tahoma;color:#000; background:#ffd0dd url(../images/htmlbg.jpg) no-repeat center 126px;}
 img {border:0}
 button {vertical-align:middle;cursor:pointer}
 input, img {vertical-align:middle}
@@ -21,12 +19,12 @@ div,p,ul{zoom:1;}
 div:after, p:after, ul:after {content:".";display:block;clear:both;height:0;visibility:hidden;}
 .iBody {margin:0 auto;width:1000px; clear:both;}
 
-/*鍏呭�*/
+/*充值*/
 .iBody{ background:#fff;}
 .czhead{ background:#e1245f; height:47px; margin-bottom:20px; }
 .czhead .iBody{ background:#e1245f;position:relative}
 .czbody{ background:#f3f3f3}
-.tit4{font:normal 18px/50px "寰蒋闆呴粦"; text-indent:1.2pc; color:#e22861; border-bottom:1px solid #e5e5e5; position:relative; background:#fff}
+.tit4{font:normal 18px/50px "微软雅黑"; text-indent:1.2pc; color:#e22861; border-bottom:1px solid #e5e5e5; position:relative; background:#fff}
 .tit4 p{
 	position:absolute;
 	right:-52px;
@@ -50,15 +48,15 @@ div:after, p:after, ul:after {content:".";display:block;clear:both;height:0;visi
 .line-45{ line-height:45px;}
 .wrong{ color:red; background:url(../images/wrong.png) no-repeat left 50%; padding-left:25px;}
 .right{ color:green; background:url(../images/right.png) no-repeat left 50%; padding-left:25px;}
-/*椤佃剼*/
+/*页脚*/
 .footer{ clear:both;  background:#e5e5e5;color:#888; line-height:21px; padding:30px 0 30px 20px;width:980px; margin:0 auto; height:80px}
 .footer .logo{ float:left; border-right:1px solid #e7e7e7; margin-right:20px; padding:5px 20px 0 0 ; height:70px;}
 .footer p{ float:left; }
 .loginbg .from p.wangj{ line-height:25px; padding:5px 0 0 0;}
 .loginbg .from p.wangj label{ width:160px; padding-left:20px;}
 .loginbg .from p.wangj a{ margin-left:10px; color:#666}
-.but2{ background:url(../images/log-but2.png) no-repeat; width:240px; line-height:40px; color:#fff; font-size:16px; text-align:center; border:none; margin:15px 0 0 75px; font-family:"寰蒋闆呴粦"; cursor:pointer}
-/*鍏呭�*/
+.but2{ background:url(../images/log-but2.png) no-repeat; width:240px; line-height:40px; color:#fff; font-size:16px; text-align:center; border:none; margin:15px 0 0 75px; font-family:"微软雅黑"; cursor:pointer}
+/*充值*/
 .cziBody{ background:none;margin:0 auto;width:1000px; clear:both;}
 .cz-left{ float: left; width:280px; color:#333} 
 .cz-left .conts{ background:#fff;padding:10px 15px 20px; line-height:30px; color:#444; margin-bottom:20px;}
@@ -69,8 +67,8 @@ div:after, p:after, ul:after {content:".";display:block;clear:both;height:0;visi
 .line{ border-bottom:1px dashed #ccc;  margin-bottom:20px; height:20px}
 .pl-20{ padding-left:20px; line-height:40px}
 .input1{ border:1px solid #ababab; height:26px; padding:2px 4px; font-size:12px; margin-left:5px;}
-.chongzhi-bar span{ padding:0 15px;height:45px; text-align:center; color:#333; font-size:15px; border:1px solid #e5e5e5; background:#f9f9f9; line-height:45px; display:inline-block; margin-left:-1px; cursor:pointer}
-.chongzhi-bar span.cur{ background:#fff; border-bottom:1px solid #fff}
+.chongzhi-bar span{  width:91px; text-align:center;height:34px; text-align:center; color:#333; font-size:15px; background:url(../images/cztab.png) no-repeat; display:inline-block;  cursor:pointer; color:#fff; margin-right:1px;}
+.chongzhi-bar span.cur{ background:url(../images/czcur.png) no-repeat;}
 .pr-30{ padding-right:10px;}
 .butmar1{ margin:5px 0 20px 35px;}
 .wit1{ width:200px;}
@@ -85,7 +83,7 @@ label.lab img{ vertical-align:top; margin:-5px 50px 25px 5px; cursor:pointer}
 .banklist{ margin:-10px 0 10px;}
 .banklist span,.banklist label{ display:inline-block; float:left; line-height:25px;}
 .but3{ background:#f3f3f3; border:1px solid #d6d5d5; line-height:28px; text-align:center; width:110px; color:#666; cursor:pointer}
-/*寮圭獥*/
+/*弹窗*/
 .but1{width:60px; height:30px; text-align:center; color:#fff; font-size:12px; border:none; line-height:24px; margin-top:10px; display:inline-block; margin-left:75px; cursor:pointer}
 .but1{ background:url(../images/log-but.png) no-repeat;}
 .userimg{ float:left; margin:5px 15px 0 0;}

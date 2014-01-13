@@ -1,2 +1,7 @@
 /com
+/jdbc.properties
 /junit
+/log4j.properties
+/mybatis.xml
+/spring-application.xml
+/spring-servlet.xml
