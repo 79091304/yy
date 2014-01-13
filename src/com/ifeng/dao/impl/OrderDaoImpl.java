@@ -18,9 +18,17 @@ import com.ifeng.util.DateUtils;
 public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao {
 
 	@Override
+	public Order getOrderByOrderId(String orderid,int source) {
+		Map<String,Object> data = new HashMap<String, Object>();
+		data.put("orderid", orderid);		
+		data.put("source", source);
+		return this.getSqlSession().selectOne(this.getClassName()+".getByOrderid", data);
+	}
+	
+	@Override
 	public Order getOrderByOrderId(String orderid) {
-		Map<String,String> data = new HashMap<String, String>();
-		data.put("orderid", orderid);
+		Map<String,Object> data = new HashMap<String, Object>();
+		data.put("orderid", orderid);		
 		return this.getSqlSession().selectOne(this.getClassName()+".getByOrderid", data);
 	}
 

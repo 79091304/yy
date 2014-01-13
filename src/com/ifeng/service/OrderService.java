@@ -20,6 +20,13 @@ public interface OrderService {
 	public Order getByOrderid(String orderid);
 	
 	/**
+	 * 查询订单
+	 * @param orderid 对外订单号
+	 * @return
+	 */
+	public Order getByOrderid(String orderid,int source);
+	
+	/**
 	 * 订单支付
 	 * @param id
 	 * @return

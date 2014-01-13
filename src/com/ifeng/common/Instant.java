@@ -29,4 +29,6 @@ public class Instant {
 	public static final String CHARGE_GOOGPAY_URL = "http://211.151.175.47/interface/pay.php?";
 	
 	public static final int CHARGE_SOURCE_LIU = 1;//	六间房
+	
+	public static final int CHARGE_SOURCE_WOXIU = 2;//	我秀
 }

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifeng.common.Instant;
+import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.Order;
 import com.ifeng.service.OrderService;
 import com.ifeng.util.Util;
@@ -100,6 +101,95 @@ public class OrderController {
 		}else{
 			out.print("parameter orderid is empty");
 		}
-			
+	}
+	
+	@RequestMapping(value = "queryOrder")
+	public void queryOrder(String orderid,String source,String token,HttpServletResponse response){
+		JSONObject obj = new JSONObject();
+		if(StringUtils.isNotEmpty(orderid)&&StringUtils.isNotEmpty(source)&&StringUtils.isNotEmpty(token)){
+			log.info("查询订单信息，订单号："+orderid+"，来源："+source+"，token:"+token);
+			String tk = Util.Md5(orderid+source+Util.getKeyBySource(Integer.parseInt(source)));
+				if(token.equals(tk)){
+					Order order = orderService.getByOrderid(orderid,Integer.parseInt(source));
+					if(null != order){
+						obj.put(ResponseMessage.CODE, ResponseMessage.CODE_SUCCESS);
+						obj.put("order", order);
+					}
+				}else{
+					obj.put(ResponseMessage.CODE, ResponseMessage.CODE_TOKEN_ERROR);
+					obj.put(ResponseMessage.MESSAGE,ResponseMessage.MSG_TOKEN_ERROR);
+				}
+		}else{
+			obj.put(ResponseMessage.CODE, ResponseMessage.CODE_EMPTY);
+			obj.put(ResponseMessage.MESSAGE,ResponseMessage.MSG_EMPTY);
+		}
+		try {
+			response.getWriter().print(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	@RequestMapping("createOrder")
+	public void createOrder(String uid, String price,
+			String orderid,String source,String token, HttpServletRequest request,HttpServletResponse response
+			) {
+		JSONObject jb = new JSONObject();
+		PrintWriter writer = null;
+		try {
+			writer = response.getWriter();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		if (StringUtils.isNotEmpty(uid)&&StringUtils.isNotEmpty(price)&&StringUtils.isNotEmpty(orderid)
+			&&StringUtils.isNotEmpty(source)&&StringUtils.isNotEmpty(token)) {
+			try{
+				//根据source判断token
+				String pre_token = orderid+price+uid+source+Util.getKeyBySource(Integer.parseInt(source));
+				String mytoken = Util.Md5(pre_token);
+				//验证token
+				if(mytoken.equals(token)){
+					//查询用户支付记录
+					List<Order> orders = orderService.queryOrderByUser(uid);
+					request.setAttribute("orders", orders);
+					String guid = Util.getGuid(request);
+					log.info("创建订单， uid:" + uid + ",price:"
+							+ price + ",orderid:" + orderid);
+					Order order = new Order();
+					order.setGuid(uid);
+					order.setPrice(Double.parseDouble(price));
+					order.setOrderid(orderid);
+					order.setCreatedAt(new Date());
+					order.setType(Instant.CHARGE_TYPE_EMPTY);
+					order.setState(Instant.ORDER_EMPTY);
+					order.setGuid(guid);
+					order.setUserkey(uid);
+					order.setSource(Instant.CHARGE_SOURCE_LIU);
+					int i = orderService.createOrder(order);
+					request.setAttribute("userkey", uid);
+					request.setAttribute("chargecount", price);
+					request.setAttribute("orderid", orderid);
+					if (i > 0) {
+						log.info("下单成功，订单号是： " + orderid);
+					}
+					jb.put(ResponseMessage.CODE, ResponseMessage.CODE_SUCCESS);
+					jb.put(ResponseMessage.MESSAGE, ResponseMessage.MSG_SUCCESS);
+					request.getRequestDispatcher("WEB-INF/jsp/charge/chongzhi.jsp").forward(request, response);
+				}else{
+					jb.put(ResponseMessage.CODE, ResponseMessage.CODE_TOKEN_ERROR);
+					jb.put(ResponseMessage.MESSAGE,ResponseMessage.MSG_TOKEN_ERROR);
+					writer.print(jb);
+				}
+			}catch(Exception e){
+				log.info(e.getMessage());
+				request.setAttribute("exception", e.getMessage());
+				writer.print(jb);
+			}
+		}else{
+			jb.put(ResponseMessage.CODE, ResponseMessage.CODE_EMPTY);
+			jb.put(ResponseMessage.MESSAGE, ResponseMessage.MSG_EMPTY);
+			writer.print(jb);
+		}
 	}
 }

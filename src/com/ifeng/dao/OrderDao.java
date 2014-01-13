@@ -6,13 +6,21 @@ import com.ifeng.base.BaseDao;
 import com.ifeng.entity.Order;
 
 public interface OrderDao extends BaseDao<Order>{
-
+	
 	/**
 	 * 查询订单
 	 * @param orderid 对外订单号
 	 * @return
 	 */
 	public Order getOrderByOrderId(String orderid);
+
+	/**
+	 * 查询订单
+	 * @param orderid 对外订单号
+	 * @param source 来源
+	 * @return
+	 */
+	public Order getOrderByOrderId(String orderid,int source);
 	
 	/**
 	 * 更新订单状态

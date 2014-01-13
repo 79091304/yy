@@ -188,4 +188,24 @@ public class Util {
 		}
 		return guid;
 	} 
+	
+	/**
+	 * 加密key
+	 * @param source
+	 * @return
+	 */
+	public static String getKeyBySource(int source){
+		String key = null;
+		switch (source) {
+		case 1: 
+			key = "$@EE$R$dsdee*&46rooms&ifeng_coop";
+			break;
+		case 2:
+			key = "ifeng-key-57s83@#h3";
+			break;
+		default:
+			break;
+		}
+		return key;
+	}
 }

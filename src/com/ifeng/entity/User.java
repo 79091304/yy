@@ -20,7 +20,7 @@ public class User implements java.io.Serializable {
 	
 	private int state; 
 	
-	private int guid;//凤凰网id
+	private String guid;//凤凰网id
 	
 	private Date createdAt;
 	
@@ -61,13 +61,7 @@ public class User implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public int getGuid() {
-		return guid;
-	}
-
-	public void setGuid(int guid) {
-		this.guid = guid;
-	}
+	
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -108,6 +102,14 @@ public class User implements java.io.Serializable {
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+
+	public String getGuid() {
+		return guid;
+	}
+
+	public void setGuid(String guid) {
+		this.guid = guid;
 	}
 	
 	

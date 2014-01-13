@@ -44,6 +44,11 @@ public class OrderServiceImpl implements OrderService {
 	public Order getByOrderid(String orderid) {
 		return orderDao.getOrderByOrderId(orderid);
 	}
+	
+	@Override
+	public Order getByOrderid(String orderid,int source) {
+		return orderDao.getOrderByOrderId(orderid,source);
+	}
 
 	@Override
 	public int sendFailForOrder(String orderid) {
