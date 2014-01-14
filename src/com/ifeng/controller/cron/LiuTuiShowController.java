@@ -61,7 +61,7 @@ public class LiuTuiShowController {
 					sbf.append(ONE).append(rid).append(TWO).append(pospic).append(THREE);
 				}
 			}
-			HtmlFileWriter.writeHtml(sbf, aboserlutFilePath);
+			HtmlFileWriter.writeHtml(sbf.toString(), aboserlutFilePath);
 		}catch(Exception e){
 			log.equals(e.getMessage());
 			e.printStackTrace();

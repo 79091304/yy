@@ -108,7 +108,7 @@ public class OrderController {
 		JSONObject obj = new JSONObject();
 		if(StringUtils.isNotEmpty(orderid)&&StringUtils.isNotEmpty(source)&&StringUtils.isNotEmpty(token)){
 			log.info("查询订单信息，订单号："+orderid+"，来源："+source+"，token:"+token);
-			String tk = Util.Md5(orderid+source+Util.getKeyBySource(Integer.parseInt(source)));
+			String tk = Util.Md5(orderid+source+Util.getPayKeyBySource(Integer.parseInt(source)));
 				if(token.equals(tk)){
 					Order order = orderService.getByOrderid(orderid,Integer.parseInt(source));
 					if(null != order){
@@ -146,7 +146,7 @@ public class OrderController {
 			&&StringUtils.isNotEmpty(source)&&StringUtils.isNotEmpty(token)) {
 			try{
 				//根据source判断token
-				String pre_token = orderid+price+uid+source+Util.getKeyBySource(Integer.parseInt(source));
+				String pre_token = orderid+price+uid+source+Util.getPayKeyBySource(Integer.parseInt(source));
 				String mytoken = Util.Md5(pre_token);
 				//验证token
 				if(mytoken.equals(token)){
@@ -165,7 +165,7 @@ public class OrderController {
 					order.setState(Instant.ORDER_EMPTY);
 					order.setGuid(guid);
 					order.setUserkey(uid);
-					order.setSource(Instant.CHARGE_SOURCE_LIU);
+					order.setSource(Integer.parseInt(source));
 					int i = orderService.createOrder(order);
 					request.setAttribute("userkey", uid);
 					request.setAttribute("chargecount", price);
@@ -175,7 +175,7 @@ public class OrderController {
 					}
 					jb.put(ResponseMessage.CODE, ResponseMessage.CODE_SUCCESS);
 					jb.put(ResponseMessage.MESSAGE, ResponseMessage.MSG_SUCCESS);
-					request.getRequestDispatcher("WEB-INF/jsp/charge/chongzhi.jsp").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/jsp/charge/chongzhi.jsp").forward(request, response);
 				}else{
 					jb.put(ResponseMessage.CODE, ResponseMessage.CODE_TOKEN_ERROR);
 					jb.put(ResponseMessage.MESSAGE,ResponseMessage.MSG_TOKEN_ERROR);

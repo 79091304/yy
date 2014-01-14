@@ -32,13 +32,14 @@
 	<select id="getByOrderid" parameterType="java.util.HashMap" resultType="Order" >
 		select
 		<include refid="selectId" />
-		from o_order t
+		from o_order t 
 		<where>
+		1=1 
 			<if test="orderid != null and orderid  != ''">
-				orderid=#{orderid} 
+				and orderid=#{orderid} 
 				</if>
 			<if test="source != null and source  != ''">
-				source=#{source} 
+				and source=#{source} 
 			</if>
 		</where>
 	</select>

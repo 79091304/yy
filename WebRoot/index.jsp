@@ -126,7 +126,7 @@ function ChangeValidCode(id){
   </script> 
 </div>
 <div class="navi">
-  <p class="iBody"><a href="#" class="cur">主编精选</a><a href="liu_html/main.html#_yue_liu">六间房</a></p>
+  <p class="iBody"><a href="#" class="cur">主编精选</a><a href="liu_html/main.html#_yue_liu">六间房</a><a href="woxiu/main.html#_yue_woxiu">我秀</a></p>
 </div>
 <div class="imgnews">
   <div id="list">
@@ -180,14 +180,16 @@ function ChangeValidCode(id){
           <jsp:include page="liu_html/rank_super.html" />
         </ul>
       </div>
-    <ul class="ljf ljf2" style="width:1000px;">
-    <h4>编辑推荐</h4>
-       <jsp:include page="liu_html/rand_show_back.html" />
-      </ul>
-
+   
     </div>
   </div>
- 
+  
+ <div class="conts">
+    <h3 class="woxiutitl"><span>WOXIU.COM</span> 我秀秀场<strong class="shaux"></strong></h3>
+    <ul class="wxcont">
+       <jsp:include page="woxiu/rand_show.html" />
+      </ul>
+</div>
  
  
 </div>

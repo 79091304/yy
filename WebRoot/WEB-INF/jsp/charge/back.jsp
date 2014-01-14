@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<p class="green2">支付失败!</p>
 <%} %>
    <p><span class="butmar3">
-     <a href="main.html" class="but2 "> 返回</a>
+     <a href="http://mm.yue.ifeng.com" class="but2 "> 返回</a>
    </span></p>
 
 </div>

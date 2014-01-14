@@ -54,10 +54,10 @@ public class LiuRankShowController {
 			JSONArray monthArr = (JSONArray)jsonObject.get("m");//月榜
 			JSONArray superArr = (JSONArray)jsonObject.get("a");//超级棒
 			
-			HtmlFileWriter.writeHtml(convertJSONArray(dayArr), DAY_FILE_PATH);
-			HtmlFileWriter.writeHtml(convertJSONArray(weekArr), WEEK_FILE_PATH);
-			HtmlFileWriter.writeHtml(convertJSONArray(monthArr), MONTH_FILE_PATH);
-			HtmlFileWriter.writeHtml(convertJSONArray(superArr), SUPER_FILE_PATH);
+			HtmlFileWriter.writeHtml(convertJSONArray(dayArr).toString(), DAY_FILE_PATH);
+			HtmlFileWriter.writeHtml(convertJSONArray(weekArr).toString(), WEEK_FILE_PATH);
+			HtmlFileWriter.writeHtml(convertJSONArray(monthArr).toString(), MONTH_FILE_PATH);
+			HtmlFileWriter.writeHtml(convertJSONArray(superArr).toString(), SUPER_FILE_PATH);
 			
 		}catch(Exception e){
 			log.equals(e.getMessage());

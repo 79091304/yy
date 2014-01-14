@@ -28,7 +28,7 @@ public class HtmlFileWriter {
 	 * @param str htmlBuffer
 	 * @param absoluteFilePath 
 	 */
-	public static void writeHtml(StringBuffer str,String absoluteFilePath){
+	public static void writeHtml(String str,String absoluteFilePath){
 		Logger log = Logger.getLogger(HtmlFileWriter.class);
 		String ranShowPath = getRootPath()+absoluteFilePath;
 		log.info("生成文件:"+absoluteFilePath);
@@ -37,12 +37,12 @@ public class HtmlFileWriter {
 		try {
 			if(randShow.exists()){
 				fw = new FileWriter(randShow,false);
-				fw.write(str.toString());
+				fw.write(str);
 				fw.flush();
 			}else{
 				randShow.createNewFile();
 				fw = new FileWriter(randShow,false);
-				fw.write(str.toString());
+				fw.write(str);
 				fw.flush();
 			}
 			

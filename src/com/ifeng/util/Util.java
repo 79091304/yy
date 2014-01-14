@@ -208,4 +208,24 @@ public class Util {
 		}
 		return key;
 	}
+	
+	/**
+	 * 支付时用的加密key
+	 * @param source
+	 * @return
+	 */
+	public static String getPayKeyBySource(int source){
+		String key = null;
+		switch (source) {
+		case 1: 
+			key = "$@EE$R$dsdee*&46rooms&ifeng_coop";
+			break;
+		case 2:
+			key = "ifeng-paykey-5d38f#93";
+			break;
+		default:
+			break;
+		}
+		return key;
+	}
 }

@@ -7,8 +7,13 @@
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script src="../js/jquery.js" type="text/javascript"></script>
 <script src="../js/jquery.cookie.js" type="text/javascript"></script>
+<script src="http://cssv.redu.com/js/proxy/resize.js" type="text/javascript"></script>
+
 <script language="javascript">
 $(function(){
+	var url = window.location.href;
+	var ary=url.split("?");
+	$('#url').attr('src',"http://www.woxiu.com/coop/ifeng.php?"+ary[1]);
 	if($.cookie('sid') ||$.cookie('cookie')){
 		 $.ajax({
 				type:'post',
@@ -16,7 +21,7 @@ $(function(){
 				url:'../log/loginByWoxiu.htm',
 				data:'',
 				success:function(data){
-					$('#url').attr('src',data);
+					$('#url').attr('src',data+"&"+ary[1]);
 				}
 		});
 	}
@@ -34,7 +39,7 @@ $(function(){
   <p class="headright"> <a href="http://mm.yue.ifeng.com">返回首页</a></p>
 </div>
 <form name="iframeurl">
-<iframe id="url" name="url" scrolling="no" frameborder="0" src="" style="width: 100%; height: 2000px; margin: 0px auto; position: relative; border: 0px;"></iframe>
+<iframe id="url" name="url" scrolling="no" frameborder="0" src="http://www.woxiu.com/coop/ifeng.php" style="width: 100%; height: 2000px; margin: 0px auto; position: relative; border: 0px;"></iframe>
 </form>
 <div class="footer mar-top40"> <span class="logo"><a href="http://mm.yue.ifeng.com"><img src="../images/logo.png" /></a></span>
   <p><a href="http://www.ifeng.com/corp/about/">关于凤凰新媒体</a> |<a href="http://mm.yue.ifeng.com

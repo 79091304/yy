@@ -28,7 +28,6 @@ public class LiuRandShowController {
 
 	private static final String absolutePath = "liu_html/rand_show.html";
 
-	private static final String absolutePath_back = "liu_html/rand_show_back.html";
 
 	private static final String RANDZB = "randZB";
 
@@ -95,35 +94,9 @@ public class LiuRandShowController {
 					}
 				}
 			}
-			HtmlFileWriter.writeHtml(sbf, absolutePath);
+			HtmlFileWriter.writeHtml(sbf.toString(), absolutePath);
 
-			// 生成六间房编辑推荐的随机主播html
-			for (int i = totalSize - 1; i > (totalSize - 16); i--) {
-				Object job = jsonArray.get(i);
-				if (job instanceof JSONObject) {
-					JSONObject jss = (JSONObject) job;
-					String username = (String) jss.get("username");
-					Integer wealthrank = (Integer) jss.get("wealthrank");
-					String rid = (String) jss.get("rid");
-					String pospic = (String) jss.get("pospic");
-					String count = (String) jss.get("count");
-					String starttime = (String) jss.get("starttime");
-					if (wealthrank.intValue() > 19) {
-						sbt.append(ONE).append(rid).append(TWO).append(pospic)
-								.append(THREE).append(username).append(FORE)
-								.append(count).append(FIVE)
-								.append(wealthrank.intValue() - 10).append(SIX)
-								.append(starttime).append(SEVERN);
-					} else {
-						sbt.append(ONE).append(rid).append(TWO).append(pospic)
-								.append(THREE).append(username).append(FORE)
-								.append(count).append(FIVE01)
-								.append(wealthrank.intValue()).append(SIX01)
-								.append(SEVERN);
-					}
-				}
-			}
-			HtmlFileWriter.writeHtml(sbt, absolutePath_back);
+			
 		} catch (Exception e) {
 			log.equals(e.getMessage());
 			e.printStackTrace();
