@@ -33,17 +33,17 @@ public class WoxiuRandShowController {
 
 	private MemCachedManager1 cache = MemCachedManager1.getInstance();
 
-	private static final String ONE = "<li><a href='http://mm.yue.ifeng.com/woxiu/main.html?roomid=";
+	private static final String ONE = "<li><div><a href='http://mm.yue.ifeng.com/woxiu/main.html?roomid=";
 
 	private static final String TWO = "'><img src='";
 
-	private static final String THREE = "' width='156' height='118' /><br /> ";
+	private static final String THREE = "' width='156' height='118' /></a></div><a href='http://mm.yue.ifeng.com/woxiu/main.html?roomid=";
 
-	private static final String FORE = "</a><br /><span class='textbg'></span> <span class='text'>";
+	private static final String FORE = "</a><span class='textbg'></span> <span class='text'>";
 
-	private static final String FIVE = "</span> <span class='pj'>";
+	private static final String FIVE = "</span>";
 
-	private static final String SIX = "</span> <span class='gray'>开播时间:";
+	private static final String SIX = "<br/><span class='gray'>开播时间:";
 
 	private static final String SEVERN = "</span> </li>";
 	
@@ -55,9 +55,9 @@ public class WoxiuRandShowController {
 	
 	@RequestMapping("randShowFileWriter")
 	public void randShowFileWriter(HttpServletResponse response){
-		PrintWriter writer = null;
+		PrintWriter writer = null ;
 		try{
-			response.getWriter();
+			writer = response.getWriter();
 			// 生成六间房编辑推荐的随机主播html
 			StringBuilder sbt = new StringBuilder();
 			String jstr = (String)cache.get("woxiuZhubo");
@@ -67,13 +67,12 @@ public class WoxiuRandShowController {
 							if (job instanceof JSONObject) {
 								JSONObject jss = (JSONObject) job;
 								String username = (String) jss.get("nickname");
-								int grade = jss.getInt("grade");
 								String roomid = (String) jss.get("roomid");
 								String room_img = (String) jss.get("room_img");
 								String starttime = (String) jss.get("starttime");
 								int audience = jss.getInt("audience");
 									sbt.append(ONE).append(roomid).append(TWO).append(room_img)
-											.append(THREE).append(username).append(FORE)
+											.append(THREE).append(roomid).append("'>").append(username).append(FORE)
 											.append(audience).append("人观看").append(FIVE)
 											.append(SIX).append(starttime).append(SEVERN);
 							}
@@ -82,11 +81,11 @@ public class WoxiuRandShowController {
 		} catch (Exception e) {
 			log.equals(e.getMessage());
 			e.printStackTrace();
-			writer.write("error:RandShowFileWriter.servlet,message"
+			writer.write("error:woxiu Cache,message"
 					+ e.getMessage() + ",time:" + DateUtils.getCurrentDate());
 			return;
 		}
-		writer.write("success:RandShowFileWriter.servlet,time:"
+		writer.write("success:woxiu Cache,time:"
 				+ DateUtils.getCurrentDate());
 	}
 	

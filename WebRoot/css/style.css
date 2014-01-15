@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 html, body, div, p, h1, h2, h3, h4, blockquote, pre, form, fieldset, ol, ul, li, dl, dd, dt, table, tbody, thead, tfoot, tr, th, td {
-        margin:0;padding:0}
+	margin:0;padding:0}
 body {font:12px/18px "微软雅黑" Tahoma;color:#000; background:#ffd0dd url(../images/htmlbg.jpg) no-repeat center 115px;}
 img {border:0}
 button {vertical-align:middle;cursor:pointer}
@@ -11,7 +11,7 @@ ul, ol {list-style:none}
 a {color:#000;text-decoration:none}
 a:hover {color:#ea0c6a;text-decoration:none}
 em {font-style:normal}
-fieldset {        border:0}
+fieldset {	border:0}
 legend {display:none}
 h1, h2, h3, h4, h5, h6 {font-size:14px}
 .red {color:#d62e62}
@@ -31,7 +31,7 @@ div:after, p:after, ul:after {content:".";display:block;clear:both;height:0;visi
 .navi a:hover,.navi a.cur{ color:#fd4f7f; background:url(../images/navibg1.png) no-repeat center bottom}
 .imgnews{ width:1000px; margin:0 auto; padding:18px 0 0 0; height:350px; position: relative}
 .conts{ margin-bottom:20px}
-h3{ background: url(../images/conttitle.png) no-repeat; padding:15px 0 18px 27px; margin-left:-22px; font-size:20px; color:#fff; line-height:54px; font-family:"微软雅黑"; font-weight: normal; position:relative}
+h3{ background: url(../images/conttitle.png) no-repeat; padding:15px 0 18px 27px; margin-left:-22px; font-size:30px; color:#fff; line-height:54px; font-family:"微软雅黑"; font-weight: normal; position:relative}
 h3 .shaux{ position:absolute; right:50px; top:30px; background:url(../images/sxicon.png) no-repeat right 53%; line-height:54px; padding-right:25px;  font-size:16px; font-weight:normal}
 h3 .shaux a{color:#666;}
 h3.woxiutitl{background: url(../images/conttitle2.png) no-repeat;}
@@ -71,43 +71,43 @@ li .heart{position:absolute; z-index:3;top:101px; left:10px; width:16px; height:
 .cont1 ul.yy2 li{ position:relative; padding-right:20px; float:left; width:287px; line-height:35px;overflow:hidden;}
 .cont1 ul.yy li img{margin-bottom:5px}
 .cont1 ul.yy2 li .textbg2{
-        width:287px;
-        height:216px;
-        opacity:0.4;
-        filter:alpha(opacity=40);
-        position:absolute;
-        display:block;
-        background:#000;
-        z-index:1;
-        top:0;
-        left:0;display: none
+	width:287px;
+	height:216px;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	position:absolute;
+	display:block;
+	background:#000;
+	z-index:1;
+	top:0;
+	left:0;display: none
 }
 .cont1 ul.yy2 li .text{ float:right; color:#ea0c6a; vertical-align:middle}
 .cont1 ul.yy2 li .imgplay{position:absolute;width:287px;
-        height:216px;top:0px;overflow:hidden; left:100px; padding-top:20%; z-index:22}
+	height:216px;top:0px;overflow:hidden; left:100px; padding-top:20%; z-index:22}
 .cont1 ul.yy2 li .imgplay a{display:block; height:216px}
-.wxcont li{ float:left;width:173px;  margin:0 0 10px 22px;  line-height:25px; position:relative}
+.wxcont li{ float:left;width:173px;  margin:0 0 10px 22px;  line-height:23px; position:relative}
 .wxcont li div{padding:9px; background:#f4b1c6; display:block}
 .wxcont li img{width:153px; height:115px;}
 .wxcont li a img{ border:1px solid #fff}
 .wxcont li a:hover img{ border:1px solid #ea0c6a}
-.wxcont li .textbg{ height:27px; left: -9px; top: 89px;opacity:0.7;filter:alpha(opacity=70); position:absolute; display:block; background:#000; z-index:1; width:153px; margin:0 10px}
+.wxcont li .textbg{ height:27px; top:98px;opacity:0.7;filter:alpha(opacity=70); position:absolute; display:block; background:#000; z-index:1; width:153px; margin:0 10px}
 .wxcont li .text{ font-family:"微软雅黑"; text-align:right;color:#fff; line-height:27px;top:98px;right:15px;position:absolute; z-index:3; }
 .wxcont li .text img{ width:13px; height:11px;}
 .kugoucont li{ float:left;width:172px;margin:0 0 10px 22px;  line-height:30px; position:relative;padding:3px; background:#f4b1c6; display:block; margin:0 0 20px 20px; overflow:hidden}
 .kugoucont .textbg2{
-width:172px;        height:96px;
-        opacity:0.4;
-        filter:alpha(opacity=40);
-        position:absolute;
-        display:block;
-        background:#000;
-        z-index:1;
-        top:3px;
-        left:3px;
+width:172px;	height:96px;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	position:absolute;
+	display:block;
+	background:#000;
+	z-index:1;
+	top:3px;
+	left:3px;
 }
 .kugoucont .imgplay{position:absolute;width:172px;
-        height:96px;top:0px;overflow:hidden; left:60px; padding-top:15%; z-index:22}
+	height:96px;top:0px;overflow:hidden; left:60px; padding-top:15%; z-index:22}
 .kugoucont .imgplay a{display:block; height:216px}
 #list{position:absolute;display:inline; margin-left:-20px;}
 #list ul {margin:0px;padding:0px; float:left;}
@@ -130,10 +130,10 @@ width:172px;        height:96px;
 .butmar2{ padding:0  0 15px 62px; margin-top:10px; position:relative}
 .butmar3{ margin:10px 0 20px 66px;}
 .butmar2 a{
-        position:absolute;
-        right:18px;
-        top:-2px;
-        color:#d62e62
+	position:absolute;
+	right:18px;
+	top:-2px;
+	color:#d62e62
 }
 .window{ font-family:"微软雅黑";width:300px;border:1px solid #e6e6e6; background:#fff; margin:0 auto}
 .window .tit5{ position:relative}
@@ -158,7 +158,7 @@ width:172px;        height:96px;
 .loginbg .from label{width:63px;}
 .msg3{ background:url(../images/loginicon2.png) no-repeat 0 16px; line-height:20px; padding-left:19px; position:absolute; right:-235px; top:-1px; width:256px} 
 .msg4{ background:url(../images/loginicon2.png) no-repeat0 -78px; line-height:21px; padding-left:19px; position:absolute; right:-235px; top:10px; width:256px} 
-#blackbg{ display: none; position: absolute; z-index: 1000; height: 100%; width: 100%; opacity:0.7;filter:alpha(opacity=70);        left:0;        background:#000;}
+#blackbg{ display: none; position: absolute; z-index: 1000; height: 100%; width: 100%; opacity:0.7;filter:alpha(opacity=70);	left:0;	background:#000;}
 #windowbg{display: none; position: absolute; height: 100%; width: 100%; padding-top: 20%; z-index: 1001; left: 0px; top: 0px;
 }
 .f12{ font-size:12px}
@@ -170,7 +170,7 @@ width:172px;        height:96px;
 /*主播*/
 .zhub{ background:#ffeef4; padding:0 15px 20px 15px}
 .zhub li { float:left; line-height:25px; text-align:center; padding:0 7px;}
-.zhub li img{ width:85px; height:85px; display:block}
+.zhub li img{ width:107px; height:87px; display:block}
 .cont1 ul.ljf2 li{margin:0 0 20px 36px;float:left;line-height:24px; position: relative}
 .ljf2{ border-top:4px solid #3f0010;}
 .ljf2 h4{ line-height:40px; font-size:20px; font-family:"微软雅黑";padding-left:35px; color:#ea0c6a; background:#ffb2ca; margin-bottom:30px}
