@@ -10,13 +10,6 @@
 <script src="${ctx}/js/jquery.js" type="text/javascript"></script>
 <script src="${ctx}/js/jquery.cookie.js" type="text/javascript"></script>
 </head>
-<%
-String chargecount = (String)request.getAttribute("chargecount");
-int liubi=0;
-if(StringUtils.isNotEmpty(chargecount)){
-	liubi = Integer.parseInt(chargecount)*100;
-}
-%>
 <body class="czbody">
 <div class="czhead">
   <div class="iBody">
@@ -70,11 +63,11 @@ if(StringUtils.isNotEmpty(chargecount)){
     <form name="priceform">
       <p class="pl-20">账户余额：<strong class="red f15">0</strong></p>
       <p class="pl-20">充值账号：<span id="un">${userkey}</span> </p>
-       <p class="pl-20">六币数量：
-       <span id="money"><%=liubi %></span>
+       <p class="pl-20">豆数量：
+       <span>${price*100 }</span>
       </p >
       <p class="pl-20">支付金额：
-       <span id="price"><%=chargecount %></span>
+       <span id="price">${price }</span>
       </p>
       </form>
       <p class="line"></p>
@@ -91,10 +84,10 @@ if(StringUtils.isNotEmpty(chargecount)){
    <div class="chongzhicont" id="cz5">
    	<form action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
 	  	 <input type="hidden" name="chargeType" value="5"/>
-     	<input  name="transAmt" type="hidden" value="<%=chargecount%>"/>
+     	<input  name="transAmt" type="hidden" value="${price }"/>
      	 <input name="body" type="hidden" value="body"/>
       	<input name="show_url" type="hidden" value="show_url"/>
-      	<input name="subject" type="hidden" value="六币"/>
+      	<input name="subject" type="hidden" value="${source }"/>
        	<input id="bill_no" name="bill_no" type="hidden" value="${orderid}"/>
        	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
        <p><label class="lab"><input name="payment_method" type="radio" value="14" /><img src="${ctx}/images/99bill.jpg" width="90" height="27" /></label><label class="lab"><input name="payment_method" type="radio" value="1" /><img src="${ctx}/images/yibao.jpg" width="90" height="27"/></label><label class="lab"><input name="payment_method" type="radio" value="21" /><img src="${ctx}/images/icbc.jpg" width="90" height="27"/></label><br />
@@ -111,10 +104,10 @@ if(StringUtils.isNotEmpty(chargecount)){
      <div class="chongzhicont" id="cz6">
      <form action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
 	  	 <input type="hidden" name="chargeType" value="6"/>
-     	<input  name="transAmt" type="hidden" value="<%=chargecount%>"/>
+     	<input  name="transAmt" type="hidden" value="${price }"/>
      	 <input name="body" type="hidden" value="body"/>
       	<input name="show_url" type="hidden" value="show_url"/>
-      	<input name="subject" type="hidden" value="六币"/>
+      	<input name="subject" type="hidden" value="${source }"/>
        	<input id="bill_no" name="bill_no" type="hidden" value="${orderid}"/>
        	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
        <p><label class="lab"><input name="payment_method" type="radio" value="41" /><img src="${ctx}/images/cft.jpg" width="90" height="27" /></label></p>
@@ -128,12 +121,12 @@ if(StringUtils.isNotEmpty(chargecount)){
 	 <div class="chongzhicont" id="cz1">
 	  <form name="chongzhi5" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
 	  	 <input type="hidden" name="chargeType" value="0"/>
-     	<input id="transAmt3" name="transAmt" type="hidden" value="<%=chargecount%>"/>
+     	<input id="transAmt3" name="transAmt" type="hidden" value="${price }"/>
      	<input id="" name="" type="hidden" value=""/>
      	 <input name="body" type="hidden" value="body"/>
       	<input name="show_url" type="hidden" value="show_url"/>
       	<input name="payment_method" type="hidden" value="13"/>
-      	<input name="subject" type="hidden" value="六币"/>
+      	<input name="subject" type="hidden" value="${source }"/>
        	<input id="bill_no" name="bill_no" type="hidden" value="${orderid}"/>
        	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
        <p><label class="lab"><input name="" type="radio" value="" /><img src="${ctx}/images/log-logo5.jpg" /></label></p>
@@ -146,8 +139,8 @@ if(StringUtils.isNotEmpty(chargecount)){
 	 <div class="chongzhicont" id="cz2">
 	 <form name="chongzhi4" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
      <input type="hidden" name="chargeType" value="4"/>
-      <input id="transAmt2" name="transAmt" type="hidden" value="<%=chargecount%>"/>
-      <input name="subject" type="hidden" value="六币"/>
+      <input id="transAmt2" name="transAmt" type="hidden" value="${price }"/>
+      <input name="subject" type="hidden" value="${source }"/>
        <input id="bill_no1" name="bill_no" type="hidden" value="${orderid}"/>
         <input id="login_name1" name="login_name" type="hidden" value="${userkey}"/>
        <p><label class="lab"><input name="payment_method" type="radio" value="36" /><img src="${ctx}/images/log-logo1.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="37" /><img src="${ctx}/images/log-logo2.jpg" /></label><label class="lab"><input name="payment_method" type="radio" value="" /><img src="${ctx}/images/log-logo3.jpg" /></label></p>
@@ -173,7 +166,7 @@ if(StringUtils.isNotEmpty(chargecount)){
      	<input id="accountId" name="accountId" type="hidden" value="${userkey}"/>
      	<input id="userkey" name="userkey" type="hidden" value="${userkey}"/>
      	<input id="orderid" name="orderid" type="hidden" value="${orderid}"/>
-     	<input id="transAmt" name="transAmt" type="hidden" value="<%=liubi%>"/>
+     	<input id="transAmt" name="transAmt" type="hidden" value="${price }"/>
 		
         <p><label>卡　号：</label>
          <input name="cardNo" type="text" class="input1 wit1" id="textfield" size="21" />
@@ -204,7 +197,7 @@ if(StringUtils.isNotEmpty(chargecount)){
      	<input id="accountId1" name="accountId" type="hidden" value="${userkey}"/>
      	<input id="userkey1" name="userkey" type="hidden" value="${userkey}"/>
      	<input id="orderid1" name="orderid" type="hidden" value="${orderid}"/>
-     	<input id="transAmt1" name="transAmt" type="hidden" value="<%=liubi%>"/>
+     	<input id="transAmt1" name="transAmt" type="hidden" value="${price }"/>
      <span name="fail2"></span>
      <input name="typeId" type="hidden" value="2"/>
 	

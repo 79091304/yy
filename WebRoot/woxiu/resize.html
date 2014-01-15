@@ -1,0 +1,26 @@
+<html>
+<head>
+<script type="text/javascript">
+document.domain = 'mm.yue.ifeng.com';
+function gQS(n) {
+var reg = new RegExp("(^|&)" + n + "=([^&]*)(&|$)", "i");
+var r = window.location.search.substr(1).match(reg);
+
+if (r != null)
+return unescape(r[2]);
+return null;
+}
+var w = gQS("width");
+var h = gQS("height");
+
+try {console.info(w,h);
+	top.resizeIframe({"w":w, "h": h});
+} catch(e) {console.info(e);}
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

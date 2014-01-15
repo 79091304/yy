@@ -86,12 +86,12 @@ li .heart{position:absolute; z-index:3;top:101px; left:10px; width:16px; height:
 .cont1 ul.yy2 li .imgplay{position:absolute;width:287px;
         height:216px;top:0px;overflow:hidden; left:100px; padding-top:20%; z-index:22}
 .cont1 ul.yy2 li .imgplay a{display:block; height:216px}
-.wxcont li{ float:left;width:173px;  margin:0 0 10px 22px;  line-height:35px; position:relative}
+.wxcont li{ float:left;width:173px;  margin:0 0 10px 22px;  line-height:25px; position:relative}
 .wxcont li div{padding:9px; background:#f4b1c6; display:block}
 .wxcont li img{width:153px; height:115px;}
 .wxcont li a img{ border:1px solid #fff}
 .wxcont li a:hover img{ border:1px solid #ea0c6a}
-.wxcont li .textbg{ height:27px; top:98px;opacity:0.7;filter:alpha(opacity=70); position:absolute; display:block; background:#000; z-index:1; width:153px; margin:0 10px}
+.wxcont li .textbg{ height:27px; left: -9px; top: 89px;opacity:0.7;filter:alpha(opacity=70); position:absolute; display:block; background:#000; z-index:1; width:153px; margin:0 10px}
 .wxcont li .text{ font-family:"微软雅黑"; text-align:right;color:#fff; line-height:27px;top:98px;right:15px;position:absolute; z-index:3; }
 .wxcont li .text img{ width:13px; height:11px;}
 .kugoucont li{ float:left;width:172px;margin:0 0 10px 22px;  line-height:30px; position:relative;padding:3px; background:#f4b1c6; display:block; margin:0 0 20px 20px; overflow:hidden}

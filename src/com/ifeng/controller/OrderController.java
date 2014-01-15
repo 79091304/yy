@@ -65,8 +65,10 @@ public class OrderController {
 			order.setSource(Instant.CHARGE_SOURCE_LIU);
 			int i = orderService.createOrder(order);
 			request.setAttribute("userkey", userkey);
-			request.setAttribute("chargecount", chargecount);
+			request.setAttribute("price", chargecount);
 			request.setAttribute("orderid", orderid);
+			request.setAttribute("source", "六币");
+			
 			if (i > 0) {
 				log.info("下单，订单号是： " + orderid);
 			}
@@ -151,6 +153,7 @@ public class OrderController {
 				//验证token
 				if(mytoken.equals(token)){
 					//查询用户支付记录
+					int insource = Integer.parseInt(source);
 					List<Order> orders = orderService.queryOrderByUser(uid);
 					request.setAttribute("orders", orders);
 					String guid = Util.getGuid(request);
@@ -165,11 +168,12 @@ public class OrderController {
 					order.setState(Instant.ORDER_EMPTY);
 					order.setGuid(guid);
 					order.setUserkey(uid);
-					order.setSource(Integer.parseInt(source));
+					order.setSource(insource);
 					int i = orderService.createOrder(order);
 					request.setAttribute("userkey", uid);
-					request.setAttribute("chargecount", price);
+					request.setAttribute("price", price);
 					request.setAttribute("orderid", orderid);
+					request.setAttribute("source", Util.getPaySubject(insource));
 					if (i > 0) {
 						log.info("下单成功，订单号是： " + orderid);
 					}

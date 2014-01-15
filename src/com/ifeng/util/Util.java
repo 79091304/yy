@@ -228,4 +228,24 @@ public class Util {
 		}
 		return key;
 	}
+	
+	/**
+	 * 凤凰支付主题
+	 * @param source
+	 * @return
+	 */
+	public static String getPaySubject(int source){
+		String strSource = null;//充值
+		switch (source) {
+		case 1:
+			strSource = "六币";
+			break;
+		case 2:
+			strSource = "秀豆";
+			break;
+		default:
+			break;
+		}
+		return strSource;
+	}
 }

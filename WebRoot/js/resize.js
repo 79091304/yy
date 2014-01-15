@@ -8,7 +8,7 @@ var s = {
     p : true,
     i : "url",
     a : null,
-    u : "http://mm.yue.ifeng.com/woxiu/main.html",
+    u : "http://mm.yue.ifeng.com/woxiu/resize.html",
 
     reIframe : function (o) {
         this.a = document.getElementById(this.i);
