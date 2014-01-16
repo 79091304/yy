@@ -126,7 +126,7 @@ function ChangeValidCode(id){
   </script> 
 </div>
 <div class="navi">
-  <p class="iBody"><a href="#" class="cur">主编精选</a><a href="liu_html/main.html#_yue_liu">六间房</a><a href="woxiu/main.html#_yue_woxiu">我秀</a></p>
+  <p class="iBody"><a href="#" class="cur">主编精选</a><a href="liu_html/main.html#_yue_liu">六间房<img src="images/hot.gif" alt="最热" /></a><a href="woxiu/main.html#_yue_woxiu">我秀<img src="images/new.gif" alt="最新" /></a></p>
 </div>
 <div class="imgnews">
   <div id="list">
