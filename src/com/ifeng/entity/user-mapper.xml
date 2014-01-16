@@ -50,10 +50,14 @@
 	
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="User">
-		insert into u_user(username,nickname,password,state,type,guid,createdAt,changedAt)
-		values (#{username},
+		insert into u_user(username,email,nickname,password,state,type,guid,createdAt,changedAt)
+		values 
+		(
+		#{username},
+		#{email},
 		#{nickname},
-		#{password}, #{state},
+		#{password}, 
+		#{state},
 		#{type},
 		#{guid},null,
 		 #{changedAt}
