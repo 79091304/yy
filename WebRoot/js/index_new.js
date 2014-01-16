@@ -20,14 +20,12 @@
 				url:'log/login.htm',
 				data:'',
 				success:function(data){
-					var name = data.split("uid=");
-					var end = name[1].indexOf("&");
-					var dname = name[1].substring(0,end);
+					var name = data.split("nickname=");
 					if(name.length>1){
 						logo_in();
 						$("#windowbg").hide();
 						$("#welcome1").hide();
-						$("#ud").html("<a target='_blank' href='http://my.ifeng.com' > <strong>欢迎您：<u class='red' >"+dname+"</u> </strong></a> [<a href='#'onclick='removeCookie()'>退出</a>] ");
+						$("#ud").html("<a target='_blank' href='http://my.ifeng.com' > <strong>欢迎您：<u class='red' >"+name[1]+"</u> </strong></a> [<a href='#'onclick='removeCookie()'>退出</a>] ");
 					}else{
 					}
 					
