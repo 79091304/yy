@@ -82,7 +82,7 @@
       </div>
       
    <div class="chongzhicont" id="cz5">
-   	<form action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
+   	<form id="f1" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
 	  	 <input type="hidden" name="chargeType" value="5"/>
      	<input  name="transAmt" type="hidden" value="${price }"/>
      	 <input name="body" type="hidden" value="body"/>
@@ -96,13 +96,13 @@
 			<label class="lab"><input name="payment_method" type="radio" value="31" /><img src="${ctx}/images/cib.jpg" width="90" height="27"/></label>
 		</p>
       <p class="butmar1">
-        <input name="" type="submit" class="but1" value="提交" />
+        <input name="f1"  type="button" class="but1" value="提交" />
       </p>
       </form>
    </div>
       
      <div class="chongzhicont" id="cz6">
-     <form action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
+     <form id="f2" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
 	  	 <input type="hidden" name="chargeType" value="6"/>
      	<input  name="transAmt" type="hidden" value="${price }"/>
      	 <input name="body" type="hidden" value="body"/>
@@ -112,14 +112,14 @@
        	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
        <p><label class="lab"><input name="payment_method" type="radio" value="41" /><img src="${ctx}/images/cft.jpg" width="90" height="27" /></label></p>
       <p class="butmar1">
-        <input name="" type="submit" class="but1" value="提交" />
+        <input  name="f2" type="button" class="but1" value="提交" />
       </p>
       </form>
      </div>
       
       
 	 <div class="chongzhicont" id="cz1">
-	  <form name="chongzhi5" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
+	  <form id="f3" name="chongzhi5" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
 	  	 <input type="hidden" name="chargeType" value="0"/>
      	<input id="transAmt3" name="transAmt" type="hidden" value="${price }"/>
      	<input id="" name="" type="hidden" value=""/>
@@ -131,13 +131,13 @@
        	 <input id="login_name" name="login_name" type="hidden" value="${userkey}"/>
        <p><label class="lab"><input name="" type="radio" value="" /><img src="${ctx}/images/log-logo5.jpg" /></label></p>
       <p class="butmar1">
-        <input name="" type="submit" class="but1" value="提交" />
+        <input name="f3" type="button" class="but1" value="提交" />
       </p>
       </form>
      </div>
 	 
 	 <div class="chongzhicont" id="cz2">
-	 <form name="chongzhi4" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
+	 <form id="f4" name="chongzhi4" action="<%=request.getContextPath() %>/charge/chargeByIfeng.htm" method="post">
      <input type="hidden" name="chargeType" value="4"/>
       <input id="transAmt2" name="transAmt" type="hidden" value="${price }"/>
       <input name="subject" type="hidden" value="${source }"/>
@@ -147,7 +147,7 @@
        <p>
 		<label class="lab"><input name="payment_method" type="radio" value="27" /><img src="${ctx}/images/log-logo4.jpg" /></label></p>
       <p class="butmar1">
-        <input name="" type="submit" class="but1" value="提交" />
+        <input name="f4" type="button" class="but1" value="提交" />
       </p>
 	</form>
    </div>
@@ -279,7 +279,7 @@
               $(myUrlTab).fadeIn(); // Show url tab content        
           }
         }
-    })()
+    })();
   </script> 
  
 <script language="javascript">
@@ -290,6 +290,8 @@
 	var res = "";
 	$(function(){
 	
+		check();
+		
 		$("#auth1").click(function(){
 			auth();
 		});
@@ -400,6 +402,28 @@
 			success:function(data){
 			}
 		});
+	}
+	
+	//充值方式检查
+	function check(){
+		$(".but1").each(function(){
+			$(this).click(function(){
+				var formId = $(this).attr('name');
+				var radioCheckedSize = 0;
+				radioCheckedSize = $('#'+formId+' input:checked').length;
+				if(radioCheckedSize == 0){
+					$('#'+formId).submit(alertChargeType());
+				}else{
+					//$('#'+formId).submit();
+					document.getElementById(formId).submit();
+				}
+			});
+		});
+	}
+	
+	function alertChargeType(){
+		alert('请选择支付方式');
+		return false;
 	}
 </script>
 <script>

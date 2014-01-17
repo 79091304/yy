@@ -1,6 +1,7 @@
 package com.ifeng.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifeng.common.Instant;
+import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.Order;
 import com.ifeng.service.OrderService;
 import com.ifeng.util.PaySubmitByUser;
@@ -34,42 +36,55 @@ public class ChargeController {
 
 	/**
 	 * 嗲用支付宝、手机卡支付接口
-	 * @param bill_no
-	 * @param login_name
-	 * @param body
-	 * @param transAmt
-	 * @param payment_method
+	 * @param bill_no 订单号
+	 * @param login_name 用户ID
+	 * @param body 
+	 * @param transAmt 金额
+	 * @param payment_method 接口方法
 	 * @param extra
-	 * @param mobile
-	 * @param chargeType
+	 * @param mobile 手机号
+	 * @param chargeType 充值类型
 	 * @param response
 	 */
 	@RequestMapping("chargeByIfeng")
 	public void chargeByIfeng(String bill_no, String login_name, String body,
 			String transAmt, String payment_method, String extra,
 			String mobile, String chargeType, HttpServletResponse response) {
-		String product_id = "1";
-		String subject = "liubi";
-		String return_url = "http://mm.yue.ifeng.com/chargeBack/getChargeResult.htm"; // 返回页面
-		String notify_url = "http://mm.yue.ifeng.com/chargeBack/notice.htm"; // 回调接口
-		String sign_type = "MD5";
-		String sign = "u7h39cn62";
-		String result = null;
 		try {
-			result = PaySubmitByUser.pay2(bill_no, login_name, product_id,
-					subject, body, transAmt, payment_method, return_url,
-					notify_url, extra, mobile, sign_type, sign);
-			if (result.startsWith("0")) {
-				response.sendRedirect(result.substring(1));
-				int i = orderService.modifyChargeType(bill_no,
-						Integer.parseInt(chargeType));
-				if (i > 0) {
-					log.info("调用凤凰支付接口 ，订单号: " + bill_no
-							+ ",price : " + transAmt);
-				}
-			} else {
-				log.info("调用凤凰支付接口失败 : " + bill_no + ",price : "
-						+ transAmt + ",login_name:" + login_name);
+		PrintWriter writer = null;
+			writer = response.getWriter();
+			if(StringUtils.isNotEmpty(bill_no)&&StringUtils.isNotEmpty(login_name)
+					&&StringUtils.isNotEmpty(transAmt)
+					&&StringUtils.isNotEmpty(payment_method)){
+				
+				String product_id = "1";
+				String subject = "liubi";
+				String return_url = "http://mm.yue.ifeng.com/chargeBack/getChargeResult.htm"; // 返回页面
+				String notify_url = "http://mm.yue.ifeng.com/chargeBack/notice.htm"; // 回调接口
+				String sign_type = "MD5";
+				String sign = "u7h39cn62";
+				String result = null;
+				
+					result = PaySubmitByUser.pay2(bill_no, login_name, product_id,
+							subject, body, transAmt, payment_method, return_url,
+							notify_url, extra, mobile, sign_type, sign);
+					if (result.startsWith("0")) {
+						response.sendRedirect(result.substring(1));
+						int i = orderService.modifyChargeType(bill_no,
+								Integer.parseInt(chargeType));
+						if (i > 0) {
+							log.info("调用凤凰支付接口 ，订单号: " + bill_no
+									+ ",price : " + transAmt);
+						}
+					} else {
+						log.info("调用凤凰支付接口失败 : " + bill_no + ",price : "
+								+ transAmt + ",login_name:" + login_name);
+					}
+			}else{
+				JSONObject jb = new JSONObject();
+				jb.put(ResponseMessage.CODE, ResponseMessage.CODE_EMPTY);
+				jb.put(ResponseMessage.MESSAGE, ResponseMessage.MSG_EMPTY);
+				writer.print(jb);
 			}
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
