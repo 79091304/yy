@@ -27,7 +27,7 @@ div:after, p:after, ul:after {content:".";display:block;clear:both;height:0;visi
 .headright a{ color:#000; margin:0 5px}
 .headright a:hover{ color:#000}
 .navi{ background:#3f0010; font: bold 15px/52px "微软雅黑" ; height:52px; clear:both}
-.navi a{ float:left; background:url(../images/icons.png) no-repeat right -600px; padding:0 20px; color:#cbcbcb; line-height:52px;border-right:1px solid #744753}
+.navi a{ float:left; background:url(../images/icons.png) no-repeat right -600px; padding:0 20px; color:#fff; line-height:52px;border-right:1px solid #744753}
 .navi a:hover,.navi a.cur{ color:#fd4f7f; background:url(../images/navibg1.png) no-repeat center bottom}
 .imgnews{ width:1000px; margin:0 auto; padding:18px 0 0 0; height:350px; position: relative}
 .conts{ margin-bottom:20px}

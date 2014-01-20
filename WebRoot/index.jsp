@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="凤凰音乐秀场汇集了中国最大，最精彩的真人互动视频直播社区。支持百万人同时在线K歌娱乐、视频交友。免费与数万个美女主播在线K歌聊天，赶快加入吧！" />
 <title>凤凰音乐美女秀场</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js" type="text/javascript"></script>
@@ -126,7 +127,7 @@ function ChangeValidCode(id){
   </script> 
 </div>
 <div class="navi">
-  <p class="iBody"><a href="#" class="cur">主编精选</a><a href="liu_html/main.html#_yue_liu">六间房<img src="images/hot.gif" alt="最热" /></a><a href="woxiu/main.html#_yue_woxiu">我秀<img src="images/new.gif" alt="最新" /></a></p>
+  <p class="iBody"><a href="#" class="cur">主编精选</a><a href="liu_html/main.html#_yue_liu">六间房<img src="images/hot.png" alt="最热" /></a><a href="woxiu/main.html#_yue_woxiu">我秀<img src="images/new.png" alt="最新" /></a></p>
 </div>
 <div class="imgnews">
   <div id="list">
@@ -159,7 +160,7 @@ function ChangeValidCode(id){
     </ul>
   </div>
   <div class="conts">
-    <h3><span>6.CN</span> 美女秀场<strong class="shaux"><a href="#"></a></strong></h3>
+    <h3><span>六间房</span> 美女秀场<strong class="shaux"><a href="#"></a></strong></h3>
     <div class="cont1">
       <ul class="ljf">
       	<jsp:include page="liu_html/rand_show.html" />
@@ -185,7 +186,7 @@ function ChangeValidCode(id){
   </div>
   
  <div class="conts">
-    <h3 class="woxiutitl"><span>WOXIU.COM</span> 我秀秀场<strong class="shaux"></strong></h3>
+    <h3 class="woxiutitl"><span>我秀</span> 美女秀场<strong class="shaux"></strong></h3>
     <ul class="wxcont">
        <jsp:include page="woxiu/rand_show.html" />
       </ul>

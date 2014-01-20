@@ -52,7 +52,7 @@
     <h4 class="tit4">投诉与建议</h4>
     <div class="conts" style="height:183px;">
       <p><img src="${ctx }/images/telephone.png" /> 4008109890 </p>
-      <p><img src="${ctx }/images/mail.png" /> 投诉与建议 </p>
+      <p><img src="${ctx }/images/mail.png" /><a href="wireless@ifeng.com"> 投诉与建议 </a></p>
       <p><span class="gray">工作时间：</span>08:00-23:00 </p>
     </div>
   </div>
@@ -234,7 +234,7 @@
 </div>
 	<div class="footer">
 		<span class="logo"><a href="http://mm.yue.ifeng.com"><img
-				src="${ctx }/images/footlogo.png" /></a></span>
+				src="${ctx }/images/logo.png" /></a></span>
 		<p>
 			<a href="http://www.ifeng.com/corp/about/">关于凤凰新媒体</a> |<a
 				href="http://mm.yue.ifeng.com
