@@ -38,9 +38,9 @@
    <table width="238" border="0" cellpadding="0" cellspacing="0">
    <c:forEach items="${orders }" var="order">
    		<tr>
-   			<td><fmt:formatDate value="${order.createdAt }" pattern="yyyyMMdd HH:mm:ss" /> </td>
-   			<td>${order.id }</td>
-   			<td>${order.price }</td>
+   			<td><fmt:formatDate value="${order.createdAt }" pattern="MM/dd HH:mm:ss" /> </td>
+   			<td width="75">${order.id }</td>
+   			<td><span class="red">${order.price }</span>元</td>
    			<td>${order.state == 2 ? '成功':'失败' }</td>
    		</tr>
    </c:forEach>
