@@ -12,10 +12,7 @@ return null;
 }
 var w = gQS("width");
 var h = gQS("height");
-
-try {console.info(w,h);
-	top.resizeIframe({"w":w, "h": h});
-} catch(e) {console.info(e);}
+top.resizeIframe({"w":w, "h": h});
 
 
 

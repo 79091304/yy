@@ -1,6 +1,7 @@
 package com.ifeng.controller.cron;
 
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -33,7 +34,7 @@ public class WoxiuRandShowController {
 
 	private MemCachedManager1 cache = MemCachedManager1.getInstance();
 
-	private static final String ONE = "<li><div><a href='http://mm.yue.ifeng.com/woxiu/main.html?roomid=";
+	private static final String ONE = "<li><div><a href='http://mm.yue.ifeng.com/woxiu/main.html?";
 
 	private static final String TWO = "'><img src='";
 
@@ -47,11 +48,6 @@ public class WoxiuRandShowController {
 
 	private static final String SEVERN = "</span> </li>";
 	
-	//
-	//<li>
-    //<div><a href="#"><img src="images/temp3.jpg" /></a></div>
-    //<a href="#">小迷糊</a><span class="textbg"></span> <span class="text"><img src="images/icon2.png" alt="" /> 2451人观看</span></li>
-
 	
 	@RequestMapping("randShowFileWriter")
 	public void randShowFileWriter(HttpServletResponse response){
@@ -70,9 +66,10 @@ public class WoxiuRandShowController {
 								String roomid = (String) jss.get("roomid");
 								String room_img = (String) jss.get("room_img");
 								String starttime = (String) jss.get("starttime");
+								String frameurl = "&"+URLEncoder.encode("frameurl=http://www.woxiu.com/coop/ifeng.php?roomid="+roomid);
 								int audience = jss.getInt("audience");
-									sbt.append(ONE).append(roomid).append(TWO).append(room_img)
-											.append(THREE).append(roomid).append("'>").append(username).append(FORE)
+									sbt.append(ONE).append("roomid=").append(roomid).append(frameurl).append(TWO).append(room_img)
+											.append(THREE).append(roomid).append(frameurl).append("'>").append(username).append(FORE)
 											.append(audience).append("人观看").append(FIVE)
 											.append(SIX).append(starttime).append(SEVERN);
 							}
