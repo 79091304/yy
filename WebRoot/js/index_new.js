@@ -33,6 +33,10 @@
 			});
 		}
 		
+		hideHalf('.zhub');
+		hideHalf('.ljf');
+		hideHalf('.wxcont');
+		
 	});
 	
 	function removeCookie(){
@@ -84,7 +88,21 @@
 		});
 	}
 	
-	
+	//隐藏一半
+	function hideHalf(clazz){
+		var size = $(clazz).children('li').length;
+		$(clazz).children('li').each(function(index){
+			if(index>(size/2-1)){
+				$(this).hide();
+			}
+		});
+	}
+	//切换隐藏和显示
+	function changeToggle(obj){
+		$(obj).children('li').each(function(){
+			$(this).toggle();
+		});
+	}
 	
 	//邮箱注册
 	function submitReg(){

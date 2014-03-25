@@ -64,12 +64,10 @@ public class LiuRandShowController {
 			String zbStr = (String) cache.get(RANDZB);
 			JSONArray jsonArray = JSONArray.fromObject(zbStr);
 			StringBuffer sbf = new StringBuffer();
-			StringBuffer sbt = new StringBuffer();
-			int totalSize = jsonArray.size();
 
 			log.info("生成随机主播HTML");
 			// 生成六间房上面的随机主播html
-			for (int i = 0; i < 12; i++) {
+			for (int i = 0; i < 24; i++) {
 				Object job = jsonArray.get(i);
 				if (job instanceof JSONObject) {
 					JSONObject jss = (JSONObject) job;

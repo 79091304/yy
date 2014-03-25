@@ -1,5 +1,7 @@
 package junit.test;
 
+import com.ifeng.util.Util;
+
 
 
 public class ResourcesServiceImplTest {
@@ -13,4 +15,8 @@ public class ResourcesServiceImplTest {
 		        bean.getUserResources("1");
 	}*/
 
+	public static void main(String[] args) {
+		String result = Util._callHttp("http://mm.yue.ifeng.com:8080/test/user/getUserInfoByToken.htm?", "source=fh&token=548704");
+		System.out.println(result);
+	}
 }

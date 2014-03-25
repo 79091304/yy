@@ -77,9 +77,9 @@ public class CacheController {
 				Collections.sort(jsa,new JSONObjectComparetor());
 				boolean t;
 				if(null == cache.get("woxiuZhubo")){
-					 t = cache.add("woxiuZhubo", jsa.subList(0, 21).toString());
+					 t = cache.add("woxiuZhubo", jsa.subList(0, 30).toString());
 				}else{
-					 t = cache.replace("woxiuZhubo", jsa.subList(0, 21).toString());
+					 t = cache.replace("woxiuZhubo", jsa.subList(0, 30).toString());
 				}
 				log.info("更新我秀主播: "+t);
 			}

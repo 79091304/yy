@@ -52,7 +52,7 @@ public class LiuTuiShowController {
 			String zbStr = (String)cache.get(RANDZB);//
 			JSONArray jsonArray = JSONArray.fromObject(zbStr);
 			StringBuffer sbf = new StringBuffer();//
-			for(int i=jsonArray.size()-8; i<jsonArray.size(); i++){
+			for(int i=jsonArray.size()-16; i<jsonArray.size(); i++){
 				Object job =jsonArray.get(i);
 				if(job instanceof JSONObject){
 					JSONObject jss = (JSONObject)job;

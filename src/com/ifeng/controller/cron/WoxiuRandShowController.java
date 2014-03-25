@@ -58,7 +58,7 @@ public class WoxiuRandShowController {
 			StringBuilder sbt = new StringBuilder();
 			String jstr = (String)cache.get("woxiuZhubo");
 			JSONArray jsonArray = JSONArray.fromObject(jstr);
-						for (int i = 0; i < 15; i++) {
+						for (int i = 0; i < 30; i++) {
 							Object job = jsonArray.get(i);
 							if (job instanceof JSONObject) {
 								JSONObject jss = (JSONObject) job;
