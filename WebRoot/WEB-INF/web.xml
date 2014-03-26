@@ -49,6 +49,15 @@
 	</servlet-mapping>
 	
 
+ <servlet>
+    <servlet-name>ImageServlet</servlet-name>
+    <servlet-class>com.ifeng.util.ImageServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ImageServlet</servlet-name>
+    <url-pattern>/imageServlet</url-pattern>
+  </servlet-mapping>
 	
 	<!-- 对于请求的get方法，解决乱码问题 -->
 	<filter>

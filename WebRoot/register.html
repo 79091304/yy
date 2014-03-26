@@ -7,8 +7,7 @@
 <meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
 <link rel="stylesheet" type="text/css" href="css/register1.css">
 <link rel="stylesheet" type="text/css" href="css/register2.css">
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="js/test.js"></script>
 <body>
 <div class="header">
     <div class="wrap">
@@ -61,7 +60,7 @@
 					<div class="form-item clearfix">
 						<label>验证码：</label>
 						<input class="inp-wst" type="text" name="verify">
-						<span class="code"><img onclick="this.src = &#39;/verify.php?t=&#39;+Math.random();" src="./register_files/verify.php"></span>
+						<span class="code"><img title="点击更换" onclick="javascript:refresh(this);" src="imageServlet"></span>
 					</div>
 					<div class="login-form-btn">
 						<input type="submit" value="立即注册">
@@ -74,6 +73,11 @@
 					</div>
 				</form>
 				<script>
+				
+				 function refresh(obj) {
+				        obj.src = "imageServlet?"+Math.random();
+				    }
+				
 					var is_submiting = false;
 					function jmzgetLength(str) {
 						var realLength = 0, len = str.length, charCode = -1;
@@ -86,11 +90,7 @@
 					} 
 					$("#JS-user_register_form").bind("submit", function(event){
 						if(is_submiting) return false;
-						var checkbox = parseInt($("#JS-user_register_form").find("input[name='checkbox']:checked").val());
-						if(checkbox!==1) {
-							wx.alert('请阅读并同意众筹网服务协议');
-							return false;
-						}
+						
 						var email = $.trim($("#JS-user_register_form").find("input[name='email']").val());
 						var user_pwd = $.trim($("#JS-user_register_form").find("input[name='user_pwd']").val());
 						var confirm_user_pwd = $.trim($("#JS-user_register_form").find("input[name='confirm_user_pwd']").val());
