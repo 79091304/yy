@@ -12,15 +12,11 @@ public class User implements java.io.Serializable {
 	
 	private String username;
 	
-	private String nickname;
-	
 	private String password;
 	
 	private String email;
 	
 	private int state; 
-	
-	private String guid;//凤凰网id
 	
 	private Date createdAt;
 	
@@ -96,21 +92,5 @@ public class User implements java.io.Serializable {
 		this.state = state;
 	}
 
-	public String getNickname() {
-		return nickname;
-	}
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
-	public String getGuid() {
-		return guid;
-	}
-
-	public void setGuid(String guid) {
-		this.guid = guid;
-	}
-	
 	
 }

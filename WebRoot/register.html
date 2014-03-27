@@ -18,7 +18,7 @@
         </div>
                 <div class="quick-links">已有账号 <a class="red" href="http://www.zhongchou.cn/user-login">直接登录</a></div>
                 
-    </div>
+    </div> 
 </div>
 <div class="main">
 	<div class="wrap">
@@ -117,13 +117,13 @@
 							return false;
 						}
 						is_submiting = true;
-						var ajaxurl = '/user-do_register';
-						var query = new Object();
-						query.verify = verify;
-						query.email = email;
-						query.user_name = user_name;
-						query.user_pwd = user_pwd;
-						query.confirm_user_pwd = confirm_user_pwd;
+						var ajaxurl = '/user/register.htm';
+						var user = new Object();
+						user.verify = verify;
+						user.email = email;
+						user.username = user_name;
+						user.password = user_pwd;
+						user.confirm_user_pwd = confirm_user_pwd;
 						$.ajax({ 
 							url: ajaxurl,
 							dataType: "json",
@@ -135,7 +135,7 @@
 								{
 									ag_dfa12send(email);
 									wx.alert("注册邮件已发出请查收", function() {
-										window.location.href = "/user-login";
+										window.location.href = "/user/login.htm";
 									});
 								} else {
 									if (ajaxobj.info != "") {
