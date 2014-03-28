@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="../common/taglib.jsp" %>   
 <!DOCTYPE html>
 <!-- saved from url=(0034)http://www.zhongchou.cn/user-login -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

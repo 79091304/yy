@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="../common/taglib.jsp" %>    
 <!DOCTYPE html>
 <!-- saved from url=(0037)http://www.zhongchou.cn/user-register -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -5,9 +8,10 @@
 <title>用户注册-爱儿网-中国最具影响力的幼儿园平台</title>
 <meta name="keywords" content="众筹 创业 项目 投资 支持">
 <meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
-<link rel="stylesheet" type="text/css" href="css/register1.css">
-<link rel="stylesheet" type="text/css" href="css/register2.css">
-<script type="text/javascript" src="js/test.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx }/css/register1.css">
+<link rel="stylesheet" type="text/css" href="${ctx }/css/register2.css">
+<script type="text/javascript" src="${ctx }/js/test.js"></script>
+<script type="text/javascript" src="${ctx }/js/jquery.json-2.4.min.js"></script>
 <body>
 <div class="header">
     <div class="wrap">
@@ -60,7 +64,7 @@
 					<div class="form-item clearfix">
 						<label>验证码：</label>
 						<input class="inp-wst" type="text" name="verify">
-						<span class="code"><img title="点击更换" onclick="javascript:refresh(this);" src="imageServlet"></span>
+						<span class="code"><img title="点击更换" onclick="javascript:refresh(this);" src="../imageServlet"></span>
 					</div>
 					<div class="login-form-btn">
 						<input type="submit" value="立即注册">
@@ -117,7 +121,7 @@
 							return false;
 						}
 						is_submiting = true;
-						var ajaxurl = '/user/register.htm';
+						var ajaxurl = './register.htm';
 						var user = new Object();
 						user.verify = verify;
 						user.email = email;
@@ -135,7 +139,7 @@
 								{
 									ag_dfa12send(email);
 									wx.alert("注册邮件已发出请查收", function() {
-										window.location.href = "/user/login.htm";
+										window.location.href = "./login.htm";
 									});
 								} else {
 									if (ajaxobj.info != "") {

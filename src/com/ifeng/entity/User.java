@@ -24,6 +24,7 @@ public class User implements java.io.Serializable {
 	
 	private int type;
 	
+	private String verify;
 
 	public long getId() {
 		return id;
@@ -90,6 +91,14 @@ public class User implements java.io.Serializable {
 
 	public void setState(int state) {
 		this.state = state;
+	}
+
+	public String getVerify() {
+		return verify;
+	}
+
+	public void setVerify(String verify) {
+		this.verify = verify;
 	}
 
 	
