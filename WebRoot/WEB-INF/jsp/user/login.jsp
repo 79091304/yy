@@ -9,8 +9,8 @@
 <meta name="keywords" content="众筹 创业 项目 投资 支持">
 <meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
 
-<link rel="stylesheet" type="text/css" href="css/login1.css">
-<link rel="stylesheet" type="text/css" href="css/login2.css">
+<link rel="stylesheet" type="text/css" href="${ctx }/css/login1.css">
+<link rel="stylesheet" type="text/css" href="${ctx }/css/login2.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 <body>
 <div class="header">

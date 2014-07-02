@@ -44,13 +44,19 @@ public class UserServiceImpl implements UserService {
 		return userDao.countUser(userName, userPassword);
 	}
 
-	public User querySingleUser(String userName) {
-		return userDao.querySingleUser(userName);
-	}
+	
 
 	@Override
 	public List<User> queryOrderByDate(String startDate, String endDate) {
 		return userDao.getUserByDate(startDate, endDate);	
+	}
+
+	@Override
+	public boolean checkPhoneIsLegal(String phone) {
+		User user = userDao.queryByPhone(phone);
+		if(null == user)
+			return true;
+		return false;
 	}
 
 

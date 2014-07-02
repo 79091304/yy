@@ -16,6 +16,8 @@ public class User implements java.io.Serializable {
 	
 	private String email;
 	
+	private String phone;
+	
 	private int state; 
 	
 	private Date createdAt;
@@ -99,6 +101,14 @@ public class User implements java.io.Serializable {
 
 	public void setVerify(String verify) {
 		this.verify = verify;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	

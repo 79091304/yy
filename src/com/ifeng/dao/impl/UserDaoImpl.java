@@ -25,8 +25,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 		return (Integer)getSqlSession().selectOne(this.getClassName()+".countUser",map);
 	}
 
-	public User querySingleUser(String userName) {
-		return (User)getSqlSession().selectOne(this.getClassName()+".queryUserName",userName);
+	public User queryByUsername(String username) {
+		return (User)getSqlSession().selectOne(this.getClassName()+".queryByUsername",username);
 	}
 
 	@Override
@@ -45,6 +45,11 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 		}
 		
 		return getSqlSession().selectList(this.getClassName()+".getByDate",data);
+	}
+
+	@Override
+	public User queryByPhone(String phone) {
+		return getSqlSession().selectOne(this.getClassName()+".getByPhone",phone);
 	}
 
 	

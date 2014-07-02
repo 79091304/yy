@@ -35,10 +35,10 @@
 				<form method="post" id="JS-user_register_form">
 					<div class="form-item clearfix">
 						<label>我是：</label>
-						<select>
+						<select id = "type" name="type">
 								<option>请选择</option>
-								<option>家长</option>
-								<option>老师</option>
+								<option value="0">家长</option>
+								<option value="1">老师</option>
 						</select>
 					</div>
 					<div class="form-item clearfix">
@@ -96,12 +96,26 @@
 						if(is_submiting) return false;
 						
 						var email = $.trim($("#JS-user_register_form").find("input[name='email']").val());
+						var phone = $.trim($("#JS-user_register_form").find("input[name='phone']").val());
 						var user_pwd = $.trim($("#JS-user_register_form").find("input[name='user_pwd']").val());
 						var confirm_user_pwd = $.trim($("#JS-user_register_form").find("input[name='confirm_user_pwd']").val());
 						var user_name = $.trim($("#JS-user_register_form").find("input[name='user_name']").val());
 						var verify = $.trim($("#JS-user_register_form").find("input[name='verify']").val());
+						var type = $.trim($("#JS-user_register_form").find("input[name='type']").val());
+						if(type == ''){
+							wx.alert("请先认定一下我的身份");
+							return false;
+						}
 						if(email == '' || !wx.validator.rule.email(email)) {
 							wx.alert("邮箱格式不正确");
+							return false;
+						}
+						if(phone == '' || !wx.validator.rule.mobile(phone)) {
+							wx.alert("手机格式不正确");
+							return false;
+						}else{
+							//ajax验证手机号是否已经注册
+							wx.alert("手机号已经注册");
 							return false;
 						}
 						if(user_pwd.length < 6 || user_pwd.length > 16) {

@@ -19,8 +19,6 @@ public interface UserService{
 	
 	public int countUser(String userName,String userPassword);
 	
-	public User querySingleUser(String userName);
-	
 	/**
 	 * 查询用户
 	 * @param startDate
@@ -28,5 +26,12 @@ public interface UserService{
 	 * @return
 	 */
 	public List<User> queryOrderByDate(String startDate,String endDate);
+	
+	/**
+	 * 检查手机是否已经注册
+	 * @param phone
+	 * @return
+	 */
+	public boolean checkPhoneIsLegal(String phone);
 	
 }
