@@ -1,7 +1,7 @@
 package com.ifeng.common;
 
 public class Instant {
-
+  
 	public static final String GUID_EMPTY = "-1";
 	
 	public static final int USER_STATE_NOMAL = 1;//正常用户
