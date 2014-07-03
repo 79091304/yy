@@ -30,6 +30,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
         <property name="defaultEncoding" value="utf-8"/> 
         <property name="maxUploadSize" value="25474565"/>
     </bean>
+<!-- 
 <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
 	<property name="messageConverters">
 	<list>  
@@ -44,4 +45,5 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		</list>
 	</property>
 </bean>
+ -->
 </beans>
