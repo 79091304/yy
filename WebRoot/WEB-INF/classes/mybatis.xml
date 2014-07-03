@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+	<!-- 给实体Bean一个别名-->
+		<typeAlias type="com.ifeng.entity.User" alias="User" />
+		<typeAlias type="com.ifeng.entity.Order" alias="Order" />
+		<typeAlias type="com.ifeng.entity.OrderErrorLog" alias="OrderErrorLog" />
+	</typeAliases>
+</configuration>
