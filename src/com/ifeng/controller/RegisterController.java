@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifeng.common.ResponseMessage;
+import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
 
 @Controller
@@ -26,9 +27,20 @@ public class RegisterController {
 	}
 	
 	@RequestMapping("register")
-	public String register(String type,String email,String phone,String user_pwd,String user_name){
-		
-		return null;
+	public void register(String type,String email,String phone,String user_pwd,String user_name,HttpServletResponse response) throws IOException{
+		PrintWriter writer = response.getWriter();
+		User user = new User();
+		user.setType(Integer.parseInt(type));
+		user.setEmail(email);
+		user.setPhone(phone);
+		user.setUsername(user_name);
+		user.setPassword(user_pwd);
+		int result = userService.add(user);
+		if(result > 0){
+			writer.print(JSONObject.fromObject(ResponseMessage.SUCCESS));
+		}else{
+			writer.print(JSONObject.fromObject(ResponseMessage.FAIL));
+		}
 	}
 	
 	/**

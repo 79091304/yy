@@ -36,7 +36,7 @@
 					<div class="form-item clearfix">
 						<label>我是：</label>
 						<select id = "type" name="type">
-								<option>请选择</option>
+								<option value="">请选择</option>
 								<option value="0">家长</option>
 								<option value="1">老师</option>
 						</select>
@@ -77,10 +77,29 @@
 					</div>
 				</form>
 				<script>
+				$(function(){
+					
+				});
 				
 				 function refresh(obj) {
 				        obj.src = "imageServlet?"+Math.random();
 				    }
+				 
+					//ajax验证手机号是否已经注册
+				 function checkPhoneIslegal(){
+						$.ajax({ 
+						url: "./phoneIsLegal.htm",
+						dataType: "json",
+						data:"phone="+phone,
+						type: "POST",
+						success: function(ajaxobj){
+							if(ajaxobj.code ==1){
+								wx.alert("手机号已经注册");
+								return false;
+							}
+							}
+						});
+				 }
 				
 					var is_submiting = false;
 					function jmzgetLength(str) {
@@ -101,7 +120,7 @@
 						var confirm_user_pwd = $.trim($("#JS-user_register_form").find("input[name='confirm_user_pwd']").val());
 						var user_name = $.trim($("#JS-user_register_form").find("input[name='user_name']").val());
 						var verify = $.trim($("#JS-user_register_form").find("input[name='verify']").val());
-						var type = $.trim($("#JS-user_register_form").find("input[name='type']").val());
+						var type = $.trim($("#JS-user_register_form").find("select[name='type']").val());
 						if(type == ''){
 							wx.alert("请先认定一下我的身份");
 							return false;
@@ -114,9 +133,7 @@
 							wx.alert("手机格式不正确");
 							return false;
 						}else{
-							//ajax验证手机号是否已经注册
-							wx.alert("手机号已经注册");
-							return false;
+							
 						}
 						if(user_pwd.length < 6 || user_pwd.length > 16) {
 							wx.alert("密码必须是6到16位的字母或数字");
@@ -149,11 +166,11 @@
 							type: "POST",
 							success: function(ajaxobj){
 								is_submiting = false;
-								if(ajaxobj.status==1)
+								if(ajaxobj.code==1)
 								{
 									ag_dfa12send(email);
 									wx.alert("注册邮件已发出请查收", function() {
-										window.location.href = "./login.htm";
+										window.location.href = "../login/toLogin.htm";
 									});
 								} else {
 									if (ajaxobj.info != "") {

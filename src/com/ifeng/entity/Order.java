@@ -28,7 +28,6 @@ public class Order implements Serializable{
 	
 	private String guid;
 	
-	private String userkey;
 	
 	private int source;//来源
 
@@ -113,11 +112,5 @@ public class Order implements Serializable{
 		this.guid = guid;
 	}
 
-	public String getUserkey() {
-		return userkey;
-	}
-
-	public void setUserkey(String userkey) {
-		this.userkey = userkey;
-	}
+	
 }
