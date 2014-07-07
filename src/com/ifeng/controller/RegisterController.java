@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,6 +20,7 @@ import com.ifeng.service.UserService;
 @RequestMapping("/register/")
 public class RegisterController {
 	
+	@Autowired
 	private UserService userService;
 
 	@RequestMapping("toRegister")
@@ -27,14 +29,14 @@ public class RegisterController {
 	}
 	
 	@RequestMapping("register")
-	public void register(String type,String email,String phone,String user_pwd,String user_name,HttpServletResponse response) throws IOException{
+	public void register(String type,String email,String phone,String password,String username,HttpServletResponse response) throws IOException{
 		PrintWriter writer = response.getWriter();
 		User user = new User();
 		user.setType(Integer.parseInt(type));
 		user.setEmail(email);
 		user.setPhone(phone);
-		user.setUsername(user_name);
-		user.setPassword(user_pwd);
+		user.setUsername(username);
+		user.setPassword(password);
 		int result = userService.add(user);
 		if(result > 0){
 			writer.print(JSONObject.fromObject(ResponseMessage.SUCCESS));

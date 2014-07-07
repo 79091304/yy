@@ -153,16 +153,10 @@
 						}
 						is_submiting = true;
 						var ajaxurl = './register.htm';
-						var user = new Object();
-						user.verify = verify;
-						user.email = email;
-						user.username = user_name;
-						user.password = user_pwd;
-						user.confirm_user_pwd = confirm_user_pwd;
 						$.ajax({ 
 							url: ajaxurl,
 							dataType: "json",
-							data:user,
+							data:"verify="+verify+"&email="+email+"&username="+user_name+"&password="+user_pwd+"&type="+type+"&phone="+phone,
 							type: "POST",
 							success: function(ajaxobj){
 								is_submiting = false;
