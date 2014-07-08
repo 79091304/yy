@@ -17,6 +17,8 @@ public interface UserService{
 	
 	public User getById(long id);
 	
+	public User hasUser(String username,String email,String phone, String password) ;
+	
 	public int countUser(String userName,String userPassword);
 	
 	/**

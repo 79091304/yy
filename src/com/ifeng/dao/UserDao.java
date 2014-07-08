@@ -9,7 +9,9 @@ import com.ifeng.entity.User;
 
 public interface UserDao extends BaseDao<User>{
 	
-	public int countUser(String userName,String userPassword);
+	public int countUser(String username,String password);
+	
+	public User queryByPassword(String username,String email ,String phone,String password);
 	
 	public User queryByUsername(String username);
 	

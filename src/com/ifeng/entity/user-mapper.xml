@@ -47,6 +47,25 @@
 		</where>
 	</select>
 	
+	<!-- 查询用户是否可以登录-->
+	<select id="getByPassword" resultType="User" parameterType="java.util.HashMap">
+		select
+		<include refid="selectId" />
+		from u_user t where 1=1 
+			<if test="username != null and username  != ''">
+			    and t.username = '${username}'
+			</if>
+			<if test="email != null and email  != ''">
+			    and t.eamil = '${email}'
+			</if>
+			<if test="phone != null and phone  != ''">
+			    and t.phone = '${phone}'
+			</if>
+			<if test="password != null and password  != ''">
+			    and t.password = '${password}'
+			</if>
+	</select>
+	
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="User">
 		insert into u_user(username,phone,email,password,state,type,createdAt,changedAt)

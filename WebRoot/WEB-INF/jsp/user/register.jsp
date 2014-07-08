@@ -81,6 +81,11 @@
 					
 				});
 				
+				//发送邮件
+				function sendEmail(){
+					
+				}
+				
 				 function refresh(obj) {
 				        obj.src = "imageServlet?"+Math.random();
 				    }
@@ -162,7 +167,6 @@
 								is_submiting = false;
 								if(ajaxobj.code==1)
 								{
-									ag_dfa12send(email);
 									wx.alert("注册邮件已发出请查收", function() {
 										window.location.href = "../login/toLogin.htm";
 									});

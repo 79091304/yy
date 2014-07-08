@@ -22,12 +22,29 @@ public class ResponseMessage {
 	private int code = -1;
 	
 	private String msg = "fail";
+	
+	private Object data = null;
 
 	public ResponseMessage(int code, String msg) {
 		super();
 		this.code = code;
 		this.setMsg(msg);
 	}
+	
+	public ResponseMessage(int code, String msg,Object data) {
+		super();
+		this.code = code;
+		this.setMsg(msg);
+		this.data = data;
+	}
+	
+	public ResponseMessage(Object data) {
+		super();
+		this.code = 1;
+		this.setMsg(MSG_SUCCESS);
+		this.data = data;
+	}
+	
 	
 	
 	public static final ResponseMessage SUCCESS = new ResponseMessage(1, "success");

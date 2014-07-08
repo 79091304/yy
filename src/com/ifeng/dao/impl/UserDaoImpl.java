@@ -18,10 +18,10 @@ import com.ifeng.util.DateUtils;
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 {
 
-	public int countUser(String userName, String userPassword) {
+	public int countUser(String username, String password) {
 		Map<Object, Object> map = new HashMap<Object, Object>();
-		map.put("userName", userName);
-		map.put("userPassword", userPassword);
+		map.put("username", username);
+		map.put("password", password);
 		return (Integer)getSqlSession().selectOne(this.getClassName()+".countUser",map);
 	}
 
@@ -50,6 +50,24 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 	@Override
 	public User queryByPhone(String phone) {
 		return getSqlSession().selectOne(this.getClassName()+".getByPhone",phone);
+	}
+
+	@Override
+	public User queryByPassword(String username,String email ,String phone,String password) {
+		Map<String,String> data = new HashMap<String, String>();
+		if(StringUtils.isNotEmpty(username)){
+			data.put("username",username);
+		}
+		if(StringUtils.isNotEmpty(email)){
+			data.put("email", email);
+		}
+		if(StringUtils.isNotEmpty(phone)){
+			data.put("phone", phone);
+		}
+		if(StringUtils.isNotEmpty(password)){
+			data.put("password", password);
+		}
+		return getSqlSession().selectOne(this.getClassName()+".queryByPassword",data);
 	}
 
 	

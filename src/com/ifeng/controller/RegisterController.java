@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
+import com.ifeng.util.EmailUtils;
+import com.ifeng.util.Md5Tool;
 import com.ifeng.util.RandomValidateCode;
 
 @Controller
@@ -40,10 +42,11 @@ public class RegisterController {
 			user.setEmail(email);
 			user.setPhone(phone);
 			user.setUsername(username);
-			user.setPassword(password);
+			user.setPassword(Md5Tool.getMd5(password));
 			int result = userService.add(user);
 			if(result > 0){
 				writer.print(JSONObject.fromObject(ResponseMessage.SUCCESS));
+				EmailUtils.sendAccountActivateEmail(user);
 			}else{
 				writer.print(JSONObject.fromObject(ResponseMessage.FAIL));
 			}

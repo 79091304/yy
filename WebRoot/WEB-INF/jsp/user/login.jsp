@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx }/css/login1.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/login2.css">
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="${ctx }/js/jquery.js"></script>
 <body>
 <div class="header">
     <div class="wrap">
@@ -108,8 +108,8 @@
 					return false;
 				}
 				
-				var ajaxurl = '/user-do_login';
-				query = 'ajax=1&email=' + email + '&user_pwd=' + password;
+				var ajaxurl = './login.htm';
+				query = 'ajax=1&email=' + email + '&password=' + password;
 				$.ajax({ 
 					url: ajaxurl,
 					dataType: "json",
@@ -151,8 +151,8 @@
 				}
 				
 				
-				var ajaxurl = '/user-do_mobile_login';
-				query = 'ajax=1&mobile=' + mobile + '&vcode=' + vcode;
+				var ajaxurl = '/login.htm';
+				query = 'ajax=1&phone=' + mobile + '&vcode=' + vcode;
 				$.ajax({ 
 					url: ajaxurl,
 					dataType: "json",
