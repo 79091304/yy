@@ -1,73 +1,86 @@
 package com.ifeng.util;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
-import javax.mail.Message;
+import javax.mail.Message.RecipientType;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.ifeng.entity.User;
 
 
-/**
- * 简单的邮件发送
- * 
- * @author Administrator
- * 
- */
 public class EmailUtils {
+	
+	private static final String FROM = "xyang81@163.com";
 
-	public static void main(String[] args) throws Exception {
-		
-	}
 	/**
-	 * 发送邮件　(暂时只支持163邮箱发送)
-	 * @param fromEmail　发送邮箱
-	 * @param toEmail　接收邮箱
-	 * @param emailName　163邮箱登录名
-	 * @param emailPassword　密码
-	 * @param title　发送主题
-	 * @param centent　发送内容
-	 * @throws Exception
+	 * 注册成功后,向用户发送帐户激活链接的邮件
+	 * @param user 未激活的用户
 	 */
-	public static void sendMail(String fromEmail,String toEmail,String emailName,String emailPassword,String title, String centent) throws Exception {
-		
-		Properties properties = new Properties();// 创建Properties对象
-		properties.setProperty("mail.transport.protocol", "smtp");// 设置传输协议
-		properties.put("mail.smtp.host", "smtp.163.com");// 设置发信邮箱的smtp地址
-		properties.setProperty("mail.smtp.auth", "true"); // 验证
-		Authenticator auth = new AjavaAuthenticator(emailName,
-				emailPassword); // 使用验证，创建一个Authenticator
-		Session session = Session.getDefaultInstance(properties, auth);// 根据Properties，Authenticator创建Session
-		Message message = new MimeMessage(session);// Message存储发送的电子邮件信息
-		message.setFrom(new InternetAddress(fromEmail));
-		message.setRecipient(Message.RecipientType.TO, new InternetAddress(
-				toEmail));// 设置收信邮箱
-		// 指定邮箱内容及ContentType和编码方式
-		message.setContent(centent, "text/html;charset=utf-8");
-		message.setSubject(title);// 设置主题
-		message.setSentDate(new Date());// 设置发信时间
-		Transport.send(message);// 发送
-
+	public static void sendAccountActivateEmail(User user) {
+		Session session = getSession();
+		MimeMessage message = new MimeMessage(session);
+		try {
+			message.setSubject("帐户激活邮件");
+			message.setSentDate(new Date());
+			message.setFrom(new InternetAddress(FROM));
+			message.setRecipient(RecipientType.TO, new InternetAddress(user.getEmail()));
+			message.setContent("<a href='" + GenerateLinkUtils.generateActivateLink(user)+"'>点击激活帐户</a>","text/html;charset=utf-8");
+			// 发送邮件
+			Transport.send(message);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-}
-
-// 创建传入身份验证信息的 Authenticator类
-class AjavaAuthenticator extends Authenticator {
-	private String user;
-	private String pwd;
-
-	public AjavaAuthenticator(String user, String pwd) {
-		this.user = user;
-		this.pwd = pwd;
+	
+	/**
+	 * 发送重设密码链接的邮件
+	 */
+	public static void sendResetPasswordEmail(User user) {
+		Session session = getSession();
+		MimeMessage message = new MimeMessage(session);
+		try {
+			message.setSubject("找回您的帐户与密码");
+			message.setSentDate(new Date());
+			message.setFrom(new InternetAddress(FROM));
+			message.setRecipient(RecipientType.TO, new InternetAddress(user.getEmail()));
+			message.setContent("要使用新的密码, 请使用以下链接启用密码:<br/><a href='" + GenerateLinkUtils.generateResetPwdLink(user) +"'>点击重新设置密码</a>","text/html;charset=utf-8");
+			// 发送邮件
+			Transport.send(message);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-
-	@Override
-	protected PasswordAuthentication getPasswordAuthentication() {
-		return new PasswordAuthentication(user, pwd);
+	
+	public static Session getSession() {
+		Properties props = new Properties();
+		props.setProperty("mail.transport.protocol", "smtp");
+		props.setProperty("mail.smtp.host", "smtp.163.com");
+		props.setProperty("mail.smtp.port", "25");
+		props.setProperty("mail.smtp.auth", "true");
+		Session session = Session.getInstance(props, new Authenticator() {
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				String password = null;
+				InputStream is = EmailUtils.class.getResourceAsStream("password.dat");
+				byte[] b = new byte[1024];
+				try {
+					int len = is.read(b);
+					password = new String(b,0,len);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return new PasswordAuthentication(FROM, password);
+			}
+			
+		});
+		return session;
 	}
 }

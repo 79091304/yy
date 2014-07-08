@@ -166,9 +166,13 @@
 									wx.alert("注册邮件已发出请查收", function() {
 										window.location.href = "../login/toLogin.htm";
 									});
-								} else {
-									if (ajaxobj.info != "") {
-										wx.alert(ajaxobj.info);
+								}else if(ajaxobj.code== -1)
+								{
+									wx.alert("验证码错误");
+								} 
+								else {
+									if (ajaxobj.msg != "") {
+										wx.alert(ajaxobj.msg);
 										return;
 									}
 									for (var  i = 0; i < ajaxobj.data.length; i++) {
