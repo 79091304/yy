@@ -38,11 +38,6 @@ public interface OrderDao extends BaseDao<Order>{
 	public int updateOrderType(String orderid,int type);
 	
 	/**
-	 * 查询用户订单
-	 * @return
-	 */
-	public List<Order> getOrderByUser(String userkey);
-	/**
 	 * 查询订单
 	 * @param startDate 开始时间
 	 * @param endDate 结束时间

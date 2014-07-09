@@ -55,10 +55,6 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.updateOrderState(orderid, Instant.ORDER_SEND_FAILD);
 	}
 
-	@Override
-	public List<Order> queryOrderByUser(String userkey) {
-		return orderDao.getOrderByUser(userkey);
-	}
 
 	@Override
 	public List<Order> queryOrderByDate(String startDate, String endDate) {
@@ -69,5 +65,6 @@ public class OrderServiceImpl implements OrderService {
 	public int queryCountByDate(String startDate, String endDate) {
 		return orderDao.getOrderByDate(startDate, endDate).size();
 	}
+
 
 }

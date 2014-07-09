@@ -53,12 +53,6 @@ public interface OrderService {
 	 */
 	public int modifyChargeType(String orderid,int type);
 	
-	/**
-	 * 查询用户订单
-	 * @param userid
-	 * @return
-	 */
-	public List<Order> queryOrderByUser(String userkey);
 	
 	/**
 	 * 根据时间查询订单

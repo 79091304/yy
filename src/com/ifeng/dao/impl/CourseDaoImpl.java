@@ -1,6 +1,8 @@
 package com.ifeng.dao.impl;
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.ifeng.base.impl.BaseDaoImpl;
@@ -9,6 +11,11 @@ import com.ifeng.entity.Course;
 
 @Repository("courseDao")
 public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
+
+	@Override
+	public List<Course> queryByC(int count) {
+		return this.getSqlSession().selectOne(this.getClassName()+".queryByC", count);
+	}
 
 
 }

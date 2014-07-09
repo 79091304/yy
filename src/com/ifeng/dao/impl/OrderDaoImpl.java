@@ -51,10 +51,6 @@ public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao {
 		return this.getSqlSession().update(this.getClassName()+".updateType", map);
 	}
 
-	@Override
-	public List<Order> getOrderByUser(String userkey) {
-		return this.getSqlSession().selectList(this.getClassName()+".getByUserkey", userkey);
-	}
 
 	@Override
 	public List<Order> getOrderByDate(String startDate, String endDate) {

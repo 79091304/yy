@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Teacher">
+<mapper namespace="Course">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name,sex,age,sex,zone,tag,detail,imgUrl,createdAt,changedAt
+		id,name,detail,category,tag,tid,begin,end,createdAt,changedAt
 	</sql>
 	<!-- 增加用户 -->
-	<insert id="add" parameterType="Teacher">
-		insert into t_teacher(name,sex,age,zone,tag,detail,imgUrl,createdAt,changedAt)
+	<insert id="add" parameterType="Course">
+		insert into c_course(name,detail,category,tag,tid,begin,end,createdAt,changedAt)
 		values 
 		(
 		#{name},
-		#{sex},
-		#{age},
-		#{zone}, 
-		#{tag},
 		#{detail},
-		#{imgUrl},
+		#{category},
+		#{tag},
+		#{tid},
+		#{begin},
+		#{end},
 		null,
 		 #{changedAt}
 		)
 	</insert>
 	
-	<select id="queryByC" resultType="Teacher" parameterType="int">
+	<select id="queryByC" resultType="Course" parameterType="int">
 		select
 		<include refid="selectId" />
-		from t_teacher order by createdAt desc
+		from c_course order by createdAt desc
 		<if test="count != null and count != '' ">
 		    limit #{count}
 		</if> 
