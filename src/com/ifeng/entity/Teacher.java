@@ -28,6 +28,8 @@ public class Teacher implements Serializable{
 	
 	private Date changedAt;
 
+	private String imgUrl;
+	
 	public long getId() {
 		return id;
 	}
@@ -98,5 +100,13 @@ public class Teacher implements Serializable{
 
 	public void setChangedAt(Date changedAt) {
 		this.changedAt = changedAt;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 }
