@@ -10,7 +10,7 @@
 <meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/register1.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/register2.css">
-<script type="text/javascript" src="${ctx }/js/test.js"></script>
+<script type="text/javascript" src="${ctx }/js/util.js"></script>
 <script type="text/javascript" src="${ctx }/js/jquery.json-2.4.min.js"></script>
 <body>
 <div class="header">
