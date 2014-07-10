@@ -20,7 +20,7 @@
                 <a alt="众筹网" class="ie6fixpic" title="众筹网" href="http://www.zhongchou.cn/">众筹网</a>
             </h1>
         </div>
-                <div class="quick-links">还没有帐号？立即 <a class="red" href="http://www.zhongchou.cn/user-register">免费注册</a></div>
+                <div class="quick-links">还没有帐号？立即 <a class="red" href="../register/toRegister.htm">免费注册</a></div>
                 
     </div>
 </div>

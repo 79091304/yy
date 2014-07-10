@@ -8,5 +8,6 @@
 		<typeAlias type="com.ifeng.entity.Order" alias="Order" />
 		<typeAlias type="com.ifeng.entity.OrderErrorLog" alias="OrderErrorLog" />
 		<typeAlias type="com.ifeng.entity.Teacher" alias="Teacher" />
+		<typeAlias type="com.ifeng.entity.Course" alias="Course" />
 	</typeAliases>
 </configuration>
