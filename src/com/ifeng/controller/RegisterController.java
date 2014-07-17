@@ -12,6 +12,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.User;
@@ -27,10 +28,14 @@ public class RegisterController {
 	@Autowired
 	private UserService userService;
 
+	
 	@RequestMapping("toRegister")
-	public String toRegister(){
-		return "/user/register";
-	}
+	public ModelAndView toLogin(HttpServletRequest request){
+		 ModelAndView mv = new ModelAndView("register");
+		 String ctx = request.getContextPath();
+	     mv.addObject("ctx", ctx);
+		return mv;
+	} 
 	
 	@RequestMapping("register")
 	public void register(String type,String email,String phone,String password,String username,String verify,HttpServletRequest request,HttpServletResponse response) throws IOException{

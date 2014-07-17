@@ -1,8 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="../common/taglib.jsp" %>    
 <!DOCTYPE html>
-<!-- saved from url=(0037)http://www.zhongchou.cn/user-register -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>用户注册-爱儿网-中国最具影响力的幼儿园平台</title>
