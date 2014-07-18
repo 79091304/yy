@@ -18,6 +18,12 @@ public class Course implements Serializable{
 	
 	private String category;
 	
+	private String videoUrl;
+	
+	private String imgUrl;
+	
+	private String city;
+	
 	private String tag;
 	
 	private long tid;
@@ -108,6 +114,30 @@ public class Course implements Serializable{
 
 	public void setChangedAt(Date changedAt) {
 		this.changedAt = changedAt;
+	}
+
+	public String getVideoUrl() {
+		return videoUrl;
+	}
+
+	public void setVideoUrl(String videoUrl) {
+		this.videoUrl = videoUrl;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 	
 }

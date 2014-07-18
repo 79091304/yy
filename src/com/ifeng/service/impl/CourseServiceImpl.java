@@ -20,4 +20,9 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.queryByC(count);
 	}
 
+	@Override
+	public Course getCourse(long id) {
+		return courseDao.getById(id);
+	}
+
 }

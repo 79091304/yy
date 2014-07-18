@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ifeng.common.Instant;
 import com.ifeng.dao.OrderDao;
 import com.ifeng.entity.Order;
 import com.ifeng.service.OrderService;
@@ -25,15 +24,6 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.add(order);
 	}
 
-	@Override
-	public int payForOrder(String orderid) {
-		return orderDao.updateOrderState(orderid, Instant.ORDER_PAYED);
-	}
-
-	@Override
-	public int sendForOrder(String orderid) {
-		return orderDao.updateOrderState(orderid, Instant.ORDER_SENDED);
-	}
 
 	@Override
 	public int modifyChargeType(String orderid,int type) {
@@ -45,15 +35,7 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getOrderByOrderId(orderid);
 	}
 	
-	@Override
-	public Order getByOrderid(String orderid,int source) {
-		return orderDao.getOrderByOrderId(orderid,source);
-	}
 
-	@Override
-	public int sendFailForOrder(String orderid) {
-		return orderDao.updateOrderState(orderid, Instant.ORDER_SEND_FAILD);
-	}
 
 
 	@Override

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
@@ -31,5 +32,20 @@ public class CourseController {
 		List<Course> courses = courseService.listForIndex(COUNT);
 		ResponseMessage rm = new ResponseMessage(courses);
 		writer.print(JSONObject.fromObject(rm));
+	}
+	
+	/**
+	 * 查询课程信息
+	 * @param id
+	 * @param request
+	 */
+	@RequestMapping("getInfo")
+	public void getInfo(long id,HttpServletRequest request){
+		request.setAttribute("ctx", request.getContextPath());
+		if(0 != id){
+			Course course = courseService.getCourse(id);
+			if(null != course)
+			request.setAttribute("course", course);
+		}
 	}
 }
