@@ -18,7 +18,7 @@ import com.ifeng.entity.User;
 
 public class EmailUtils {
 	
-	private static final String FROM = "xyang81@163.com";
+	private static final String FROM = "m18559912235@163.com";
 
 	/**
 	 * 注册成功后,向用户发送帐户激活链接的邮件

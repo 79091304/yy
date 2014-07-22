@@ -4,7 +4,7 @@
 <mapper namespace="User">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,username,phone,username,password,state,type,guid,createdAt,changedAt
+		id,username,phone,email,password,state,type,createdAt,changedAt
 	</sql>
 	<!--resultType="User" 每返回一条结果封装到User里 -->
 	<select id="queryByUsername" resultType="User" parameterType="String">
@@ -48,7 +48,7 @@
 	</select>
 	
 	<!-- 查询用户是否可以登录-->
-	<select id="getByPassword" resultType="User" parameterType="java.util.HashMap">
+	<select id="queryByPassword" resultType="User" parameterType="java.util.HashMap">
 		select
 		<include refid="selectId" />
 		from u_user t where 1=1 
@@ -56,7 +56,7 @@
 			    and t.username = '${username}'
 			</if>
 			<if test="email != null and email  != ''">
-			    and t.eamil = '${email}'
+			    and t.email = '${email}'
 			</if>
 			<if test="phone != null and phone  != ''">
 			    and t.phone = '${phone}'
@@ -112,11 +112,8 @@
 			<if test="changedAt != null and changedAt != ''">
 				changedAt=#{changedAt}
 			</if>
-			
 		</set>
 		where id=#{id}
 	</update>
-	
-	
 	
 </mapper>

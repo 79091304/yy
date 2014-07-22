@@ -35,14 +35,14 @@ public class ResponseMessage {
 		super();
 		this.code = code;
 		this.setMsg(msg);
-		this.data = data;
+		this.setData(data);
 	}
 	
 	public ResponseMessage(Object data) {
 		super();
 		this.code = 1;
 		this.setMsg(MSG_SUCCESS);
-		this.data = data;
+		this.setData(data);
 	}
 	
 	
@@ -67,5 +67,13 @@ public class ResponseMessage {
 
 	public void setMsg(String msg) {
 		this.msg = msg;
+	}
+
+	public Object getData() {
+		return data;
+	}
+
+	public void setData(Object data) {
+		this.data = data;
 	}
 }

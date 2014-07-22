@@ -12,6 +12,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.Course;
@@ -40,12 +41,15 @@ public class CourseController {
 	 * @param request
 	 */
 	@RequestMapping("getInfo")
-	public void getInfo(long id,HttpServletRequest request){
-		request.setAttribute("ctx", request.getContextPath());
+	public ModelAndView getInfo(long id,HttpServletRequest request){
+		ModelAndView mv = new ModelAndView("course");
+		mv.addObject("ctx", request.getContextPath());
 		if(0 != id){
 			Course course = courseService.getCourse(id);
 			if(null != course)
-			request.setAttribute("course", course);
+			mv.addObject("course", course);
 		}
+		return mv;
 	}
+	
 }

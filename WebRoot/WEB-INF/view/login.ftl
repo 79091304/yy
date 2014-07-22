@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx }/css/login1.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/login2.css">
 <script type="text/javascript" src="${ctx }/js/jquery.js"></script>
+<script type="text/javascript" src="${ctx }/js/util.js"></script>
 <body>
 <div class="header">
     <div class="wrap">
@@ -112,13 +113,13 @@
 					data:query,
 					type: "POST",
 					success: function(ajaxobj){
-						if(ajaxobj.status==1)
+						if(ajaxobj.code==1)
 						{
-							window.location.href = "/deal-show/id-2025";
+							window.location.href = "../";
 						}
 						else
 						{
-							wx.alert(ajaxobj.info);
+							wx.alert(ajaxobj.msg);
 						}
 					},
 					error:function(ajaxobj)

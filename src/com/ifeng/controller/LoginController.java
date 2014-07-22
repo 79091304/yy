@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
+
+
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
@@ -36,15 +38,17 @@ public class LoginController {
 	} 
 	
 	@RequestMapping("login")
-	public void login(String username,String email,String phone,String password,HttpServletResponse response) throws IOException{
+	public void login(String username,String email,String phone,String password,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		ResponseMessage rm = null;
 		PrintWriter writer = response.getWriter();
 		User user = userService.hasUser(username, email, phone, password);
 		if(null != user){
-			ResponseMessage rm = new ResponseMessage(user); 
-			writer.print(JSONObject.fromObject(rm));
+			rm = ResponseMessage.SUCCESS;
+			request.setAttribute("user", user);
 		}else{
-			writer.print(JSONObject.fromObject(ResponseMessage.FAIL));
-		} 
+			 rm = new ResponseMessage(3, "用户名或密码错误，请重新输入！");
+		}
+		writer.print(JSONObject.fromObject(rm));
 	}
 	
 	
