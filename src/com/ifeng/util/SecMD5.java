@@ -81,8 +81,5 @@ public class SecMD5 {
 		}
 		
 	}
- public static void main(String[] args) {      
-  // MD5_Test aa = new MD5_Test();      
-  System.out.print(SecMD5.MD5("123456"));      
- }      
+ 
 } 

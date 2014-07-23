@@ -18,8 +18,8 @@ import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
 import com.ifeng.util.EmailUtils;
-import com.ifeng.util.Md5Tool;
 import com.ifeng.util.RandomValidateCode;
+import com.ifeng.util.SecMD5;
 
 @Controller
 @RequestMapping("/register/")
@@ -47,7 +47,7 @@ public class RegisterController {
 			user.setEmail(email);
 			user.setPhone(phone);
 			user.setUsername(username);
-			user.setPassword(Md5Tool.getMd5(password));
+			user.setPassword(SecMD5.MD5(password));
 			int result = userService.add(user);
 			if(result > 0){
 				writer.print(JSONObject.fromObject(ResponseMessage.SUCCESS));

@@ -3,6 +3,7 @@ package com.ifeng.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -45,6 +46,8 @@ public class LoginController {
 		if(null != user){
 			rm = ResponseMessage.SUCCESS;
 			request.setAttribute("user", user);
+			Cookie cookie = new Cookie("userid", user.getId()+"");
+			response.addCookie(cookie);
 		}else{
 			 rm = new ResponseMessage(3, "用户名或密码错误，请重新输入！");
 		}
