@@ -16,9 +16,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import sun.security.krb5.internal.crypto.Aes128;
+
+import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
+import com.ifeng.util.AesSec;
 
 @Controller
 @RequestMapping("/login/")
@@ -46,7 +50,9 @@ public class LoginController {
 		if(null != user){
 			rm = ResponseMessage.SUCCESS;
 			request.setAttribute("user", user);
-			Cookie cookie = new Cookie("userid", user.getId()+"");
+			String encryptStr = AesSec.encrypt(user.getId()+"", Instant.AES_PASSWORD);
+			Cookie cookie = new Cookie("userid", encryptStr);
+			cookie.setMaxAge(60*60*24*3);
 			response.addCookie(cookie);
 		}else{
 			 rm = new ResponseMessage(3, "用户名或密码错误，请重新输入！");

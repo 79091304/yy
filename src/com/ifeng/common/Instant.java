@@ -13,4 +13,8 @@ public class Instant {
 	
 	public static final String IMGSITE = "http://www.xuexidang.com/teacher/getInfo.htm?id=";
 	
+	
+	public static final String COOKIE_USERID = "userid";
+	
+	public static final String AES_PASSWORD = "liyuanzhangzhanhui";
 }
