@@ -68,16 +68,8 @@ public class EmailUtils {
 		Session session = Session.getInstance(props, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				String password = null;
-				InputStream is = EmailUtils.class.getResourceAsStream("password.dat");
-				byte[] b = new byte[1024];
-				try {
-					int len = is.read(b);
-					password = new String(b,0,len);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				return new PasswordAuthentication(FROM, password);
+				String pwd = PropertiesUtils.findPropertiesKey("mailpwd");
+				return new PasswordAuthentication(FROM, pwd);
 			}
 			
 		});

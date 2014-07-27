@@ -25,8 +25,10 @@ public class IndexController {
 	 */
 	@RequestMapping("index")
 	public ModelAndView index(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView("index");
 		Cookie[] cookies = request.getCookies();
 		String value = null;
+		User user = null;
 		for(Cookie coo : cookies){
 			String name = coo.getName();
 			if(name.equals(Instant.COOKIE_USERID)){
@@ -36,10 +38,12 @@ public class IndexController {
 			//缓存查询用户信息
 			if(StringUtils.isNotEmpty(value)){
 				String userid = AesSec.decrypt(value, Instant.AES_PASSWORD);
-				User user = userService.getById(Long.parseLong(userid));
+				user = userService.getById(Long.parseLong(userid));
 			}
 		}
-		ModelAndView mv = new ModelAndView("index");
+		if(null != user){
+			mv.addObject("user", user);	
+		}
 		return mv;
 	}
 }
