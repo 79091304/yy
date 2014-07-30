@@ -48,8 +48,11 @@
 
 			<!--login start-->
 			<div class="login-wrap">
-
+				<#if null == user>
 				<a href="./login/toLogin.htm">登录</a> <em>|</em> <a href="./register/toRegister.htm">注册</a>
+				<#else>
+					${user.username}
+				</#if>
 				<em>|</em> <a href="cooperation.html">商务合作</a>
 			</div>
 			<!--login end-->
