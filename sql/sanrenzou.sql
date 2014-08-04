@@ -10,10 +10,34 @@ Target Server Type    : MYSQL
 Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2014-08-01 16:45:55
+Date: 2014-08-04 17:45:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for c_course
+-- ----------------------------
+DROP TABLE IF EXISTS `c_course`;
+CREATE TABLE `c_course` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `category` varchar(30) DEFAULT NULL,
+  `videoUrl` varchar(50) DEFAULT NULL,
+  `imgUrl` varchar(50) DEFAULT NULL,
+  `city` varchar(30) DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  `tid` bigint(20) DEFAULT NULL,
+  `begin` datetime DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `changedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of c_course
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for u_user
