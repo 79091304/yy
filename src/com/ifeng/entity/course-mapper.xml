@@ -26,7 +26,7 @@
 		)
 	</insert>
 	
-	<select id="queryByC" resultType="Course" parameterType="int">
+	<select id="queryByC" resultType="Course" parameterType="java.util.Map">
 		select
 		<include refid="selectId" />
 		from c_course order by createdAt desc

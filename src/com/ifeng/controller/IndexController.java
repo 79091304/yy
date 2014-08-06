@@ -1,15 +1,22 @@
 package com.ifeng.controller;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.Instant;
+import com.ifeng.entity.Course;
+import com.ifeng.entity.Teacher;
 import com.ifeng.entity.User;
+import com.ifeng.service.CourseService;
+import com.ifeng.service.TeacherService;
 import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
 
@@ -17,7 +24,14 @@ import com.ifeng.util.AesSec;
 @RequestMapping("/")
 public class IndexController {
 
+	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private CourseService courseService;
+	
+	@Autowired
+	private TeacherService teacherService;
 	
 	/**
 	 * 首页
@@ -26,6 +40,7 @@ public class IndexController {
 	@RequestMapping("index")
 	public ModelAndView index(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView("index");
+		
 		Cookie[] cookies = request.getCookies();
 		String value = null;
 		User user = null;
@@ -44,6 +59,10 @@ public class IndexController {
 		if(null != user){
 			mv.addObject("user", user);	
 		}
+		List<Course> courses = courseService.listForIndex(4);
+		List<Teacher> teachers = teacherService.listForIndex(4);
+		mv.addObject("courses", courses);
+		mv.addObject("teachers", teachers);	
 		return mv;
 	}
 }

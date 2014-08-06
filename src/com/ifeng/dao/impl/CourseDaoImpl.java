@@ -1,7 +1,9 @@
 package com.ifeng.dao.impl;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +16,9 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 
 	@Override
 	public List<Course> queryByC(int count) {
-		return this.getSqlSession().selectList(this.getClassName()+".queryByC", count);
+		Map<String , Integer> data = new HashMap<String, Integer>();
+		data.put("count", count);
+		return this.getSqlSession().selectList(this.getClassName()+".queryByC", data);
 	}
 
 
