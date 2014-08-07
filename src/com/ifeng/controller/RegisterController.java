@@ -1,17 +1,14 @@
 package com.ifeng.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.ResponseMessage;
@@ -37,9 +34,10 @@ public class RegisterController {
 		return mv;
 	} 
 	
+	@ResponseBody
 	@RequestMapping("register")
-	public void register(String type,String email,String phone,String password,String username,String verify,HttpServletRequest request,HttpServletResponse response) throws IOException{
-		PrintWriter writer = response.getWriter();
+	public Object register(String type,String email,String phone,String password,String username,String verify,HttpServletRequest request) throws IOException{
+		ResponseMessage rm = null;
 		String code = (String)request.getSession().getAttribute(RandomValidateCode.RANDOMCODEKEY);
 		if(StringUtils.isNotEmpty(verify) && verify.equalsIgnoreCase(code)){
 			User user = new User();
@@ -48,17 +46,18 @@ public class RegisterController {
 			user.setPhone(phone);
 			user.setUsername(username);
 			user.setPassword(SecMD5.MD5(password));
+			user.setVerify(code);
 			int result = userService.add(user);
 			if(result > 0){
-				writer.print(JSONObject.fromObject(ResponseMessage.SUCCESS));
+				rm = ResponseMessage.SUCCESS;
 				EmailUtils.sendAccountActivateEmail(user);
 			}else{
-				writer.print(JSONObject.fromObject(ResponseMessage.FAIL));
+				rm = ResponseMessage.FAIL;
 			}
 		}else{
-			writer.print(JSONObject.fromObject(ResponseMessage.CODEFAIL));
+			rm = ResponseMessage.CODEFAIL;
 		}
-		
+		return rm;
 	}
 	
 	/**
@@ -66,19 +65,19 @@ public class RegisterController {
 	 * @param phone 
 	 * @throws IOException 
 	 */
+	@ResponseBody
 	@RequestMapping("phoneIsLegal")
-	public void phoneIsLegal(String phone,HttpServletResponse response) throws IOException{
-		PrintWriter writer = response.getWriter();
+	public Object phoneIsLegal(String phone) throws IOException{
 		boolean flag = false;
+		ResponseMessage rm = null;
 		if(StringUtils.isNotEmpty(phone)){
 			flag = userService.checkPhoneIsLegal(phone);
 		}
 		if(flag){
-			writer.print(JSONObject.fromObject(ResponseMessage.SUCCESS));
+			rm = ResponseMessage.SUCCESS;
 		}else{
-			writer.print(JSONObject.fromObject(ResponseMessage.FAIL));
+			rm = ResponseMessage.FAIL;
 		}
-		 
-		
+		return rm;
 	}
 }

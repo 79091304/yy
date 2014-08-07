@@ -11,6 +11,26 @@
 <!--public js&css end -->
 <link rel="stylesheet" type="text/css" href="css/a1.css">
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script >
+$(function(){
+	var uid = $.cookie('uid');
+	if(null != uid && '' != uid){
+		$.ajax({
+			url : "./user/getInfo.htm?uid="+uid,
+		    type : "POST", 
+		    dataType:"text",
+		    contentType:'text/html',
+		    data:{},
+		    success : function(data) {
+		        $("#usertag").html(data.username);  
+		    },
+			error:function(e){
+		    }  
+		});
+	}
+})
+</script>
 </head>
 
 <body>
@@ -29,7 +49,7 @@
 					<li class="select"><a href="#">首页 </a></li>
 					<li><a href="/browse"></a></li>
 					<li><a href="/teacher">教师 </a></li>
-					<li><a href="/course">优秀课程</a></li>
+					<li><a href="/course">课程</a></li>
 
 				</ul>
 			</div>
@@ -48,11 +68,7 @@
 
 			<!--login start-->
 			<div class="login-wrap">
-				<#if null == user>
-				<a href="./login/toLogin.htm">登录</a> <em>|</em> <a href="./register/toRegister.htm">注册</a>
-				<#else>
-					${user.username}
-				</#if>
+				<span id="usertag"><a href="./login/toLogin.htm">登录</a> <em>|</em> <a href="./register/toRegister.htm">注册</a></span>
 				<em>|</em> <a href="cooperation.html">商务合作</a>
 			</div>
 			<!--login end-->
@@ -585,30 +601,7 @@ $(window).scroll(function(){
       document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe89e365e0d0438aa7f6d6eab7960962c' type='text/javascript'%3E%3C/script%3E"));
     </script>
 </div> -->
-	<script type="text/javascript">
-    var _agt=_agt||[];
-    _agt.push(['_atscu','AG_524833_SVCU']);
-    _agt.push(['_atsdomain','zhongchou.cn']);
-    (function(){
-    var ag=document.createElement('script'); 
-     ag.type='text/javascript'; 
-     ag.async = true;
-    ag.src=(document.location.protocol=='https:'?'https':'http')+'://'+'t.agrantsem.com/js/ag.js';
-    var s=document.getElementsByTagName('script')[0]; 
-     s.parentNode.insertBefore(ag,s);})();
-  </script>
 
-	<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-43592515-1', 'zhongchou.cn');
-    ga('send', 'pageview');
-    
-    var _ncf={"prd":"zhongchou","pstr":"","pfunc":null,"pcon":"","pck":{"auto_login":"au","email":"u"}};
-    (function(p,h,s){var o=document.createElement(h);o.src=s;p.appendChild(o)})(document.getElementsByTagName("HEAD")[0],"script","http://zcs1.ncfstatic.com/js/ncfpb.1.1.min.js");
-  </script>
 	<!--[if IE 6]>
 <script src="/static/zhongchou/js/DD_belatedPNG_0.0.8a.js"></script>
 <![endif]-->

@@ -13,13 +13,13 @@ import com.ifeng.entity.User;
  */
 public class GenerateLinkUtils {
 	
-	private static final String CHECK_CODE = "checkCode";
+	private static final String CHECK_CODE = "checkcode";
 	
 	/**
 	 * 生成帐户激活链接
 	 */
 	public static String generateActivateLink(User user) {
-		return "http://localhost:8080/AccountActivate/activateAccount?id=" 
+		return "http://localhost:8080/user/activateAccount?uid=" 
 				+ user.getId() + "&" + CHECK_CODE + "=" + generateCheckcode(user);
 	}
 	
@@ -27,7 +27,7 @@ public class GenerateLinkUtils {
 	 * 生成重设密码的链接
 	 */
 	public static String generateResetPwdLink(User user) {
-		return "http://localhost:8080/AccountActivate/resetPasswordUI?userName=" 
+		return "http://localhost:8080/user/resetPasswordUI?username=" 
 				+ user.getUsername() + "&" + CHECK_CODE + "=" + generateCheckcode(user);
 	}
 	

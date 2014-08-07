@@ -1,7 +1,5 @@
 package com.ifeng.util;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Date;
 import java.util.Properties;
 

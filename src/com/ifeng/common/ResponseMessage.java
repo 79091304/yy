@@ -51,7 +51,7 @@ public class ResponseMessage {
 	
 	public static final ResponseMessage FAIL = new ResponseMessage(0, "fail");
 	
-	public static final ResponseMessage CODEFAIL = new ResponseMessage(-1, "codefail");
+	public static final ResponseMessage CODEFAIL = new ResponseMessage(-1, "验证码错误");
 
 	public int getCode() {
 		return code;
