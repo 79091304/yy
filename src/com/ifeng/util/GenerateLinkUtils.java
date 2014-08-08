@@ -18,16 +18,16 @@ public class GenerateLinkUtils {
 	/**
 	 * 生成帐户激活链接
 	 */
-	public static String generateActivateLink(User user) {
-		return "http://localhost:8080/user/activateAccount?uid=" 
+	public static String generateActivateLink(HttpServletRequest request,User user) {
+		return request.getContextPath()+"/user/activateAccount?uid=" 
 				+ user.getId() + "&" + CHECK_CODE + "=" + generateCheckcode(user);
 	}
 	
 	/**
 	 * 生成重设密码的链接
 	 */
-	public static String generateResetPwdLink(User user) {
-		return "http://localhost:8080/user/resetPasswordUI?username=" 
+	public static String generateResetPwdLink(HttpServletRequest request,User user) {
+		return request.getContextPath()+"/user/resetPasswordUI?username=" 
 				+ user.getUsername() + "&" + CHECK_CODE + "=" + generateCheckcode(user);
 	}
 	

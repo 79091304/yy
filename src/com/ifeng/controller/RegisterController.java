@@ -50,7 +50,7 @@ public class RegisterController {
 			int result = userService.add(user);
 			if(result > 0){
 				rm = ResponseMessage.SUCCESS;
-				EmailUtils.sendAccountActivateEmail(user);
+				EmailUtils.sendAccountActivateEmail(request,user);
 			}else{
 				rm = ResponseMessage.FAIL;
 			}

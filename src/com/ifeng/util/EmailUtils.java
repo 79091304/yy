@@ -10,6 +10,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 
 import com.ifeng.entity.User;
 
@@ -22,7 +23,7 @@ public class EmailUtils {
 	 * 注册成功后,向用户发送帐户激活链接的邮件
 	 * @param user 未激活的用户
 	 */
-	public static void sendAccountActivateEmail(User user) {
+	public static void sendAccountActivateEmail(HttpServletRequest request,User user) {
 		Session session = getSession();
 		MimeMessage message = new MimeMessage(session);
 		try {
@@ -30,7 +31,7 @@ public class EmailUtils {
 			message.setSentDate(new Date());
 			message.setFrom(new InternetAddress(FROM));
 			message.setRecipient(RecipientType.TO, new InternetAddress(user.getEmail()));
-			message.setContent("<a href='" + GenerateLinkUtils.generateActivateLink(user)+"'>点击激活帐户</a>","text/html;charset=utf-8");
+			message.setContent("<a href='" + GenerateLinkUtils.generateActivateLink(request,user)+"'>点击激活帐户</a>","text/html;charset=utf-8");
 			// 发送邮件
 			Transport.send(message);
 		} catch (Exception e) {
@@ -41,7 +42,7 @@ public class EmailUtils {
 	/**
 	 * 发送重设密码链接的邮件
 	 */
-	public static void sendResetPasswordEmail(User user) {
+	public static void sendResetPasswordEmail(HttpServletRequest request,User user) {
 		Session session = getSession();
 		MimeMessage message = new MimeMessage(session);
 		try {
@@ -49,7 +50,7 @@ public class EmailUtils {
 			message.setSentDate(new Date());
 			message.setFrom(new InternetAddress(FROM));
 			message.setRecipient(RecipientType.TO, new InternetAddress(user.getEmail()));
-			message.setContent("要使用新的密码, 请使用以下链接启用密码:<br/><a href='" + GenerateLinkUtils.generateResetPwdLink(user) +"'>点击重新设置密码</a>","text/html;charset=utf-8");
+			message.setContent("要使用新的密码, 请使用以下链接启用密码:<br/><a href='" + GenerateLinkUtils.generateResetPwdLink(request,user) +"'>点击重新设置密码</a>","text/html;charset=utf-8");
 			// 发送邮件
 			Transport.send(message);
 		} catch (Exception e) {
