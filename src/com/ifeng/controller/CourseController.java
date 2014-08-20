@@ -37,10 +37,11 @@ public class CourseController extends BaseController{
 	 * @throws IOException
 	 */
 	@RequestMapping("list")
-	public ModelAndView listForIndex(String count) throws IOException{
+	public ModelAndView listForIndex(String count,HttpServletRequest request) throws IOException{
 		ModelAndView mv = new ModelAndView("courses");
 		List<Course> courses = courseService.listForIndex(COUNT);
 		mv.addObject("courses", courses);
+		mv.addObject("ctx", request.getContextPath());
 		return mv;
 	}
 	

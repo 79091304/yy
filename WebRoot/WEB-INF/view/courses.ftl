@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<!-- saved from url=(0034)/browse/p-3 -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>爱儿网-中国最具影响力的幼教园台</title>
-<meta name="keywords" content="众筹 创业 项目 投资 支持">
-<meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
 <!--public js&css start-->                                           
 <!--public js&css end -->    
-<script type="text/javascript" src="js/jquery.js"></script>
-<link rel="stylesheet" type="text/css" href="css/main1.css">
-<link rel="stylesheet" type="text/css" href="css/main2.css">
+<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/main1.css">
+<link rel="stylesheet" type="text/css" href="${ctx}css/main2.css">
 
 <body>
 <!--header static-->
@@ -17,7 +13,7 @@
   <div class="wrap">
     <div class="img-logo">
       <h1>
-        <a alt="众筹网" class="ie6fixpic" title="众筹网" href="/">众筹网</a>
+        <a alt="" class="ie6fixpic" title="" href="/"></a>
       </h1>
     </div>
     <!--menu start-->
@@ -119,12 +115,12 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2789" target="_blank">
-			<img src="images/tt.jpg" alt="【众筹网-声演坊】Bang Gang2014年中国巡演·长沙站">
+			<img src="${ctx}/images/tt.jpg" alt="【-声演坊】Bang Gang2014年中国巡演·长沙站">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="10" onclick="like_deal_v2(2789, this)">10</a>
 		</div>
-		<h3><a href="/deal-show/id-2789" target="_blank">【众筹网-声演坊】Bang Gang2014年中国巡演·长沙站</a></h3>
+		<h3><a href="/deal-show/id-2789" target="_blank">【-声演坊】Bang Gang2014年中国巡演·长沙站</a></h3>
 		<div class="item-caption">
 			<span class="caption-title">目标：<em>53天</em> <em><i class="font-yen">¥</i>1000</em></span>
 			<span class="btn-base btn-red-h20 common-sprite">
@@ -150,7 +146,7 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2568" target="_blank">
-			<img src="images/tt.jpg" alt="骑行去西藏——为了梦想执着向前">
+			<img src="${ctx}/images/tt.jpg" alt="骑行去西藏——为了梦想执着向前">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="14" onclick="like_deal_v2(2568, this)">14</a>
@@ -181,7 +177,7 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2888" target="_blank">
-			<img src="images/tt.jpg" alt="收藏《我是狼》周边 支持国产动画电影">
+			<img src="${ctx}/images/tt.jpg" alt="收藏《我是狼》周边 支持国产动画电影">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="8" onclick="like_deal_v2(2888, this)">8</a>
@@ -212,7 +208,7 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2756" target="_blank">
-			<img src="images/tt.jpg" alt="钟灵毓秀——构建艺术体操梦工厂">
+			<img src="${ctx}/images/tt.jpg" alt="钟灵毓秀——构建艺术体操梦工厂">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="23" onclick="like_deal_v2(2756, this)">23</a>
@@ -243,12 +239,12 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2788" target="_blank">
-			<img src="images/tt.jpg" alt="【众筹网-声演坊】Bang Gang2014年中国巡演深圳站">
+			<img src="${ctx}/images/tt.jpg" alt="【-声演坊】Bang Gang2014年中国巡演深圳站">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="5" onclick="like_deal_v2(2788, this)">5</a>
 		</div>
-		<h3><a href="/deal-show/id-2788" target="_blank">【众筹网-声演坊】Bang Gang2014年中国巡演深圳站</a></h3>
+		<h3><a href="/deal-show/id-2788" target="_blank">【-声演坊】Bang Gang2014年中国巡演深圳站</a></h3>
 		<div class="item-caption">
 			<span class="caption-title">目标：<em>54天</em> <em><i class="font-yen">¥</i>1000</em></span>
 			<span class="btn-base btn-red-h20 common-sprite">
@@ -274,7 +270,7 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2705" target="_blank">
-			<img src="images/tt.jpg" alt="《飞议于论》——东方卫视主播的2013年评论集">
+			<img src="${ctx}/images/tt.jpg" alt="《飞议于论》——东方卫视主播的2013年评论集">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="23" onclick="like_deal_v2(2705, this)">23</a>
@@ -305,7 +301,7 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2832" target="_blank">
-			<img src="images/tt.jpg" alt="《百变森女30天》——瑞丽模特幼乖的森女养成法则">
+			<img src="${ctx}/images/tt.jpg" alt="《百变森女30天》——瑞丽模特幼乖的森女养成法则">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="5" onclick="like_deal_v2(2832, this)">5</a>
@@ -336,12 +332,12 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2949" target="_blank">
-			<img src="images/tt.jpg" alt="【众筹网-声演坊】Alondra Bentley 2014年中国巡演·成都站">
+			<img src="${ctx}/images/tt.jpg" alt="【-声演坊】Alondra Bentley 2014年中国巡演·成都站">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="3" onclick="like_deal_v2(2949, this)">3</a>
 		</div>
-		<h3><a href="/deal-show/id-2949" target="_blank">【众筹网-声演坊】Alondra Bentley 2014年中国巡演·成都站</a></h3>
+		<h3><a href="/deal-show/id-2949" target="_blank">【-声演坊】Alondra Bentley 2014年中国巡演·成都站</a></h3>
 		<div class="item-caption">
 			<span class="caption-title">目标：<em>60天</em> <em><i class="font-yen">¥</i>600</em></span>
 			<span class="btn-base btn-red-h20 common-sprite">
@@ -367,7 +363,7 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2025" target="_blank">
-			<img src="images/tt.jpg" alt="众筹扩建拉萨沙发客空间——免费接待旅行者">
+			<img src="${ctx}/images/tt.jpg" alt="众筹扩建拉萨沙发客空间——免费接待旅行者">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="37" onclick="like_deal_v2(2025, this)">37</a>
@@ -398,7 +394,7 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2708" target="_blank">
-			<img src="images/tt.jpg" alt="中国人的财富智慧读本——《WEALTH财富管理》">
+			<img src="${ctx}/images/tt.jpg" alt="中国人的财富智慧读本——《WEALTH财富管理》">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="21" onclick="like_deal_v2(2708, this)">21</a>
@@ -429,7 +425,7 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-3075" target="_blank">
-			<img src="images/tt.jpg" alt="6LV9 《下载你的新男友》后期母带制作筹资">
+			<img src="${ctx}/images/tt.jpg" alt="6LV9 《下载你的新男友》后期母带制作筹资">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="0" onclick="like_deal_v2(3075, this)">0</a>
@@ -460,12 +456,12 @@ $(document).ready(function(){
 					<!--Deal Card Module-->
 	<div class="list-item">
 		<a class="item-figure" href="/deal-show/id-2950" target="_blank">
-			<img src="images/tt.jpg" alt="【众筹网-声演坊】Alondra Bentley 2014年中国巡演·武汉站">
+			<img src="${ctx}/images/tt.jpg" alt="【-声演坊】Alondra Bentley 2014年中国巡演·武汉站">
 		</a>
 		<div class="item-upvote">
 			<a class="icons " href="javascript:void(0);" rel="2" onclick="like_deal_v2(2950, this)">2</a>
 		</div>
-		<h3><a href="/deal-show/id-2950" target="_blank">【众筹网-声演坊】Alondra Bentley 2014年中国巡演·武汉站</a></h3>
+		<h3><a href="/deal-show/id-2950" target="_blank">【-声演坊】Alondra Bentley 2014年中国巡演·武汉站</a></h3>
 		<div class="item-caption">
 			<span class="caption-title">目标：<em>55天</em> <em><i class="font-yen">¥</i>600</em></span>
 			<span class="btn-base btn-red-h20 common-sprite">
@@ -637,32 +633,6 @@ $(window).scroll(function(){
 
 </script>
 
-     <script type="text/javascript">
-    var _agt=_agt||[];
-    _agt.push(['_atscu','AG_524833_SVCU']);
-    _agt.push(['_atsdomain','zhongchou.cn']);
-    (function(){
-    var ag=document.createElement('script'); 
-     ag.type='text/javascript'; 
-     ag.async = true;
-    ag.src=(document.location.protocol=='https:'?'https':'http')+'://'+'t.agrantsem.com/js/ag.js';
-    var s=document.getElementsByTagName('script')[0]; 
-     s.parentNode.insertBefore(ag,s);})();
-  </script>
    
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-43592515-1', 'zhongchou.cn');
-    ga('send', 'pageview');
-    
-    var _ncf={"prd":"zhongchou","pstr":"","pfunc":null,"pcon":"","pck":{"auto_login":"au","zcid":"zcid"}};
-    (function(p,h,s){var o=document.createElement(h);o.src=s;p.appendChild(o)})(document.getElementsByTagName("HEAD")[0],"script","http://zcs1.ncfstatic.com/js/ncfpb.1.1.min.js");
-  </script>
-<!--[if IE 6]>
-<script src="/static/zhongchou/js/DD_belatedPNG_0.0.8a.js"></script>
-<![endif]-->
  
-<img src="./display_files/pv" style="display: none; width: 0px; height: 0px;"></body></html>
+</body></html>
