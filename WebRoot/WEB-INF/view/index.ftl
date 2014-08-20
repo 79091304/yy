@@ -48,8 +48,8 @@ $(function(){
 				<ul class="clearfix">
 					<li class="select"><a href="#">首页 </a></li>
 					<li><a href="/browse"></a></li>
-					<li><a href="/teacher">教师 </a></li>
-					<li><a href="/course">课程</a></li>
+					<li><a href="./teacher/list.htm">教师 </a></li>
+					<li><a href="./course/list.htm">课程</a></li>
 
 				</ul>
 			</div>
@@ -68,7 +68,10 @@ $(function(){
 
 			<!--login start-->
 			<div class="login-wrap">
-				<span id="usertag"><a href="./login/toLogin.htm">登录</a> <em>|</em> <a href="./register/toRegister.htm">注册</a></span>
+				<span id="usertag">
+				<a href="./login/toLogin.htm">登录</a> <em>|</em> 
+				<a href="./register/toRegister.htm">注册</a></span>
+				<em>|</em> <a href="cooperation.html">个人中心</a>
 				<em>|</em> <a href="cooperation.html">商务合作</a>
 			</div>
 			<!--login end-->

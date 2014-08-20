@@ -1,18 +1,16 @@
 package com.ifeng.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.Teacher;
 import com.ifeng.service.TeacherService;
 
@@ -31,10 +29,10 @@ public class TeacherController {
 	 * @throws IOException
 	 */
 	@RequestMapping("list")
-	public void list(HttpServletResponse response) throws IOException{
-		PrintWriter writer = response.getWriter();
+	public ModelAndView list(HttpServletResponse response,String count) throws IOException{
+		ModelAndView mv = new ModelAndView("teachers");
 		List<Teacher> teachers = teacherService.listForIndex(COUNT);
-		ResponseMessage rm = new ResponseMessage(teachers);
-		writer.print(JSONObject.fromObject(rm));
+		mv.addObject("teachers", teachers);
+		return mv;
 	}
 }
