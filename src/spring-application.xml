@@ -23,21 +23,23 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:jdbc.properties" />
 	</bean>
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName">
-			<value>${driverClassName}</value>
-		</property>
-		<property name="password">
-			<value>${password}</value>
-		</property>
-		<property name="username">
-			<value>${username}</value>
-		</property>
-		<property name="url">
-			<value>${url}</value>
-		</property>
-	</bean>
+	<bean id="dataSource"  
+	    class="com.mchange.v2.c3p0.ComboPooledDataSource"  
+	    destroy-method="close">  
+	    <property name="driverClass" value="${c3p0.driverClass}"></property>  
+	    <property name="jdbcUrl" value="${c3p0.url}"></property>  
+	    <property name="user" value="${c3p0.user}"></property>  
+	    <property name="password" value="${c3p0.password}"></property>  
+	    <property name="acquireIncrement" value="${c3p0.acquireIncrement}"></property>  
+	    <property name="initialPoolSize" value="${c3p0.initialPoolSize}"></property>  
+	    <property name="maxIdleTime" value="${c3p0.maxIdleTime}"></property>  
+	    <property name="maxPoolSize" value="${c3p0.maxPoolSize}"></property>  
+	    <property name="minPoolSize" value="${c3p0.minPoolSize}"></property>  
+	      
+	    <property name="acquireRetryDelay" value="1000"></property>  
+	    <property name="acquireRetryAttempts" value="60"></property>  
+	    <property name="breakAfterAcquireFailure" value="false"></property>  
+	</bean>  
 	<bean id="pagePlugin" class="com.ifeng.pulgin.mybatis.plugin.PagePlugin">
 		<property name="properties">
 			<props>
