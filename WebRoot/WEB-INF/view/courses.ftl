@@ -61,7 +61,6 @@
   </div>
 </div>
 <!--header-end-->
-<script type="text/javascript" src="./display_files/null.js"></script>
 <script>
 $(document).ready(function(){
     $("select[name='deal_sort']").bind('change',function(){

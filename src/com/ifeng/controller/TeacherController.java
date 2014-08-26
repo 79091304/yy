@@ -3,7 +3,9 @@ package com.ifeng.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +31,11 @@ public class TeacherController {
 	 * @throws IOException
 	 */
 	@RequestMapping("list")
-	public ModelAndView list(HttpServletResponse response,String count) throws IOException{
+	public ModelAndView list(HttpServletResponse response,String count,HttpServletRequest request) throws IOException{
 		ModelAndView mv = new ModelAndView("teachers");
 		List<Teacher> teachers = teacherService.listForIndex(COUNT);
 		mv.addObject("teachers", teachers);
+		mv.addObject("ctx", request.getContextPath());
 		return mv;
 	}
 }
