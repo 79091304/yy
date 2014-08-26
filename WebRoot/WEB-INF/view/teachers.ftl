@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0034)/browse/p-3 -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>爱儿网-中国最具影响力的幼教园台</title>
-<!--public js&css start-->                                           
-<!--public js&css end -->    
-<script type="text/javascript" src="js/jquery.js"></script>
-<link rel="stylesheet" type="text/css" href="css/main1.css">
-<link rel="stylesheet" type="text/css" href="css/main2.css">
+<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/main.css">
 
 <body>
 <!--header static-->
@@ -24,8 +20,6 @@
           <li><a href="/">首页 </a></li>
           <li class="select"><a href="/browse">课程 </a></li>
           <li><a href="/open">教师 </a></li>
-          <!--<li><a href="/help-about/id-1">关于众筹 </a></li>-->
-          <!-- <li><a href="/browse-showstock">股权众筹 </a></li> -->
       </ul>
     </div>
     <!--menu end-->
@@ -635,32 +629,6 @@ $(window).scroll(function(){
 
 </script>
 
-     <script type="text/javascript">
-    var _agt=_agt||[];
-    _agt.push(['_atscu','AG_524833_SVCU']);
-    _agt.push(['_atsdomain','zhongchou.cn']);
-    (function(){
-    var ag=document.createElement('script'); 
-     ag.type='text/javascript'; 
-     ag.async = true;
-    ag.src=(document.location.protocol=='https:'?'https':'http')+'://'+'t.agrantsem.com/js/ag.js';
-    var s=document.getElementsByTagName('script')[0]; 
-     s.parentNode.insertBefore(ag,s);})();
-  </script>
-   
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-43592515-1', 'zhongchou.cn');
-    ga('send', 'pageview');
-    
-    var _ncf={"prd":"zhongchou","pstr":"","pfunc":null,"pcon":"","pck":{"auto_login":"au","zcid":"zcid"}};
-    (function(p,h,s){var o=document.createElement(h);o.src=s;p.appendChild(o)})(document.getElementsByTagName("HEAD")[0],"script","http://zcs1.ncfstatic.com/js/ncfpb.1.1.min.js");
-  </script>
-<!--[if IE 6]>
-<script src="/static/zhongchou/js/DD_belatedPNG_0.0.8a.js"></script>
-<![endif]-->
+     
  
-<img src="./display_files/pv" style="display: none; width: 0px; height: 0px;"></body></html>
+</body></html>

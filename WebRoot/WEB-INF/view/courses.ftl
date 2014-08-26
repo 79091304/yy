@@ -4,8 +4,7 @@
 <!--public js&css start-->                                           
 <!--public js&css end -->    
 <script type="text/javascript" src="${ctx}/js/jquery.js"></script>
-<link rel="stylesheet" type="text/css" href="${ctx}/css/main1.css">
-<link rel="stylesheet" type="text/css" href="${ctx}css/main2.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/main.css">
 
 <body>
 <!--header static-->
