@@ -800,7 +800,7 @@
 .rotate-bg{
 	width:70px;
 	 height:70px;
-	 background:url(../images/phoenix/common/bg-rotate.png?v=45) no-repeat 0px -77px;
+	 background:url(../images/bg-rotate.png?v=45) no-repeat 0px -77px;
 	position:absolute;
 	 left:0;
 	 top:0;
@@ -3104,7 +3104,7 @@ a:hover{
 }
 
 /*pop*/.pop-bg{
-	background:url(../images/phoenix/common/bg-pop.png?v=45) repeat;
+	background:url(../images/bg-pop.png?v=45) repeat;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -3386,7 +3386,7 @@ a:hover{
 	 height:200px;
 	  border:1px solid #ED5F59;
 	 margin:0px auto;
-	 background:#FFF url(../images/phoenix/icon/loading.gif?v=45) no-repeat 50% 50px;
+	 background:#FFF url(../images/loading.gif?v=45) no-repeat 50% 50px;
 	 border-radius:5px;
 	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
  }
@@ -3551,7 +3551,7 @@ a:hover{
 .login-form-btn input{
 	 width:266px;
 	 height:38px;
-	 background:url('../images/phoenix/icon/btn-red-h38.png?v=45') no-repeat 0 0;
+	 background:url('../images/btn-red-h38.png?v=45') no-repeat 0 0;
 	 border:none;
 	 font-size:18px;
 	 color:#FFF;
@@ -3599,7 +3599,7 @@ a:hover{
 
 .tooltip i{
 	display:block;
-	 background-image:url(../images/phoenix/icon/icon_tips.png?v=45);
+	 background-image:url(../images/icon_tips.png?v=45);
 	 background-repeat:no-repeat;
 }
 
@@ -3666,7 +3666,7 @@ a:hover{
 .tit-hsbg{
 	 width:100%;
 	 height:30px;
-	 background:url(../images/phoenix/icon/bg-tit.jpg?v=45) repeat;
+	 background:url(../images/bg-tit.jpg?v=45) repeat;
 }
 
 .tit-hsbg h3{
@@ -3689,15 +3689,15 @@ a:hover{
 }
 
 .icon-success{
-	background:url(../images/phoenix/common/icon-success.png?v=45) no-repeat 50% 50%;
+	background:url(../images/icon-success.png?v=45) no-repeat 50% 50%;
 }
 
 .icon-error{
-	background:url(../images/phoenix/common/icon-error.png?v=45) no-repeat 50% 50%;
+	background:url(../images/icon-error.png?v=45) no-repeat 50% 50%;
 }
 
 .icon-message{
-	background:url(../images/phoenix/common/icon-message.png?v=45) no-repeat 50% 50%;
+	background:url(../images/icon-message.png?v=45) no-repeat 50% 50%;
 }
 
 .operating-tips h3{
@@ -3757,7 +3757,7 @@ a:hover{
 	 z-index:2;
 	 padding-top:50px !important;
 	 text-align:center;
-	 background-image: url(../images/phoenix/common/main-bg.jpg?v=45);
+	 background-image: url(../images/main-bg.jpg?v=45);
 	 background-repeat: no-repeat;
 	 background-position: 50% 0;
 }

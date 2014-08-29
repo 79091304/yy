@@ -595,17 +595,7 @@ $(window).scroll(function(){
 	}
 
 </script>
-	<!--footer end-->
-	<!-- <div style="display:none;">
-    <script type="text/javascript">
-      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe89e365e0d0438aa7f6d6eab7960962c' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-</div> -->
-
-	<!--[if IE 6]>
-<script src="/static/zhongchou/js/DD_belatedPNG_0.0.8a.js"></script>
-<![endif]-->
+	
 
 	<img src="./众筹网-中国最具影响力的众筹平台_files/pv"
 		style="display: none; width: 0px; height: 0px;">
