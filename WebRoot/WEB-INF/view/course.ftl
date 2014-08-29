@@ -6,14 +6,10 @@
 <title></title>
 <meta name="keywords" content="">
 <meta name="description" content="">
-<!--public js&css start-->
-<!--public js&css end -->
 <script type="text/javascript" src="${ctx}/js/jquery.js"></script>
-<link rel="stylesheet" type="text/css" href="${ctx}/css/detail1.css">
-<link rel="stylesheet" type="text/css" href="${ctx}/css/detail2.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/detail.css">
 <body>
-	<iframe frameborder="0"
-		style="position: absolute; display: none; opacity: 0;"></iframe>
+	
 	<div class="jiathis_style"
 		style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div>
 	<div class="jiathis_style"
@@ -556,7 +552,6 @@ $(window).scroll(function(){
 <script src="/static/zhongchou/js/DD_belatedPNG_0.0.8a.js"></script>
 <![endif]-->
 
-	<img src="./detail_files/pv"
-		style="display: none; width: 0px; height: 0px;">
+	
 </body>
 </html>
