@@ -3,31 +3,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>骑行去西藏——为了梦想执着向前-爱儿网-中国最具影响力的众筹平台</title>
-<meta name="keywords" content="众筹 创业 项目 投资 支持">
-<meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
+<title></title>
+<meta name="keywords" content="">
+<meta name="description" content="">
 <!--public js&css start-->
 <!--public js&css end -->
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/detail1.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/detail2.css">
 <body>
-	<link href="./detail_files/jiathis_share.css" rel="stylesheet"
-		type="text/css">
 	<iframe frameborder="0"
 		style="position: absolute; display: none; opacity: 0;"></iframe>
 	<div class="jiathis_style"
 		style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div>
 	<div class="jiathis_style"
 		style="position: absolute; z-index: 1000000000; display: none; overflow: auto;"></div>
-	<iframe frameborder="0" src="./detail_files/jiathis_utility.htm"
-		style="display: none;"></iframe>
 	<!--header static-->
 	<div class="header">
 		<div class="wrap">
 			<div class="img-logo">
 				<h1>
-					<a alt="众筹网" class="ie6fixpic" title="众筹网" href="">众筹网</a>
+					<a alt="" class="ie6fixpic" title="" href=""></a>
 				</h1>
 			</div>
 			<!--menu start-->
@@ -54,7 +50,7 @@
 			<div class="user-menu " id="jsddm">
 				<div class="menu-hd tx">
 					<a href="home/id-154415" class="tit"> <img id="headeravatar"
-						src="./detail_files/noavatar_small.gif"> <span
+						src=""> <span
 						class="ie6fixpic">游客</span>
 					</a>
 				</div>
@@ -103,7 +99,7 @@
 									<ul class="clearfix">
 										<li class="select"><a
 											class="btn-base btn-nav common-sprite"
-											href="./detail_files/detail.htm"> <span
+											href=""> <span
 												class="common-sprite">详细介绍</span>
 										</a></li>
 										<li></li>
@@ -228,47 +224,6 @@
 											style="text-align: center; display: inline-block;"><img
 											src="./detail_files/noavatar_small.gif"></a>
 									</div>
-									<div class="comment_content">
-										<a href="home/id-153535" class="linkgreen">internetrix:</a>&nbsp;
-
-										<span style="word-break: break-all;">每个人都有个梦想，趁我们还年轻，去实现它吧！！！<br>
-											<br>
-											厦门网阵主营：网站开发,网站设计,数据分析,网站数据分析,网站分析,网站维护,搜索引擎优化,搜索引擎营销,搜索引擎优化与营销,在线营销,网阵,网络解决方案等，网址：http://www.internetrix.cn
-											&nbsp;&nbsp;
-										</span> <span class="pass_time"> 6天前 </span>
-										<div class="clr"></div>
-										<div class="comment_op">
-											<a href="javascript:void(0);" class="linkgreen replycomment"
-												rel="4440">回复</a>
-										</div>
-										<div class="blank1"></div>
-										<div class="reply_box" id="reply_box_4440">
-											<div class="blank"></div>
-											<form name="comment__form" rel="0" class="comment_form"
-												action="deal-save_comment/deal_id-2568-pid-4440">
-												<div class="reply_content">
-													<textarea name="content">回复 internetrix:</textarea>
-													<input type="hidden" name="ajax" value="1"> <input
-														type="hidden" name="comment_pid" value="4440">
-												</div>
-												<div class="blank"></div>
-												<!--<span class="syn_weibo">
-				 <input type="checkbox" name="syn_weibo" value="1" />
-				<span>同时发布至我的微博 </span>
-			</span>-->
-												<div>
-													<div class="ui-button send_btn" rel="green">
-														<div>
-															<span>发送</span>
-														</div>
-													</div>
-												</div>
-												<div class="blank"></div>
-
-											</form>
-										</div>
-									</div>
-
 									<div class="blank5"></div>
 								</div>
 								<div class="comment_item">

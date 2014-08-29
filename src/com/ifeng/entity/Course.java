@@ -18,6 +18,8 @@ public class Course implements Serializable{
 	
 	private String category;
 	
+	private int scount;//学生人数
+	
 	private String videoUrl;
 	
 	private String imgUrl;
@@ -138,6 +140,14 @@ public class Course implements Serializable{
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public int getScount() {
+		return scount;
+	}
+
+	public void setScount(int scount) {
+		this.scount = scount;
 	}
 	
 }

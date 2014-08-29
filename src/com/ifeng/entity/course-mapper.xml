@@ -4,17 +4,18 @@
 <mapper namespace="Course">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name,detail,category,videoUrl,imgUrl,city,tag,tid,begin,end,createdAt,changedAt
+		id,name,detail,category,videoUrl,imgUrl,scount,city,tag,tid,begin,end,createdAt,changedAt
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Course">
-		insert into c_course(name,detail,videoUrl,imgUrl,city,category,tag,tid,begin,end,createdAt,changedAt)
+		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt)
 		values 
 		(
 		#{name},
 		#{detail},
 		#{videoUrl},
 		#{imgUrl},
+		#{scount},
 		#{city},
 		#{category},
 		#{tag},
@@ -35,6 +36,16 @@
 		</if> 
 	</select>
 	
+	<select  id="getById" resultType="Course"  parameterType="int">
+	    select 
+		<include refid="selectId" />
+		from c_course t 
+		<if test="_parameter!=null">
+		    <where>
+		        t.id = #{_parameter}
+		    </where>
+		</if>
+	</select>
 	
 </mapper>
 	

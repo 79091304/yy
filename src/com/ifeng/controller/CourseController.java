@@ -18,7 +18,7 @@ import com.ifeng.service.CourseService;
 
 @Controller
 @RequestMapping("/course/")
-public class CourseController extends BaseController{
+public class CourseController {
 	
 	
 	private static final int COUNT = 4; 

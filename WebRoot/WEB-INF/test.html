@@ -1,9 +1,10 @@
-<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>爱儿网-中国最具影响力的幼教园台</title>
+<!--public js&css start-->
+<!--public js&css end -->
 <script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css">
 <body>
@@ -39,25 +40,25 @@
 			<!-- user menu start-->
 			<div class="user-menu " id="jsddm">
 				<div class="menu-hd tx">
-					<a href="" class="tit"> <img id="headeravatar"
-						src=""> <span
-						class="ie6fixpic">张三</span>
+					<a href="/home/id-154415" class="tit"> <img id="headeravatar"
+						src="./display_files/noavatar_small.gif"> <span
+						class="ie6fixpic">kkllk…</span>
 					</a>
 				</div>
 				<div class="menu-bd JS-myinfo">
-					
-						<ul class="clearfix">
-								<li class="sup"><a class="ie6fixpic" href="/home/id-154415">支持的项目</a></li>
-								<li class="spo"><a class="ie6fixpic"
-									href="/home-build_deal/id-154415">发起的项目</a></li>
-								<li class="att"><a class="ie6fixpic"
-									href="/home-focus/id-154415">喜欢的项目</a></li>
-								<li class="msg"><a class="ie6fixpic" href="/message">消息中心</a></li>
-								<li class="set"><a class="ie6fixpic" href="/settings">个人设置</a></li>
-								<li class="exit bn"><a class="ie6fixpic"
-									href="/user-loginout">退出</a></li>
+					<ul class="clearfix">
+						<ul>
+							<li class="sup"><a class="ie6fixpic" href="/home/id-154415">支持的项目</a></li>
+							<li class="spo"><a class="ie6fixpic"
+								href="/home-build_deal/id-154415">发起的项目</a></li>
+							<li class="att"><a class="ie6fixpic"
+								href="/home-focus/id-154415">喜欢的项目</a></li>
+							<li class="msg"><a class="ie6fixpic" href="/message">消息中心</a></li>
+							<li class="set"><a class="ie6fixpic" href="/settings">个人设置</a></li>
+							<li class="exit bn"><a class="ie6fixpic"
+								href="/user-loginout">退出</a></li>
 						</ul>
-					
+					</ul>
 				</div>
 			</div>
 			<!-- user menu end-->
@@ -86,7 +87,6 @@ $(document).ready(function(){
 					<li><a href="/browse/id-20" title="音乐">音乐</a></li>
 					<li><a href="/browse/id-18" title="其它">其它</a></li>
 				</ul>
-
 			</div>
 			<div class="filter-box clearfix">
 				<div class="rel-key-rec">
@@ -104,38 +104,40 @@ $(document).ready(function(){
 			</div>
 			<div class="item-lists">
 				<ul class="clearfix">
-					<#list teachers as item>
-						<li>
-							<div class="list-item">
-								<a class="item-figure" href="" target="_blank">
-									<img src="images/tt.jpg" alt="【-声演坊】Bang Gang2014年中国巡演·长沙站">
-								</a>
-								<div class="item-upvote">
-									<a class="icons " href="javascript:void(0);" rel="10"
-										onclick="like_deal_v2(2789, this)">10</a>
-								</div>
-								<h3>
-									<a href="" target="_blank">【-声演坊】Bang
-										Gang2014年中国巡演·长沙站</a>
-								</h3>
-								<div class="item-caption">
-									<span
-										class="btn-base btn-red-h20 common-sprite"> <span
-										class="common-sprite">众筹中</span>
-									</span>
-								</div>
-								<div class="progress-bar">
-									<span class="progress bg-red" style="width: 0%;"></span>
-								</div>
-								<div class="item-rate clearfix">
-									<span class="rate1"> <em>0%</em><br>已达
-									</span> <span class="rate2"> <em>￥0</em><br>已筹资
-									</span> <span class="rate3"> <em>47天</em><br>剩余时间
-									</span>
-								</div>
+
+					<li>
+						<!--Deal Card Module-->
+						<div class="list-item">
+							<a class="item-figure" href="/deal-show/id-2789" target="_blank">
+								<img src="${ctx}/images/tt.jpg"
+								alt="【-声演坊】Bang Gang2014年中国巡演·长沙站">
+							</a>
+							<div class="item-upvote">
+								<a class="icons " href="javascript:void(0);" rel="10"
+									onclick="like_deal_v2(2789, this)">10</a>
 							</div>
-						</li>
-					</#list>
+							<h3>
+								<a href="/deal-show/id-2789" target="_blank">【-声演坊】Bang
+									Gang2014年中国巡演·长沙站</a>
+							</h3>
+							<div class="item-caption">
+								<span class="caption-title">目标：<em>53天</em> <em><i
+										class="font-yen">¥</i>1000</em></span> <span
+									class="btn-base btn-red-h20 common-sprite"> <span
+									class="common-sprite">众筹中</span>
+								</span>
+							</div>
+							<div class="progress-bar">
+								<span class="progress bg-red" style="width: 0%;"></span>
+							</div>
+							<div class="item-rate clearfix">
+								<span class="rate1"> <em>0%</em><br>已达
+								</span> <span class="rate2"> <em>￥0</em><br>已筹资
+								</span> <span class="rate3"> <em>47天</em><br>剩余时间
+								</span>
+							</div>
+						</div>
+					</li>
 				</ul>
 				<div class="page tr">
 					<a class="prev" href="/browse/p-2">上一页</a> &nbsp;<a
