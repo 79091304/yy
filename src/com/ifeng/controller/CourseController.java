@@ -8,20 +8,23 @@ import javax.servlet.http.HttpServletRequest;
 
 
 
+
+
+
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ifeng.common.Instant;
 import com.ifeng.entity.Course;
 import com.ifeng.service.CourseService;
+import com.ifeng.util.PageView;
 
 @Controller
 @RequestMapping("/course/")
 public class CourseController {
-	
-	
-	private static final int COUNT = 4; 
 	
 	@Autowired
 	private CourseService courseService;
@@ -34,9 +37,20 @@ public class CourseController {
 	 * @throws IOException
 	 */
 	@RequestMapping("list")
-	public ModelAndView listForIndex(String count,HttpServletRequest request) throws IOException{
+	public ModelAndView listForIndex(String status,String pageNow,HttpServletRequest request) throws IOException{
 		ModelAndView mv = new ModelAndView("courses");
-		List<Course> courses = courseService.listForIndex(COUNT);
+		int now = 0;
+		int pstatus = -1;
+		Course course = new Course();
+		if(StringUtils.isNotEmpty(pageNow)){
+			now = Integer.parseInt(pageNow);
+		}
+		if(StringUtils.isNotEmpty(status)){
+			pstatus = Integer.parseInt(status);
+			course.setScount(pstatus);
+		}
+		PageView page = new PageView(Instant.PAGE_SIZE, now);
+		List<Course> courses =courseService.listForPage(page, course);
 		mv.addObject("courses", courses);
 		mv.addObject("ctx", request.getContextPath());
 		return mv;

@@ -46,9 +46,9 @@ public class BaseDaoImpl<T>  extends SqlSessionDaoSupport implements BaseDao<T>{
 	}
 	public List<T> query(PageView pageView,T t) {
 		Map<Object, Object> map = new HashMap<Object, Object>();
-		map.put("paging", pageView);
+		map.put("page", pageView);
 		map.put("t", t);
-		return getSqlSession().selectList(this.getClassName()+".query",map);
+		return getSqlSession().selectList(this.getClassName()+".pageQuery",map);
 	}
 	public List<T> queryAll(T t) {
 		return getSqlSession().selectList(this.getClassName()+".queryAll",t);

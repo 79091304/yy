@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.ifeng.dao.CourseDao;
 import com.ifeng.entity.Course;
 import com.ifeng.service.CourseService;
+import com.ifeng.util.PageView;
 
 @Repository("courseService")
 public class CourseServiceImpl implements CourseService {
@@ -23,6 +24,11 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public Course getCourse(long id) {
 		return courseDao.getById(id);
+	}
+
+	@Override
+	public List<Course> listForPage(PageView page,Course course) {
+		return courseDao.query(page, course);
 	}
 
 }

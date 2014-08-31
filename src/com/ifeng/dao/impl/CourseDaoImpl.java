@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.ifeng.base.impl.BaseDaoImpl;
 import com.ifeng.dao.CourseDao;
 import com.ifeng.entity.Course;
+import com.ifeng.util.PageView;
 
 @Repository("courseDao")
 public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
@@ -19,6 +20,11 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 		Map<String , Integer> data = new HashMap<String, Integer>();
 		data.put("count", count);
 		return this.getSqlSession().selectList(this.getClassName()+".queryByC", data);
+	}
+
+	@Override
+	public List<Course> queryForPage(PageView page,Course course) {
+		return this.query(page, course);
 	}
 
 

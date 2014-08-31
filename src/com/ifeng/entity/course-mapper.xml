@@ -8,7 +8,7 @@
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Course">
-		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt)
+		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt,status)
 		values 
 		(
 		#{name},
@@ -23,7 +23,8 @@
 		#{begin},
 		#{end},
 		null,
-		 #{changedAt}
+		 #{changedAt},
+		 #{status}
 		)
 	</insert>
 	
@@ -46,6 +47,21 @@
 		    </where>
 		</if>
 	</select>
+	
+	<!-- 分页查询 -->
+	<select  id="pageQuery" resultType="Course"  parameterType="java.util.Map">
+	   select 
+		<include refid="selectId" />
+		 from c_course where id>=(select id from c_course
+		 <where>
+		 	1=1
+		 	<if test="status != -1">
+		 		and status = #{status}
+		 	</if>
+		 </where>
+		  limit #{page.startPage},1) limit #{page.pageSize};
+	</select>
+	
 	
 </mapper>
 	

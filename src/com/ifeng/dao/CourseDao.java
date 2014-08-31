@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.ifeng.base.BaseDao;
 import com.ifeng.entity.Course;
+import com.ifeng.util.PageView;
 
 public interface CourseDao extends BaseDao<Course>{
 
@@ -14,4 +15,10 @@ public interface CourseDao extends BaseDao<Course>{
 	 * @return
 	 */
 	public List<Course> queryByC(int count);
+	
+	/**
+	 * 分页查询
+	 * @return
+	 */
+	public List<Course> queryForPage(PageView page,Course course);
 }

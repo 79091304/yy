@@ -18,6 +18,8 @@ public class Course implements Serializable{
 	
 	private String category;
 	
+	private int status;
+	
 	private int scount;//学生人数
 	
 	private String videoUrl;
@@ -148,6 +150,14 @@ public class Course implements Serializable{
 
 	public void setScount(int scount) {
 		this.scount = scount;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 }
