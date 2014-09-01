@@ -7,6 +7,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/detail.css">
 <body>
 	

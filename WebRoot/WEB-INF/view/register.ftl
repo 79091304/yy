@@ -4,9 +4,10 @@
 <title>用户注册-爱儿网-中国最具影响力的幼儿园平台</title>
 <meta name="keywords" content="众筹 创业 项目 投资 支持">
 <meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
+<link rel="stylesheet" type="text/css" href="${ctx }/css/common.css">
+<link rel="stylesheet" type="text/css" href="${ctx }/css/login.css">
 <script type="text/javascript" src="${ctx }/js/jquery.json-2.4.min.js"></script>
 <script type="text/javascript" src="${ctx }/js/util.js"></script>
-<link rel="stylesheet" type="text/css" href="${ctx }/css/register.css">
 <body>
 <div class="header">
     <div class="wrap">
