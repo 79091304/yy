@@ -340,17 +340,17 @@ a:hover{
 }
 
 /*图标*/.common-sprite{
-	background-image:url('../images/phoenix/icon/icon_sprite.png?v=370');
+	background-image:url('../images/icon_sprite.png?v=370');
 	 background-repeat: no-repeat;
 }
 
 .icons{
-	background-image:url('../images/phoenix/icon/icons.png?v=370');
+	background-image:url('../images/icons.png?v=370');
 	 background-repeat: no-repeat;
 }
 
 .txt-err{
-	background-image:url('../images/phoenix/icon/icons_v1.png?v=370');
+	background-image:url('../images/icons_v1.png?v=370');
 	 background-repeat: no-repeat;
 }
 
@@ -498,7 +498,7 @@ a:hover{
 /*基本按钮*/.btn-msg-h20,.btn-msg-h20 span{
 	 height:20px;
 	 line-height:20px;
-	 background-image:url(../images/phoenix/icon/icon-msg.png?v=370);
+	 background-image:url(../images/icon-msg.png?v=370);
 	 background-repeat:no-repeat;
 	display:inline-block;
 	  *display: inline;
@@ -715,7 +715,7 @@ a:hover{
 }
 
 .ratio-bar .ratio-red{
-	 background:url(../images/phoenix/icon/icon-progress.gif?v=370) no-repeat 100% 0;
+	 background:url(../images/icon-progress.gif?v=370) no-repeat 100% 0;
 }
 
 .ratio-bar .ratio-yellow{
@@ -921,7 +921,7 @@ a:hover{
 	 text-indent:-9999px;
 	 font-size:0;
 	 display:block;
-	 background:url(../images/phoenix/icon/icon-msg.png?v=370) no-repeat -2px -1px;
+	 background:url(../images/icon-msg.png?v=370) no-repeat -2px -1px;
 }
 
 .menu-hd img{
@@ -941,7 +941,7 @@ a:hover{
 	 font-size:14px;
 	 font-weight:bold;
 	 padding-right:15px;
-	 background:url('../images/phoenix/icon/icon_tnav.png?v=370') no-repeat 100% -145px;
+	 background:url('../images/icon_tnav.png?v=370') no-repeat 100% -145px;
 }
 
 .menu-hd a:hover span{
@@ -974,7 +974,7 @@ a:hover{
 	height:22px;
 	 display:block;
 	 padding-left:32px;
-	 background-image:url(../images/phoenix/icon/icon_tnav.png?v=370);
+	 background-image:url(../images/icon_tnav.png?v=370);
 	 background-repeat: no-repeat;
 }
 
@@ -1191,7 +1191,7 @@ a:hover{
 	 border:1px solid #e6e6e6;
 	 border-radius:12px;
 	 display:block;
-	 background:#FFF url(../images/phoenix/icon/icons.png?v=370) no-repeat 3px 6px;
+	 background:#FFF url(../images/icons.png?v=370) no-repeat 3px 6px;
 	 position:relative;
 	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
 }
@@ -1592,7 +1592,7 @@ a:hover{
 	 height:200px;
 	  border:1px solid #ED5F59;
 	 margin:0px auto;
-	 background:#FFF url(../images/phoenix/icon/loading.gif?v=370) no-repeat 50% 50px;
+	 background:#FFF url(../images/loading.gif?v=370) no-repeat 50% 50px;
 	 border-radius:5px;
 	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
  }
@@ -1757,7 +1757,7 @@ a:hover{
 .login-form-btn input{
 	 width:266px;
 	 height:38px;
-	 background:url('../images/phoenix/icon/btn-red-h38.png?v=370') no-repeat 0 0;
+	 background:url('../images/btn-red-h38.png?v=370') no-repeat 0 0;
 	 border:none;
 	 font-size:18px;
 	 color:#FFF;
@@ -1805,7 +1805,7 @@ a:hover{
 
 .tooltip i{
 	display:block;
-	 background-image:url(../images/phoenix/icon/icon_tips.png?v=370);
+	 background-image:url(../images/icon_tips.png?v=370);
 	 background-repeat:no-repeat;
 }
 
@@ -1872,7 +1872,7 @@ a:hover{
 .tit-hsbg{
 	 width:100%;
 	 height:30px;
-	 background:url(../images/phoenix/icon/bg-tit.jpg?v=370) repeat;
+	 background:url(../images/bg-tit.jpg?v=370) repeat;
 }
 
 .tit-hsbg h3{
@@ -2044,7 +2044,7 @@ a:hover{
  }
 
 .icon-notic{
-	background:url(../images/phoenix/icon/laba.png?v=370) no-repeat 5px 50%;
+	background:url(../images/laba.png?v=370) no-repeat 5px 50%;
 	 background-size:25px auto;
 	 text-indent:35px;
 }
@@ -2059,7 +2059,7 @@ a:hover{
 	 width:40px;
 	 height:40px;
 	 text-indent:-9999px;
-	 background:url(../images/phoenix/icon/close.png?v=370) no-repeat 50% 50%;
+	 background:url(../images/close.png?v=370) no-repeat 50% 50%;
 	 background-size:20px auto;
 }
 
@@ -2103,7 +2103,7 @@ a:hover{
 }
 
 /* *Description:karva-chauth *Author: cheris  *Email: zhangxiaoyang@ucfgroup.com *Date: 2014/03/07 */ .icon-kc{
-	background-image:url(../images/phoenix/icon/icon-karva-chauth.png?v=370);
+	background-image:url(../images/icon-karva-chauth.png?v=370);
 	 background-repeat:no-repeat;
 }
 
@@ -2160,7 +2160,7 @@ a:hover{
 .attention-kc{
 	 width:155px;
 	 height:225px;
-	 background:url(../images/phoenix/icon/icon-karva-chauth.png?v=370) no-repeat -473px 0;
+	 background:url(../images/icon-karva-chauth.png?v=370) no-repeat -473px 0;
 	 position:absolute;
 	 left:-180px;
 	 top:50px;
@@ -2495,7 +2495,7 @@ a:hover{
 	 font-size:24px;
 	 text-align:center;
 	 border:none;
-	 background:url(../images/phoenix/icon/icon-karva-chauth.png?v=370) no-repeat 0 -283px;
+	 background:url(../images/icon-karva-chauth.png?v=370) no-repeat 0 -283px;
 	 margin:0 auto;
 	 cursor:pointer;
 }
@@ -2507,7 +2507,7 @@ a:hover{
 
 .main{
 	 padding-top:30px;
-	 background-image: url(../images/phoenix/common/main-bg.jpg?v=370);
+	 background-image: url(../images/main-bg.jpg?v=370);
 	 background-repeat: no-repeat;
 	 background-position: 50% 0;
  }

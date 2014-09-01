@@ -1843,15 +1843,15 @@ a:hover{
 }
 
 .icon-success{
-	background:url(../images/phoenix/common/icon-success.png?v=45) no-repeat 50% 50%;
+	background:url(../images/icon-success.png?v=45) no-repeat 50% 50%;
 }
 
 .icon-error{
-	background:url(../images/phoenix/common/icon-error.png?v=45) no-repeat 50% 50%;
+	background:url(../images/icon-error.png?v=45) no-repeat 50% 50%;
 }
 
 .icon-message{
-	background:url(../images/phoenix/common/icon-message.png?v=45) no-repeat 50% 50%;
+	background:url(../images/icon-message.png?v=45) no-repeat 50% 50%;
 }
 
 .operating-tips h3{
@@ -1911,7 +1911,7 @@ a:hover{
 	 z-index:2;
 	 padding-top:50px !important;
 	 text-align:center;
-	 background-image: url(../images/phoenix/common/main-bg.jpg?v=45);
+	 background-image: url(../images/main-bg.jpg?v=45);
 	 background-repeat: no-repeat;
 	 background-position: 50% 0;
 }
