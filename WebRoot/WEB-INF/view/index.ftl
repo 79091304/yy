@@ -37,8 +37,8 @@ $(function(){
 		<div class="wrap">
 			<div class="img-logo">
 				<h1>
-					<a alt="众筹网" class="ie6fixpic" title="众筹网"
-						href="./众筹网-中国最具影响力的众筹平台_files/众筹网-中国最具影响力的众筹平台.htm">众筹网</a>
+					<a alt="好学党" class="ie6fixpic" title="好学党"
+						href="">好学党</a>
 				</h1>
 			</div>
 			<!--menu start-->
@@ -597,7 +597,5 @@ $(window).scroll(function(){
 </script>
 	
 
-	<img src="./众筹网-中国最具影响力的众筹平台_files/pv"
-		style="display: none; width: 0px; height: 0px;">
 </body>
 </html>
