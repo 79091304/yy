@@ -7,7 +7,7 @@
 <meta name="description" content="为孩子寻找最好的幼儿园，给家长提供最好的建议">
 <!--public js&css start-->
 <!--public js&css end -->
-<link rel="stylesheet" type="text/css" href="css/a1.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script >

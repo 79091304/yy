@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Category">
+	<!-- 以下与实体类的中字段一致 -->
+	<sql id="selectId">
+		id,name,status,no
+	</sql>
+	<select id="query" resultType="Category" parameterType="long">
+		select
+		<include refid="selectId" />
+		from c_category t
+		<where>
+			<if test="id != null and id  != ''">
+				id=#{id} 
+				</if>
+		</where>
+	</select>
+	
+	<select id="queryAll" resultType="Category" parameterType="Category">
+		select
+		<include refid="selectId" />
+		from c_category 
+	</select>
+	
+	
+	
+	
+	<!-- 总记录数 -->
+	<select id="count" parameterType="Category" resultType="int">
+		select count(0) from c_category
+	</select>
+
+
+	
+	
+	
+	
+</mapper>
