@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 
 
 
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ifeng.common.Instant;
 import com.ifeng.entity.Course;
 import com.ifeng.service.CourseService;
+import com.ifeng.util.CookieHelper;
 import com.ifeng.util.PageView;
 
 @Controller
@@ -75,4 +79,17 @@ public class CourseController {
 		return mv;
 	}
 	
+	
+	@RequestMapping("publish")
+	public ModelAndView publish(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("ctx", request.getContextPath());
+		String uid = CookieHelper.getValue(Instant.COOKIE_USERID, request);
+		if(StringUtils.isEmpty(uid)){
+			mv.setViewName("");
+		}else{
+			mv.setViewName("publish");
+		}
+		return mv;
+	}
 }

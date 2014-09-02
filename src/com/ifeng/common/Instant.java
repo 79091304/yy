@@ -5,6 +5,8 @@ public class Instant {
 	
 	public static final int USER_STATE_NOMAL = 1;//正常用户
 	
+	public static final String CATEGORY_KEY = "xuexicategory";
+	
 	public static final String WEBSITE = "http://www.xuexidang.com";
 	
 	public static final String COURSEWEBSITE = "http://www.xuexidang.com/course/getInfo.htm?id=";
