@@ -40,7 +40,7 @@ public class IndexController {
 	@RequestMapping("index")
 	public ModelAndView index(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView("index");
-		
+		mv.addObject("ctx", request.getContextPath());
 		Cookie[] cookies = request.getCookies();
 		String value = null;
 		User user = null;

@@ -1,10 +1,7 @@
-
-/*za jindan*/
-
 /*banner*/.banner{
 	 width:100%;
-	 padding:50px 0px 30px;
-	 background-image: url(../images/main-bg.jpg?v=45);
+	 padding:30px 0px;
+	 background-image: url(../images/main-bg.jpg?v=381);
 	 background-repeat: no-repeat;
 	 background-position: 50% 0;
 }
@@ -20,10 +17,6 @@
 	 border-radius:8px;
 	 position:relative;
 	 behavior:url(static/css/phoenix/PIE.htc);
-}
-
-.focus-btn{
-	 padding:10px 0 0;
 }
 
 .focus-btn a{
@@ -332,7 +325,7 @@
 }
 
 .support-con .icon-sup{
-	background-image: url(../images/icon-support.png?v=45);
+	background-image: url(../images/icon-support.png?v=381);
 	 background-repeat: no-repeat;
 }
 
@@ -361,13 +354,6 @@
 }
 
 
-#JS-banner_ul {
-	position: relative;
-}
 
-#JS-banner_ul li {
-	float: left
-}
-
-
-
+#JS-banner_ul{position:relative;}
+#JS-banner_ul li{float:left}

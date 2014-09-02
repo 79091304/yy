@@ -1,6 +1,7 @@
 package com.ifeng.controller;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
@@ -21,6 +22,17 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	/**
+	 * 用户中心
+	 * @return
+	 */
+	@RequestMapping("index")
+	public ModelAndView index(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView("user");
+		mv.addObject("ctx", request.getContextPath());
+		return mv;
+	}
 
 	@ResponseBody
 	@RequestMapping("getInfo")

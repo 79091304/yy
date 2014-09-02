@@ -9,9 +9,9 @@
 <!--public js&css start-->
 <!--public js&css end -->    
 
-<link rel="stylesheet" type="text/css" href="./css/common.css">
-<link rel="stylesheet" type="text/css" href="./css/user.css">
-<script type="text/javascript" src=""></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/user.css">
+<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 </head>
 
 <body>

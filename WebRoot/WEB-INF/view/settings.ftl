@@ -8,9 +8,9 @@
 <meta name="description" content="在发布项目，获得投资支持，实现你的创业梦想">
 <!--public js&css start-->
 <!--public js&css end -->
-<link rel="stylesheet" type="text/css" href="./css/common.css">
-<link rel="stylesheet" type="text/css" href="./css/setting.css">
-<script type="text/javascript" src=""></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/setting.css">
+<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 </head>
 
 <body>
@@ -80,8 +80,7 @@
 		</div>
 	</div>
 	<!--header-end-->
-	<link rel="stylesheet" type="text/css"
-		href="%E4%B8%AA%E4%BA%BA%E8%AE%BE%E7%BD%AE_files/a30d1d84495b3b3c2eb6b0c54b79f8c4.css">
+	
 	<!--main static-->
 	<div class="main clearfix">
 		<div class="setting wrap">

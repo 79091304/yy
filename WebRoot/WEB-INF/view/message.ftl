@@ -8,9 +8,9 @@
 <meta name="description" content="在发布项目，获得投资支持，实现你的创业梦想">
 <!--public js&css start-->
 <!--public js&css end -->
-<link rel="stylesheet" type="text/css" href="./css/common.css">
-<link rel="stylesheet" type="text/css" href="./css/message.css">
-<script src=""></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/message.css">
+<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 </head>
 
 <body>
