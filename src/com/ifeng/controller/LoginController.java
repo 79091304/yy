@@ -17,7 +17,7 @@ import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
 
 @Controller
-@RequestMapping("/login/")
+@RequestMapping("/log/")
 public class LoginController {
 	
 	
@@ -43,7 +43,7 @@ public class LoginController {
 			rm = ResponseMessage.SUCCESS;
 			String encryptStr = AesSec.encrypt(user.getId()+"", Instant.AES_PASSWORD);
 			Cookie cuid = new Cookie(Instant.COOKIE_USERID, encryptStr);
-			cuid.setMaxAge(60*60*24*3);
+			cuid.setMaxAge(Instant.COOKIE_EXPIRE);
 			Cookie cuname = new Cookie(Instant.COOKIE_USERNAME, user.getUsername());
 			cuname.setMaxAge(60*60*24*3);
 			response.addCookie(cuid);
@@ -53,6 +53,5 @@ public class LoginController {
 		}
 		return rm;
 	}
-	
 	
 }

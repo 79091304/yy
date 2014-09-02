@@ -27,12 +27,8 @@
     <div class="menu">
       <ul class="clearfix">
           <li><a href="/index">首页 </a></li>
-          <li><a href="/browse">浏览项目 </a></li>
-          <li><a href="/open">开放平台 </a></li>
-          <li><a href="/partake">新手帮助 </a></li>
-          <li><a href="/project">发起项目 </a></li>
-          <!--<li><a href="/help-about/id-1">关于众筹 </a></li>-->
-          <!-- <li><a href="/browse-showstock">股权众筹 </a></li> -->
+          <li><a href="${ctx}/course/list.htm">课程 </a></li>
+          <li><a href="${ctx}/teacher/list.htm">教师 </a></li>
       </ul>
     </div>
     <!--menu end-->
@@ -62,7 +58,7 @@
               <li class="spo"><a class="ie6fixpic" href="/home-build_deal/id-154415">发起的项目</a></li>
               <li class="att"><a class="ie6fixpic" href="/home-focus/id-154415">喜欢的项目</a></li>
               <li class="msg"><a class="ie6fixpic" href="/message">消息中心</a></li>
-              <li class="set"><a class="ie6fixpic" href="/settings">个人设置</a></li>
+              <li class="set"><a class="ie6fixpic" href="${ctx}/user/settings.htm">个人设置</a></li>
               <li class="exit bn"><a class="ie6fixpic" href="/user-loginout">退出</a></li>
           </ul>
         </ul>
@@ -146,12 +142,7 @@
 		</div>
 			</div>
 </div>
-<script>
-function addConsignee(order_id){
-   	addr = wx.pop(wx.template("Js-addrModify",{"type":0,"order_id":order_id}),{"shown":getCity});
-   	getProvince();
-}
-</script>
+
 <script type="text/javascript">
 	$(".Js-address").hover(function(){
 		var $parent =$(this).parent();

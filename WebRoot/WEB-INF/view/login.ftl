@@ -82,7 +82,7 @@
 					success: function(ajaxobj){
 						if(ajaxobj.code==1)
 						{
-							window.location.href = "../index.htm";
+							window.location.href = "../index.html";
 						}
 						else
 						{
