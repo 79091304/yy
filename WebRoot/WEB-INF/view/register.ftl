@@ -30,14 +30,6 @@
 			<div class="signin-form">
 				<form method="post" id="JS-user_register_form">
 					<div class="form-item clearfix">
-						<label>我是：</label>
-						<select id = "type" name="type">
-								<option value="">请选择</option>
-								<option value="0">家长</option>
-								<option value="1">老师</option>
-						</select>
-					</div>
-					<div class="form-item clearfix">
 						<label>邮箱：</label>
 						<input type="text" placeholder="请输入您的常用邮箱" name="email">
 					</div>
@@ -121,11 +113,6 @@
 						var confirm_user_pwd = $.trim($("#JS-user_register_form").find("input[name='confirm_user_pwd']").val());
 						var user_name = $.trim($("#JS-user_register_form").find("input[name='user_name']").val());
 						var verify = $.trim($("#JS-user_register_form").find("input[name='verify']").val());
-						var type = $.trim($("#JS-user_register_form").find("select[name='type']").val());
-						if(type == ''){
-							wx.alert("请先认定一下我的身份");
-							return false;
-						}
 						if(email == '' || !wx.validator.rule.email(email)) {
 							wx.alert("邮箱格式不正确");
 							return false;

@@ -4,8 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>爱儿网-中国最具影响力的幼教园台</title>
-<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css">
+<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 <body>
 	<!--header static-->
 	<div class="header">

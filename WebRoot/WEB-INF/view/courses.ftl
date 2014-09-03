@@ -21,6 +21,8 @@
 					<li><a href="/">首页 </a></li>
 					<li class="select"><a href="../course/list.htm">课程 </a></li>
 					<li><a href="../teacher/list.htm">教师 </a></li>
+					<li><a href="../teacher/list.htm">新人帮助 </a></li>
+					<li><a href="../teacher/list.htm">发起课程 </a></li>
 				</ul>
 			</div>
 			<!--menu end-->

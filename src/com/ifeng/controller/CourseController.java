@@ -5,15 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-
-
-
-
-
-
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -86,7 +77,7 @@ public class CourseController {
 		mv.addObject("ctx", request.getContextPath());
 		String uid = CookieHelper.getValue(Instant.COOKIE_USERID, request);
 		if(StringUtils.isEmpty(uid)){
-			mv.setViewName("");
+			mv.setViewName("nologin");
 		}else{
 			mv.setViewName("publish");
 		}

@@ -36,12 +36,11 @@ public class RegisterController {
 	
 	@ResponseBody
 	@RequestMapping("register")
-	public Object register(String type,String email,String phone,String password,String username,String verify,HttpServletRequest request) throws IOException{
+	public Object register(String email,String phone,String password,String username,String verify,HttpServletRequest request) throws IOException{
 		ResponseMessage rm = null;
 		String code = (String)request.getSession().getAttribute(RandomValidateCode.RANDOMCODEKEY);
 		if(StringUtils.isNotEmpty(verify) && verify.equalsIgnoreCase(code)){
 			User user = new User();
-			user.setType(Integer.parseInt(type));
 			user.setEmail(email);
 			user.setPhone(phone);
 			user.setUsername(username);
