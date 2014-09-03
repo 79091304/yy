@@ -111,7 +111,7 @@ function dosubmit(){
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="help-announcement" target="_bank"><span class="red">《众筹公告》</span></a>
 					</div>
 					<div class="pro-agr-btn">
-						<a class="btn-base btn-red-h37 common-sprite" href="javascript:void(0);" onclick="dosubmit();"><span class="common-sprite">立即发起项目</span></a>
+						<a class="btn-base btn-red-h37 common-sprite" href="javascript:void(0);" onclick="dosubmit();"><span class="common-sprite">立即发布课程</span></a>
 					</div>
 				</form>
 			</div>

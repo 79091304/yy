@@ -7,7 +7,7 @@
 <meta name="keywords" content="众筹 创业 项目 投资 支持">
 <meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
 
-<link rel="stylesheet" type="text/css" src="${ctx}/css/a1.css">
+<link rel="stylesheet" type="text/css" src="${ctx}/css/common.css">
 <script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 <body>
 	<!--header static-->
@@ -76,10 +76,6 @@
 	<script type="text/javascript">
 	var ROOT = '/keupload.php';
 </script>
-	<link rel="stylesheet" type="text/css"
-		href="./shenqing_files/69e7ed92f0fd667e9b2322d1be599241.css">
-	<script type="text/javascript"
-		src="./shenqing_files/30dc5690baa4a2f6c372f7bed0a25958.js"></script>
 
 	<!--main static-->
 	<div class="main clearfix">
