@@ -10,7 +10,6 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/nologin.css">
-<script src="${ctx}/js/jquery.js"></script>
 </head>
 
 <body>
@@ -26,15 +25,8 @@ function dosubmit(){
 	if(!$("#flag").attr("checked")){
 		wx.alert('您还没有同意众筹网服务协议。');
 		return false;
-	}else{
-		var uid = $.cookie("uid");
-		if(uid != null || "" != uid){
-			window.location.href="${ctx}/course/publish.htm";
-		}else{
-			window.location.href="${ctx}/log/toLogin.htm";
-		}
 	}
-
+	window.fqform.submit();
 }
 
 </script>
@@ -61,7 +53,7 @@ function dosubmit(){
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="help-announcement" target="_bank"><span class="red">《众筹公告》</span></a>
 					</div>
 					<div class="pro-agr-btn">
-						<a class="btn-base btn-red-h37 common-sprite" href="javascript:void(0);" onclick="dosubmit();"><span class="common-sprite">立即发布课程</span></a>
+						<a class="btn-base btn-red-h37 common-sprite" href="#" onclick="dosubmit();"><span class="common-sprite">立即发布课程</span></a>
 					</div>
 				</form>
 			</div>

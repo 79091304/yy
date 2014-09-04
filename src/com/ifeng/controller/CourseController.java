@@ -96,8 +96,13 @@ public class CourseController {
 	 */
 	@RequestMapping("publish")
 	public ModelAndView publish(HttpServletRequest request){
-		ModelAndView mv = new ModelAndView("publish");
-		
+		ModelAndView mv = new ModelAndView();
+		String uid = CookieHelper.getValue(Instant.COOKIE_USERID, request);
+		if(StringUtils.isNotEmpty(uid)){
+			mv.setViewName("publish");
+		}else{
+			mv.setViewName("login");
+		}
 		return mv;
 	}
 }

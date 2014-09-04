@@ -99,6 +99,6 @@ $(document).ready(function(){
 
 <#include "footer.ftl">
 
-</script>
+
      
 </html> 

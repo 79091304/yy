@@ -66,4 +66,5 @@
 		
 	</div>
 	
-<script type="text/javascript" src="${ctx}/js/promotuser.js"></script>	
+<script type="text/javascript" src="${ctx}/js/promotuser.js"></script>
+	

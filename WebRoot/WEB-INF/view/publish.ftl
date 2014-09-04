@@ -9,7 +9,6 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/publish.css">
-<script src="${ctx}/js/jquery.js"></script>
 <body>
 	<!--header static-->
 	<#include "header.ftl">
@@ -236,6 +235,7 @@
 </script>
 		<!--main end-->
 		<!--footer static-->
+		
 		<#include "footer.ftl">
 </body>
 </html>

@@ -6,7 +6,6 @@
 <title>爱儿网-中国最具影响力的幼教园台</title>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css">
-<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 <body>
 	<!--header static-->
 	<#include "header.ftl">

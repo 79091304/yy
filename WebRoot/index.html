@@ -14,7 +14,7 @@
 <script type="text/javascript">
 $(function(){
 	var uid = $.cookie('uid');
-	if(null != uid && '' != uid){
+	if(undefined != uid && '' != uid){
 		$.ajax({
 			url : "./user/getInfo.htm?uid="+uid,
 		    type : "POST", 

@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/detail.css">
-<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+
 <body>
 	
 	<div class="jiathis_style"
