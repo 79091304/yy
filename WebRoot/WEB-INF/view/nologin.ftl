@@ -15,64 +15,8 @@
 
 <body>
 <!--header static-->
-<div class="header">
-		<div class="wrap">
-			<div class="img-logo">
-				<h1>
-					<a alt="" class="ie6fixpic" title="" href="/"></a>
-				</h1>
-			</div>
-			
-			<div class="menu">
-				<ul class="clearfix">
-					<li><a href="/">首页 </a></li>
-					<li class="select"><a href="../course/list.htm">课程 </a></li>
-					<li><a href="../teacher/list.htm">教师 </a></li>
-					<li><a href="../teacher/list.htm">新人帮助 </a></li>
-					<li><a href="../teacher/list.htm">发起课程 </a></li>
-				</ul>
-			</div>
-			<!--menu end-->
-			<!--search start-->
-			<div class="search common-sprite ie6fixpic sw">
-				<form action="/deals" method="post" id="header_new_search_form"
-					wx-validator="" autocomplete="off">
-					<input type="text" name="k" wx-validator-placeholder="搜索"
-						wx-validator-rule="required" class="search-key gray"
-						wx-validator-notip="" placeholder="搜索"> <input
-						id="Js-search-submit" type="submit" class="btn-search ie6fixpic">
-				</form>
-			</div>
-			<!--search end-->
+<#include "header.ftl">
 
-			<!-- user menu start-->
-			<div class="user-menu " id="jsddm">
-				<div class="menu-hd tx">
-					<a href="" class="tit"> <img id="headeravatar"
-						src="./display_files/noavatar_small.gif"> <span
-						class="ie6fixpic">kkllk…</span>
-					</a>
-				</div>
-				<div class="menu-bd JS-myinfo">
-					<ul class="clearfix">
-						<ul>
-							<li class="sup"><a class="ie6fixpic" href="">支持的项目</a></li>
-							<li class="spo"><a class="ie6fixpic"
-								href="">发起的项目</a></li>
-							<li class="att"><a class="ie6fixpic"
-								href="">喜欢的项目</a></li>
-							<li class="msg"><a class="ie6fixpic" href="">消息中心</a></li>
-							<li class="set"><a class="ie6fixpic" href="">个人设置</a></li>
-							<li class="exit bn"><a class="ie6fixpic"
-								href="">退出</a></li>
-						</ul>
-					</ul>
-				</div>
-			</div>
-			<!-- user menu end-->
-
-		</div>
-	</div>
 <script type="text/javascript">
 $(function() {
 	var flag = '';  
@@ -82,9 +26,15 @@ function dosubmit(){
 	if(!$("#flag").attr("checked")){
 		wx.alert('您还没有同意众筹网服务协议。');
 		return false;
+	}else{
+		var uid = $.cookie("uid");
+		if(uid != null || "" != uid){
+			window.location.href="${ctx}/course/publish.htm";
+		}else{
+			window.location.href="${ctx}/log/toLogin.htm";
+		}
 	}
 
-	document.fqform.submit();
 }
 
 </script>
@@ -102,7 +52,7 @@ function dosubmit(){
 				<h3>发起项目</h3>
 			</div>
 			<div class="project-start">
-				<form action="/project-add" name="fqform" method="post">
+				<form action="${ctx}/course/publish.htm" name="fqform" method="post">
 					<h3>如果你有一颗真诚的心那么请在这里发起你的梦想</h3>
 					<p>众筹网是一家可以帮助您实现梦想的网站，在这里您可以发布您的梦想、创意和创业计划，并通过网络平台面对公众集资，让有创造力的人可能获得他们所需要的资金，以便使他们的梦想有可能实现。</p>
 					<div class="pro-agr-chk">

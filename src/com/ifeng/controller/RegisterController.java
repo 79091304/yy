@@ -29,8 +29,6 @@ public class RegisterController {
 	@RequestMapping("toRegister")
 	public ModelAndView toLogin(HttpServletRequest request){
 		 ModelAndView mv = new ModelAndView("register");
-		 String ctx = request.getContextPath();
-	     mv.addObject("ctx", ctx);
 		return mv;
 	} 
 	

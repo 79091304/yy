@@ -11,43 +11,7 @@
 
 <body>
 <!--header static-->
-<div class="header">
-  <div class="wrap clearfix" pbid="header">
-    <div class="img-logo">
-      <h1>
-        <a alt="众筹网" class="ie6fixpic" title="众筹网" href="/index">众筹网</a>
-      </h1>
-    </div>
-    <!--menu start-->
-    <div class="menu">
-      <ul class="clearfix">
-          <li><a href="/index">首页 </a></li>
-          <li class="select"><a href="/browse">课程 </a></li>
-          <li><a href="/open">教师</a></li>
-          <li><a href="/partake">新手帮助 </a></li>
-          <li><a href="/project">发起课程 </a></li>
-      </ul>
-    </div>
-    <!--menu end-->
-    <!--search start-->
-    <div class="search common-sprite ie6fixpic sw">
-      <form action="/deals" method="post" id="header_new_search_form" wx-validator>
-      <input type="text" name="k" wx-validator-placeholder="搜索" wx-validator-rule="required" class="search-key gray" wx-validator-notip />
-      <input id="Js-search-submit" type="submit" class="btn-search ie6fixpic" />
-      </form>
-    </div>
-    <!--search end-->
-
-    <!--login start-->
-    <div class="login-wrap">
-      <a href="/user-login">登录</a>
-      <em>|</em>
-      <a href="/user-register">注册</a>
-    </div>
-    <!--login end-->
-
-  </div>
-</div>
+<#include "header.ftl">
 <script>
 $(document).ready(function(){
     $("select[name='deal_sort']").bind('change',function(){

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class CourseController {
 	 * @throws IOException
 	 */
 	@RequestMapping("list")
-	public ModelAndView listForIndex(String status,String pageNow,HttpServletRequest request) throws IOException{
+	public ModelAndView listForIndex(String status,String pageNow,String cid,HttpServletRequest request) throws IOException{
 		ModelAndView mv = new ModelAndView("courses");
 		int now = 0;
 		int pstatus = -1;
@@ -44,10 +45,12 @@ public class CourseController {
 			pstatus = Integer.parseInt(status);
 			course.setScount(pstatus);
 		}
+		if(StringUtils.isNotEmpty(cid)){
+			course.setCategory(cid);
+		}
 		PageView page = new PageView(Instant.PAGE_SIZE, now);
 		List<Course> courses =courseService.listForPage(page, course);
 		mv.addObject("courses", courses);
-		mv.addObject("ctx", request.getContextPath());
 		return mv;
 	}
 	
@@ -61,7 +64,6 @@ public class CourseController {
 	@RequestMapping("getInfo")
 	public ModelAndView getInfo(long id,HttpServletRequest request){
 		ModelAndView mv = new ModelAndView("course");
-		mv.addObject("ctx", request.getContextPath());
 		if(0 != id){
 			Course course = courseService.getCourse(id);
 			if(null != course)
@@ -70,17 +72,32 @@ public class CourseController {
 		return mv;
 	}
 	
-	
-	@RequestMapping("publish")
-	public ModelAndView publish(HttpServletRequest request){
+	/**
+	 * 预发布 跳转到提示页面
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("prepublish")
+	public ModelAndView prepublish(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("ctx", request.getContextPath());
 		String uid = CookieHelper.getValue(Instant.COOKIE_USERID, request);
 		if(StringUtils.isEmpty(uid)){
 			mv.setViewName("nologin");
 		}else{
 			mv.setViewName("publish");
 		}
+		return mv;
+	}
+	
+	/**
+	 * 跳转到发布页面
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("publish")
+	public ModelAndView publish(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView("publish");
+		
 		return mv;
 	}
 }

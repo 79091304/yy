@@ -30,8 +30,6 @@ public class LoginController {
 	@RequestMapping("toLogin")
 	public ModelAndView toLogin(HttpServletRequest request){
 		 ModelAndView mv = new ModelAndView("login");
-		 String ctx = request.getContextPath();
-	     mv.addObject("ctx", ctx);
 		return mv;
 	} 
 	

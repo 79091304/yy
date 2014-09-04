@@ -16,58 +16,7 @@
 
 <body>
 <!--header static-->
-<div class="header">
-  <div class="wrap clearfix" pbid="header">
-    <div class="img-logo">
-      <h1>
-        <a alt="众筹网" class="ie6fixpic" title="众筹网" href="/index">众筹网</a>
-      </h1>
-    </div>
-    <!--menu start-->
-    <div class="menu">
-      <ul class="clearfix">
-          <li><a href="/index">首页 </a></li>
-          <li><a href="${ctx}/course/list.htm">课程 </a></li>
-          <li><a href="${ctx}/teacher/list.htm">教师 </a></li>
-      </ul>
-    </div>
-    <!--menu end-->
-    <!--search start-->
-    <div class="search common-sprite ie6fixpic sw">
-      <form autocomplete="off" action="/deals" method="post" id="header_new_search_form" wx-validator="">
-      <input placeholder="搜索" name="k" wx-validator-placeholder="搜索" wx-validator-rule="required" class="search-key gray" wx-validator-notip="" type="text">
-      <input id="Js-search-submit" class="btn-search ie6fixpic" type="submit">
-      </form>
-    </div>
-    <!--search end-->
-
-    <!-- user menu start-->
-    <div class="user-menu" id="jsddm">
-      <div class="menu-hd tx">
-        <a href="/home/id-154415" class="tit">
-          <span class="avatar-box">
-            <img id="headeravatar" src="">
-                      </span>
-          <span class="user-name word-break ie6fixpic">kkllk…</span>
-        </a>
-      </div>
-      <div style="display: none;" class="menu-bd JS-myinfo">
-        <ul class="clearfix">
-          <ul>
-              <li class="sup"><a class="ie6fixpic" href="/home/id-154415">支持的项目</a></li>
-              <li class="spo"><a class="ie6fixpic" href="/home-build_deal/id-154415">发起的项目</a></li>
-              <li class="att"><a class="ie6fixpic" href="/home-focus/id-154415">喜欢的项目</a></li>
-              <li class="msg"><a class="ie6fixpic" href="/message">消息中心</a></li>
-              <li class="set"><a class="ie6fixpic" href="${ctx}/user/settings.htm">个人设置</a></li>
-              <li class="exit bn"><a class="ie6fixpic" href="/user-loginout">退出</a></li>
-          </ul>
-        </ul>
-      </div>
-    </div>
-    <!-- user menu end-->
-
-  </div>
-</div>
+<#include "header.ftl">
 <!--header-end-->    
                                     
 <!-- user_info begin-->

@@ -4,78 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>发起项目-众筹网-中国最具影响力的众筹平台</title>
-<meta name="keywords" content="众筹 创业 项目 投资 支持">
-<meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
+<meta name="keywords" content="">
+<meta name="description" content="">
 
-<link rel="stylesheet" type="text/css" src="${ctx}/css/common.css">
-<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/publish.css">
+<script src="${ctx}/js/jquery.js"></script>
 <body>
 	<!--header static-->
-	<div class="header">
-		<div class="wrap">
-			<div class="img-logo">
-				<h1>
-					<a alt="众筹网" class="ie6fixpic" title="众筹网"
-						href="">众筹网</a>
-				</h1>
-			</div>
-			<!--menu start-->
-			<div class="menu">
-				<ul class="clearfix">
-					<li><a href="">首页 </a></li>
-					<li><a href="browse">幼儿园</a></li>
-					<li><a href="open">教师</a></li>
-					<li><a href="partake">优秀课程</a></li>
-				</ul>
-			</div>
-			<!--menu end-->
-			<!--search start-->
-			<div class="search common-sprite ie6fixpic sw">
-				<form action="deals" method="post"
-					id="header_new_search_form" wx-validator="" autocomplete="off">
-					<input type="text" name="k" wx-validator-placeholder="搜索"
-						wx-validator-rule="required" class="search-key gray"
-						wx-validator-notip="" placeholder="搜索"> <input
-						id="Js-search-submit" type="submit" class="btn-search ie6fixpic">
-				</form>
-			</div>
-			<!--search end-->
-
-			<!-- user menu start-->
-			<div class="user-menu " id="jsddm">
-				<div class="menu-hd tx">
-					<a href="home/id-154415" class="tit"> <img
-						id="headeravatar" src="./shenqing_files/noavatar_small.gif">
-						<span class="ie6fixpic">用户名</span>
-					</a>
-				</div>
-				<div class="menu-bd JS-myinfo" style="display: none;">
-					<ul class="clearfix">
-						<ul>
-							<li class="sup"><a class="ie6fixpic"
-								href="home/id-154415">支持的项目</a></li>
-							<li class="spo"><a class="ie6fixpic"
-								href="home-build_deal/id-154415">发起的项目</a></li>
-							<li class="att"><a class="ie6fixpic"
-								href="home-focus/id-154415">喜欢的项目</a></li>
-							<li class="msg"><a class="ie6fixpic"
-								href="message">消息中心</a></li>
-							<li class="set"><a class="ie6fixpic"
-								href="settings">个人设置</a></li>
-							<li class="exit bn"><a class="ie6fixpic"
-								href="user-loginout">退出</a></li>
-						</ul>
-					</ul>
-				</div>
-			</div>
-			<!-- user menu end-->
-
-		</div>
-	</div>
-	<!--header-end-->
-	<script type="text/javascript">
-	var ROOT = '/keupload.php';
-</script>
+	<#include "header.ftl">
 
 	<!--main static-->
 	<div class="main clearfix">

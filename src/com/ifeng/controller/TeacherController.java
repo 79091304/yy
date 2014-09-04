@@ -35,7 +35,6 @@ public class TeacherController {
 		ModelAndView mv = new ModelAndView("teachers");
 		List<Teacher> teachers = teacherService.listForIndex(COUNT);
 		mv.addObject("teachers", teachers);
-		mv.addObject("ctx", request.getContextPath());
 		return mv;
 	}
 }

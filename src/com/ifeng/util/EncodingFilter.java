@@ -19,9 +19,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
  * 对HTTP请求进行编码
- * @author lanyuan
  * 2013-11-19
- * @Email: mmm333zzz520@163.com
  * @version 1.0v
  */
 public class EncodingFilter implements Filter {
@@ -47,6 +45,7 @@ public class EncodingFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request=(HttpServletRequest) req;
+		request.setAttribute("ctx", request.getContextPath());
 		if(request.getMethod().toUpperCase().equals("GET")){
 			req =new RequestWrapper((HttpServletRequest) req);
 		}else{

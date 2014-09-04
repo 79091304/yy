@@ -16,61 +16,7 @@
 	<div class="jiathis_style"
 		style="position: absolute; z-index: 1000000000; display: none; overflow: auto;"></div>
 	<!--header static-->
-	<div class="header">
-		<div class="wrap">
-			<div class="img-logo">
-				<h1>
-					<a alt="" class="ie6fixpic" title="" href=""></a>
-				</h1>
-			</div>
-			<!--menu start-->
-			<div class="menu">
-				<ul class="clearfix">
-					<li><a href="">首页 </a></li>
-					<li class="select"><a href="browse">教师</a></li>
-				</ul>
-			</div>
-			<!--menu end-->
-			<!--search start-->
-			<div class="search common-sprite ie6fixpic sw">
-				<form action="deals" method="post" id="header_new_search_form"
-					wx-validator="" autocomplete="off">
-					<input type="text" name="k" wx-validator-placeholder="搜索"
-						wx-validator-rule="required" class="search-key gray"
-						wx-validator-notip="" placeholder="搜索"> <input
-						id="Js-search-submit" type="submit" class="btn-search ie6fixpic">
-				</form>
-			</div>
-			<!--search end-->
-
-			<!-- user menu start-->
-			<div class="user-menu " id="jsddm">
-				<div class="menu-hd tx">
-					<a href="home/id-154415" class="tit"> <img id="headeravatar"
-						src=""> <span
-						class="ie6fixpic">游客</span>
-					</a>
-				</div>
-				<div class="menu-bd JS-myinfo">
-					<ul class="clearfix">
-						<ul>
-							<li class="sup"><a class="ie6fixpic" href="home/id-154415">支持的项目</a></li>
-							<li class="spo"><a class="ie6fixpic"
-								href="home-build_deal/id-154415">发起的项目</a></li>
-							<li class="att"><a class="ie6fixpic"
-								href="home-focus/id-154415">喜欢的项目</a></li>
-							<li class="msg"><a class="ie6fixpic" href="message">消息中心</a></li>
-							<li class="set"><a class="ie6fixpic" href="settings">个人设置</a></li>
-							<li class="exit bn"><a class="ie6fixpic"
-								href="user-loginout">退出</a></li>
-						</ul>
-					</ul>
-				</div>
-			</div>
-			<!-- user menu end-->
-
-		</div>
-	</div>
+	<#include "header.ftl">
 	<!--main static-->
 
 	<div class="main deal_bg">

@@ -15,72 +15,8 @@
 
 <body>
 	<!--header static-->
-	<div class="header">
-		<div class="wrap clearfix" pbid="header">
-			<div class="img-logo">
-				<h1>
-					<a alt="" class="ie6fixpic" title=""
-						href="index"></a>
-				</h1>
-			</div>
-			<!--menu start-->
-			<div class="menu">
-				<ul class="clearfix">
-					<li><a href="index">首页 </a></li>
-					<li><a href="browse">浏览项目 </a></li>
-					<li><a href="open">开放平台 </a></li>
-					<li><a href="partake">新手帮助 </a></li>
-					<li><a href="project">发起项目 </a></li>
-					<!--<li><a href="/help-about/id-1">关于众筹 </a></li>-->
-					<!-- <li><a href="/browse-showstock">股权众筹 </a></li> -->
-				</ul>
-			</div>
-			<!--menu end-->
-			<!--search start-->
-			<div class="search common-sprite ie6fixpic sw">
-				<form autocomplete="off" action="/deals" method="post"
-					id="header_new_search_form" wx-validator="">
-					<input placeholder="搜索" name="k" wx-validator-placeholder="搜索"
-						wx-validator-rule="required" class="search-key gray"
-						wx-validator-notip="" type="text"> <input
-						id="Js-search-submit" class="btn-search ie6fixpic" type="submit">
-				</form>
-			</div>
-			<!--search end-->
-
-			<!-- user menu start-->
-			<div class="user-menu" id="jsddm">
-				<div class="menu-hd tx">
-					<a href="home/id-154415" class="tit"> <span
-						class="avatar-box"> <img id="headeravatar"
-							src="%E6%B6%88%E6%81%AF%E4%B8%AD%E5%BF%83_files/noavatar_small.gif">
-					</span> <span class="user-name word-break ie6fixpic">kkllk…</span>
-					</a>
-				</div>
-				<div class="menu-bd JS-myinfo">
-					<ul class="clearfix">
-						<ul>
-							<li class="sup"><a class="ie6fixpic"
-								href="home/id-154415">支持的项目</a></li>
-							<li class="spo"><a class="ie6fixpic"
-								href="home-build_deal/id-154415">发起的项目</a></li>
-							<li class="att"><a class="ie6fixpic"
-								href="home-focus/id-154415">喜欢的项目</a></li>
-							<li class="msg"><a class="ie6fixpic"
-								href="message">消息中心</a></li>
-							<li class="set"><a class="ie6fixpic"
-								href="settings">个人设置</a></li>
-							<li class="exit bn"><a class="ie6fixpic"
-								href="user-loginout">退出</a></li>
-						</ul>
-					</ul>
-				</div>
-			</div>
-			<!-- user menu end-->
-
-		</div>
-	</div>
-
+	<#include "header.ftl">
+	
 	<script type="text/javascript">
 function del_message(id){
 	wx.confirm("确定删除？",function(){

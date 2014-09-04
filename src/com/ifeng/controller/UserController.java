@@ -30,7 +30,6 @@ public class UserController {
 	@RequestMapping("index")
 	public ModelAndView index(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView("user");
-		mv.addObject("ctx", request.getContextPath());
 		return mv;
 	}
 
