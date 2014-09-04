@@ -72,7 +72,7 @@
 					return false;
 				}
 				
-				var ajaxurl = './login.htm';
+				var ajaxurl = '${ctx}/log/login.htm';
 				query = 'ajax=1&email=' + email + '&password=' + password;
 				$.ajax({ 
 					url: ajaxurl,
@@ -82,7 +82,7 @@
 					success: function(ajaxobj){
 						if(ajaxobj.code==1)
 						{
-							window.location.href = "../index.html";
+							window.location.href = "${ctx}/index.html";
 						}
 						else
 						{
