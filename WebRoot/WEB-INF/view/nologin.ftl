@@ -23,7 +23,7 @@ $(function() {
 	
 function dosubmit(){
 	if(!$("#flag").attr("checked")){
-		wx.alert('您还没有同意众筹网服务协议。');
+		wx.alert('您还没有同意服务协议。');
 		return false;
 	}
 	window.fqform.submit();
@@ -46,11 +46,11 @@ function dosubmit(){
 			<div class="project-start">
 				<form action="${ctx}/course/publish.htm" name="fqform" method="post">
 					<h3>如果你有一颗真诚的心那么请在这里发起你的梦想</h3>
-					<p>众筹网是一家可以帮助您实现梦想的网站，在这里您可以发布您的梦想、创意和创业计划，并通过网络平台面对公众集资，让有创造力的人可能获得他们所需要的资金，以便使他们的梦想有可能实现。</p>
+					<p>我们是一家可以帮助您实现梦想的网站，在这里您可以发布您的梦想、创意和创业计划，并通过网络平台面对公众集资，让有创造力的人可能获得他们所需要的资金，以便使他们的梦想有可能实现。</p>
 					<div class="pro-agr-chk">
 						<input id="flag" name="flag" checked="checked" type="checkbox">
-						阅读并同意众筹网的<a class="red" href="help-term" target="_blank">《服务协议》</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="help-announcement" target="_bank"><span class="red">《众筹公告》</span></a>
+						阅读并同意<a class="red" href="help-term" target="_blank">《服务协议》</a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 					<div class="pro-agr-btn">
 						<a class="btn-base btn-red-h37 common-sprite" href="#" onclick="dosubmit();"><span class="common-sprite">立即发布课程</span></a>

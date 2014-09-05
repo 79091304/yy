@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>众筹网-艺术众筹_传统工艺项目融资-众筹网</title>
+<title></title>
 <!--public js&css start-->
 <!--public js&css end -->    
 <link rel="stylesheet"  type="text/css" href="${ctx}/css/common.css">
@@ -24,25 +24,18 @@ $(document).ready(function(){
 		<!--channel-nav static-->
 		<div class="channel-nav">
 			<ul class="clearfix">
-				<li ><a title="全部分类"  href="/browse">全部</a></li>
-													<li ><a href="/browse/id-12" title="科技">科技</a></li>
-																		<li class="select"><a href="/browse/id-22" title="艺术">艺术</a></li>
-																		<li ><a href="/browse/id-13" title="设计">设计</a></li>
-																		<li ><a href="/browse/id-20" title="音乐">音乐</a></li>
-																		<li ><a href="/browse/id-15" title="影视">影视</a></li>
-																		<li ><a href="/browse/id-16" title="出版">出版</a></li>
-																		<li ><a href="/browse/id-25" title="动漫游戏">动漫游戏</a></li>
-																		<li ><a href="/browse/id-23" title="公益">公益</a></li>
-																		<li ><a href="/browse/id-26" title="公开课">公开课</a></li>
-																		<li ><a href="/browse/id-28" title="农业">农业</a></li>
-																		<li ><a href="/browse/id-18" title="其他">其他</a></li>
-												</ul>
+				<li ><a title="全部分类"  href="/browse">全部</a>
+				</li>
+				<#list categories as item>
+					<li ><a href="${ctx}/course/list.htm?cid=${item.id}" title="${item.name}">${item.name}</a></li>
+				</#list>													
+				</ul>
 		</div>
 		<div class="filter-box clearfix">
 			<div class="rel-key-rec">
-				<a class="select" href="/browse/id-22">所有项目(95)</a>
-				<a  href="/browse/id-22-r-di">众筹中(41)</a>
-				<a  href="/browse/id-22-r-ds">已成功(54)</a>
+				<a class="select" href="${ctx}/course/list.htm?sid=0">所有课程(95)</a>
+				<a  href="${ctx}/course/list.htm?sid=2">众筹中(41)</a>
+				<a  href="${ctx}/course/list.htm?sid=1">已成功(54)</a>
 			</div>
 			<div class="range">
 				<select name="deal_sort">

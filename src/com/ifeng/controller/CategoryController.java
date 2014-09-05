@@ -2,13 +2,15 @@ package com.ifeng.controller;
 
 import java.util.List;
 
-import net.sf.json.JSONObject;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ifeng.common.Instant;
+import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.Category;
 import com.ifeng.service.CategoryService;
 import com.ifeng.util.MemCachedManager;
@@ -22,11 +24,20 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@RequestMapping("getAll")
-	public void getAll(){
+
+	/**
+	 * 将种类信息存入缓存
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("pushcache")
+	public Object pushcache(){
 		List<Category> categories = categoryService.getAll();
-		String jsonstr = JSONObject.fromBean(categories).toString();
-		manager.add(Instant.CATEGORY_KEY, jsonstr);
+		boolean flag = manager.add(Instant.CATEGORY_KEY, categories);
+		if(flag)
+			return ResponseMessage.SUCCESS;
+		return ResponseMessage.FAIL;
 	}
 
+	
 }

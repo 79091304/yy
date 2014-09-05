@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/publish.css">
+<script type="text/javascript" src="${ctx}/js/address.js" >
 <body>
 	<!--header static-->
 	<#include "header.ftl">
@@ -16,20 +17,15 @@
 	<!--main static-->
 	<div class="main clearfix">
 		<div class="wrap clearfix">
-			<!--flow step static-->
-			<div class="project-edit-nav">
-				<h3 class="steps-1">课程信息</h3>
-			</div>
-			<!--flow step end-->
 			<!--content static-->
 			<div class="content fl">
 
 				<!--project start-->
 				<div class="project-box">
 					<div class="radius-hd">
-						<div class="radius-hl common-sprite"></div>
-						<div class="radius-hc w705"></div>
-						<div class="radius-hr common-sprite"></div>
+						<div class="radius-hl common-sprite">111</div>
+						<div class="radius-hc w705">222</div>
+						<div class="radius-hr common-sprite">333</div>
 					</div>
 					<div class="radius-bd project-con w713">
 
@@ -49,7 +45,7 @@
 										maxlength="40" placeholder="名称不可超过40个字">
 								</div>
 								<div class="form-item clearfix">
-									<label>课时：</label> <input name="deal_days" type="text"
+									<label>课时：</label> <input name="deal_days" type="text" onkeyup="return;this.value=this.value.replace(/[^\.\d]/g,'')"
 										wx-validator-rule="required|digits|range"
 										wx-validator-param="||10-90" wx-validator-placeholder="10~90天"
 										value="" placeholder="10~90天"><span
@@ -71,47 +67,22 @@
 								<div class="form-item clearfix">
 									<label>授课地点：</label>
 									<div class="option-box">
-										<select name="province" class="fl"
+										<select name="province" class="fl" id="cmbProvince"
 											wx-validator-error-value="请选择省份">
 											<option>请选择省份</option>
-											<option value="安徽" rel="3">安徽</option>
-											<option value="澳门" rel="396">澳门</option>
-											<option value="北京" rel="52">北京</option>
-											<option value="福建" rel="4">福建</option>
-											<option value="甘肃" rel="5">甘肃</option>
-											<option value="广东" rel="6">广东</option>
-											<option value="广西" rel="7">广西</option>
-											<option value="贵州" rel="8">贵州</option>
-											<option value="海南" rel="9">海南</option>
-											<option value="河北" rel="10">河北</option>
-											<option value="黑龙江" rel="12">黑龙江</option>
-											<option value="河南" rel="11">河南</option>
-											<option value="湖北" rel="13">湖北</option>
-											<option value="湖南" rel="14">湖南</option>
-											<option value="江苏" rel="16">江苏</option>
-											<option value="江西" rel="17">江西</option>
-											<option value="吉林" rel="15">吉林</option>
-											<option value="辽宁" rel="18">辽宁</option>
-											<option value="内蒙古" rel="19">内蒙古</option>
-											<option value="宁夏" rel="20">宁夏</option>
-											<option value="青海" rel="21">青海</option>
-											<option value="山东" rel="22">山东</option>
-											<option value="上海" rel="321">上海</option>
-											<option value="山西" rel="23">山西</option>
-											<option value="陕西" rel="24">陕西</option>
-											<option value="四川" rel="26">四川</option>
-											<option value="台湾" rel="397">台湾</option>
-											<option value="天津" rel="343">天津</option>
-											<option value="香港" rel="395">香港</option>
-											<option value="西藏" rel="28">西藏</option>
-											<option value="新疆" rel="29">新疆</option>
-											<option value="云南" rel="30">云南</option>
-											<option value="浙江" rel="31">浙江</option>
-											<option value="重庆" rel="394">重庆</option>
-										</select> <select name="city" class="fl"
+										</select> 
+										<select name="city" class="fl" id="cmbCity"
 											wx-validator-error-value="请选择城市">
 											<option>请选择城市</option>
-										</select> <span id="wx-validator-province-error" class="error-text"
+										</select>
+										</select> <select name="area" class="fl" id="cmbArea"
+											wx-validator-error-value="请选择地区">
+											<option>请选择地区</option>
+										</select> 
+										<script>
+											addressInit('cmbProvince', 'cmbCity', 'cmbArea', '北京', '北京', '朝阳区');
+										</script> 
+										<span id="wx-validator-province-error" class="error-text"
 											style="display: none">请选择省份</span> <span
 											id="wx-validator-city-error" class="error-text"
 											style="display: none">请选择城市</span> <input name="name"
@@ -236,6 +207,8 @@
 		<!--main end-->
 		<!--footer static-->
 		
-		<#include "footer.ftl">
+<#include "footer.ftl">
+
+
 </body>
 </html>

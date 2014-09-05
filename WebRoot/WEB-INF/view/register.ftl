@@ -13,10 +13,10 @@
     <div class="wrap">
         <div class="img-logo">
             <h1>
-                <a alt="众筹网" class="ie6fixpic" title="众筹网" href="http://www.zhongchou.cn/">众筹网</a>
+                <a alt="" class="ie6fixpic" title="" href="">学习帮</a>
             </h1>
         </div>
-                <div class="quick-links">已有账号 <a class="red" href="../login/toLogin.htm">直接登录</a></div>
+                <div class="quick-links">已有账号 <a class="red" href="${ctx}/login/toLogin.htm">直接登录</a></div>
                 
     </div> 
 </div>

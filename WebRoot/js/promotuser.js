@@ -40,6 +40,7 @@ $(document).ready(function()
 {	
 	$('#jsddm ').bind('mouseover', jsddm_open);
 	$('#jsddm ').bind('mouseout',  jsddm_timer);	
+	$("#headermenu").find("a").bind("click",selectMenu);
 	});
 	
 document.onclick = jsddm_close;
@@ -121,3 +122,11 @@ function like_deal_v3(id, el) {
 	    }
 	  });
 	}
+
+
+/**
+ * 选择样式
+ */
+function selectMenu(){
+	$(this).parent().removeClass("select");
+}

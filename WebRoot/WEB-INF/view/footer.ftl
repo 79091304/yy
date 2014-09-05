@@ -1,4 +1,5 @@
- 
+
+	
  <div class="footer" pbid="footer">
   <!--footer section start-->
   <div class="footer-section clearfix">
@@ -168,5 +169,3 @@ $(window).scroll(function(){
 	}
 
 </script>
-<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
-<script type="text/javascript" src="${ctx}/js/util.js"></script>	
