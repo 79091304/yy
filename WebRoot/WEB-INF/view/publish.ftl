@@ -31,21 +31,22 @@
 
 						<form wx-validator="" wx-validator-ajax=""
 							action="project-save" method="post"
-							name="HwForm" autocomplete="off">
+							name="HwForm" id="HwForm" autocomplete="off">
 
 							<div class="tit-wrap">
 								<h3>课程信息</h3>
 							</div>
 							<div class="project-edit">
 								<div class="form-item clearfix">
-									<label>课程名称：</label> <input name="name" type="text"
+									<label>课程名称：</label> <input name="cname" type="text" id="cname"
 										class="inp-w310" wx-validator-rule="required|maxLength"
 										wx-validator-param="|40" wx-validator-placeholder="名称不可超过40个字"
 										wx-validator-name-maxlength="名称不可超过40个字" value=""
 										maxlength="40" placeholder="名称不可超过40个字">
 								</div>
 								<div class="form-item clearfix">
-									<label>课时：</label> <input name="deal_days" type="text" onkeyup="return;this.value=this.value.replace(/[^\.\d]/g,'')"
+									<label>课时：</label> 
+									<input name="deal_days" id="cdays" type="text" onkeyup="return;this.value=this.value.replace(/[^\.\d]/g,'')"
 										wx-validator-rule="required|digits|range"
 										wx-validator-param="||10-90" wx-validator-placeholder="10~90天"
 										value="" placeholder="10~90天"><span
@@ -56,7 +57,7 @@
 								</div>
 								<div class="form-item clearfix">
 									<label>类别：</label>
-									<div id="Js-select-cate" class="option-sort">
+									<div id="Js-select-cate" class="option-sort" id="cateid">
 										<span data-id="12">科技</span> <span data-id="13">设计</span> <span
 											data-id="14">活动</span> <span data-id="15">影视</span> <span
 											data-id="16">出版</span> <span data-id="20">音乐</span> <span
@@ -67,25 +68,26 @@
 								<div class="form-item clearfix">
 									<label>授课地点：</label>
 									<div class="option-box">
-										<select name="province" class="fl" id="cmbProvince"
+										<select name="province" class="fl" id="province"
 											wx-validator-error-value="请选择省份">
 											<option>请选择省份</option>
 										</select> 
-										<select name="city" class="fl" id="cmbCity"
+										<select name="city" class="fl" id="city"
 											wx-validator-error-value="请选择城市">
 											<option>请选择城市</option>
 										</select>
-										</select> <select name="area" class="fl" id="cmbArea"
+										</select> <select name="area" class="fl" id="area"
 											wx-validator-error-value="请选择地区">
 											<option>请选择地区</option>
 										</select> 
 										<script>
-											addressInit('cmbProvince', 'cmbCity', 'cmbArea', '北京', '北京', '朝阳区');
+											addressInit('province', 'city', 'area', '北京', '北京', '朝阳区');
 										</script> 
 										<span id="wx-validator-province-error" class="error-text"
 											style="display: none">请选择省份</span> <span
 											id="wx-validator-city-error" class="error-text"
-											style="display: none">请选择城市</span> <input name="name"
+											style="display: none">请选择城市</span> 
+											<input name="caddress" id="address"
 											type="text" class="inp-w310"
 											wx-validator-rule="required|maxLength"
 											wx-validator-param="|40" wx-validator-placeholder="街道、门牌号"
@@ -98,8 +100,8 @@
 									<div class="up-btn">
 										<div class="ipt-file">
 											<input
-												onclick="javascript:upd_file(this,&#39;image_file&#39;);"
-												type="file" id="image_file" name="image_file" value="">
+												onclick="javascript:upd_file();"
+												type="file" id="imageurl" name="image_file" value="">
 											<a class="btn-base common-sprite btn-red-h30"> <span
 												class="common-sprite">上传封面</span>
 											</a>
@@ -110,14 +112,15 @@
 									</div>
 								</div>
 								<div class="form-item clearfix">
-									<label>视频：</label> <input type="text" name="vedio"
+									<label>视频：</label> 
+									<input type="text" name="vedio" id="vdeidourl"
 										class="inp-w310" maxlength="200"
 										wx-validator-placeholder="请输入优酷视频的播放页地址" value=""
 										placeholder="请输入优酷视频的播放页地址">
 								</div>
 								<div class="form-item clearfix">
 									<label>课程简介：</label>
-									<textarea style="width: 60%; height: 30px" name="brief"
+									<textarea style="width: 60%; height: 30px" name="brief" id="brief"
 										wx-validator-rule="required|maxLength"
 										wx-validator-param="|75" wx-validator-placeholder="不超过75个字"
 										maxlength="75" placeholder="不超过75个字"></textarea>
@@ -127,20 +130,21 @@
 								</div>
 
 								<div class="form-item clearfix">
-									<label>标签：</label> <input type="text" id="Js-tag" name="tags"
+									<label>标签：</label> 
+									<input type="text" id="Js-tag" name="tags" id="tags"
 										class="inp-w310" wx-validator-placeholder="请使用空格或逗号分隔不同标签"
 										value="" placeholder="请使用空格或逗号分隔不同标签">
 								</div>
 
-								<input type="hidden" name="image" value=""> <input
+								<input type="hidden" name="imageurl" value=""> <input
 									type="hidden" name="savenext" value="1"> <input
 									type="hidden" name="id" value="">
 
 								<div class="action tr">
 									<a type="submit" href="javascript:void(0);"
-										wx-validator-submit-error="您填写的部分内容不符合规范" id="savenext"
+										wx-validator-submit-error="您填写的部分内容不符合规范" id="dosubmit"
 										class="btn-base btn-red-h48 common-sprite"> <span
-										class="common-sprite">下一步</span>
+										class="common-sprite">完成</span>
 									</a>
 								</div>
 							</div>
@@ -209,6 +213,40 @@
 		
 <#include "footer.ftl">
 
-
+<script>
+	$(function(){
+		$("#dosubmit").click(function(){
+			var cname = $("#cname").val();
+			var cdays = $("#cdays").val();
+			var cateid = $("#cateid").val();
+			var province = $("#province")val();
+			var city = $("#city").val();
+			var area = $("#area").val();
+			var address = $("#address").val();
+			var vdeidourl = $("#vdeidourl").val();
+			var brief = $("#brief").val();
+			var imageurl = $("#imageurl").val();
+			
+		 	if(HwForm_before()){
+				$.ajax({
+					url : "${ctx}/course/save.htm",
+		    		type : "POST", 
+				    dataType:"text",
+				    contentType:'text/html',
+				    data:{name:cname,},
+				    success : function(data) {
+				       
+				    },
+					error:function(e){
+				    }  
+				    
+						});
+						
+			}else{
+				 HwForm(data);
+			}
+		});
+	})
+</script>
 </body>
 </html>
