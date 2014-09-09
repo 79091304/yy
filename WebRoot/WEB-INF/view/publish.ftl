@@ -211,9 +211,7 @@
 		$("#dosubmit").click(function(){
 			var cname = $("#cname").val();
 			var cdays = $("#cdays").val();
-			var cateid = $(".option-sort").children(".select");
-			alert(cateid);
-			
+			var cateid = $(".option-sort").children(".select:first").attr("data-id");
 			var province = $("#province").val();
 			var city = $("#city").val();
 			var area = $("#area").val();

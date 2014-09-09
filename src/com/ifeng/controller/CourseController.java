@@ -41,8 +41,6 @@ public class CourseController {
 	public ModelAndView listForIndex(String sid, String pageNow, String cid,
 			HttpServletRequest request) throws IOException {
 		@SuppressWarnings("unchecked")
-		List<Category> categories = (List<Category>) MemCachedManager
-				.getInstance().get(Instant.CATEGORY_KEY);
 		ModelAndView mv = new ModelAndView("courses");
 		int now = 0;
 		int pstatus = -1;
@@ -59,7 +57,6 @@ public class CourseController {
 		}
 		PageView page = new PageView(Instant.PAGE_SIZE, now);
 		List<Course> courses = courseService.listForPage(page, course);
-		mv.addObject("categories", categories);
 		mv.addObject("courses", courses);
 		return mv;
 	}

@@ -55,8 +55,8 @@
 		 from c_course where id>=(select id from c_course
 		 <where>
 		 	1=1
-		 	<if test="status != -1">
-		 		and status = #{status}
+		 	<if test="t.status != -1">
+		 		and status = #{t.status}
 		 	</if>
 		 </where>
 		  limit #{page.startPage},1) limit #{page.pageSize};
