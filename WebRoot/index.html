@@ -73,23 +73,22 @@ $(function(){
 			<!-- user menu start-->
 			<div class="user-menu" id="jsddm">
 				<div class="menu-hd tx">
-					<a href="" class="tit"> <span class='avatar-box'>
-							<img id="headeravatar"
-							src="./images/noavatar_small.gif" />
+					<a href="" class="tit"> <span class='avatar-box'> <img
+							id="headeravatar" src="./images/noavatar_small.gif" />
 					</span> <span class="user-name word-break ie6fixpic">游客</span>
 					</a>
 				</div>
 				<div class="menu-bd JS-myinfo">
 					<ul class="clearfix">
-							<li class="sup"><a class="ie6fixpic" href="/home/id-154415">支持的项目</a></li>
-							<li class="spo"><a class="ie6fixpic"
-								href="/home-build_deal/id-154415">发起的项目</a></li>
-							<li class="att"><a class="ie6fixpic"
-								href="/home-focus/id-154415">喜欢的项目</a></li>
-							<li class="msg"><a class="ie6fixpic" href="/message">消息中心</a></li>
-							<li class="set"><a class="ie6fixpic" href="/settings">个人设置</a></li>
-							<li class="exit bn"><a class="ie6fixpic"
-								href="/user-loginout">退出</a></li>
+						<li class="sup"><a class="ie6fixpic" href="/home/id-154415">支持的项目</a></li>
+						<li class="spo"><a class="ie6fixpic"
+							href="/home-build_deal/id-154415">发起的项目</a></li>
+						<li class="att"><a class="ie6fixpic"
+							href="/home-focus/id-154415">喜欢的项目</a></li>
+						<li class="msg"><a class="ie6fixpic" href="/message">消息中心</a></li>
+						<li class="set"><a class="ie6fixpic" href="/settings">个人设置</a></li>
+						<li class="exit bn"><a class="ie6fixpic"
+							href="/user-loginout">退出</a></li>
 					</ul>
 				</div>
 			</div>
@@ -100,19 +99,26 @@ $(function(){
 				<span id="usertag"> <a rel="nofollow"
 					href="./log/toLogin.htm">登录</a> <em>|</em> <a rel="nofollow"
 					href="./register/toRegister.htm">注册</a>
-				</span> 
+				</span>
 			</div>
 			<!--login end-->
 
 		</div>
-		
+
 		<div class="subnav">
 			<div class="nav clearfix">
 				<ul>
 					<li class="select"><a title="浏览全部" href="browse">浏览全部</a></li>
-					<#list category as item >
-					<li><a href="${ctx}/course/list.htm?cid=${item.id}" alt="${item.name}">${item.name}</a></li>
-					</#list>
+					<li><a href="./course/list.htm?cid=${item.id}" title="中小学补习">中小学补习</a></li>
+					<li><a href="browse/id-12" title="瑜伽">瑜伽</a></li>
+					<li><a href="browse/id-22" title="托福">托福</a></li>
+					<li><a href="browse/id-13" title="健身">健身</a></li>
+					<li><a href="browse/id-20" title="音乐">音乐</a></li>
+					<li><a href="browse/id-15" title="母婴">母婴</a></li>
+					<li><a href="browse/id-16" title="心理">心理</a></li>
+					<li><a href="browse/id-25" title="游泳">游泳</a></li>
+					<li><a href="browse/id-23" title="公益">公益</a></li>
+					<li><a href="browse/id-18" title="其他">其他</a></li>
 				</ul>
 
 			</div>
@@ -256,14 +262,15 @@ $(function(){
 			<div class="mod-title clearfix">
 				<h2>热门课程</h2>
 				<div class="title-sub">
+					<a href="browse/id-12" title="中小学补习" pbtag="hangye,hangye_12">中小学补习</a>
 					<a href="browse/id-12" title="瑜伽" pbtag="hangye,hangye_12">瑜伽</a> <a
 						href="browse/id-22" title="托福" pbtag="hangye,hangye_22">托福</a> <a
 						href="browse/id-13" title="健身" pbtag="hangye,hangye_13">健身</a> <a
 						href="browse/id-20" title="音乐" pbtag="hangye,hangye_20">音乐</a> <a
-						href="browse/id-15" title="户外" pbtag="hangye,hangye_15">户外</a> <a
+						href="browse/id-15" title="母婴" pbtag="hangye,hangye_15">母婴</a> <a
 						href="browse/id-16" title="心理" pbtag="hangye,hangye_16">心理</a> <a
-						href="browse/id-25" title="游泳" pbtag="hangye,hangye_25">游泳</a>
-					<a href="browse/id-23" title="公益" pbtag="hangye,hangye_23">公益</a> <a
+						href="browse/id-25" title="游泳" pbtag="hangye,hangye_25">游泳</a> <a
+						href="browse/id-23" title="公益" pbtag="hangye,hangye_23">公益</a> <a
 						href="browse/id-18" title="其他" pbtag="hangye,hangye_18">其他</a>
 				</div>
 			</div>
@@ -428,7 +435,7 @@ $(function(){
 		</div>
 	</div>
 
-	
+
 	<script>
     $("#Js-recommend").find("li").hover(function(){
     	$(this).find("span").not("[name='more']").show();
@@ -444,6 +451,6 @@ $(function(){
 });
     </script>
 	<!--footer static-->
-	<#include  "footer.ftl" >
+	<#include "footer.ftl" >
 </body>
 </html>

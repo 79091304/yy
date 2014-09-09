@@ -31,4 +31,9 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.query(page, course);
 	}
 
+	@Override
+	public int save(Course course) {
+		return courseDao.add(course);
+	}
+
 }

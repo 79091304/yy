@@ -57,11 +57,10 @@
 								</div>
 								<div class="form-item clearfix">
 									<label>类别：</label>
-									<div id="Js-select-cate" class="option-sort" id="cateid">
-										<span data-id="12">科技</span> <span data-id="13">设计</span> <span
-											data-id="14">活动</span> <span data-id="15">影视</span> <span
-											data-id="16">出版</span> <span data-id="20">音乐</span> <span
-											data-id="18">其它</span>
+									<div id="Js-select-cate" class="option-sort" >
+									<#list category as item>
+										<span data-id="${item.id}">${item.name}</span> 
+									</#list>
 									</div>
 									<input id="Js-cate" class="hidden" name="cate_id" value="">
 								</div>
@@ -113,7 +112,7 @@
 								</div>
 								<div class="form-item clearfix">
 									<label>视频：</label> 
-									<input type="text" name="vedio" id="vdeidourl"
+									<input type="text" name="vedio" id="vediourl"
 										class="inp-w310" maxlength="200"
 										wx-validator-placeholder="请输入优酷视频的播放页地址" value=""
 										placeholder="请输入优酷视频的播放页地址">
@@ -141,7 +140,7 @@
 									type="hidden" name="id" value="">
 
 								<div class="action tr">
-									<a type="submit" href="javascript:void(0);"
+									<a type="submit" 
 										wx-validator-submit-error="您填写的部分内容不符合规范" id="dosubmit"
 										class="btn-base btn-red-h48 common-sprite"> <span
 										class="common-sprite">完成</span>
@@ -200,13 +199,7 @@
 		$("#Js-cate").val($(this).attr("data-id"));
 	});
 
-	/* KE.setting.skinsPath = "/static/zhongchou/kindeditor/skins/";
-	KE.setting.pluginsPath = "/static/zhongchou/kindeditor/plugins/";
-	KE.show({urlType:'domain', id:'Js-description', items : ['title',' | ','fimage',' | ','link','removeformat',' | '], skinType: 'tinymce',allowFileManager : false,resizeMode : 0, newlineTag:'nl',height:500}); */
-	window['HwForm_before'] = function() {
-		KE.util.setData('Js-description');
-		return true;
-	}
+	
 </script>
 		<!--main end-->
 		<!--footer static-->
@@ -218,12 +211,14 @@
 		$("#dosubmit").click(function(){
 			var cname = $("#cname").val();
 			var cdays = $("#cdays").val();
-			var cateid = $("#cateid").val();
-			var province = $("#province")val();
+			var cateid = $(".option-sort").children(".select");
+			alert(cateid);
+			
+			var province = $("#province").val();
 			var city = $("#city").val();
 			var area = $("#area").val();
 			var address = $("#address").val();
-			var vdeidourl = $("#vdeidourl").val();
+			var vediourl = $("#vediourl").val();
 			var brief = $("#brief").val();
 			var imageurl = $("#imageurl").val();
 			
@@ -231,16 +226,14 @@
 				$.ajax({
 					url : "${ctx}/course/save.htm",
 		    		type : "POST", 
-				    dataType:"text",
-				    contentType:'text/html',
-				    data:{name:cname,},
+				    dataType:"json",
+				    data:{cname:cname,cdays:cdays,cid:cateid,pro:province,cty:city,are:area,addre:address,ved:vediourl,bri:brief,img:imageurl},
 				    success : function(data) {
-				       
-				    },
-					error:function(e){
-				    }  
-				    
-						});
+				       if(data.code == 1){
+				       		wx.alert("保存完成");
+				       }
+				    }
+					});
 						
 			}else{
 				 HwForm(data);

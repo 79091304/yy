@@ -12,4 +12,6 @@ public interface CourseService {
 	public List<Course> listForPage(PageView page,Course course);
 	
 	public Course getCourse(long id);
+	
+	public int save(Course course);
 }

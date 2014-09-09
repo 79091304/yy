@@ -16,6 +16,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
+import javax.servlet.http.HttpSession;
 
 import com.ifeng.common.Instant;
 
@@ -47,8 +48,9 @@ public class EncodingFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request=(HttpServletRequest) req;
-		request.setAttribute("ctx", request.getContextPath());
-		request.setAttribute("category", MemCachedManager.getInstance().get(Instant.CATEGORY_KEY));
+		HttpSession session = request.getSession();
+		session.setAttribute("ctx", request.getContextPath());
+		session.setAttribute("category", MemCachedManager.getInstance().get(Instant.CATEGORY_KEY));
 		if(request.getMethod().toUpperCase().equals("GET")){
 			req =new RequestWrapper((HttpServletRequest) req);
 		}else{
