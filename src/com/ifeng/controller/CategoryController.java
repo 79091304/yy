@@ -39,5 +39,10 @@ public class CategoryController {
 		return ResponseMessage.FAIL;
 	}
 
+	@RequestMapping("getAll")
+	public Object getAll(){
+		List<Category> categories = (List<Category>)manager.get(Instant.CATEGORY_KEY);
+		return categories;
+	}
 	
 }

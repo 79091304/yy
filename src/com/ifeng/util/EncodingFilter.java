@@ -17,6 +17,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
+import com.ifeng.common.Instant;
+
 /**
  * 对HTTP请求进行编码
  * 2013-11-19
@@ -46,6 +48,7 @@ public class EncodingFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request=(HttpServletRequest) req;
 		request.setAttribute("ctx", request.getContextPath());
+		request.setAttribute("category", MemCachedManager.getInstance().get(Instant.CATEGORY_KEY));
 		if(request.getMethod().toUpperCase().equals("GET")){
 			req =new RequestWrapper((HttpServletRequest) req);
 		}else{
