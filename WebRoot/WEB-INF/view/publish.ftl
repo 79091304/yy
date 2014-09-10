@@ -1,3 +1,18 @@
+Skip to content
+ This repository
+Explore
+Gist
+Blog
+Help
+79091304
+ 
+1  Unwatch 
+  Star 0
+ Fork 079091304/Youeryuan
+ branch: master  Youeryuan / WebRoot / WEB-INF / view / publish.ftl
+79091304 6 hours ago ajax上传图片
+1 contributor
+282 lines (261 sloc)  10.025 kb RawBlameHistory   
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,7 +123,6 @@
 										</div>
 										<span class="gray">支持jpg、jpeg、png、gif格式，大小不超过5M。建议尺寸：223
 											x 168px</span>
-										<div id="loading"><img src="${basePath}/images/loading.gif"></div>
 									</div>
 								</div>
 								<div class="form-item clearfix">
@@ -277,6 +291,52 @@
 			}
 		});
 	})
+	
+	$(document).ready(function(){
+			    var button = $('#upload'), interval;
+			    var fileType = "all",fileNum = "one"; 
+			    new AjaxUpload(button,{
+			        action: '${ctx}/file/upload.htm',
+			        name: 'userfile',
+			        onSubmit : function(file, ext){
+			            if(fileType == "pic")
+			            {
+			                if (ext && /^(jpg|png|jpeg|gif)$/.test(ext)){
+			                    this.setData({
+			                        'info': '文件类型为图片'
+			                    });
+			                } else {
+			                    $('<li></li>').appendTo('.files').text('非图片类型文件，请重传');
+			                    return false;               
+			                }
+			            }
+			            button.text('文件上传中');
+			            if(fileNum == 'one')
+			                this.disable();
+			            interval = window.setInterval(function(){
+			                var text = button.text();
+			                if (text.length < 14){
+			                    button.text(text + '.');                    
+			                } else {
+			                    button.text('文件上传中');             
+			                }
+			            }, 200);
+			        },
+			        onComplete: function(file, response){//上传成功的函数；response代表服务器返回的数据
+							//清楚按钮的状态
+							button.text('文件上传');
+				            window.clearInterval(interval);
+				            this.enable();
+							//修改下方div的显示文字
+						if('success'==response){
+							$(".content").text("上传成功");
+						}else{
+							$(".content").text("上传失败");
+						}
+			        }
+					});
+			});
+	
 </script>
 </body>
 </html>
