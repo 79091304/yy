@@ -1,19 +1,3 @@
-Skip to content
- This repository
-Explore
-Gist
-Blog
-Help
-79091304
- 
-1  Unwatch 
-  Star 0
- Fork 079091304/Youeryuan
- branch: master  Youeryuan / WebRoot / WEB-INF / view / publish.ftl
-79091304 6 hours ago ajax上传图片
-1 contributor
-282 lines (261 sloc)  10.025 kb RawBlameHistory   
-<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,8 +8,9 @@ Help
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/publish.css">
+<script type="text/javascript" src="${ctx}/js/jquery.js" >
 <script type="text/javascript" src="${ctx}/js/address.js" >
-<script type="text/javascript" src="${ctx}/js/ajaxupload.js" >
+
 <body>
 	<!--header static-->
 	<#include "header.ftl">
@@ -216,49 +201,11 @@ Help
 
 	
 </script>
-<script type="text/javascript">
-		$(function(){
-			new AjaxUpload("#fileButton",{
-				action:"${ctx}/file.do?method=upload",
-				autoSubmit:true,
-				name:"myfile",
-				onSubmit:function(file, extension){
-					if (extension && /^(pdf|jpg|png|jpeg|gif)$/.test(extension))
-					{
-						$("#loading").html('<img src="${ctx}/images/loading.gif">');
-						$("#loading").show();
-						$("#fileButton").attr("disabled","disabled");
-					}
-					else
-					{
-						$("#loading").html("你所选择的文件不受系统支持");
-						$("#loading").show();
-						return false;
-					}
-				},
-				onComplete:function(file, extension){
-					$("#loading").html("文件上传成功");
-					$("#loading").show();
-					$("#fileButton").removeAttr("disabled");
-				}
-			});
-			
-			
-			new Ajax_upload('#button3', {
-				action: '${ctx}/file.do?method=upload',
-				name: 'myfile',
-				autoSubmit:true,
-				onComplete : function(file, extension){
-					$('<li></li>').appendTo($('.files')).text(file);
-				}	
-			});
-		});
-	</script>
+
 		<!--main end-->
 		<!--footer static-->
-		
 <#include "footer.ftl">
-
+<script type="text/javascript" src="${ctx}/js/ajaxupload.js" >
 <script>
 	$(function(){
 		$("#dosubmit").click(function(){
