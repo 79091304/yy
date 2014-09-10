@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/publish.css">
 <script type="text/javascript" src="${ctx}/js/address.js" >
+<script type="text/javascript" src="${ctx}/js/ajaxupload.js" >
 <body>
 	<!--header static-->
 	<#include "header.ftl">
@@ -99,8 +100,7 @@
 									<div class="up-btn">
 										<div class="ipt-file">
 											<input
-												onclick="javascript:upd_file();"
-												type="file" id="imageurl" name="image_file" value="">
+												type="button" id="fileButton" name="image_file" value="">
 											<a class="btn-base common-sprite btn-red-h30"> <span
 												class="common-sprite">上传封面</span>
 											</a>
@@ -108,6 +108,7 @@
 										</div>
 										<span class="gray">支持jpg、jpeg、png、gif格式，大小不超过5M。建议尺寸：223
 											x 168px</span>
+										<div id="loading"><img src="${basePath}/images/loading.gif"></div>
 									</div>
 								</div>
 								<div class="form-item clearfix">
@@ -201,6 +202,44 @@
 
 	
 </script>
+<script type="text/javascript">
+		$(function(){
+			new AjaxUpload("#fileButton",{
+				action:"${ctx}/file.do?method=upload",
+				autoSubmit:true,
+				name:"myfile",
+				onSubmit:function(file, extension){
+					if (extension && /^(pdf|jpg|png|jpeg|gif)$/.test(extension))
+					{
+						$("#loading").html('<img src="${ctx}/images/loading.gif">');
+						$("#loading").show();
+						$("#fileButton").attr("disabled","disabled");
+					}
+					else
+					{
+						$("#loading").html("你所选择的文件不受系统支持");
+						$("#loading").show();
+						return false;
+					}
+				},
+				onComplete:function(file, extension){
+					$("#loading").html("文件上传成功");
+					$("#loading").show();
+					$("#fileButton").removeAttr("disabled");
+				}
+			});
+			
+			
+			new Ajax_upload('#button3', {
+				action: '${ctx}/file.do?method=upload',
+				name: 'myfile',
+				autoSubmit:true,
+				onComplete : function(file, extension){
+					$('<li></li>').appendTo($('.files')).text(file);
+				}	
+			});
+		});
+	</script>
 		<!--main end-->
 		<!--footer static-->
 		
