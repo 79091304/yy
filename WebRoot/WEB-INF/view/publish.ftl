@@ -8,8 +8,8 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/publish.css">
-<script type="text/javascript" src="${ctx}/js/jquery.js" >
-<script type="text/javascript" src="${ctx}/js/address.js" >
+<script type="text/javascript" src="${ctx}/js/address.js">
+
 
 <body>
 	<!--header static-->
@@ -82,87 +82,86 @@
 										</select> 
 										<script>
 											addressInit('province', 'city', 'area', '北京', '北京', '朝阳区');
-										</script> 
-										<span id="wx-validator-province-error" class="error-text"
-											style="display: none">请选择省份</span> <span
-											id="wx-validator-city-error" class="error-text"
-											style="display: none">请选择城市</span> 
-											<input name="caddress" id="address"
-											type="text" class="inp-w310"
-											wx-validator-rule="required|maxLength"
-											wx-validator-param="|40" wx-validator-placeholder="街道、门牌号"
-											wx-validator-name-maxlength="街道、门牌号" value="" maxlength="40"
-											placeholder="街道、门牌号">
-									</div>
-								</div>
-								<div class="form-item clearfix">
-									<label>课程展示封面：</label>
-									<div class="up-btn">
-										<div class="ipt-file">
-											<input
-												type="button" id="fileButton" name="image_file" value="">
-											<a class="btn-base common-sprite btn-red-h30"> <span
-												class="common-sprite">上传封面</span>
-											</a>
+										</script>
+<span id="wx-validator-province-error" class="error-text"
+	style="display: none">请选择省份</span>
+<span id="wx-validator-city-error" class="error-text"
+	style="display: none">请选择城市</span>
+<input name="caddress" id="address" type="text" class="inp-w310"
+	wx-validator-rule="required|maxLength" wx-validator-param="|40"
+	wx-validator-placeholder="街道、门牌号" wx-validator-name-maxlength="街道、门牌号"
+	value="" maxlength="40" placeholder="街道、门牌号">
+</div>
+</div>
+<div class="form-item clearfix">
+	<label>课程展示封面：</label>
+	<div class="up-btn">
+		<div class="ipt-file">
+			<input type="button" id="upload" name="image_file" value="">
+			<a class="btn-base common-sprite btn-red-h30"> <span
+				class="common-sprite">上传封面</span>
+			</a>
 
-										</div>
-										<span class="gray">支持jpg、jpeg、png、gif格式，大小不超过5M。建议尺寸：223
-											x 168px</span>
-									</div>
-								</div>
-								<div class="form-item clearfix">
-									<label>视频：</label> 
-									<input type="text" name="vedio" id="vediourl"
-										class="inp-w310" maxlength="200"
-										wx-validator-placeholder="请输入优酷视频的播放页地址" value=""
-										placeholder="请输入优酷视频的播放页地址">
-								</div>
-								<div class="form-item clearfix">
-									<label>课程简介：</label>
-									<textarea style="width: 60%; height: 30px" name="brief" id="brief"
-										wx-validator-rule="required|maxLength"
-										wx-validator-param="|75" wx-validator-placeholder="不超过75个字"
-										maxlength="75" placeholder="不超过75个字"></textarea>
-									<span id="wx-validator-brief-required" class="error-text">不能为空</span>
-									<span id="wx-validator-brief-maxLength"
-										class="error-text hidden" style="display: none;">不能超过75个汉字</span>
-								</div>
-
-								<div class="form-item clearfix">
-									<label>标签：</label> 
-									<input type="text" id="Js-tag" name="tags" id="tags"
-										class="inp-w310" wx-validator-placeholder="请使用空格或逗号分隔不同标签"
-										value="" placeholder="请使用空格或逗号分隔不同标签">
-								</div>
-
-								<input type="hidden" name="imageurl" value=""> <input
-									type="hidden" name="savenext" value="1"> <input
-									type="hidden" name="id" value="">
-
-								<div class="action tr">
-									<a type="submit" 
-										wx-validator-submit-error="您填写的部分内容不符合规范" id="dosubmit"
-										class="btn-base btn-red-h48 common-sprite"> <span
-										class="common-sprite">完成</span>
-									</a>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="radius-ft">
-						<div class="radius-fl common-sprite"></div>
-						<div class="radius-fc w705"></div>
-						<div class="radius-fr common-sprite"></div>
-					</div>
-				</div>
-
-				<!--project end-->
-
-			</div>
-			<!--content end-->
-			<!--side static-->
 		</div>
-		<script>
+		<span class="gray">支持jpg、jpeg、png、gif格式，大小不超过5M。建议尺寸：223 x
+			168px</span>
+	</div>
+</div>
+<div class="form-item clearfix">
+	<label>视频：</label> <input type="text" name="vedio" id="vediourl"
+		class="inp-w310" maxlength="200"
+		wx-validator-placeholder="请输入优酷视频的播放页地址" value=""
+		placeholder="请输入优酷视频的播放页地址">
+</div>
+<div class="form-item clearfix">
+	<label>课程简介：</label>
+	<textarea style="width: 60%; height: 30px" name="brief" id="brief"
+		wx-validator-rule="required|maxLength" wx-validator-param="|75"
+		wx-validator-placeholder="不超过75个字" maxlength="75"
+		placeholder="不超过75个字"></textarea>
+	<span id="wx-validator-brief-required" class="error-text">不能为空</span> <span
+		id="wx-validator-brief-maxLength" class="error-text hidden"
+		style="display: none;">不能超过75个汉字</span>
+</div>
+
+<div class="form-item clearfix">
+	<label>标签：</label> <input type="text" id="Js-tag" name="tags" id="tags"
+		class="inp-w310" wx-validator-placeholder="请使用空格或逗号分隔不同标签" value=""
+		placeholder="请使用空格或逗号分隔不同标签">
+</div>
+
+<input type="hidden" name="imageurl" value="">
+<input type="hidden" name="savenext" value="1">
+<input type="hidden" name="id" value="">
+
+<div class="action tr">
+	<a type="submit" wx-validator-submit-error="您填写的部分内容不符合规范"
+		id="dosubmit" class="btn-base btn-red-h48 common-sprite"> <span
+		class="common-sprite">完成</span>
+	</a>
+</div>
+</div>
+</form>
+</div>
+<div class="radius-ft">
+	<div class="radius-fl common-sprite"></div>
+	<div class="radius-fc w705"></div>
+	<div class="radius-fr common-sprite"></div>
+</div>
+</div>
+
+<!--project end-->
+
+</div>
+<!--content end-->
+<!--side static-->
+</div>
+<!--main end-->
+<!--footer static-->
+<#include "footer.ftl">
+<script type="text/javascript" src="${ctx}/js/ajaxupload.js">
+
+<script>
 	function HwForm_before(){
 		if(!$("#Js-cate").val()){
 			wx.alert("请选择类别");
@@ -201,11 +200,6 @@
 
 	
 </script>
-
-		<!--main end-->
-		<!--footer static-->
-<#include "footer.ftl">
-<script type="text/javascript" src="${ctx}/js/ajaxupload.js" >
 <script>
 	$(function(){
 		$("#dosubmit").click(function(){
@@ -239,6 +233,7 @@
 		});
 	})
 	
+	//文件上传
 	$(document).ready(function(){
 			    var button = $('#upload'), interval;
 			    var fileType = "all",fileNum = "one"; 
@@ -253,7 +248,7 @@
 			                        'info': '文件类型为图片'
 			                    });
 			                } else {
-			                    $('<li></li>').appendTo('.files').text('非图片类型文件，请重传');
+			                	wx.alert("非图片类型文件，请重传");
 			                    return false;               
 			                }
 			            }
@@ -275,10 +270,11 @@
 				            window.clearInterval(interval);
 				            this.enable();
 							//修改下方div的显示文字
-						if('success'==response){
-							$(".content").text("上传成功");
+							var data = $.parseJSON(response);
+						if(data.code == 1){
+							$(".gray").text(file+"上传成功");
 						}else{
-							$(".content").text("上传失败");
+							$(".gray").text(file+"上传失败");
 						}
 			        }
 					});
