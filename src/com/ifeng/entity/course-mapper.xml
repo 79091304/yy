@@ -4,11 +4,11 @@
 <mapper namespace="Course">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name,detail,category,videoUrl,imgUrl,scount,city,tag,tid,begin,end,createdAt,changedAt
+		id,name,detail,category,videoUrl,imgUrl,scount,city,tag,tid,begin,end,createdAt,changedAt,createdBy
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Course">
-		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt,status)
+		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt,status,createdBy)
 		values 
 		(
 		#{name},
@@ -24,7 +24,8 @@
 		#{end},
 		null,
 		 #{changedAt},
-		 #{status}
+		 #{status},
+		 #{createdBy}
 		)
 	</insert>
 	

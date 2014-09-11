@@ -16,6 +16,7 @@ import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.Category;
 import com.ifeng.entity.Course;
+import com.ifeng.entity.User;
 import com.ifeng.service.CourseService;
 import com.ifeng.util.CookieHelper;
 import com.ifeng.util.MemCachedManager;
@@ -80,7 +81,7 @@ public class CourseController {
 
 	@ResponseBody
 	@RequestMapping("save")
-	public Object saveCourse(String cname, String cdays, String cid,
+	public Object saveCourse(HttpServletRequest request,String cname, String cdays, String cid,
 			String pro, String cty, String are, String addre, String ved,
 			String bri, String img) {
 		int flag = 0;
@@ -89,6 +90,7 @@ public class CourseController {
 				&& StringUtils.isNotEmpty(cid) && StringUtils.isNotEmpty(pro)
 				&& StringUtils.isNotEmpty(cty) && StringUtils.isNotEmpty(are)
 				&& StringUtils.isNotEmpty(addre) && StringUtils.isNotEmpty(bri)) {
+			User user = (User)request.getAttribute("user");
 			course.setName(cname);
 			course.setCategory(cid);
 			course.setProvince(pro);
@@ -98,6 +100,7 @@ public class CourseController {
 			course.setVideoUrl(ved);
 			course.setDetail(bri);
 			course.setImgUrl(img);
+			course.setCreatedBy(user.getUsername());
 			flag = courseService.save(course);
 		}
 		if(flag >0)

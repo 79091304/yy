@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,8 @@ public class LoginController {
 		ResponseMessage rm = null;
 		User user = userService.hasUser(username, email, phone, password);
 		if(null != user){
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
 			rm = ResponseMessage.SUCCESS;
 			String encryptStr = AesSec.encrypt(user.getId()+"", Instant.AES_PASSWORD);
 			Cookie cuid = new Cookie(Instant.COOKIE_USERID, encryptStr);

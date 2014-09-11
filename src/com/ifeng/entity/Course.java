@@ -44,6 +44,8 @@ public class Course implements Serializable{
 	
 	private Date createdAt;
 	
+	private String createdBy;
+	
 	private Date changedAt;
 
 	public long getId() {
@@ -189,6 +191,14 @@ public class Course implements Serializable{
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 	
 }

@@ -32,10 +32,10 @@
 					</div>
 					<div class="radius-bd detail-con w628">
 						<div class="hd">
-							<h1 class="word-break">刘教练（女，24岁）乒乓球教练员陪练员</h1>
+							<h1 class="word-break">${course.name}</h1>
 							<div class="author">
 								<span class="author-lay common-sprite inline-block">发起人</span> <span><a
-									href="home/id-151182">DeMo</a></span> <span class="gray">北京</span>
+									href="home/id-151182">${course.createdBy}</a></span> <span class="gray">${course.province}${course.area}${course.address}</span>
 							</div>
 							<div class="tit-bar clearfix">
 								<div class="title-nav fl">
@@ -80,9 +80,9 @@
 									<span style="font-weight: normal;">乒乓球教练员陪练员</span>
 								</h2>
 								<p>
-									<span style="font-weight: normal;">2013年全国大学生锦标赛单打、团体、混双冠军，2010年，全国中学生锦标赛
-										，单打第一，混双第二，团体、双打第五。湖南省第十一届运动会，甲组女子团体第一，双打第二。湖南省中学生乒乓球比赛
-										混合团体、单打、双打第一名。2009年全国中学生锦标赛，获高女组双打第一，团体第三。湖南省青少年比赛，甲组女子团体第一，双打第一，单打第二名。长沙市第七届运动会，高女单打、团体、双打第一名。2008年湖南省青少年比赛，甲女组团体第一，单打第三，双打第五。</span>
+									<span style="font-weight: normal;">
+										${course.detail}
+									</span>
 								</p>
 								<div>
 									<div>
@@ -248,15 +248,11 @@
 					</div>
 					<div class="radius-bd item-detail w308">
 						<div class="tag bg-red">
-							火热预约中 <span class="triangle"></span>
+							火热报名中 <span class="triangle"></span>
 						</div>
-						<h2>目前累计预约人数</h2>
+						<h2>目前累计报名人数</h2>
 						<p class="item-sum">
 							<span>1</span><span>0</span>
-						</p>
-						<p class="item-tips word-break">
-							此项目必须在 <span class="red">2014年03月23日</span> 前得到 <span class="red"><i
-								class="font-yen">¥</i>2000 </span>的支持才可成功！
 						</p>
 						<div class="ratio-box">
 
@@ -270,10 +266,10 @@
 						</div>
 						<div class="detail-rate">
 							<ul class="clearfix">
-								<li><strong> <a href="#"><font color="red">立刻<br>预约
+								<li><strong> <a href="#"><font color="red">立刻<br>报名
 										</font></a>
 								</strong></li>
-								<li><strong>1</strong><span>支持者</span></li>
+								<li><strong></strong><span></span></li>
 								<li><strong id="strong_like_count">14</strong><span>喜欢</span></li>
 							</ul>
 						</div>

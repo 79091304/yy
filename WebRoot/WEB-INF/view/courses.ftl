@@ -40,9 +40,7 @@
 					<select name="deal_sort">
 						<option value="/browse/id-22-s-df">默认排序</option>
 						<option value="/browse/id-22-s-sb">最新上线</option>
-						<option value="/browse/id-22-s-sm">最高目标金额</option>
 						<option value="/browse/id-22-s-si_c">最多支持人数</option>
-						<option value="/browse/id-22-s-si_m">最多支持金额</option>
 					</select>
 				</div>
 			</div>
