@@ -18,6 +18,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
+import com.ifeng.util.DateUtils;
+import com.ifeng.util.RandCodeUtils;
 
 @Controller
 @RequestMapping("/file")
@@ -42,6 +44,8 @@ public class UploadController {
 				MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
 				// 取得request中的所有文件名
 				Iterator<String> iter = multiRequest.getFileNames();
+				String newfileName = null;
+				String filepath = null;
 				while (iter.hasNext()) {
 					// 记录上传过程起始时的时间，用来计算上传时间
 					int pre = (int) System.currentTimeMillis();
@@ -54,10 +58,17 @@ public class UploadController {
 						if (myFileName.trim() != "") {
 							log.info("文件名称为：" + myFileName);
 							// 重命名上传后的文件名
-							String fileName = file.getOriginalFilename();
+							String oldfileName = file.getOriginalFilename();
+							String substr = oldfileName.substring(oldfileName.lastIndexOf("."));
+							newfileName = RandCodeUtils.caculateSeq(System.currentTimeMillis())+substr;
 							// 定义上传路径
-							String path = Instant.FILE_ROOT_PATH + fileName;
-							File localFile = new File(path);
+							int month = DateUtils.getCurrentMonth();
+							filepath = Instant.FILE_ROOT_PATH + month+"/";
+							File dir = new File(filepath);
+							File localFile = new File(filepath+newfileName);
+							if(!dir.exists()){
+								dir.mkdirs();
+							}
 							file.transferTo(localFile);
 						}
 					}
@@ -65,7 +76,7 @@ public class UploadController {
 					int finaltime = (int) System.currentTimeMillis();
 					log.info("上传耗时为：" + (finaltime - pre));
 				}
-				rm = ResponseMessage.SUCCESS;
+				rm = new ResponseMessage(filepath+newfileName);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

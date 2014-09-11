@@ -15,7 +15,7 @@ public class DateUtils {
 	 */
 	private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
-	private static DateFormat dff = new SimpleDateFormat("yyyyMMdd");
+	private static DateFormat dff = new SimpleDateFormat("yyyyMM");
 	
 	public static String  getCurrentDate(){
 		return df.format(new Date());
@@ -25,7 +25,7 @@ public class DateUtils {
 	 * 返回当前天
 	 * @return 20121212
 	 */
-	public static int  getCurrentDay(){
+	public static int  getCurrentMonth(){
 		return Integer.parseInt(dff.format(new Date()));
 	}
 	

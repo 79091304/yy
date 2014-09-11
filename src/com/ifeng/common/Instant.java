@@ -23,7 +23,7 @@ public class Instant {
 	
 	public static final String AES_PASSWORD = "liyuanzhangzhanhui";
 	
-	public static final String FILE_ROOT_PATH = "";
+	public static final String FILE_ROOT_PATH = "d:/images/";
 	
 	public static final int LOGIN_STATUS = 1; 
 	
