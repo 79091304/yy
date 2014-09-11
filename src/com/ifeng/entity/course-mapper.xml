@@ -4,11 +4,11 @@
 <mapper namespace="Course">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name,detail,category,videoUrl,imgUrl,scount,city,tag,tid,begin,end,createdAt,changedAt,createdBy
+		id,name,detail,category,videoUrl,imgUrl,scount,city,tag,tid,begin,end,createdAt,changedAt,createdBy,liked
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Course">
-		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt,status,createdBy)
+		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt,status,createdBy,liked)
 		values 
 		(
 		#{name},
@@ -25,7 +25,8 @@
 		null,
 		 #{changedAt},
 		 #{status},
-		 #{createdBy}
+		 #{createdBy},
+		 #{liked}
 		)
 	</insert>
 	
@@ -63,6 +64,13 @@
 		  limit #{page.startPage},1) limit #{page.pageSize};
 	</select>
 	
-	
+	<update id="liked"   parameterType="int"   >
+			update c_course set liked = liked +1 
+			<if test="_parameter!=null">
+		    <where>
+		        id = #{_parameter}
+		    </where>
+		</if>
+	</update>
 </mapper>
 	

@@ -14,4 +14,6 @@ public interface CourseService {
 	public Course getCourse(long id);
 	
 	public int save(Course course);
+	
+	public int liked(String id);
 }

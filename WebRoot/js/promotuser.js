@@ -58,38 +58,7 @@ jmz.GetLength = function(str) {
     return realLength;
 };
 
-/**
- * 喜欢操作
- */
-var inlikedealrequest = 0;
-function like_deal_v2(id, el) {
-	  if (inlikedealrequest) return;
-	  inlikedealrequest = 1;
-	  var dataType = typeof type=="undefined"?"&type=0":type;
-	  var ajaxurl = APP_ROOT+"/index.php?ctl=deal&act=like&id="+id+dataType;
-	  $.ajax({ 
-	    url: ajaxurl,
-	    dataType: "json",
-	    success: function(ajaxobj) {
-	      inlikedealrequest = false;
-	      if (ajaxobj.status>0) {
-	        var nums = parseInt($(el).attr('rel'))+1;
-	        $(el).html(nums+"");
-	        $("#strong_like_count").html(nums);
-	        $(el).removeClass("like"); 
-	        $(el).addClass("liked");
-	        $(".Js-changelike").html('<i class="common-sprite icon-like  ie6fixpic"></i>已喜欢');
-	        el.onclick = function() {};
-	      } else {
-	        $.showErr(ajaxobj.info);
-	      }
-	    },
-	    error:function(ajaxobj)
-	    {
-	      inlikedealrequest = false;
-	    }
-	  });
-	}
+
 /*
  * 适用于预热项目的喜欢操作
  */
@@ -97,7 +66,7 @@ function like_deal_v3(id, el) {
 	  if (inlikedealrequest) return;
 	  inlikedealrequest = 1;
 	  var dataType = typeof type=="undefined"?"&type=0":type;
-	  var ajaxurl = APP_ROOT+"/index.php?ctl=deal&act=like&id="+id+dataType;
+	  var ajaxurl = "/index.php?ctl=deal&act=like&id="+id+dataType;
 	  $.ajax({ 
 	    url: ajaxurl,
 	    dataType: "json",

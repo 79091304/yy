@@ -145,4 +145,18 @@ public class CourseController {
 
 		return mv;
 	}
+	
+	/**
+	 * 喜欢
+	 * @param id
+	 */
+	@ResponseBody
+	@RequestMapping("like")
+	public Object like(String id){
+		int result = this.courseService.liked(id);
+		if(result >0 )
+				return ResponseMessage.SUCCESS;
+			return ResponseMessage.FAIL;
+	}
+	
 }

@@ -36,4 +36,9 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.add(course);
 	}
 
+	@Override
+	public int liked(String id) {
+		return courseDao.increaseLiked(id);
+	}
+
 }

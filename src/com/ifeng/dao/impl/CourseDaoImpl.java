@@ -27,5 +27,10 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 		return this.query(page, course);
 	}
 
+	@Override
+	public int increaseLiked(String id) {
+		return this.getSqlSession().update(this.getClassName()+".liked", id);
+	}
+
 
 }

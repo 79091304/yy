@@ -18,6 +18,40 @@
 				window.location.href = $(this).val();
 			});
 		});
+		
+				/**
+		 * 喜欢操作
+		 */
+		var inlikedealrequest = 0;
+		function like_deal_v2(cid, el) {
+			  if (inlikedealrequest) return;
+			  inlikedealrequest = 1;
+			  var dataType = typeof type=="undefined"?"&type=0":type;
+			  var ajaxurl = '${ctx}/course/like.htm';
+			  $.ajax({ 
+			    url: ajaxurl,
+			    dataType: "json",
+			    data:{id:cid},
+			    success: function(ajaxobj) {
+			      inlikedealrequest = false;
+			      if (ajaxobj.code == 1) {
+			        var nums = parseInt($(el).attr('rel'))+1;
+			        $(el).html(nums+"");
+			        $("#strong_like_count").html(nums);
+			        $(el).removeClass("like"); 
+			        $(el).addClass("liked");
+			        $(".Js-changelike").html('<i class="common-sprite icon-like  ie6fixpic"></i>已喜欢');
+			        el.onclick = function() {};
+			      } else {
+			        $.showErr(ajaxobj.data);
+			      }
+			    },
+			    error:function(ajaxobj)
+			    {
+			      inlikedealrequest = false;
+			    }
+			  });
+			}
 	</script>
 	<div class="main">
 		<div class="wrap">
@@ -57,7 +91,7 @@
 							</a>
 							<div class="item-upvote">
 								<a class="icons " href="javascript:void(0);" rel="9"
-									onclick="like_deal_v2(16844, this)">9</a>
+									onclick="like_deal_v2(${item.id}, this)">${item.liked}</a>
 							</div>
 							<h3>
 								<a href="/deal-show/id-16844" target="_blank">${item.name}</a>

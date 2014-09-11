@@ -21,4 +21,11 @@ public interface CourseDao extends BaseDao<Course>{
 	 * @return
 	 */
 	public List<Course> queryForPage(PageView page,Course course);
+	
+	/**
+	 * 增加liked
+	 * @param id
+	 * @return
+	 */
+	public int increaseLiked(String id);
 }
