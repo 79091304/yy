@@ -97,16 +97,14 @@
 						<div class="comment com-pro">
 							<div class="flbq">
 								<div class="flei">
-									分类： <a href="browse/id-18"><span class="red">其它</span></a>
+									分类： <a href="browse/id-18"><span class="red">${course.category}</span></a>
 								</div>
 								<div class="bqian">
-									标签： <a href="deals-tags/t-%E9%AA%91%E8%A1%8C" target="_blank"><span
-										class="red">骑行</span></a> <a
-										href="deals-tags/t-%E6%A2%A6%E6%83%B3" target="_blank"><span
-										class="red">梦想</span></a> <a
-										href="deals-tags/t-%E8%A5%BF%E8%97%8F" target="_blank"><span
-										class="red">西藏</span></a> <a href="deals-tags" target="_blank"><span
-										class="red"></span></a>
+									标签：
+									<#list course.tag?split(",") as item>
+									 <a href="#" target="_blank"><span
+										class="red">${item}</span></a> 
+									</#list>
 								</div>
 								<div class="fr">
 									<div class="jiathis_style">
