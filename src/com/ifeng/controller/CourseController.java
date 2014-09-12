@@ -14,12 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
-import com.ifeng.entity.Category;
 import com.ifeng.entity.Course;
 import com.ifeng.entity.User;
 import com.ifeng.service.CourseService;
 import com.ifeng.util.CookieHelper;
-import com.ifeng.util.MemCachedManager;
 import com.ifeng.util.PageView;
 
 @Controller

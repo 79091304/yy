@@ -1,8 +1,3 @@
-<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
-<script type="text/javascript" src="${ctx}/js/util.js"></script>
-<script type="text/javascript" src="${ctx}/js/promotuser.js"></script>
-<script type="text/javascript" src="${ctx}/js/query.cookie.js"></script>
-
 <div class="header">
 		<div class="wrap clearfix" pbid="header">
 			<div class="img-logo">
@@ -13,8 +8,8 @@
 			<!--menu start-->
 			<div class="menu">
 				<ul class="clearfix" id="headermenu">
-					<li class="select"><a href="${ctx}/index.html">首页 </a></li>
-					<li><a href="${ctx}/course/list.htm">课程</a></li>
+					<li class="select"  ><a href="${ctx}/index.html">首页 </a></li>
+					<li ><a href="${ctx}/course/list.htm">课程</a></li>
 					<li><a href="${ctx}/teacher/list.htm">教师 </a></li>
 					<li><a href="${ctx}/teacher/list.htm">新人帮助</a></li>
 					<li><a href="${ctx}/course/prepublish.htm">发布课程</a></li>
@@ -66,25 +61,5 @@
 				</span> 
 			</div>
 			<!--login end-->
-
 		</div>
-		
 	</div>
-	<script>
-		$(function(){
-			$("#logout").bind("click",fucntion(){
-				$.ajax({
-				url:"${ctx}/log/logout.htm",
-				type: "POST",
-				dataType:"json",
-				data:{uid:$.cookie('uid')},
-				success:function(data){
-					wx.removeCookie('uid');
-					window.location.href="http://localhost/yy";
-				}
-			});
-			});
-		})
-	</script>
-
-	

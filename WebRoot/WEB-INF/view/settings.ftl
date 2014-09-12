@@ -136,6 +136,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<#include "footer.ftl">
 	<script type="text/javascript">
 	$(function(){
 		$("#subbt").click(function(){
@@ -143,7 +145,8 @@
 			var web = $("#website").val();
 			var des = $("#desc").val();
 			var uid = wx.cookie('uid');
-			$.ajax({
+			if(uid != null && uid != undefinde){
+				$.ajax({
 				url:"${ctx}/user/modify.htm",
 				data:{uid:uid,username:use,website:web,desc:des},
 				type: "POST",
@@ -156,16 +159,15 @@
 						wx.alert(data.msg);
 					}
 				}
-			});
+				});
+			}
 		});
 	})
-	function modify(data){
-		
-	}
+	
 
 </script>
 	<!--main end-->
 	<!--footer static-->
-<#include "footer.ftl">
+
 </body>
 </html>

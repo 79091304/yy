@@ -1,3 +1,7 @@
+<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/js/util.js"></script>
+<script type="text/javascript" src="${ctx}/js/promotuser.js"></script>
+<script type="text/javascript" src="${ctx}/js/query.cookie.js"></script>
 
 	
  <div class="footer" pbid="footer">
@@ -167,5 +171,21 @@ $(window).scroll(function(){
 			$("#gotop").hide();
 		}
 	}
+	
+	$(function(){
+			var ud = wx.cookie("uid");
+			//退出
+			$("#logout").click(function(){
+				$.ajax({
+				url:"${ctx}/log/logout.htm",
+				type: "POST",
+				dataType:"json",
+				data:{uid:ud},
+				success:function(data){
+					wx.removeCookie('uid');
+				}
+				});
+			});
+		})
 
 </script>

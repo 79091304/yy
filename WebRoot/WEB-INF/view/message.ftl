@@ -14,18 +14,8 @@
 
 <body>
 	<!--header static-->
-	<#include "header.ftl">
 	
-	<script type="text/javascript">
-function del_message(id){
-	wx.confirm("确定删除？",function(){
-		wx.sendData("/message-delmessage","s_id="+id,function(data){
-			location.reload();
-		})
-	});
-}
-
-</script>
+	
 	<!--header-end-->
 	<!--main static-->
 	<div class="main clearfix">
@@ -115,6 +105,16 @@ $(".Js-reply").click(function(){
 </script>
 	<!--main end-->
 	<!--footer static-->
-	<#include "footer.ftl" >
+<#include "footer.ftl" >
+	
+<script type="text/javascript">
+	function del_message(id){
+		wx.confirm("确定删除？",function(){
+			wx.sendData("/message-delmessage","s_id="+id,function(data){
+				location.reload();
+			})
+		});
+	}
+</script>
 </body>
 </html>
