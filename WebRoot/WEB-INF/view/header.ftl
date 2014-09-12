@@ -74,11 +74,11 @@
 		$(function(){
 			$("#logout").bind("click",fucntion(){
 				$.ajax({
-				url:${ctx}/log/logout.htm,
+				url:"${ctx}/log/logout.htm",
 				type: "POST",
 				dataType:"json",
 				data:{uid:$.cookie('uid')},
-				success:function(){
+				success:function(data){
 					wx.removeCookie('uid');
 					window.location.href="http://localhost/yy";
 				}

@@ -72,10 +72,11 @@ public class LoginController {
 	 * @param uid
 	 * @return
 	 */
-	@ResponseBody
 	@RequestMapping("logout")
-	public void logout(String uid,HttpServletRequest request){
+	public ModelAndView logout(String uid,HttpServletRequest request){
+		ModelAndView mv = new ModelAndView("index");
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
+		return mv;
 	}
 }

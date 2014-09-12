@@ -144,8 +144,8 @@
 			var des = $("#desc").val();
 			var uid = wx.cookie('uid');
 			$.ajax({
-				url:${ctx}/user/modify.htm,
-				data:{uid:uid,username:username:use,website:web,desc:des},
+				url:"${ctx}/user/modify.htm",
+				data:{uid:uid,username:use,website:web,desc:des},
 				type: "POST",
 				dataType:"json",
 				success:function(data){
