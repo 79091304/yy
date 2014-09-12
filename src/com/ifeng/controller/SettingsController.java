@@ -19,4 +19,10 @@ public class SettingsController {
 		mv.addObject("user", user);
 		return mv;
 	}
+	
+	@RequestMapping("forgetpwd")
+	public ModelAndView fogetpwd(){
+		ModelAndView mv = new ModelAndView("forgetpwd");
+		return mv;
+	}
 }

@@ -4,62 +4,17 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>众筹网-中国最具影响力的众筹平台</title>
-<meta name="keywords" content="众筹 创业 项目 投资 支持">
-<meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="${ctx}/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/forgetpwd.css"/>
 <!--public js&css start-->
 <!--public js&css end -->    
 
 <body>
 <!--header static-->
-<div class="header">
-  <div class="wrap clearfix" pbid="header">
-    <div class="img-logo">
-          <h1>
-        <a alt="众筹网" class="ie6fixpic" title="众筹网" href="http://www.zhongchou.cn/index">众筹网</a>
-      </h1>
-        </div>
-    <!--menu start-->
-    <div class="menu">
-      <ul class="clearfix">
-          <li><a href="">首页 </a></li>
-          <li><a href="">浏览项目 </a></li>
-          <li><a href="">开放平台 </a></li>
-          <li><a href="">新手帮助 </a></li>
-          <li><a href="">发起项目 </a></li>
-      </ul>
-    </div>
-    <!--menu end-->
-    <!--search start-->
-    <div class="search common-sprite ie6fixpic sw">
-      <form autocomplete="off" action="/deals" method="post" id="header_new_search_form" wx-validator="">
-      <input placeholder="搜索" name="k" wx-validator-placeholder="搜索" wx-validator-rule="required" class="search-key gray" wx-validator-notip="" type="text">
-      <input id="Js-search-submit" class="btn-search ie6fixpic" type="submit">
-      </form>
-    </div>
-    <!--search end-->
+<#include "header.ftl">
 
-    <!--login start-->
-    <div class="login-wrap">
-      <a href="http://www.zhongchou.cn/user-login">登录</a>
-      <em>|</em>
-      <a href="http://www.zhongchou.cn/user-register">注册</a>
-    </div>
-    <!--login end-->
-
-  </div>
-</div>
-<script>
-function user_getpassword_form(data){
-  if(data.status == 1){
-    wx.alert("密码修改成功",function(){
-      location.href = "/user-login";
-    });
-  } else {
-    wx.alert(data.info || "修改失败");
-  }
-}
-
-</script>
 
 <div class="main clearfix">
     <div class="wrap clearfix">
@@ -137,5 +92,19 @@ function user_getpassword_form(data){
     </div>
 </div>
 <!--footer static-->
+<#include "footer.ftl" >
 
-      </body></html>
+<script>
+function user_getpassword_form(data){
+  if(data.status == 1){
+    wx.alert("密码修改成功",function(){
+      location.href = "/user-login";
+    });
+  } else {
+    wx.alert(data.info || "修改失败");
+  }
+}
+
+</script>
+
+</body></html>
