@@ -93,15 +93,15 @@
 			</div>
 			<div class="filter-box clearfix">
 				<div class="rel-key-rec">
-					<a class="select" href="${ctx}/course/list.htm?sid=0">所有课程(95)</a>
-					<a href="${ctx}/course/list.htm?sid=2">众筹中(41)</a> <a
+					<a class="select" sid="0"  href="${ctx}/course/list.htm?sid=0">所有课程(95)</a>
+					<a sid="2" href="${ctx}/course/list.htm?sid=2">众筹中(41)</a> <a sid="1"
 						href="${ctx}/course/list.htm?sid=1">已成功(54)</a>
 				</div>
 				<div class="range">
 					<select name="deal_sort">
-						<option value="/browse/id-22-s-df">默认排序</option>
-						<option value="/browse/id-22-s-sb">最新上线</option>
-						<option value="/browse/id-22-s-si_c">最多支持人数</option>
+						<option value="${course}/course/">默认排序</option>
+						<option value="${course}/course/">最新上线</option>
+						<option value="${course}/course/">最多支持人数</option>
 					</select>
 				</div>
 			</div>
@@ -144,15 +144,15 @@
 					</#list>
 				</ul>
 				<div class="page tr">
-					&nbsp;<A class='select common-sprite'>1</a>&nbsp;<a
-						class='common-sprite' href='/browse/id-22-p-2'>&nbsp;2&nbsp;</a>&nbsp;<a
-						class='common-sprite' href='/browse/id-22-p-3'>&nbsp;3&nbsp;</a>&nbsp;<a
-						class='common-sprite' href='/browse/id-22-p-4'>&nbsp;4&nbsp;</a>&nbsp;<a
-						class='common-sprite' href='/browse/id-22-p-5'>&nbsp;5&nbsp;</a> <a
-						class='next' href='/browse/id-22-p-2'>下一页</a>
+					<#list 1..pageCount as pt>
+						<a class='common-sprite' >&nbsp;${pt}&nbsp;
+					</#list>
+					<#if (pageCount>1) >
+						<a class='next' href='/browse/id-22-p-2'>下一页</a>
+					</#if>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
 	<!--footer static-->
 	
@@ -160,6 +160,16 @@
 	
 	<script>
 		$(document).ready(function() {
+			
+			var sort = $("select[name='deal_sort']").val();
+			var sid = $(".rel-key-rec").children(".select:first").attr("sid");
+			//分页跳转
+			$(".page tr").children(".common-sprite").each(function(index,item){
+				var now = $(this).text();
+				var url = "${ctx}/course/list.htm?pageNow="+now+"&sort="+sort+"&sid="+sid;
+				$(this).attr("href",url);
+			});
+			
 			$("select[name='deal_sort']").bind('change', function() {
 				window.location.href = $(this).val();
 			});

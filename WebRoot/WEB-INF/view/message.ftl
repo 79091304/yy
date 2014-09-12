@@ -14,7 +14,7 @@
 
 <body>
 	<!--header static-->
-	
+	<#include "header.ftl">
 	
 	<!--header-end-->
 	<!--main static-->
@@ -28,13 +28,13 @@
 				<div class="setting-menu">
 					<ul class="clearfix">
 						<li class="select"><a class="icons msg ie6fixpic"
-							href="message">私信</a></li>
+							href="#">私信</a></li>
 						<li><a class="icons rec-com ie6fixpic"
-							href="comment-topic_send">发出的话题</a></li>
+							href="#">发出的话题</a></li>
 						<li><a class="icons rec-com ie6fixpic"
-							href="comment-send">发出的评论</a></li>
+							href="#">发出的评论</a></li>
 						<li><a class="icons emit-com ie6fixpic"
-							href="comment">收到的评论</a></li>
+							href="#">收到的评论</a></li>
 					</ul>
 				</div>
 				<div class="message-box">
@@ -56,27 +56,7 @@
 			</div>
 		</div>
 	</div>
-	<script>
-var replayUrl = "/message-send";
-$(".Js-reply").click(function(){
-	wx.pop(wx.template("Js-kuang-tpl",{data:$(this).attr("data-id").split("|")}),{shown:function(){
-		$(".Js-pop-submit").click(function(){
-			wx.sendData(replayUrl,"id="+$(this).attr("data-id")+"&message="+$("#Js-content").val(),function(data){
-				if(data.status == 1){
-					wx.alert(data.info,function(){
-						location.reload();
-					});
-				}
-				else{
-					wx.alert(data.info);
-				}
-			});
-		});
-	}});
-});
-	template.openTag = "{{";
-	template.closeTag = "}}";
-</script>
+	
 	<script id="Js-kuang-tpl" type="text">
 <div >
 	<div class="pop-box">
@@ -108,6 +88,27 @@ $(".Js-reply").click(function(){
 <#include "footer.ftl" >
 	
 <script type="text/javascript">
+	
+	var replayUrl = "/message-send";
+		$(".Js-reply").click(function(){
+			wx.pop(wx.template("Js-kuang-tpl",{data:$(this).attr("data-id").split("|")}),{shown:function(){
+				$(".Js-pop-submit").click(function(){
+					wx.sendData(replayUrl,"id="+$(this).attr("data-id")+"&message="+$("#Js-content").val(),function(data){
+						if(data.status == 1){
+							wx.alert(data.info,function(){
+								location.reload();
+							});
+						}
+						else{
+							wx.alert(data.info);
+						}
+					});
+				});
+			}});
+		});
+			template.openTag = "{{";
+			template.closeTag = "}}";
+
 	function del_message(id){
 		wx.confirm("确定删除？",function(){
 			wx.sendData("/message-delmessage","s_id="+id,function(data){

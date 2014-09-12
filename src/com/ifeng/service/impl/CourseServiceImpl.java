@@ -41,4 +41,9 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.increaseLiked(id);
 	}
 
+	@Override
+	public int queryAllCount(Course course) {
+		return courseDao.getCount(course);
+	}
+
 }

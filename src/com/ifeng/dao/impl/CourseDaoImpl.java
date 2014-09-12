@@ -32,5 +32,12 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 		return this.getSqlSession().update(this.getClassName()+".liked", id);
 	}
 
+	@Override
+	public int getCount(Course course) {
+		Map<String , Course> data = new HashMap<String, Course>();
+		data.put("count", course);
+		return this.getSqlSession().selectOne(this.getClassName()+".getCount", course);
+	}
+
 
 }

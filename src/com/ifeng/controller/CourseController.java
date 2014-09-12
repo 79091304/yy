@@ -39,7 +39,6 @@ public class CourseController {
 	@RequestMapping("list")
 	public ModelAndView listForIndex(String sid, String pageNow, String cid,
 			HttpServletRequest request) throws IOException {
-		@SuppressWarnings("unchecked")
 		ModelAndView mv = new ModelAndView("courses");
 		int now = 0;
 		int pstatus = -1;
@@ -55,6 +54,9 @@ public class CourseController {
 			course.setCategory(cid);
 		}
 		PageView page = new PageView(Instant.PAGE_SIZE, now);
+		int rowCount = courseService.queryAllCount(course);//总条数
+		int pageCount = rowCount % Instant.PAGE_SIZE == 0 ? rowCount/Instant.PAGE_SIZE : (rowCount/Instant.PAGE_SIZE +1);//总页数
+		mv.addObject("pageCount", pageCount);
 		List<Course> courses = courseService.listForPage(page, course);
 		mv.addObject("courses", courses);
 		return mv;

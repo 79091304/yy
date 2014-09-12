@@ -28,4 +28,11 @@ public interface CourseDao extends BaseDao<Course>{
 	 * @return
 	 */
 	public int increaseLiked(String id);
+	
+	/**
+	 * 获取记录数
+	 * @param course
+	 * @return
+	 */
+	public int getCount(Course course);
 }
