@@ -33,6 +33,10 @@ public class User implements java.io.Serializable {
 	private int type;
 	
 	private String verify;
+	
+	private String website;
+	
+	private String desc;
 
 	public long getId() {
 		return id;
@@ -115,6 +119,22 @@ public class User implements java.io.Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 
 	

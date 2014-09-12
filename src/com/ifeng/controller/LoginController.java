@@ -34,6 +34,17 @@ public class LoginController {
 		return mv;
 	} 
 	
+	/**
+	 * 登录
+	 * @param username
+	 * @param email
+	 * @param phone
+	 * @param password
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
 	@ResponseBody
 	@RequestMapping("login")
 	public Object login(String username,String email,String phone,String password,HttpServletRequest request,HttpServletResponse response) throws IOException{
@@ -41,10 +52,10 @@ public class LoginController {
 		User user = userService.hasUser(username, email, phone, password);
 		if(null != user){
 			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
 			rm = ResponseMessage.SUCCESS;
 			String encryptStr = AesSec.encrypt(user.getId()+"", Instant.AES_PASSWORD);
 			Cookie cuid = new Cookie(Instant.COOKIE_USERID, encryptStr);
+			session.setAttribute("user", user);
 			cuid.setMaxAge(Instant.COOKIE_EXPIRE);
 			Cookie cuname = new Cookie(Instant.COOKIE_USERNAME, user.getUsername());
 			cuname.setMaxAge(60*60*24*3);
@@ -56,4 +67,15 @@ public class LoginController {
 		return rm;
 	}
 	
+	/**
+	 * 退出
+	 * @param uid
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("logout")
+	public void logout(String uid,HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.removeAttribute("user");
+	}
 }

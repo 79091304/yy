@@ -1,6 +1,7 @@
 <script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/js/util.js"></script>
 <script type="text/javascript" src="${ctx}/js/promotuser.js"></script>
+<script type="text/javascript" src="${ctx}/js/query.cookie.js"></script>
 
 <div class="header">
 		<div class="wrap clearfix" pbid="header">
@@ -48,10 +49,10 @@
 								href="/home-build_deal/id-154415">发起的项目</a></li>
 							<li class="att"><a class="ie6fixpic"
 								href="/home-focus/id-154415">喜欢的项目</a></li>
-							<li class="msg"><a class="ie6fixpic" href="/message">消息中心</a></li>
-							<li class="set"><a class="ie6fixpic" href="/settings">个人设置</a></li>
-							<li class="exit bn"><a class="ie6fixpic"
-								href="/user-loginout">退出</a></li>
+							<li class="msg"><a class="ie6fixpic" href="${ctx}/message/index.htm">消息中心</a></li>
+							<li class="set"><a class="ie6fixpic" href="${ctx}/settings/index.htm">个人设置</a></li>
+							<li class="exit bn"><a  class="ie6fixpic" id="logout"
+								href="${ctx}/log/logout.htm">退出</a></li>
 					</ul>
 				</div>
 			</div>
@@ -69,6 +70,21 @@
 		</div>
 		
 	</div>
-	
+	<script>
+		$(function(){
+			$("#logout").bind("click",fucntion(){
+				$.ajax({
+				url:${ctx}/log/logout.htm,
+				type: "POST",
+				dataType:"json",
+				data:{uid:$.cookie('uid')},
+				success:function(){
+					wx.removeCookie('uid');
+					window.location.href="http://localhost/yy";
+				}
+			});
+			});
+		})
+	</script>
 
 	

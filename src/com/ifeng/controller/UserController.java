@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.Instant;
+import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
@@ -63,5 +64,32 @@ public class UserController {
 			}
 		}
 		return mv;
+	}
+	
+	/**
+	 * 修改用户信息
+	 * @param uid
+	 * @param username
+	 * @param password
+	 * @param website
+	 * @param desc
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("modify")
+	public Object modify(String uid,String username,String password,String website,String desc){
+		User user = new User();
+		if(StringUtils.isNotEmpty(username))
+			user.setUsername(username);
+		if(StringUtils.isNotEmpty(password))
+			user.setPassword(password);
+		if(StringUtils.isNotEmpty(website))
+			user.setWebsite(website);
+		if(StringUtils.isNotEmpty(desc))
+			user.setDesc(desc);
+		int result = userService.modify(user);
+		if(result > 0)
+			return ResponseMessage.SUCCESS;
+		return ResponseMessage.FAIL;
 	}
 }

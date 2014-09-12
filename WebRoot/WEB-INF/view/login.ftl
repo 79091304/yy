@@ -73,11 +73,10 @@
 				}
 				
 				var ajaxurl = '${ctx}/log/login.htm';
-				query = 'ajax=1&email=' + email + '&password=' + password;
 				$.ajax({ 
 					url: ajaxurl,
 					dataType: "json",
-					data:query,
+					data:{ajax:1,email:email,password:password},
 					type: "POST",
 					success: function(ajaxobj){
 						if(ajaxobj.code==1)
