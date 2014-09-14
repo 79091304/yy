@@ -47,7 +47,7 @@
 						<a class="weibo icon-login" href="https://api.weibo.com/oauth2/authorize?client_id=1494625316&redirect_uri=http%3A%2F%2Fwww.zhongchou.cn%2Fapi_callback.php%3Fc%3DSina%26response_type%3Dcode&response_type=code">新浪微博</a>|
 						<a class="tqq icon-login" href="https://open.t.qq.com/cgi-bin/oauth2/authorize?client_id=801393846&redirect_uri=http%3A%2F%2Fwww.zhongchou.cn%2Fapi_callback.php%3Fc%3DTencent&response_type=code">腾讯微博</a>
 					</div>
-					<a class="red fr" href="user-getpassword">忘记密码？</a>
+					<a class="red fr" href="${ctx}/settings/forgetpwd.htm">忘记密码？</a>
 				</div>
 			</div>
 			

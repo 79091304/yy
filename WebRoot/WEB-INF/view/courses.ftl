@@ -53,7 +53,6 @@
 				</div>
 				<div class="menu-bd JS-myinfo">
 					<ul class="clearfix">
-							<li class="sup"><a class="ie6fixpic" href="/home/id-154415">支持的项目</a></li>
 							<li class="spo"><a class="ie6fixpic"
 								href="/home-build_deal/id-154415">发起的项目</a></li>
 							<li class="att"><a class="ie6fixpic"
@@ -93,9 +92,9 @@
 			</div>
 			<div class="filter-box clearfix">
 				<div class="rel-key-rec">
-					<a class="select" sid="0"  href="${ctx}/course/list.htm?sid=0">所有课程(95)</a>
-					<a sid="2" href="${ctx}/course/list.htm?sid=2">众筹中(41)</a> <a sid="1"
-						href="${ctx}/course/list.htm?sid=1">已成功(54)</a>
+					<a  sid="0" <#if sid==0 || sid ==null> class="select" </#if>   href="${ctx}/course/list.htm?sid=0">所有课程(95)</a>
+					<a sid="2" <#if sid==2> class="select" </#if> href="${ctx}/course/list.htm?sid=2">招生中(41)</a> 
+					<a sid="1" <#if sid==1> class="select" </#if> href="${ctx}/course/list.htm?sid=1">已完成(54)</a>
 				</div>
 				<div class="range">
 					<select name="deal_sort">
@@ -143,9 +142,9 @@
 					</li>
 					</#list>
 				</ul>
-				<div class="page tr">
+				<div class="page tr" id="pageDiv" >
 					<#list 1..pageCount as pt>
-						<a class='common-sprite' >&nbsp;${pt}&nbsp;
+						<a class='common-sprite' pageNow=${pt} >&nbsp;${pt}&nbsp;
 					</#list>
 					<#if (pageCount>1) >
 						<a class='next' href='/browse/id-22-p-2'>下一页</a>
@@ -160,12 +159,20 @@
 	
 	<script>
 		$(document).ready(function() {
+		
+			var pageNow = ${pageNow?default(1)};
 			
-			var sort = $("select[name='deal_sort']").val();
-			var sid = $(".rel-key-rec").children(".select:first").attr("sid");
+		
+			var sort = wx.trim($("select[name='deal_sort']").val());
+			var sid = wx.trim($(".rel-key-rec").children(".select:first").attr("sid"));
 			//分页跳转
-			$(".page tr").children(".common-sprite").each(function(index,item){
-				var now = $(this).text();
+			$("#pageDiv").children(".common-sprite").each(function(index,item){
+				//设置当前页数亮
+				var pn = $(this).attr("pageNow");
+				if(pageNow == pn){
+					$(this).addClass("select common-sprite");
+				}
+				var now = wx.trim($(this).text());
 				var url = "${ctx}/course/list.htm?pageNow="+now+"&sort="+sort+"&sid="+sid;
 				$(this).attr("href",url);
 			});

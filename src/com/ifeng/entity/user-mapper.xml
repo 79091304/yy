@@ -4,7 +4,7 @@
 <mapper namespace="User">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,username,phone,email,password,state,type,createdAt,changedAt,website,desc
+		id,username,phone,email,password,state,type,createdAt,changedAt,website,intro
 	</sql>
 	<!--resultType="User" 每返回一条结果封装到User里 -->
 	<select id="queryByUsername" resultType="User" parameterType="String">
@@ -68,7 +68,7 @@
 	
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="User">
-		insert into u_user(username,phone,email,password,state,type,createdAt,changedAt,website,desc)
+		insert into u_user(username,phone,email,password,state,type,createdAt,changedAt,website,intro)
 		values 
 		(
 		#{username},
@@ -80,7 +80,7 @@
 		null,
 		 #{changedAt},
 		 #{website},
-		 #{desc}
+		 #{intro}
 		)
 	</insert>
 
@@ -117,11 +117,19 @@
 			<if test="website != null and website != ''">
 				website=#{website}
 			</if>
-			<if test="desc != null and desc != ''">
-				desc=#{desc}
+			<if test="intro != null and intro != ''">
+				intro=#{intro}
 			</if>
 		</set>
-		where id=#{id}
+		<where>
+			1=1 
+			<if test="id != null" >
+				and id=#{id}
+			</if>
+			<if test="email != null and email !=''" >
+				and email=#{email}
+			</if>
+		</where>
 	</update>
 	
 </mapper>

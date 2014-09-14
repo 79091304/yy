@@ -1,6 +1,8 @@
 package com.ifeng.controller;
 
+import java.util.Date;
 import java.util.List;
+
 
 
 
@@ -33,7 +35,7 @@ public class CategoryController {
 	@RequestMapping("pushcache")
 	public Object pushcache(){
 		List<Category> categories = categoryService.getAll();
-		boolean flag = manager.add(Instant.CATEGORY_KEY, categories);
+		boolean flag = manager.add(Instant.CATEGORY_KEY, categories,new Date("2100 12 12"));
 		if(flag)
 			return ResponseMessage.SUCCESS;
 		return ResponseMessage.FAIL;

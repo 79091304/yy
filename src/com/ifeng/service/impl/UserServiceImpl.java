@@ -65,5 +65,14 @@ public class UserServiceImpl implements UserService {
 		return user;
 		}
 
+	@Override
+	public int changepwd(String email, String pwd) {
+		User user = new User();
+		user.setEmail(email);
+		user.setPassword(pwd);
+		int result = this.userDao.modify(user);
+		return result;
+	}
+
 
 }

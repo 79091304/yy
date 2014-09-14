@@ -36,7 +36,7 @@ public class User implements java.io.Serializable {
 	
 	private String website;
 	
-	private String desc;
+	private String intro;//个人描述介绍
 
 	public long getId() {
 		return id;
@@ -121,13 +121,7 @@ public class User implements java.io.Serializable {
 		this.phone = phone;
 	}
 
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
+	
 
 	public String getWebsite() {
 		return website;
@@ -135,6 +129,14 @@ public class User implements java.io.Serializable {
 
 	public void setWebsite(String website) {
 		this.website = website;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
 	}
 
 	

@@ -39,7 +39,6 @@
 				</div>
 				<div class="menu-bd JS-myinfo">
 					<ul class="clearfix">
-							<li class="sup"><a class="ie6fixpic" href="/home/id-154415">支持的项目</a></li>
 							<li class="spo"><a class="ie6fixpic"
 								href="/home-build_deal/id-154415">发起的项目</a></li>
 							<li class="att"><a class="ie6fixpic"

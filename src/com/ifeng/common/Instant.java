@@ -27,5 +27,5 @@ public class Instant {
 	
 	public static final int LOGIN_STATUS = 1; 
 	
-	public static final int PAGE_SIZE = 16;
+	public static final int PAGE_SIZE = 1;
 }

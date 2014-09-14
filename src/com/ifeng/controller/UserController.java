@@ -86,7 +86,7 @@ public class UserController {
 		if(StringUtils.isNotEmpty(website))
 			user.setWebsite(website);
 		if(StringUtils.isNotEmpty(desc))
-			user.setDesc(desc);
+			user.setIntro(desc);
 		int result = userService.modify(user);
 		if(result > 0)
 			return ResponseMessage.SUCCESS;

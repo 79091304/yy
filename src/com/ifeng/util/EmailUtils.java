@@ -18,6 +18,27 @@ import com.ifeng.entity.User;
 public class EmailUtils {
 	
 	private static final String FROM = "m18559912235@163.com";
+	
+	
+	/**
+	 * 注册成功后,向用户发送帐户激活链接的邮件
+	 * @param user 未激活的用户
+	 */
+	public static void sendAccountActivateEmail(HttpServletRequest request,String email,String content) {
+		Session session = getSession();
+		MimeMessage message = new MimeMessage(session);
+		try {
+			message.setSubject("帐户激活邮件");
+			message.setSentDate(new Date());
+			message.setFrom(new InternetAddress(FROM));
+			message.setRecipient(RecipientType.TO, new InternetAddress(email));
+			message.setContent(content,"text/html;charset=utf-8");
+			// 发送邮件
+			Transport.send(message);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * 注册成功后,向用户发送帐户激活链接的邮件

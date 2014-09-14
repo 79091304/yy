@@ -37,7 +37,7 @@ public class CourseController {
 	 * @throws IOException
 	 */
 	@RequestMapping("list")
-	public ModelAndView listForIndex(String sid, String pageNow, String cid,
+	public ModelAndView list(String sid, String pageNow, String cid,
 			HttpServletRequest request) throws IOException {
 		ModelAndView mv = new ModelAndView("courses");
 		int now = 0;
@@ -45,6 +45,7 @@ public class CourseController {
 		Course course = new Course();
 		if (StringUtils.isNotEmpty(pageNow)) {
 			now = Integer.parseInt(pageNow);
+			mv.addObject("pageNow", pageNow);
 		}
 		if (StringUtils.isNotEmpty(sid)) {
 			pstatus = Integer.parseInt(sid);
@@ -58,6 +59,7 @@ public class CourseController {
 		int pageCount = rowCount % Instant.PAGE_SIZE == 0 ? rowCount/Instant.PAGE_SIZE : (rowCount/Instant.PAGE_SIZE +1);//总页数
 		mv.addObject("pageCount", pageCount);
 		List<Course> courses = courseService.listForPage(page, course);
+		mv.addObject("sid", sid);
 		mv.addObject("courses", courses);
 		return mv;
 	}
@@ -100,7 +102,7 @@ public class CourseController {
 			course.setVideoUrl(ved);
 			course.setDetail(bri);
 			course.setImgUrl(img);
-			course.setCreatedBy(user.getUsername());
+			//course.setCreatedBy(user.getUsername());
 			flag = courseService.save(course);
 		}
 		if(flag >0)

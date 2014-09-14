@@ -22,6 +22,14 @@ public interface UserService{
 	public int countUser(String userName,String userPassword);
 	
 	/**
+	 * 修改密码
+	 * @param email
+	 * @param pwd
+	 * @return
+	 */
+	public int changepwd(String email,String pwd);
+	
+	/**
 	 * 查询用户
 	 * @param startDate
 	 * @param endDate

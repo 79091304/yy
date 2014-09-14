@@ -33,25 +33,73 @@
                 <!--sub nav static-->
                 <div class="sub-nav">
                     <ul class="clearfix">
-                        <li>
+                        <li class="select" id="li1" >
                             <em class="icon-sub">1</em>
                             <span>确认密码</span>
                             <i class="icon-sub"></i>
                         </li>
-                        <li>
+                        <li id="li2">
                             <em class="icon-sub">2</em>
                             <span>安全验证</span>
                             <i class="icon-sub"></i>
                         </li>
-                        <li class="select">
+                        <li id="li3" >
                             <em class="icon-sub">3</em>
                             <span>重置密码</span>
                         </li>
                     </ul>
                 </div>
                 <!--sub nav static-->
+                
+                <!--步骤1 -->
+                 <div id="getpwd1" class="step-detail getpsswdone">
+                    <form wx-validator wx-validator-error-class="error-text" wx-validator-ajax name="user_getpassword_form" action="/user-ajax_checkemail">
+                        <div class="form-item clearfix">
+                            <label>请填写您需要找回的帐号：</label>
+                            <input name="contact" class="inp-w227" wx-validator-rule="required|emailormobile" type="text" wx-validator-placeholder="请填写您注册的邮箱或手机号" />
+                             <span class="error-text">请填写您注册的邮箱</span>
+                        </div>
+                        <div class="form-item clearfix">
+                            <label>请输入验证码：</label>
+                            <input name="vcode" type="text" wx-validator-rule="required|rangelength|digits" wx-validator-param="|4-5|" class="inp-wst">
+                            <span class="code"><img src="${ctx}/imageServlet" title="点击更换" onclick="javascript:refresh(this);" ></span>
+                            <span id="wx-validator-vcode-required" class="error-text" style="display:none">不能为空</span>
+                            <span id="wx-validator-vcode-rangelength" class="error-text" style="display:none">请输入4-5位的数字或字母</span>
+                        </div>
+                        <div class="step-submit">
+                            <a type="submit" class="btn-base btn-red-h30 common-sprite"  href="javascript:void(0);">
+                                <span class="common-sprite" id="step1" >下一步</span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <!--step detail end-->
                 <!--step detail static-->
-                <div class="step-detail">
+                <div id="getpwd2" class="step-detail getpsswdtwo" >
+                    <form wx-validator wx-validator-error-class="error-text" wx-validator-ajax name="user_codeuserverify_form" action="/user-codeuserverify">
+                        <div class="form-item clearfix">
+                            <label>验证方式：</label>
+                            <p id="comfirmemail" class="form-msg passemail"></p>
+                        </div>
+                        <div class="form-item clearfix">
+                            <input id="step2" class="btn-code" style="margin-left:190px;" type="button" value="获取验证码" />
+                            <span id="wx-validator-vcode-required" class="error-text" style="display:none">不能为空</span>
+                            <span id="wx-validator-vcode-rangelength" class="error-text" style="display:none">请输入6-7位的数字或字母</span>
+                        </div>
+                        <!-- 
+                        <div class="step-submit">
+                            <a type="submit" class="btn-base btn-red-h30 common-sprite" href="javascript:void(0);">
+                                <span class="common-sprite">下一步</span>
+                            </a>
+                        </div>
+                         -->
+                    </form>
+                </div>
+                
+              
+                
+                <!--step detail static--><!--步骤3 -->
+                <div id="getpwd3" class="step-detail" style="display:none;">
                     <form autocomplete="off" wx-validator="" wx-validator-ajax="" name="user_getpassword_form" action="/user-ajax_modifypassword" wx-validator-error-class="error-text">
                         <div class="form-item clearfix">
                             <label>新密码：</label>
@@ -69,12 +117,12 @@
                         <div class="form-item clearfix">
                         <label>请输入图形验证码：</label>
                         <input value="2861" name="vcode_pic" wx-validator-rule="required|digits" class="inp-wst" type="text"><span style="display: none;" id="wx-validator-vcode_pic-required" class="error-text">不能为空</span>
-                        <span class="code"><img src="" onclick="this.src = '/verify.php?t='+Math.random();"></span>
+                        <span class="code"><img src="${ctx}/imageServlet" onclick="this.src = '${ctx}/imageServlet'+Math.random();"></span>
                         </div>
                         
                         <div class="step-submit">
                             <a type="submit" class="btn-base btn-red-h30 common-sprite" href="javascript:void(0);">
-                                <span class="common-sprite">完成</span>
+                                <span id="step3" class="common-sprite">完成</span>
                             </a>
                         </div>
                     </form>
@@ -95,15 +143,75 @@
 <#include "footer.ftl" >
 
 <script>
-function user_getpassword_form(data){
-  if(data.status == 1){
-    wx.alert("密码修改成功",function(){
-      location.href = "/user-login";
-    });
-  } else {
-    wx.alert(data.info || "修改失败");
-  }
-}
+
+	 function refresh(obj) {
+		obj.src = "imageServlet?"+Math.random();
+	 }
+
+$(function(){
+	$("#getpwd1").show();
+	$("#getpwd2").hide();
+	$("#getpwd3").hide();
+	
+	var email = $("input[name='contact']").val();
+	$("#step1").click(function(){
+		$.ajax({	
+			url:"${ctx}/settings/step1.htm",
+			data:{email:email},
+			type:"post",
+			dataType:"json",
+			success:function(obj){
+				if(obj.code ==1){
+					$("#getpwd1").hide();
+					$("#getpwd2").show();
+					$("#li1").removeClass();
+					$("#li2").addClass("select");
+					$("#comfirmemail").text(email);
+				}else{
+					wx.alert("邮箱不存在，请重新输入");
+				}
+			}
+		});
+	});
+	
+	$("#step2").click(function(){
+		$.ajax({	
+			url:"${ctx}/settings/step2.htm",
+			data:{email:email},
+			type:"post",
+			dataType:"json",
+			success:function(obj){
+				if(obj.code ==1){
+					$("#getpwd2").hide();
+					$("#getpwd3").show();
+					$("#li2").removeClass();
+					$("#li3").addClass("select");
+				}
+			}
+		});
+	});
+	
+	$("#step3").click(function(){
+		var pwd = $("input[name='passwd']").val();
+		var vcode = $("input[name='vcode']").val();
+		var piccode = $("input[name='vcode_pic']").val();
+		$.ajax({	
+			url:"${ctx}/settings/step3.htm",
+			data:{email:email,password:pwd,code:vcode,piccode:piccode},
+			type:"post",
+			dataType:"json",
+			success:function(obj){
+				if(obj.code ==1){
+					wx.alert("密码修改成功，请重新登录");
+					window.loaction.href="http://localhost/yy/";
+				}
+			}
+		});
+	});
+	
+});
+
+
 
 </script>
 

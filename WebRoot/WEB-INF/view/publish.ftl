@@ -268,7 +268,7 @@
 							var brief = $("#brief").val();
 							var imageurl = $("#imageurl").val();
 
-							if ("" == cateid) {
+							if ("" == cateid && undefined == cateid) {
 								wx.alert("请选择类别");
 								return;
 							}

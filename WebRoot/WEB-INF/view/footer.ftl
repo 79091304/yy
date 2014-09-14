@@ -1,7 +1,6 @@
 <script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/js/util.js"></script>
 <script type="text/javascript" src="${ctx}/js/promotuser.js"></script>
-<script type="text/javascript" src="${ctx}/js/query.cookie.js"></script>
 
 	
  <div class="footer" pbid="footer">
