@@ -102,7 +102,7 @@
 	</div>
 </div>
 <div class="footer-login">
-<p>©2013   北京懒人科技有限公司   lanrenyuan.con   版权所有      </p>
+<p>©2014   北京懒人科技有限公司   lanrenyuan.con   版权所有      </p>
 </div>
 <!--footer end-->
 <div style="display:none;">

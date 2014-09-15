@@ -187,7 +187,7 @@
 </div>
 
 <div class="footer-login">
-<p>©2013   北京懒人科技有限公司   lanrenyuan.com   版权所有    </p>
+<p>©2014   北京懒人科技有限公司   lanrenyuan.com   版权所有    </p>
 </div>
 <!--footer end-->
 

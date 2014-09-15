@@ -114,7 +114,7 @@
 						<div class="list-item">
 							<a class="item-figure" href="${ctx}/course/getInfo.htm?id=${item.id}" target="_blank">
 								<img
-								src="${ctx}/images/${item.imgUrl}"
+								src="${item.imgUrl}"
 								alt="${item.name}" title="${item.name}" />
 							</a>
 							<div class="item-upvote">
