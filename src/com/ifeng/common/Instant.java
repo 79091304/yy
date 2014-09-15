@@ -7,13 +7,13 @@ public class Instant {
 	
 	public static final String CATEGORY_KEY = "xuexicategory";
 	
-	public static final String WEBSITE = "http://www.xuexidang.com";
+	public static final String WEBSITE = "http://www.mm.yue.ifeng.com";
 	
-	public static final String COURSEWEBSITE = "http://www.xuexidang.com/course/getInfo.htm?id=";
+	public static final String COURSEWEBSITE = "http://www.mm.yue.ifeng.com/course/getInfo.htm?id=";
 	
-	public static final String TEACHEREWEBSITE = "http://www.xuexidang.com/teacher/getInfo.htm?id=";
+	public static final String TEACHEREWEBSITE = "http://www.mm.yue.ifeng.com/teacher/getInfo.htm?id=";
 	
-	public static final String IMGSITE = "http://www.xuexidang.com/teacher/getInfo.htm?id=";
+	public static final String IMGSITE = "http://www.mm.yue.ifeng.com/teacher/getInfo.htm?id=";
 	
 	public static final int COOKIE_EXPIRE = 60*60*24*7;
 	
