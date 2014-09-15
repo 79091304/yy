@@ -30,6 +30,28 @@
 		)
 	</insert>
 	
+	<update id="update"  parameterType="Course">
+	    update c_course 
+	    <set>
+			<if test="detail != null and detail != ''">
+				detail=#{detail},
+			</if>
+			<if test="videoUrl != null and videoUrl != ''">
+				videoUrl=#{videoUrl},
+			</if>
+			<if test="imgUrl != null and imgUrl != ''">
+				imgUrl=#{imgUrl},
+			</if>
+			<if test="scount != null and scount != ''">
+				scount=#{scount},
+			</if>
+			<if test="userid != null and userid != ''">
+				city=#{city},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
 	<select id="queryByC" resultType="Course" parameterType="java.util.Map">
 		select
 		<include refid="selectId" />

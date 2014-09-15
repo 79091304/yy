@@ -17,15 +17,7 @@ public interface OrderService {
 	 * @param orderid 对外订单号
 	 * @return
 	 */
-	public Order getByOrderid(String orderid);
-	
-	
-	/**
-	 * 更新充值类型
-	 * @param id
-	 */
-	public int modifyChargeType(String orderid,int type);
-	
+	public Order getByOrderid(String id);
 	
 	/**
 	 * 根据时间查询订单

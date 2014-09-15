@@ -17,13 +17,6 @@ import com.ifeng.util.DateUtils;
 @Repository("orderDao")
 public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao {
 
-	@Override
-	public Order getOrderByOrderId(String orderid,int source) {
-		Map<String,Object> data = new HashMap<String, Object>();
-		data.put("orderid", orderid);		
-		data.put("source", source);
-		return this.getSqlSession().selectOne(this.getClassName()+".getByOrderid", data);
-	}
 	
 	@Override
 	public Order getOrderByOrderId(String orderid) {
@@ -40,15 +33,6 @@ public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao {
 		map.put("changedAt", new Date());
 		int result = this.getSqlSession().update(this.getClassName()+".updateState", map);
 		return result;
-	}
-
-	@Override
-	public int updateOrderType(String orderid, int type) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("type", type);
-		map.put("orderid", orderid);
-		map.put("changedAt", new Date());
-		return this.getSqlSession().update(this.getClassName()+".updateType", map);
 	}
 
 

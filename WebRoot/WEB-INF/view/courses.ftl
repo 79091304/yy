@@ -125,18 +125,17 @@
 								<a href="/deal-show/id-16844" target="_blank">${item.name}</a>
 							</h3>
 							<div class="item-caption">
-								<span class="caption-title">目标：<em>20天</em> <em><i
-										class="font-yen">&yen;</i>30000</em></span> <span
+								<span class="caption-title"></span> <span
 									class="btn-base btn-red-h20 common-sprite"> <span
-									class="common-sprite">众筹中</span>
+									class="common-sprite">报名中</span>
 								</span>
 							</div>
 							<div class="progress-bar">
 								<span class="progress bg-red" style="width: 2%;"></span>
 							</div>
 							<div class="item-rate clearfix">
-								<span class="rate1"> <em>2%</em><br>已达
-								</span> <span class="rate2"> <em>￥509</em><br>已筹资
+								<span class="rate1"> <em>${item.scount}人</em><br>
+								</span> <span class="rate2"> 
 								</span> <span class="rate3"> <em>19天</em><br>剩余时间
 								</span>
 							</div>

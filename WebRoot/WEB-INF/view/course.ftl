@@ -264,7 +264,7 @@
 						</div>
 						<div class="detail-rate">
 							<ul class="clearfix">
-								<li><strong> <a href="#"><font color="red">立刻<br>报名
+								<li><strong> <a id="signup" dataid="${item.id}" ><font color="red">立刻<br>报名
 										</font></a>
 								</strong></li>
 								<li><strong></strong><span></span></li>
@@ -299,6 +299,31 @@
 	<!--footer static-->
 	<#include "footer.ftl">
 	
+	<script>
+		$(function(){
+			$("#signup").click(function(){
+				var dataid = $(this).attr("dataid");
+				var uid = wx.cookie("uid");
+				if(uid == '' || undefined== uid){
+					wx.alert("您还没有登录哦");
+				}else{
+					$.ajax({
+						url:"${ctx}/user/checkInfo.htm",
+						type:"post",
+						data:{uid:uid,cid:dataid},
+						dataType:"json",
+						success:function(obj){
+							if(obj.code ==1){
+								wx.alert("报名成功，请尽快保持联系方式畅通，我们会尽快联系您");
+							}else{
+								wx.alert("请到个人设置中完善您的联系方式");
+							}
+						}
+					});
+				}
+			});
+		});
+	</script>
 	
 </body>
 </html>

@@ -4,7 +4,7 @@
 <mapper namespace="Order">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,type,userkey,orderid,state,price,createdAt,guid,changedAt,userid,guid,source
+		id,state,price,createdAt,changedAt,cid,userid
 	</sql>
 	<select id="query" resultType="Order" parameterType="long">
 		select
@@ -23,26 +23,7 @@
 		from o_order where id=#{id}
 	</select>
 	
-	<select id="getByUserkey" parameterType="java.lang.String" resultType="Order">
-		select
-		<include refid="selectId" />
-		from o_order where userkey=#{userkey}
-	</select>
 	
-	<select id="getByOrderid" parameterType="java.util.HashMap" resultType="Order" >
-		select
-		<include refid="selectId" />
-		from o_order t 
-		<where>
-		1=1 
-			<if test="orderid != null and orderid  != ''">
-				and orderid=#{orderid} 
-				</if>
-			<if test="source != null and source  != ''">
-				and source=#{source} 
-			</if>
-		</where>
-	</select>
 	
 	<select id="getByDate" resultType="Order" parameterType="java.util.HashMap">
 		select
@@ -65,14 +46,13 @@
 	</select>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Order">
-		insert into o_order(type,orderid,state,price,createdAt,changedAt,userid,userkey,guid,source)
-		values (#{type},
-		#{orderid},#{state},
-		#{price}, null,
+		insert into o_order(state,createdAt,changedAt,cid,userid)
+		values (
+		#{state},
+		null,
 		#{changedAt},
-		#{userid},
-		#{userkey},
-		#{guid}, #{source}
+		#{cid},
+		#{userid}
 		)
 	</insert>
 
@@ -84,14 +64,8 @@
 	<update id="update" parameterType="Order">
 		update o_order
 		<set>
-			<if test="type != null and type != ''">
-				source=#{type},
-			</if>
 			<if test="state != null and state != ''">
 				state=#{state},
-			</if>
-			<if test="price != null and price != ''">
-				price=#{price},
 			</if>
 			<if test="changedAt != null and changedAt != ''">
 				changedAt=#{changedAt},
@@ -99,36 +73,12 @@
 			<if test="userid != null and userid != ''">
 				userSex=#{userid},
 			</if>
-			<if test="guid != null and guid != ''">
-				guid=#{guid},
+			<if test="cid != null and cid != ''">
+				cid=#{cid},
 			</if>
-			<if test="source != null and source != ''">
-				source=#{source}
-			</if>
-			
 		</set>
 		where orderid=#{orderid}
 	</update>
 	
-	<update id="updateState" parameterType="String">
-		update o_order
-		<set>
-			<if test="state != null and state != ''">
-				state=#{state},
-			</if>
-			changedAt = #{changedAt}
-		</set>
-		where orderid=#{orderid}
-	</update>
 	
-	<update id="updateType" parameterType="String">
-		update o_order
-		<set>
-			<if test="type != null and type != ''">
-				type=#{type},
-			</if>
-			changedAt = #{changedAt}
-		</set>
-		where orderid=#{orderid}
-	</update>
 </mapper>

@@ -25,10 +25,6 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 
-	@Override
-	public int modifyChargeType(String orderid,int type) {
-		return orderDao.updateOrderType(orderid, type);
-	}
 
 	@Override
 	public Order getByOrderid(String orderid) {

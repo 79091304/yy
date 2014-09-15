@@ -58,7 +58,13 @@
 								wx-validator-user_name-byterangelength="2到12个汉字或4到24个字符"
 								type="text">
 						</div>
-
+						<div class="form-item clearfix">
+							<label class="red">手机号：</label> <input value="${user.phone}" id="phone"
+								name="phone" wx-validator-rule="required|byteRangeLength"
+								wx-validator-param="|11"
+								wx-validator-user_name-byterangelength="请填写正确的手机号"
+								type="text">
+						</div>
 						<div class="form-item clearfix">
 							<label>性别：</label>
 							<div class="sex-box">
@@ -148,14 +154,14 @@
 			if(uid != null && uid != undefinde){
 				$.ajax({
 				url:"${ctx}/user/modify.htm",
-				data:{uid:uid,username:use,website:web,desc:des},
+				data:{uid:uid,username:use,website:web,desc:des,phone:phone},
 				type: "POST",
 				dataType:"json",
 				success:function(data){
 					if(data.code==1){
 						wx.alert("保存成功");
 					}
-					if(data.code==0){
+					else(data.code==0){
 						wx.alert(data.msg);
 					}
 				}

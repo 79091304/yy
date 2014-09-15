@@ -18,6 +18,7 @@ public interface CourseService {
 	 */
 	public int queryAllCount(Course course);
 	
+	
 	public Course getCourse(long id);
 	
 	public int save(Course course);

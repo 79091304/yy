@@ -15,6 +15,7 @@ public class CourseServiceImpl implements CourseService {
 	
 	@Autowired
 	private CourseDao courseDao;
+	
 
 	@Override
 	public List<Course> listForIndex(int count) {
@@ -45,5 +46,6 @@ public class CourseServiceImpl implements CourseService {
 	public int queryAllCount(Course course) {
 		return courseDao.getCount(course);
 	}
+
 
 }

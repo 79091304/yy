@@ -12,15 +12,8 @@ public interface OrderDao extends BaseDao<Order>{
 	 * @param orderid 对外订单号
 	 * @return
 	 */
-	public Order getOrderByOrderId(String orderid);
+	public Order getOrderByOrderId(String id);
 
-	/**
-	 * 查询订单
-	 * @param orderid 对外订单号
-	 * @param source 来源
-	 * @return
-	 */
-	public Order getOrderByOrderId(String orderid,int source);
 	
 	/**
 	 * 更新订单状态
@@ -29,13 +22,6 @@ public interface OrderDao extends BaseDao<Order>{
 	 * @return
 	 */
 	public int updateOrderState(String orderid,int state);
-	/**
-	 * 更新订单支付类型
-	 * @param orderid
-	 * @param type
-	 * @return
-	 */
-	public int updateOrderType(String orderid,int type);
 	
 	/**
 	 * 查询订单

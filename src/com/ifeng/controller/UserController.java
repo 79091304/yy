@@ -1,5 +1,7 @@
 package com.ifeng.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
+import com.ifeng.entity.Order;
 import com.ifeng.entity.User;
+import com.ifeng.service.OrderService;
 import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
 
@@ -23,6 +27,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private OrderService orderService;
 	
 	/**
 	 * 用户中心
@@ -40,6 +47,33 @@ public class UserController {
 		String userid = AesSec.decrypt(uid, Instant.AES_PASSWORD);
 		User user = userService.getById(Long.parseLong(userid));
 		return user;
+	}
+	
+	/**
+	 * 检查用户的联系方式是否完成 并报名
+	 * @param uid 用户id串
+	 * @param cid 课程id
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("checkInfo")
+	public Object checkInfoIsCompleted(String uid,String cid){
+		String userid = AesSec.decrypt(uid, Instant.AES_PASSWORD);
+		User user = userService.getById(Long.parseLong(userid));
+		String phone = user.getPhone();
+		if(StringUtils.isNotEmpty(phone)){
+			Order order = new Order();
+			order.setCreatedAt(new Date());
+			order.setCid(cid);
+			order.setUserid(userid);
+			int result = orderService.createOrder(order);
+			if(result > 0)
+				return ResponseMessage.SUCCESS;
+			else 
+				return ResponseMessage.FAIL;
+		}else{
+			return ResponseMessage.FAIL;
+		}
 	}
 	
 	@RequestMapping("activateAccount")
