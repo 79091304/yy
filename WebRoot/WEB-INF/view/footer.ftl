@@ -36,10 +36,10 @@
         <dd>
           <a rel="nofollow" target="_blank" href="http://tieba.baidu.com/f?ie=utf-8&amp;kw=%E4%BC%97%E7%AD%B9%E7%BD%91" alt="百度贴吧" title="百度贴吧">百度贴吧</a><em>/</em>
           <a rel="nofollow" target="_blank" href="http://user.qzone.qq.com/2357291729" alt="QQ空间" title="QQ空间">QQ空间</a><em>/</em>
-          <a rel="nofollow" target="_blank" href="http://e.weibo.com/zhongchouwang2013" alt="新浪微博" title="新浪微博">新浪微博</a>
+          <a rel="nofollow" target="_blank" href="http://e.weibo.com" alt="新浪微博" title="新浪微博">新浪微博</a>
         </dd> 
         <dd>
-          <a rel="nofollow" target="_blank" href="http://www.douban.com/people/zhongchou_cn/" alt="豆瓣小站" title="豆瓣小站">豆瓣小站</a><em>/</em>
+          <a rel="nofollow" target="_blank" href="http://www.douban.com/people/" alt="豆瓣小站" title="豆瓣小站">豆瓣小站</a><em>/</em>
         </dd>
       </dl>
       <dl class="last">
@@ -62,7 +62,7 @@
     <div class="ft-links">
 		<div class="links-arrow">友情链接：</div>
 		<p>
-    	    		<a href="http://iof.hexun.com/zhongchou/index.html" target="_blank">和讯网</a>
+    	    		<a href="http://www.lanrenyuan/index.html" target="_blank">和讯网</a>
     	    		<a href="http://www.leiphone.com/" target="_blank">雷锋网</a>
     	    		<a href="http://www.36kr.com/" target="_blank">36氪</a>
     	    		<a href="http://www.hao123.com/" target="_blank">hao123</a>
@@ -72,7 +72,7 @@
     	    		<a href="http://jrj.com.cn/" target="_blank">金融界</a>
     	    		<a href="http://www.caixin.com/" target="_blank">财新网</a>
     	    		<a href="http://www.tmtpost.com/" target="_blank">钛媒体</a>
-    	    		<a href="http://www.imgii.com/?zhongchou" target="_blank">IMGII</a>
+    	    		<a href="http://www.imgii.com/" target="_blank">IMGII</a>
     	    		<a href="http://www.m1905.com/film/" target="_blank">电影网</a>
     	    		<a href="http://www.artron.net/" target="_blank">雅昌艺术网</a>
     	    		<a href="http://www.vmovier.com/" target="_blank">V电影</a>
@@ -93,7 +93,7 @@
     	    		<a href="http://finance.ifeng.com/itfinance/index.shtml" target="_blank">凤凰互联网金融</a>
     			</p>
 	</div>
-      <p>©2014  北京网信众筹网络科技有限公司   zhongchou.cn  版权所有   京ICP备14016844号 </p>
+      <p>©2014  北京懒人科技有限公司   lanrenyuan.com  版权所有    </p>
     </div>
   </div>
 </div>
@@ -171,15 +171,25 @@ $(window).scroll(function(){
 		}
 	}
 	
+
+	
 	$(function(){
-			var ud = wx.cookie("uid");
+	
+			var uid = wx.cookie('uid');
+			var name = wx.cookie('uname');
+			if(undefined != uid && '' != uid){
+				$("#uname").html(name);
+			    $("#jsddm").show();
+			}else{
+				$("#jsddm").hide();
+			}
 			//退出
 			$("#logout").click(function(){
 				$.ajax({
 				url:"${ctx}/log/logout.htm",
 				type: "POST",
 				dataType:"json",
-				data:{uid:ud},
+				data:{uid:uid},
 				success:function(data){
 					wx.removeCookie('uid');
 				}

@@ -23,7 +23,7 @@
 </div>
 <div class="main">
 	<div class="wrap">
-		<div class="main-inner" style="background-image:url(static/zhongchou/images/phoenix/licai_cnt.jpg)"> </div>
+		<div class="main-inner" style="background-image:url(static/lanrenyuan/images/phoenix/licai_cnt.jpg)"> </div>
 		<div class="login-block" style="position:absolute; right:0; top:60px;">
 			<div class="login-func">
 				<ul class="clearfix">
@@ -44,8 +44,8 @@
 				</form>
 				<div class="pass-login clearfix">
 					<div class="fl">
-						<a class="weibo icon-login" href="https://api.weibo.com/oauth2/authorize?client_id=1494625316&redirect_uri=http%3A%2F%2Fwww.zhongchou.cn%2Fapi_callback.php%3Fc%3DSina%26response_type%3Dcode&response_type=code">新浪微博</a>|
-						<a class="tqq icon-login" href="https://open.t.qq.com/cgi-bin/oauth2/authorize?client_id=801393846&redirect_uri=http%3A%2F%2Fwww.zhongchou.cn%2Fapi_callback.php%3Fc%3DTencent&response_type=code">腾讯微博</a>
+						<a class="weibo icon-login" href="https://api.weibo.com/oauth2/authorize?client_id=1494625316&redirect_uri=http%3A%2F%2Fwww.lanrenyuan.cn%2Fapi_callback.php%3Fc%3DSina%26response_type%3Dcode&response_type=code">新浪微博</a>|
+						<a class="tqq icon-login" href="https://open.t.qq.com/cgi-bin/oauth2/authorize?client_id=801393846&redirect_uri=http%3A%2F%2Fwww.lanrenyuan.cn%2Fapi_callback.php%3Fc%3DTencent&response_type=code">腾讯微博</a>
 					</div>
 					<a class="red fr" href="${ctx}/settings/forgetpwd.htm">忘记密码？</a>
 				</div>
@@ -102,7 +102,7 @@
 	</div>
 </div>
 <div class="footer-login">
-<p>©2013   北京东方联合投资管理有限公司   zhongchou.cn   版权所有     京ICP备11027068号 </p>
+<p>©2013   北京懒人科技有限公司   lanrenyuan.con   版权所有      </p>
 </div>
 <!--footer end-->
 <div style="display:none;">

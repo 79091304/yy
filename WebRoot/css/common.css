@@ -928,7 +928,7 @@ a:hover{
 	 width:30px;
 	 height:30px;
 	 border-radius: 50%;
-	behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 	 position:relative;
 	 vertical-align: middle;
 	 z-index:2;
@@ -1148,7 +1148,7 @@ a:hover{
 	 background:#FFF;
 	 border:1px solid #E6E6E6;
 	 border-radius:5px;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .item-figure{
@@ -1164,7 +1164,7 @@ a:hover{
 	 width:223px;
 	 border-radius:5px 5px 0px 0px;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .item-figure img:hover{
@@ -1193,7 +1193,7 @@ a:hover{
 	 display:block;
 	 background:#FFF url(../images/icons.png?v=381) no-repeat 3px 6px;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .item-upvote a:hover,.item-upvote .liked{
@@ -1338,7 +1338,7 @@ a:hover{
 	  background:#FFF;
 	 border:1px solid #d6d6d6;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .pop .title{
@@ -1347,7 +1347,7 @@ a:hover{
 	 height:40px;
 	 border-radius:5px 5px 0px 0px;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .pop .title h3{
@@ -1416,7 +1416,7 @@ a:hover{
 	 border:1px solid #bababa;
 	 border-radius:3px;
 	position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .form-item input.ads-ipt{
@@ -1514,7 +1514,7 @@ a:hover{
 	 border:1px solid #BABABA;
 	 border-radius:3px;
 	position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .form-item .inp-w310{
@@ -1594,7 +1594,7 @@ a:hover{
 	 margin:0px auto;
 	 background:#FFF url(../images/loading.gif?v=381) no-repeat 50% 50px;
 	 border-radius:5px;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
  }
 
 .pop-loading p{
@@ -1631,7 +1631,7 @@ a:hover{
 	 border-radius:0px 0px 5px 5px;
 	 border-top:none;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .login-func{
@@ -1694,7 +1694,7 @@ a:hover{
 	 border-radius:3px;
 	 padding:0px 5px 0px 23px;
 	position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
  }
 
 .error-mid p{
@@ -1716,7 +1716,7 @@ a:hover{
 	 border-radius:3px;
 	 padding:11px 5px 11px 28px;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
  }
 
 .uid{
@@ -1800,7 +1800,7 @@ a:hover{
 	 padding:10px;
 	 border:1px solid #DFDFDF;
 	 border-radius:5px;
-	behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .tooltip i{

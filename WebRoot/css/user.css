@@ -29,7 +29,7 @@ body{
 	width:150px;
 	 height:150px;
 	 border-radius:10px;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 	 position:relative;
 }
 
@@ -47,7 +47,7 @@ body{
 	 background:#E8E8E8;
 	 border:1px solid #D9D9D9;
 	 border-radius:2px;
-	behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .info-right{
@@ -217,7 +217,7 @@ body{
 	 width:60px;
 	 height:43px;
 	 border-radius: 5px;
-	behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 	 position:relative;
 }
 
@@ -410,6 +410,6 @@ body{
 	 width:180px;
 	 height:136px;
 	 border-radius:5px;
-	behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 	 position:relative;
 }

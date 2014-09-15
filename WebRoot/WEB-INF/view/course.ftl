@@ -292,8 +292,6 @@
 				<a name="support"></a>
 				<!--support list end-->
 			</div>
-			<script type="text/javascript" src="./detail_files/jia.js"
-				charset="utf-8"></script>
 			<!--side end-->
 		</div>
 	</div>

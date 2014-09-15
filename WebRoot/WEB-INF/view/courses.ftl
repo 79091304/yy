@@ -48,7 +48,7 @@
 					<a href="" class="tit"> <span class='avatar-box'>
 							<img id="headeravatar"
 							src="${ctx}/images/noavatar_small.gif" />
-					</span> <span class="user-name word-break ie6fixpic">游客</span>
+					</span> <span id="uname" class="user-name word-break ie6fixpic">游客</span>
 					</a>
 				</div>
 				<div class="menu-bd JS-myinfo">

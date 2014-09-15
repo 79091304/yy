@@ -384,7 +384,7 @@
 	 border:1px solid #E4E4E4;
 	 border-radius:5px;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .insert-video .textinput-wrap a{
@@ -456,7 +456,7 @@
 	 height:48px;
 	 border-radius:50%;
 	  position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 	.talk-face .author-lay{
@@ -620,7 +620,7 @@
 	 height:24px;
 	 border-radius: 50%;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .comment-lists dl dd{
@@ -747,7 +747,7 @@
 	 border-radius:50%;
 	 background:#FFF;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .msg-system-bd ul li a img{
@@ -755,7 +755,7 @@
 	 height:30px;
 	border-radius:50%;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .msg-system-bd p{
@@ -847,7 +847,7 @@
 	 height:48px;
 	 border-radius:50%;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 .sup-info{
@@ -1841,7 +1841,7 @@ navlist{
 .ren img{
 	 border-radius:50%;
 	 position:relative;
-	 behavior:url(static/zhongchou/css/phoenix/PIE.htc);
+	 behavior:url(static/lanrenyuan/css/phoenix/PIE.htc);
 }
 
 
