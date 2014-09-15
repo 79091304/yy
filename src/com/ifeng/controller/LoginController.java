@@ -55,12 +55,12 @@ public class LoginController {
 			rm = ResponseMessage.SUCCESS;
 			String encryptStr = AesSec.encrypt(user.getId()+"", Instant.AES_PASSWORD);
 			Cookie cuid = new Cookie(Instant.COOKIE_USERID, encryptStr);
-			cuid.setPath(Instant.WEBSITE);
+			cuid.setPath(getPath(request));
 			session.setAttribute("user", user);
 			cuid.setMaxAge(Instant.COOKIE_EXPIRE);
 			Cookie cuname = new Cookie(Instant.COOKIE_USERNAME, user.getUsername());
 			cuname.setMaxAge(60*60*24*3);
-			cuname.setPath(Instant.WEBSITE);
+			cuname.setPath(getPath(request));
 			
 			response.addCookie(cuid);
 			response.addCookie(cuname);
@@ -82,4 +82,14 @@ public class LoginController {
 		session.removeAttribute("user");
 		return mv;
 	}
+	
+	/**
+	 * 获取跟路径
+	 * @param request
+	 * @return
+	 */
+	String getPath(HttpServletRequest request) {
+	    String path = request.getContextPath();
+	    return (path == null || path.length()==0) ? "/" : path;
+	  }
 }
