@@ -29,7 +29,7 @@
       <dl>
         <dt>关于</dt>
         <dd>
-<a rel="nofollow" href="help-about/id-1" alt="关于众筹" title="关于众筹">关于众筹</a><em>/</em><a rel="nofollow" href="help-contact" alt="联系我们" title="联系我们">联系我们</a><em>/</em><a rel="nofollow" href="help-center" alt="帮助中心" title="帮助中心">帮助中心</a><em>/</em></dd><dd><a rel="nofollow" href="help-team" alt="团队介绍" title="团队介绍">团队介绍</a><em>/</em><a rel="nofollow" href="help-term" alt="服务协议" title="服务协议">服务协议</a><em>/</em><a rel="nofollow" href="help-specification" alt="项目发起规范" title="项目发起规范">项目发起规范</a><em>/</em></dd>
+<a rel="nofollow" href="help-about/id-1" alt="关于懒人" title="关于懒人">关于懒人</a><em>/</em><a rel="nofollow" href="help-contact" alt="联系我们" title="联系我们">联系我们</a><em>/</em><a rel="nofollow" href="help-center" alt="帮助中心" title="帮助中心">帮助中心</a><em>/</em></dd><dd><a rel="nofollow" href="help-team" alt="团队介绍" title="团队介绍">团队介绍</a><em>/</em><a rel="nofollow" href="help-term" alt="服务协议" title="服务协议">服务协议</a><em>/</em><a rel="nofollow" href="help-specification" alt="项目发起规范" title="项目发起规范">项目发起规范</a><em>/</em></dd>
       </dl>
        <dl>
         <dt>关注我们</dt>

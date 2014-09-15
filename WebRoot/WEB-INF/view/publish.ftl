@@ -50,16 +50,16 @@
 					<a href="" class="tit"> <span class='avatar-box'>
 							<img id="headeravatar"
 							src="${ctx}/images/noavatar_small.gif" />
-					</span> <span class="user-name word-break ie6fixpic">游客</span>
+					</span> <span id="uname" class="user-name word-break ie6fixpic">游客</span>
 					</a>
 				</div>
 				<div class="menu-bd JS-myinfo">
 					<ul class="clearfix">
-							<li class="sup"><a class="ie6fixpic" href="/home/id-154415">支持的项目</a></li>
+							<li class="sup"><a class="ie6fixpic" href="/home/id-154415">报名的课程</a></li>
 							<li class="spo"><a class="ie6fixpic"
-								href="/home-build_deal/id-154415">发起的项目</a></li>
+								href="/home-build_deal/id-154415">发布的课程</a></li>
 							<li class="att"><a class="ie6fixpic"
-								href="/home-focus/id-154415">喜欢的项目</a></li>
+								href="/home-focus/id-154415">喜欢的课程</a></li>
 							<li class="msg"><a class="ie6fixpic" href="${ctx}/message/index.htm">消息中心</a></li>
 							<li class="set"><a class="ie6fixpic" href="${ctx}/settings/index.htm">个人设置</a></li>
 							<li class="exit bn"><a  class="ie6fixpic" id="logout"
@@ -228,6 +228,16 @@
 
 		<script>
 			$(function() {
+			
+				var uid = wx.cookie('uid');
+				var name = wx.cookie('uname');
+				if(undefined != uid && '' != uid){
+					$("#uname").text(name);
+				    $("#jsddm").show();
+				    $(".login-wrap").hide();
+				}else{
+					$("#jsddm").hide();
+				}
 
 				$("input[name='name']").blur(
 						function() {

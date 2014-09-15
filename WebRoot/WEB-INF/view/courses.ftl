@@ -54,9 +54,11 @@
 				<div class="menu-bd JS-myinfo">
 					<ul class="clearfix">
 							<li class="spo"><a class="ie6fixpic"
-								href="/home-build_deal/id-154415">发起的项目</a></li>
+								href="#">报名的课程</a></li>
+							<li class="spo"><a class="ie6fixpic"
+								href="#">发布的课程</a></li>
 							<li class="att"><a class="ie6fixpic"
-								href="/home-focus/id-154415">喜欢的项目</a></li>
+								href="/home-focus/id-154415">喜欢的课程</a></li>
 							<li class="msg"><a class="ie6fixpic" href="${ctx}/message/index.htm">消息中心</a></li>
 							<li class="set"><a class="ie6fixpic" href="${ctx}/settings/index.htm">个人设置</a></li>
 							<li class="exit bn"><a  class="ie6fixpic" id="logout"
