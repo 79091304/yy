@@ -55,8 +55,9 @@ public class CourseController {
 			course.setCategory(cid);
 		}
 		PageView page = new PageView(Instant.PAGE_SIZE, now);
-		int rowCount = courseService.queryAllCount(course);//总条数
-		int pageCount = rowCount % Instant.PAGE_SIZE == 0 ? rowCount/Instant.PAGE_SIZE : (rowCount/Instant.PAGE_SIZE +1);//总页数
+		int rowCount = courseService.queryAllCount(course);// 总条数
+		int pageCount = rowCount % Instant.PAGE_SIZE == 0 ? rowCount
+				/ Instant.PAGE_SIZE : (rowCount / Instant.PAGE_SIZE + 1);// 总页数
 		mv.addObject("pageCount", pageCount);
 		List<Course> courses = courseService.listForPage(page, course);
 		mv.addObject("sid", sid);
@@ -83,16 +84,16 @@ public class CourseController {
 
 	@ResponseBody
 	@RequestMapping("save")
-	public Object saveCourse(HttpServletRequest request,String cname, String cdays, String cid,
-			String pro, String cty, String are, String addre, String ved,
-			String bri, String img) {
+	public Object saveCourse(HttpServletRequest request, String cname,
+			String cdays, String cid, String pro, String cty, String are,
+			String addre, String ved, String bri, String img) {
 		int flag = 0;
 		Course course = new Course();
 		if (StringUtils.isNotEmpty(cname) && StringUtils.isNotEmpty(cdays)
 				&& StringUtils.isNotEmpty(cid) && StringUtils.isNotEmpty(pro)
 				&& StringUtils.isNotEmpty(cty) && StringUtils.isNotEmpty(are)
 				&& StringUtils.isNotEmpty(addre) && StringUtils.isNotEmpty(bri)) {
-			User user = (User)request.getAttribute("user");
+			User user = (User) request.getAttribute("user");
 			course.setName(cname);
 			course.setCategory(cid);
 			course.setProvince(pro);
@@ -102,10 +103,10 @@ public class CourseController {
 			course.setVideoUrl(ved);
 			course.setDetail(bri);
 			course.setImgUrl(img);
-			//course.setCreatedBy(user.getUsername());
+			// course.setCreatedBy(user.getUsername());
 			flag = courseService.save(course);
 		}
-		if(flag >0)
+		if (flag > 0)
 			return ResponseMessage.SUCCESS;
 		return ResponseMessage.FAIL;
 	}
@@ -137,28 +138,27 @@ public class CourseController {
 	@RequestMapping("publish")
 	public ModelAndView publish(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
-		/*
-		 * String uid = CookieHelper.getValue(Instant.COOKIE_USERID, request);
-		 * if(StringUtils.isNotEmpty(uid)){ mv.setViewName("publish"); }else{
-		 * mv.setViewName("login"); }
-		 */
-
-		mv.setViewName("publish");
-
+		String uid = CookieHelper.getValue(Instant.COOKIE_USERID, request);
+		if (StringUtils.isNotEmpty(uid)) {
+			mv.setViewName("publish");
+		} else {
+			mv.setViewName("login");
+		}
 		return mv;
 	}
-	
+
 	/**
 	 * 喜欢
+	 * 
 	 * @param id
 	 */
 	@ResponseBody
 	@RequestMapping("like")
-	public Object like(String id){
+	public Object like(String id) {
 		int result = this.courseService.liked(id);
-		if(result >0 )
-				return ResponseMessage.SUCCESS;
-			return ResponseMessage.FAIL;
+		if (result > 0)
+			return ResponseMessage.SUCCESS;
+		return ResponseMessage.FAIL;
 	}
-	
+
 }

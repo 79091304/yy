@@ -1,3 +1,3 @@
 <script>
-	window.location.href="http://localhost/yy/";
+	window.location.href="http://www.lanrenyuan.com";
 </script>

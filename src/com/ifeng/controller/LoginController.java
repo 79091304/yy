@@ -18,6 +18,7 @@ import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
+import com.ifeng.util.CookieHelper;
 
 @Controller
 @RequestMapping("/log/")
@@ -51,12 +52,10 @@ public class LoginController {
 		ResponseMessage rm = null;
 		User user = userService.hasUser(username, email, phone, password);
 		if(null != user){
-			HttpSession session = request.getSession();
 			rm = ResponseMessage.SUCCESS;
 			String encryptStr = AesSec.encrypt(user.getId()+"", Instant.AES_PASSWORD);
 			Cookie cuid = new Cookie(Instant.COOKIE_USERID, encryptStr);
 			cuid.setPath(getPath(request));
-			session.setAttribute("user", user);
 			cuid.setMaxAge(Instant.COOKIE_EXPIRE);
 			Cookie cuname = new Cookie(Instant.COOKIE_USERNAME, user.getUsername());
 			cuname.setMaxAge(60*60*24*3);
@@ -78,8 +77,8 @@ public class LoginController {
 	@RequestMapping("logout")
 	public ModelAndView logout(String uid,HttpServletRequest request){
 		ModelAndView mv = new ModelAndView("index");
-		HttpSession session = request.getSession();
-		session.removeAttribute("user");
+		CookieHelper.removeCookie("uid", request);
+		CookieHelper.removeCookie("uname", request);
 		return mv;
 	}
 	
