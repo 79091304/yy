@@ -77,8 +77,8 @@ public class LoginController {
 	@RequestMapping("logout")
 	public ModelAndView logout(String uid,HttpServletRequest request){
 		ModelAndView mv = new ModelAndView("index");
-		CookieHelper.removeCookie("uid", request);
-		CookieHelper.removeCookie("uname", request);
+		CookieHelper.removeCookie(Instant.COOKIE_USERID, request);
+		CookieHelper.removeCookie(Instant.COOKIE_USERNAME, request);
 		return mv;
 	}
 	

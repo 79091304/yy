@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>用户注册-爱儿网-中国最具影响力的幼儿园平台</title>
-<meta name="keywords" content="众筹 创业 项目 投资 支持">
-<meta name="description" content="在众筹网发布项目，获得投资支持，实现你的创业梦想">
+<title>用户注册-爱儿网-中国最具权威的教育平台</title>
+<meta name="keywords" content="家教 教育 英语 健身 母婴">
+<meta name="description" content="懒人园是国内最权威的在线学习平台 我们提供更多优质课程 资深教师">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/login.css">
 <script type="text/javascript" src="${ctx }/js/jquery.js"></script>

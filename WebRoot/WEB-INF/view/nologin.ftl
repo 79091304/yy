@@ -3,8 +3,8 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title></title>
-<meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="keywords" content="家教 教育 英语 健身 母婴">
+<meta name="description" content="懒人园是国内最权威的在线学习平台 我们提供更多优质课程 资深教师">
 <!--public js&css start-->
 <!--public js&css end -->    
 
