@@ -69,18 +69,7 @@ public class LoginController {
 		return rm;
 	}
 	
-	/**
-	 * 退出
-	 * @param uid
-	 * @return
-	 */
-	@RequestMapping("logout")
-	public ModelAndView logout(String uid,HttpServletRequest request){
-		ModelAndView mv = new ModelAndView("index");
-		CookieHelper.removeCookie(Instant.COOKIE_USERID, request);
-		CookieHelper.removeCookie(Instant.COOKIE_USERNAME, request);
-		return mv;
-	}
+	
 	
 	/**
 	 * 获取跟路径

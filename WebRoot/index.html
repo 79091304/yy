@@ -22,6 +22,13 @@ $(function(){
 	}else{
 		$("#jsddm").hide();
 	}
+	
+	//退出
+	$("#logout").click(function(){
+		wx.removeCookie("uid");
+		wx.removeCookie("uname");
+		window.location.href="www.lanrenyuan.com";
+	});
 })
 </script>
 </head>
@@ -73,8 +80,8 @@ $(function(){
 						<li class="att"><a class="ie6fixpic" href="#">喜欢的课程</a></li>
 						<li class="msg"><a class="ie6fixpic" href="/message">消息中心</a></li>
 						<li class="set"><a class="ie6fixpic" href="/settings">个人设置</a></li>
-						<li class="exit bn"><a class="ie6fixpic"
-							href="./log/logout.htm">退出</a></li>
+						<li class="exit bn"><a class="ie6fixpic" id="logout"
+							>退出</a></li>
 					</ul>
 				</div>
 			</div>

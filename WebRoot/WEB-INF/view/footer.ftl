@@ -185,15 +185,9 @@ $(window).scroll(function(){
 			}
 			//退出
 			$("#logout").click(function(){
-				$.ajax({
-				url:"${ctx}/log/logout.htm",
-				type: "POST",
-				dataType:"json",
-				data:{uid:uid},
-				success:function(data){
-					wx.removeCookie('uid');
-				}
-				});
+				wx.removeCookie("uid");
+				wx.removeCookie("uname");
+				window.location.href="www.lanrenyuan.com";
 			});
 		})
 

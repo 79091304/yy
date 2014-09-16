@@ -48,7 +48,7 @@
 							<li class="msg"><a class="ie6fixpic" href="${ctx}/message/index.htm">消息中心</a></li>
 							<li class="set"><a class="ie6fixpic" href="${ctx}/settings/index.htm">个人设置</a></li>
 							<li class="exit bn"><a  class="ie6fixpic" id="logout"
-								href="${ctx}/log/logout.htm">退出</a></li>
+								>退出</a></li>
 					</ul>
 				</div>
 			</div>
