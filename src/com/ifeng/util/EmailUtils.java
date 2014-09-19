@@ -48,7 +48,7 @@ public class EmailUtils {
 		Session session = getSession();
 		MimeMessage message = new MimeMessage(session);
 		try {
-			message.setSubject("帐户激活邮件");
+			message.setSubject("懒人园帐户激活");
 			message.setSentDate(new Date());
 			message.setFrom(new InternetAddress(FROM));
 			message.setRecipient(RecipientType.TO, new InternetAddress(user.getEmail()));

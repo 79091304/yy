@@ -75,16 +75,16 @@
 				}
 				
 				 function refresh(obj) {
-				        obj.src = "imageServlet?"+Math.random();
+				        obj.src = "${ctx}/imageServlet?"+Math.random();
 				    }
 				 
 					//ajax验证手机号是否已经注册
 				 function checkPhoneIslegal(){
 						$.ajax({ 
-						url: "./phoneIsLegal.htm",
+						url: "${ctx}/register/phoneIsLegal.htm",
 						dataType: "json",
-						data:"phone="+phone,
-						type: "POST",
+						data:{phone:phone},
+						type: "post",
 						success: function(ajaxobj){
 							if(ajaxobj.code ==1){
 								wx.alert("手机号已经注册");
@@ -140,18 +140,17 @@
 							return false;
 						}
 						is_submiting = true;
-						var ajaxurl = './register.htm';
 						$.ajax({ 
-							url: ajaxurl,
+							url: "${ctx}/register/register.htm",
+							type: "post",
+							data:{verify:verify,email:email,username:user_name,password:user_pwd,phone:phone},
 							dataType: "json",
-							data:"verify="+verify+"&email="+email+"&username="+user_name+"&password="+user_pwd+"&type="+type+"&phone="+phone,
-							type: "POST",
 							success: function(ajaxobj){
 								is_submiting = false;
 								if(ajaxobj.code==1)
 								{
 									wx.alert("注册邮件已发出请查收", function() {
-										window.location.href = "../login/toLogin.htm";
+										window.location.href = "${ctx}/log/toLogin.htm";
 									});
 								}else if(ajaxobj.code== -1)
 								{
