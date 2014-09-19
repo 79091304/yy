@@ -20,6 +20,7 @@ import com.ifeng.entity.User;
 import com.ifeng.service.OrderService;
 import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
+import com.ifeng.util.MD5Sec;
 
 @Controller
 @RequestMapping("/user/")
@@ -78,23 +79,17 @@ public class UserController {
 	
 	@RequestMapping("activateAccount")
 	public ModelAndView activateAccount(String uid,String checkcode,HttpServletResponse response){
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("index");
 		if(StringUtils.isNotEmpty(uid) && StringUtils.isNotEmpty(checkcode)){
 			User user = userService.getById(Long.parseLong(uid));
-			if(checkcode.equals(user.getVerify())){
+			user.setState(User.STATE_NOMAL);
+			int result = userService.modify(user);
+			String md5code = MD5Sec.md5(checkcode);
+			if(md5code.equals(user.getVerify()) && result > 0){
 				String encryptStr = AesSec.encrypt(user.getId()+"", Instant.AES_PASSWORD);
 				Cookie cookie = new Cookie(Instant.COOKIE_USERID, encryptStr);
 				cookie.setMaxAge(60*60*24*3);
 				response.addCookie(cookie);
-				int type = user.getType();//根据注册类型跳转到相应的页面，教师发布课程
-				if(type == User.TYPE_TEACHER){
-					mv.setViewName("index");//引动用户填写课程信息
-				}else if(type == User.TYPE_PARENT){
-					mv.setViewName("index");//引导用户填写孩子信息
-				}
-				
-			}else{
-				mv.setViewName("");;
 			}
 		}
 		return mv;

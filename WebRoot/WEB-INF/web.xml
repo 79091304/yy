@@ -88,7 +88,7 @@
 	</error-page>
 	<error-page>
 		<exception-type>java.lang.Exception</exception-type>
-		<location>/404.jsp</location>
+		<location>/404.html</location>
 	</error-page>
 	<!-- 指明对于如下资源文件不采用spring的过滤器 -->
 	

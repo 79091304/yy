@@ -12,7 +12,7 @@ import com.ifeng.base.impl.BaseDaoImpl;
 import com.ifeng.dao.UserDao;
 import com.ifeng.entity.User;
 import com.ifeng.util.DateUtils;
-import com.ifeng.util.SecMD5;
+import com.ifeng.util.MD5Sec;
 
 
 @Repository("userDao")
@@ -66,7 +66,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 			data.put("phone", phone);
 		}
 		if(StringUtils.isNotEmpty(password)){
-			data.put("password", SecMD5.MD5(password));
+			data.put("password", MD5Sec.md5(password));
 		}
 		return getSqlSession().selectOne(this.getClassName()+".queryByPassword",data);
 	}

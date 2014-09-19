@@ -16,7 +16,7 @@
                 <a alt="" class="ie6fixpic" title="" href="">学习帮</a>
             </h1>
         </div>
-                <div class="quick-links">已有账号 <a class="red" href="${ctx}/login/toLogin.htm">直接登录</a></div>
+                <div class="quick-links">已有账号 <a class="red" href="${ctx}/log/toLogin.htm">直接登录</a></div>
                 
     </div> 
 </div>

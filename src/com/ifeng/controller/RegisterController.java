@@ -16,7 +16,7 @@ import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
 import com.ifeng.util.EmailUtils;
 import com.ifeng.util.RandomValidateCode;
-import com.ifeng.util.SecMD5;
+import com.ifeng.util.MD5Sec;
 
 @Controller
 @RequestMapping("/register/")
@@ -42,12 +42,12 @@ public class RegisterController {
 			user.setEmail(email);
 			user.setPhone(phone);
 			user.setUsername(username);
-			user.setPassword(SecMD5.MD5(password));
+			user.setPassword(MD5Sec.md5(password));
 			user.setVerify(code);
 			int result = userService.add(user);
 			if(result > 0){
 				rm = ResponseMessage.SUCCESS;
-				EmailUtils.sendAccountActivateEmail(request,user);
+				EmailUtils.sendAccountActivateEmail(user);
 			}else{
 				rm = ResponseMessage.FAIL;
 			}

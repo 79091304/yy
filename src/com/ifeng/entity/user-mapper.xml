@@ -14,11 +14,11 @@
 		<where>
 			<if test="t.username != null and t.username != ''">
 				username like '%${t.username}%'
-				</if>
+			</if>
 		</where>
 	</select>
-	
-	
+
+
 	<!-- 根据手机号查询用户信息 -->
 	<select id="queryByPhone" resultType="User" parameterType="String">
 		select
@@ -27,72 +27,80 @@
 		<where>
 			<if test="t.phone != null and t.phone != ''">
 				phone = '${t.phone}'
-				</if>
+			</if>
 		</where>
 	</select>
-	
+
 	<!-- 根据注册时间查询用户信息 -->
 	<select id="getByDate" resultType="User" parameterType="java.util.HashMap">
 		select
 		<include refid="selectId" />
-		from u_user t 
+		from u_user t
 		<where>
-			1=1 
+			1=1
 			<if test="startDate != null and startDate  != ''">
-			 	<![CDATA[ and  t.createdAt>str_to_date(#{startDate},'%Y-%m-%d %H:%i:%s') ]]> 	
+			 	<![CDATA[ and  t.createdAt>str_to_date(#{startDate},'%Y-%m-%d %H:%i:%s') ]]>
 			</if>
 			<if test="endtDate != null and endtDate  != ''">
-				<![CDATA[ and t.createdAt<str_to_date(#{endtDate},'%Y-%m-%d %H:%i:%s') ]]> 	
+				<![CDATA[ and t.createdAt<str_to_date(#{endtDate},'%Y-%m-%d %H:%i:%s') ]]>
 			</if>
 		</where>
 	</select>
-	
-	<!-- 查询用户是否可以登录-->
+
+	<!-- 查询用户是否可以登录 -->
 	<select id="queryByPassword" resultType="User" parameterType="java.util.HashMap">
 		select
 		<include refid="selectId" />
-		from u_user t where 1=1 
-			<if test="username != null and username  != ''">
-			    and t.username = '${username}'
-			</if>
-			<if test="email != null and email  != ''">
-			    and t.email = '${email}'
-			</if>
-			<if test="phone != null and phone  != ''">
-			    and t.phone = '${phone}'
-			</if>
-			<if test="password != null and password  != ''">
-			    and t.password = '${password}'
-			</if>
+		from u_user t where 1=1
+		<if test="username != null and username  != ''">
+			and t.username = '${username}'
+		</if>
+		<if test="email != null and email  != ''">
+			and t.email = '${email}'
+		</if>
+		<if test="phone != null and phone  != ''">
+			and t.phone = '${phone}'
+		</if>
+		<if test="password != null and password  != ''">
+			and t.password = '${password}'
+		</if>
 	</select>
-	
+
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="User">
-		insert into u_user(username,phone,email,password,state,type,createdAt,changedAt,website,intro)
-		values 
+		insert into
+		u_user(username,phone,email,password,state,type,createdAt,changedAt,website,intro)
+		values
 		(
 		#{username},
 		#{phone},
 		#{email},
-		#{password}, 
+		#{password},
 		#{state},
 		#{type},
 		null,
-		 #{changedAt},
-		 #{website},
-		 #{intro}
+		#{changedAt},
+		#{website},
+		#{intro}
 		)
+		<selectKey resultType="int" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID()
+		</selectKey>
 	</insert>
 
 	<delete id="deleteById" parameterType="String">
 		delete from u_user where
 		id=#{id}
 	</delete>
+	
+	
 	<select id="getById" parameterType="String" resultType="User">
 		select
 		<include refid="selectId" />
 		from u_user where id=#{id}
 	</select>
+	
+	
 	<update id="update" parameterType="User">
 		update u_user
 		<set>
@@ -122,14 +130,14 @@
 			</if>
 		</set>
 		<where>
-			1=1 
-			<if test="id != null" >
+			1=1
+			<if test="id != null">
 				and id=#{id}
 			</if>
-			<if test="email != null and email !=''" >
+			<if test="email != null and email !=''">
 				and email=#{email}
 			</if>
 		</where>
 	</update>
-	
+
 </mapper>

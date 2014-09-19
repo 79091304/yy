@@ -28,7 +28,7 @@ public class EmailUtils {
 		Session session = getSession();
 		MimeMessage message = new MimeMessage(session);
 		try {
-			message.setSubject("帐户激活邮件");
+			message.setSubject("懒人园帐户激活邮件");
 			message.setSentDate(new Date());
 			message.setFrom(new InternetAddress(FROM));
 			message.setRecipient(RecipientType.TO, new InternetAddress(email));
@@ -44,7 +44,7 @@ public class EmailUtils {
 	 * 注册成功后,向用户发送帐户激活链接的邮件
 	 * @param user 未激活的用户
 	 */
-	public static void sendAccountActivateEmail(HttpServletRequest request,User user) {
+	public static void sendAccountActivateEmail(User user) {
 		Session session = getSession();
 		MimeMessage message = new MimeMessage(session);
 		try {
@@ -52,7 +52,8 @@ public class EmailUtils {
 			message.setSentDate(new Date());
 			message.setFrom(new InternetAddress(FROM));
 			message.setRecipient(RecipientType.TO, new InternetAddress(user.getEmail()));
-			message.setContent("<a href='" + GenerateLinkUtils.generateActivateLink(request,user)+"'>点击激活帐户</a>","text/html;charset=utf-8");
+			String url = GenerateLinkUtils.generateActivateLink(user);
+			message.setContent("<a href='"+url+"'>点击激活帐户</a>，如果不成功请复制链接到浏览器地址栏中访问 <br> "+url,"text/html;charset=utf-8");
 			// 发送邮件
 			Transport.send(message);
 		} catch (Exception e) {
@@ -71,7 +72,7 @@ public class EmailUtils {
 			message.setSentDate(new Date());
 			message.setFrom(new InternetAddress(FROM));
 			message.setRecipient(RecipientType.TO, new InternetAddress(user.getEmail()));
-			message.setContent("要使用新的密码, 请使用以下链接启用密码:<br/><a href='" + GenerateLinkUtils.generateResetPwdLink(request,user) +"'>点击重新设置密码</a>","text/html;charset=utf-8");
+			message.setContent("要使用新的密码, 请使用以下链接启用密码:<br/><a href='" + GenerateLinkUtils.generateResetPwdLink(user) +"'>点击重新设置密码</a>","text/html;charset=utf-8");
 			// 发送邮件
 			Transport.send(message);
 		} catch (Exception e) {

@@ -145,7 +145,7 @@
 <script>
 
 	 function refresh(obj) {
-		obj.src = "imageServlet?"+Math.random();
+		obj.src = "${ctx}/imageServlet?"+Math.random();
 	 }
 
 $(function(){

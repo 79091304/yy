@@ -8,6 +8,10 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class User implements java.io.Serializable {
 	
+	public static final int STATE_NOMAL = 1;
+	
+	public static final int STATE_REGISTER = 0;
+	
 	public static final int TYPE_VISITOR = 0;
 	
 	public static final int TYPE_TEACHER = 1;

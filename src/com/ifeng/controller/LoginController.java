@@ -72,7 +72,6 @@ public class LoginController {
 	 * 退出
 	 * @return
 	 */
-	@ResponseBody
 	@RequestMapping("logout")
 	public ModelAndView logout(HttpServletRequest request,HttpServletResponse response){
 		CookieHelper.removeCookie(Instant.COOKIE_USERID, request, response);
