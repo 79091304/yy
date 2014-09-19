@@ -98,8 +98,8 @@
 			</div>
 			<div class="project-start">
 				<form action="${ctx}/course/publish.htm" name="fqform" method="post">
-					<h3>如果你有一颗真诚的心那么请在这里发起你的梦想</h3>
-					<p>我们是一家可以帮助您实现梦想的网站，在这里您可以发布您的梦想、创意和创业计划，并通过网络平台面对公众集资，让有创造力的人可能获得他们所需要的资金，以便使他们的梦想有可能实现。</p>
+					<h3>你不是不努力，只是没有好老师。学渣变学霸就从这里开始</h3>
+					<p></p>
 					<div class="pro-agr-chk">
 						<input id="flag" name="flag" checked="checked" type="checkbox">
 						阅读并同意<a class="red" href="help-term" target="_blank">《服务协议》</a>

@@ -88,7 +88,7 @@ public class UserController {
 			if(md5code.equals(user.getVerify()) && result > 0){
 				String encryptStr = AesSec.encrypt(user.getId()+"", Instant.AES_PASSWORD);
 				Cookie cookie = new Cookie(Instant.COOKIE_USERID, encryptStr);
-				cookie.setMaxAge(60*60*24*3);
+				cookie.setMaxAge(Instant.COOKIE_EXPIRE);
 				response.addCookie(cookie);
 			}
 		}
