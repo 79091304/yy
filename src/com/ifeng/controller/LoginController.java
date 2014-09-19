@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -69,7 +68,18 @@ public class LoginController {
 		return rm;
 	}
 	
-	
+	/**
+	 * 退出
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("logout")
+	public ModelAndView logout(HttpServletRequest request,HttpServletResponse response){
+		CookieHelper.removeCookie(Instant.COOKIE_USERID, request, response);
+		CookieHelper.removeCookie(Instant.COOKIE_USERNAME, request, response);
+		ModelAndView mv = new ModelAndView("index");
+		return mv;
+	}
 	
 	/**
 	 * 获取跟路径

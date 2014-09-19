@@ -10,7 +10,7 @@
     <!--footer map start-->
     <div class="foot-map">
       <dl>
-        <dt>众筹项目</dt>
+        <dt>在线课程</dt>
         <dd>
                               </dd><dd>                    <a rel="nofollow" href="browse/id-12" title="科技">科技</a><em>/</em>
                                         <a rel="nofollow" href="browse/id-22" title="艺术">艺术</a><em>/</em>
@@ -183,12 +183,7 @@ $(window).scroll(function(){
 			}else{
 				$("#jsddm").hide();
 			}
-			//退出
-			$("#logout").click(function(){
-				wx.removeCookie("uid");
-				wx.removeCookie("uname");
-				window.location.href="www.lanrenyuan.com";
-			});
+			
 		})
 
 </script>

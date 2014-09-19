@@ -100,9 +100,9 @@
 				</div>
 				<div class="range">
 					<select name="deal_sort">
-						<option value="${course}/course/">默认排序</option>
-						<option value="${course}/course/">最新上线</option>
-						<option value="${course}/course/">最多支持人数</option>
+						<option value="${course}/course/list.htm">默认排序</option>
+						<option value="${course}/course/list.htm">最新上线</option>
+						<option value="${course}/course/list.htm">最多支持人数</option>
 					</select>
 				</div>
 			</div>

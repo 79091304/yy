@@ -36,8 +36,9 @@ public class CourseController {
 	 * @return
 	 * @throws IOException
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping("list")
-	public ModelAndView list(String sid, String pageNow, String cid,
+	public ModelAndView list(String sid, String pageNow, String cid,String orderby,
 			HttpServletRequest request) throws IOException {
 		ModelAndView mv = new ModelAndView("courses");
 		int now = 0;
@@ -54,12 +55,22 @@ public class CourseController {
 		if (StringUtils.isNotEmpty(cid)) {
 			course.setCategory(cid);
 		}
+		
 		PageView page = new PageView(Instant.PAGE_SIZE, now);
 		int rowCount = courseService.queryAllCount(course);// 总条数
 		int pageCount = rowCount % Instant.PAGE_SIZE == 0 ? rowCount
 				/ Instant.PAGE_SIZE : (rowCount / Instant.PAGE_SIZE + 1);// 总页数
 		mv.addObject("pageCount", pageCount);
 		List<Course> courses = courseService.listForPage(page, course);
+		//排序
+		if(StringUtils.isNotEmpty(orderby)){
+			CourseComparator cc = new CourseComparator();
+			if("newline".equals(orderby))
+				courses.sort(cc.getNewLineComparator());
+			else{
+				courses.sort(cc.getLikedComparator());
+			}
+		}
 		mv.addObject("sid", sid);
 		mv.addObject("courses", courses);
 		return mv;
@@ -93,7 +104,6 @@ public class CourseController {
 				&& StringUtils.isNotEmpty(cid) && StringUtils.isNotEmpty(pro)
 				&& StringUtils.isNotEmpty(cty) && StringUtils.isNotEmpty(are)
 				&& StringUtils.isNotEmpty(addre) && StringUtils.isNotEmpty(bri)) {
-			User user = (User) request.getAttribute("user");
 			course.setName(cname);
 			course.setCategory(cid);
 			course.setProvince(pro);
