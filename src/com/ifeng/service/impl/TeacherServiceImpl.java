@@ -20,5 +20,10 @@ public class TeacherServiceImpl implements TeacherService {
 		return teacherDao.queryByC(count);
 	}
 
+	@Override
+	public int add(Teacher teacher) {
+		return teacherDao.add(teacher);
+	}
+
 	
 }
