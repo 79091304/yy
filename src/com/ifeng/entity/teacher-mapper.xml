@@ -33,5 +33,30 @@
 	</select>
 	
 	
+	<select id="getById" resultType="Teacher" parameterType="java.util.Map">
+		select
+		<include refid="selectId" />
+		from t_teacher 
+		<where>
+		    <if test="id != null  ">
+		    id = #{id}
+			</if> 
+		</where>
+	</select>
+	
+	<!-- 分页查询 -->
+	<select  id="pageQuery" resultType="Course"  parameterType="java.util.Map">
+	   select 
+		<include refid="selectId" />
+		 from t_teacher where id>=(select id from t_teacher
+		 <where>
+		 	1=1
+		 	<if test="t.status != -1">
+		 		and status = #{t.status}
+		 	</if>
+		 </where>
+		  limit #{page.startPage},1) limit #{page.pageSize};
+	</select>
+	
 </mapper>
 	

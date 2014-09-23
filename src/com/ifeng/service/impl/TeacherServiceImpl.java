@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.ifeng.dao.TeacherDao;
 import com.ifeng.entity.Teacher;
 import com.ifeng.service.TeacherService;
+import com.ifeng.util.PageView;
 
 @Repository("teacherService")
 public class TeacherServiceImpl implements TeacherService {
@@ -23,6 +24,22 @@ public class TeacherServiceImpl implements TeacherService {
 	@Override
 	public int add(Teacher teacher) {
 		return teacherDao.add(teacher);
+	}
+
+	@Override
+	public Teacher queryById(long id) {
+		return teacherDao.getById(id);
+		
+	}
+
+	@Override
+	public int queryAllCount(Teacher teacher) {
+		return 0;
+	}
+
+	@Override
+	public List<Teacher> pageQuery(PageView page, Teacher teacher) {
+		return teacherDao.query(page, teacher);
 	}
 
 	
