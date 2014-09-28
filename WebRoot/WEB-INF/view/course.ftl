@@ -77,7 +77,7 @@
 							<div class="article">
 								<h2></h2>
 								<h2>
-									<span style="font-weight: normal;">乒乓球教练员陪练员</span>
+									<span style="font-weight: normal;">${course.name}</span>
 								</h2>
 								<p>
 									<span style="font-weight: normal;">
