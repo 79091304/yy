@@ -277,7 +277,6 @@
 							var vediourl = $("#vediourl").val();
 							var brief = $("#brief").val();
 							var imageurl = $("#imageurl").val();
-
 							if ("" == cateid && undefined == cateid) {
 								wx.alert("请选择类别");
 								return;
@@ -297,7 +296,9 @@
 									addre : address,
 									ved : vediourl,
 									bri : brief,
-									img : imageurl
+									img : imageurl,
+									uid : uid,
+									uname : name
 								},
 								success : function(data) {
 									if (data.code == 1) {

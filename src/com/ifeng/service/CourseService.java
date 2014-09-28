@@ -9,7 +9,7 @@ public interface CourseService {
 
 	public List<Course> listForIndex(int count);
 	
-	public List<Course> listForPage(PageView page,Course course);
+	public List<Course> queryPage(PageView page,Course course);
 	
 	/**
 	 * 查询总记录数
