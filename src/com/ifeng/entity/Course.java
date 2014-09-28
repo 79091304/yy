@@ -9,6 +9,12 @@ public class Course implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -7187796162600186162L;
+	
+	public static final int STATUS_OFF = 0;
+	
+	public static final int STATUS_NOMAL = 1;
+	
+	public static final int STATUS_OFFLINE = 2;
 
 	private long id;
 	
@@ -45,6 +51,8 @@ public class Course implements Serializable{
 	private Date createdAt;
 	
 	private String createdBy;
+	
+	private String teacherId;
 	
 	private Date changedAt;
 	
@@ -210,6 +218,14 @@ public class Course implements Serializable{
 
 	public void setLiked(int liked) {
 		this.liked = liked;
+	}
+
+	public String getTeacherId() {
+		return teacherId;
+	}
+
+	public void setTeacherId(String teacherId) {
+		this.teacherId = teacherId;
 	}
 
 }

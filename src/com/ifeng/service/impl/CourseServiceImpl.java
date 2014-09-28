@@ -28,7 +28,7 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public List<Course> listForPage(PageView page,Course course) {
+	public List<Course> queryPage(PageView page,Course course) {
 		return courseDao.query(page, course);
 	}
 

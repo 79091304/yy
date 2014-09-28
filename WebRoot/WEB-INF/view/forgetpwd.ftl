@@ -203,7 +203,7 @@ $(function(){
 			success:function(obj){
 				if(obj.code ==1){
 					wx.alert("密码修改成功，请重新登录");
-					window.loaction.href="http://localhost/yy/";
+					window.loaction.href="http://www.lanrenyuan.com";
 				}
 			}
 		});
@@ -215,4 +215,10 @@ $(function(){
 
 </script>
 
-</body></html>
+</body>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe2b6fa1ff48b85f8c94d75e7a60f6e5f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</html>

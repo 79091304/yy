@@ -1,6 +1,7 @@
 package com.ifeng.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,7 @@ public class CourseController {
 			HttpServletRequest request) throws IOException {
 		ModelAndView mv = new ModelAndView("courses");
 		int now = 0;
-		int pstatus = -1;
+		int pstatus = 1;
 		Course course = new Course();
 		if (StringUtils.isNotEmpty(pageNow)) {
 			now = Integer.parseInt(pageNow);
@@ -61,7 +62,7 @@ public class CourseController {
 		int pageCount = rowCount % Instant.PAGE_SIZE == 0 ? rowCount
 				/ Instant.PAGE_SIZE : (rowCount / Instant.PAGE_SIZE + 1);// 总页数
 		mv.addObject("pageCount", pageCount);
-		List<Course> courses = courseService.listForPage(page, course);
+		List<Course> courses = courseService.queryPage(page, course);
 		//排序
 		if(StringUtils.isNotEmpty(orderby)){
 			CourseComparator cc = new CourseComparator();
@@ -97,13 +98,14 @@ public class CourseController {
 	@RequestMapping("save")
 	public Object saveCourse(HttpServletRequest request, String cname,
 			String cdays, String cid, String pro, String cty, String are,
-			String addre, String ved, String bri, String img) {
+			String addre, String ved, String bri, String img,String uname,String uid) {
 		int flag = 0;
 		Course course = new Course();
 		if (StringUtils.isNotEmpty(cname) && StringUtils.isNotEmpty(cdays)
 				&& StringUtils.isNotEmpty(cid) && StringUtils.isNotEmpty(pro)
 				&& StringUtils.isNotEmpty(cty) && StringUtils.isNotEmpty(are)
 				&& StringUtils.isNotEmpty(addre) && StringUtils.isNotEmpty(bri)) {
+			course.setCreatedAt(new Date());
 			course.setName(cname);
 			course.setCategory(cid);
 			course.setProvince(pro);
@@ -113,7 +115,9 @@ public class CourseController {
 			course.setVideoUrl(ved);
 			course.setDetail(bri);
 			course.setImgUrl(img);
-			// course.setCreatedBy(user.getUsername());
+			course.setCreatedBy(uname);
+			course.setTeacherId(uid);
+			course.setStatus(Course.STATUS_OFF);
 			flag = courseService.save(course);
 		}
 		if (flag > 0)

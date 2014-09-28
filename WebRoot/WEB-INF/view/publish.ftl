@@ -277,7 +277,6 @@
 							var vediourl = $("#vediourl").val();
 							var brief = $("#brief").val();
 							var imageurl = $("#imageurl").val();
-
 							if ("" == cateid && undefined == cateid) {
 								wx.alert("请选择类别");
 								return;
@@ -297,7 +296,9 @@
 									addre : address,
 									ved : vediourl,
 									bri : brief,
-									img : imageurl
+									img : imageurl,
+									uid : uid,
+									uname : name
 								},
 								success : function(data) {
 									if (data.code == 1) {
@@ -357,4 +358,9 @@
 			});
 		</script>
 </body>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe2b6fa1ff48b85f8c94d75e7a60f6e5f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
 </html>

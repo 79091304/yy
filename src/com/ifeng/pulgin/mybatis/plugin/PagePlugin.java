@@ -55,7 +55,7 @@ public class PagePlugin implements Interceptor {
 			 * 方法1：通过ＩＤ来区分是否需要分页．.*query.*
 			 * 方法2：传入的参数是否有page参数，如果有，则分页，
 			 */
-			if (mappedStatement.getId().matches(pageSqlId)) { // 拦截需要分页的SQL
+			//if (mappedStatement.getId().matches(pageSqlId)) { // 拦截需要分页的SQL
 				BoundSql boundSql = delegate.getBoundSql();
 				Object parameterObject = boundSql.getParameterObject();// 分页SQL<select>中parameterType属性对应的实体参数，即Mapper接口中执行分页方法的参数,该参数不得为空
 				if (parameterObject == null) {
@@ -114,7 +114,7 @@ public class PagePlugin implements Interceptor {
 					String pageSql = generatePagesSql(sql, pageView);
 					ReflectHelper.setValueByFieldName(boundSql, "sql", pageSql); // 将分页sql语句反射回BoundSql.
 				}
-			}
+			//}
 		}
 		return ivk.proceed();
 	}
