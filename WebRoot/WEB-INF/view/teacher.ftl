@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/detail.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/share.css">
+
 <body>
 	
 	<div class="jiathis_style"
@@ -32,10 +33,10 @@
 					</div>
 					<div class="radius-bd detail-con w628">
 						<div class="hd">
-							<h1 class="word-break">${course.name}</h1>
+							<h1 class="word-break">${teacher.name}</h1>
 							<div class="author">
 								<span class="author-lay common-sprite inline-block">发起人</span> <span><a
-									href="home/id-151182">${course.createdBy}</a></span> <span class="gray">${course.province}${course.area}${course.address}</span>
+									href="home/id-151182">${teacher.createdBy}</a></span> <span class="gray">aaa</span>
 							</div>
 							<div class="tit-bar clearfix">
 								<div class="title-nav fl">
@@ -77,11 +78,11 @@
 							<div class="article">
 								<h2></h2>
 								<h2>
-									<span style="font-weight: normal;">${course.name}</span>
+									<span style="font-weight: normal;"></span>
 								</h2>
 								<p>
 									<span style="font-weight: normal;">
-										${course.detail}
+										${teacher.detail}
 									</span>
 								</p>
 								<div>
@@ -96,16 +97,7 @@
 
 						<div class="comment com-pro">
 							<div class="flbq">
-								<div class="flei">
-									分类： <a href="browse/id-18"><span class="red">${course.category}</span></a>
-								</div>
-								<div class="bqian">
-									标签：
-									<#list course.tag?split(",") as item>
-									 <a href="#" target="_blank"><span
-										class="red">${item}</span></a> 
-									</#list>
-								</div>
+								
 								<div class="fr">
 									<div class="jiathis_style">
 										<a class="jiathis_button_tsina" title="分享到新浪微博"><span
@@ -129,94 +121,8 @@
 
 								</div>
 							</div>
-							<div style="padding: 15px 0 0">
-								<ul class="cmtit">
-									<li class="pl"><a href="javascript:void(0)"> <span
-											id="comment_0_tip">评论( 2 )</span>
-									</a></li>
-								</ul>
-							</div>
-							<div class="tjpl">
-								<a name="comment"></a>
-								<form name="comment_0_form" rel="0" class="comment_form"
-									action="deal-save_comment/deal_id-2568">
-									<div class="ren">
-										<a href="javascript:void(0);"><img
-											src="images/noavatar_middle.gif" width="80" height="80"></a>
-									</div>
-									<div class="pln_r">
-										<div class="kuang">
-											<textarea name="content">发表评论</textarea>
-											<input type="hidden" name="ajax" value="1">
-											<ul class="bq">
-												<li class="fb send_btn"><input name="" value="添加评论"
-													type="button" class="btn-red2"
-													style="background: #ED5E58; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;"
-													onclick=""></li>
-											</ul>
-										</div>
-									</div>
-								</form>
-							</div>
-							<div class="deal_comment_list" id="deal_comment_list_0">
-								<div class="comment_item">
-									<div class="comment_user_avatar">
-										<a href="home/id-153535"
-											style="text-align: center; display: inline-block;"><img
-											src="./detail_files/noavatar_small.gif"></a>
-									</div>
-									<div class="blank5"></div>
-								</div>
-								<div class="comment_item">
-									<div class="comment_user_avatar">
-										<a href="home/id-134523"
-											style="text-align: center; display: inline-block;"><img
-											src="./detail_files/noavatar_small.gif"></a>
-									</div>
-									<div class="comment_content">
-										<a href="home/id-134523" class="linkgreen">余小鱼:</a>&nbsp; <span
-											style="word-break: break-all;">我也有个骑行梦，计划今年四月中旬和老同学一起去，但不知道能不能请得了家，不知道父母亲人会不会同意，希望能克服重重阻力！支持你！
-											&nbsp;&nbsp;</span> <span class="pass_time"> 6天前 </span>
-										<div class="clr"></div>
-										<div class="comment_op">
-											<a href="javascript:void(0);" class="linkgreen replycomment"
-												rel="4422">回复</a>
-										</div>
-										<div class="blank1"></div>
-										<div class="reply_box" id="reply_box_4422">
-											<div class="blank"></div>
-											<form name="comment__form" rel="0" class="comment_form"
-												action="deal-save_comment/deal_id-2568-pid-4422">
-												<div class="reply_content">
-													<textarea name="content">回复 余小鱼:</textarea>
-													<input type="hidden" name="ajax" value="1"> <input
-														type="hidden" name="comment_pid" value="4422">
-												</div>
-												<div class="blank"></div>
-												<!--<span class="syn_weibo">
-				 <input type="checkbox" name="syn_weibo" value="1" />
-				<span>同时发布至我的微博 </span>
-			</span>-->
-												<div>
-													<div class="ui-button send_btn" rel="green">
-														<div>
-															<span>发送</span>
-														</div>
-													</div>
-												</div>
-												<div class="blank"></div>
-
-											</form>
-										</div>
-									</div>
-
-									<div class="blank5"></div>
-								</div>
-							</div>
-
-
-							<!--循环-->
-							<!--//循环-->
+							
+							
 						</div>
 
 					</div>
@@ -246,9 +152,9 @@
 					</div>
 					<div class="radius-bd item-detail w308">
 						<div class="tag bg-red">
-							火热报名中 <span class="triangle"></span>
+							 <span class="triangle"></span>
 						</div>
-						<h2>目前累计报名人数</h2>
+						<h2>红花指数</h2>
 						<p class="item-sum">
 							<span>1</span><span>0</span>
 						</p>
@@ -264,7 +170,7 @@
 						</div>
 						<div class="detail-rate">
 							<ul class="clearfix">
-								<li><strong> <a id="signup" dataid="${item.id}" ><font color="red">立刻<br>报名
+								<li><strong> <a id="signup" dataid="${item.id}" ><font color="red">联系<br>老师
 										</font></a>
 								</strong></li>
 								<li><strong></strong><span></span></li>

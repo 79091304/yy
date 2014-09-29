@@ -34,15 +34,15 @@
 	</select>
 	
 	
-	<select id="getById" resultType="Teacher" parameterType="java.util.Map">
+	<select id="getById" resultType="Teacher" parameterType="int">
 		select
 		<include refid="selectId" />
-		from t_teacher 
-		<where>
-		    <if test="id != null  ">
-		    id = #{id}
-			</if> 
-		</where>
+		from t_teacher t
+		<if test="_parameter!=null">
+		    <where>
+		        t.id = #{_parameter}
+		    </where>
+		</if>
 	</select>
 	
 	<!-- 分页查询 -->
