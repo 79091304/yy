@@ -108,7 +108,7 @@
 						<!--Deal Card Module-->
 						<div class="list-item">
 							<a class="item-figure" href="${ctx}/teacher/getInfo.htm?id=${item.id}" target="_blank">
-								<img src="" alt="${item.name}" title="${item.name}" />
+								<img src="${item.imgUrl!'www.lanrenyuan.com/images/teacher.jpg'}" alt="${item.name}" title="${item.name}" />
 							</a>
 							<div class="item-upvote">
 								<a class="icons " href="javascript:void(0);" rel="9"
