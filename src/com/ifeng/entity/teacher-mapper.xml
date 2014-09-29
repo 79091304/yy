@@ -4,11 +4,11 @@
 <mapper namespace="Teacher">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name,sex,age,sex,zone,tag,detail,imgUrl,createdAt,changedAt
+		id,name,sex,age,zone,tag,detail,imgUrl,createdAt,changedAt,status
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Teacher">
-		insert into t_teacher(name,sex,age,zone,tag,detail,imgUrl,createdAt,changedAt)
+		insert into t_teacher(name,sex,age,zone,tag,detail,imgUrl,createdAt,changedAt,status)
 		values 
 		(
 		#{name},
@@ -19,7 +19,8 @@
 		#{detail},
 		#{imgUrl},
 		null,
-		 #{changedAt}
+		 #{changedAt},
+		 #{status}
 		)
 	</insert>
 	
@@ -48,14 +49,14 @@
 	<select  id="pageQuery" resultType="Course"  parameterType="java.util.Map">
 	   select 
 		<include refid="selectId" />
-		 from t_teacher where id>=(select id from t_teacher
+		 from t_teacher 
 		 <where>
 		 	1=1
 		 	<if test="t.status != -1">
 		 		and status = #{t.status}
 		 	</if>
 		 </where>
-		  limit #{page.startPage},1) limit #{page.pageSize};
+		 
 	</select>
 	
 </mapper>

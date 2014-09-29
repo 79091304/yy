@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.Course;
-import com.ifeng.entity.User;
 import com.ifeng.service.CourseService;
 import com.ifeng.util.CookieHelper;
 import com.ifeng.util.PageView;
@@ -47,7 +46,6 @@ public class CourseController {
 		Course course = new Course();
 		if (StringUtils.isNotEmpty(pageNow)) {
 			now = Integer.parseInt(pageNow);
-			mv.addObject("pageNow", pageNow);
 		}
 		if (StringUtils.isNotEmpty(sid)) {
 			pstatus = Integer.parseInt(sid);
@@ -56,13 +54,8 @@ public class CourseController {
 		if (StringUtils.isNotEmpty(cid)) {
 			course.setCategory(cid);
 		}
-		
-		PageView page = new PageView(Instant.PAGE_SIZE, now);
-		int rowCount = courseService.queryAllCount(course);// 总条数
-		int pageCount = rowCount % Instant.PAGE_SIZE == 0 ? rowCount
-				/ Instant.PAGE_SIZE : (rowCount / Instant.PAGE_SIZE + 1);// 总页数
-		mv.addObject("pageCount", pageCount);
-		List<Course> courses = courseService.queryPage(page, course);
+		PageView pager = new PageView(Instant.PAGE_SIZE, now);
+		List<Course> courses = courseService.queryPage(pager, course);
 		//排序
 		if(StringUtils.isNotEmpty(orderby)){
 			CourseComparator cc = new CourseComparator();
@@ -72,8 +65,9 @@ public class CourseController {
 				courses.sort(cc.getLikedComparator());
 			}
 		}
+		pager.setRecords(courses);
 		mv.addObject("sid", sid);
-		mv.addObject("courses", courses);
+		mv.addObject("pager", pager);
 		return mv;
 	}
 

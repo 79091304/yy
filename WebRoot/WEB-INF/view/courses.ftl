@@ -108,7 +108,7 @@
 			</div>
 			<div class="item-lists">
 				<ul class="clearfix">
-					<#list courses as item>
+					<#list pager.records as item>
 					<li>
 						<!--Deal Card Module-->
 						<div class="list-item">
@@ -144,10 +144,10 @@
 					</#list>
 				</ul>
 				<div class="page tr" id="pageDiv" >
-					<#list 1..pageCount as pt>
+					<#list 1..(pager.pageCount) as pt>
 						<a class='common-sprite' pageNow=${pt} >&nbsp;${pt}&nbsp;
 					</#list>
-					<#if (pageCount>1) >
+					<#if (pager.pageCount>1) >
 						<a class='next' href='/browse/id-22-p-2'>下一页</a>
 					</#if>
 				</div>
@@ -161,7 +161,7 @@
 	<script>
 		$(document).ready(function() {
 		
-			var pageNow = ${pageNow?default(1)};
+			var pageNow = ${pager.pageNow?default(1)};
 			
 		
 			var sort = wx.trim($("select[name='deal_sort']").val());

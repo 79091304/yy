@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
-import com.ifeng.entity.Course;
 import com.ifeng.entity.Teacher;
 import com.ifeng.service.TeacherService;
 import com.ifeng.util.PageView;
@@ -35,21 +33,14 @@ public class TeacherController {
 	@RequestMapping("list")
 	public ModelAndView list(String sid, String pageNow, String cid,String orderby,
 			HttpServletRequest request) throws IOException{
-		ModelAndView mv = new ModelAndView("courses");
+		ModelAndView mv = new ModelAndView("teachers");
 		int now = 0;
-		int pstatus = -1;
 		Teacher teacher = new Teacher();
 		if (StringUtils.isNotEmpty(pageNow)) {
 			now = Integer.parseInt(pageNow);
 			mv.addObject("pageNow", pageNow);
 		}
-		
-		
 		PageView page = new PageView(Instant.PAGE_SIZE, now);
-		int rowCount = teacherService.queryAllCount(teacher);// 总条数
-		int pageCount = rowCount % Instant.PAGE_SIZE == 0 ? rowCount
-				/ Instant.PAGE_SIZE : (rowCount / Instant.PAGE_SIZE + 1);// 总页数
-		mv.addObject("pageCount", pageCount);
 		List<Teacher> teachers = teacherService.pageQuery(page, teacher);
 		/*//排序
 		if(StringUtils.isNotEmpty(orderby)){
@@ -60,8 +51,9 @@ public class TeacherController {
 				courses.sort(cc.getLikedComparator());
 			}
 		}*/
+		page.setRecords(teachers);
 		mv.addObject("sid", sid);
-		mv.addObject("teachers", teachers);
+		mv.addObject("page", page);
 		return mv;
 	}
 	

@@ -30,6 +30,16 @@ public class Teacher implements Serializable{
 
 	private String imgUrl;
 	
+	private int status;
+	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	public long getId() {
 		return id;
 	}

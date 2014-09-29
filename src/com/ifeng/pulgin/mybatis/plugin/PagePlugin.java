@@ -8,6 +8,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.Map.Entry;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.PropertyException;
 
 import org.apache.ibatis.executor.parameter.DefaultParameterHandler;
@@ -31,17 +32,13 @@ import com.ifeng.util.PageView;
  * 只有在参数列表中包括Page类型的参数时才进行分页查询。 
  * 在多参数的情况下，只对第一个Page类型的参数生效。 
  * 另外，在参数列表中，Page类型的参数无需用@Param来标注 
- * @author lanyuan
- * 2013-11-19
- * @Email: mmm333zzz520@163.com
- * @version 1.0v
  */
 @SuppressWarnings("unchecked")
 @Intercepts( { @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class }) })
 public class PagePlugin implements Interceptor {
 
 	private static Dialect dialectObject = null; // 数据库方言
-	private static String pageSqlId = ""; // mybaits的数据库xml映射文件中需要拦截的ID(正则匹配)
+	private static String pageSqlId = "*pageQuery*"; // mybaits的数据库xml映射文件中需要拦截的ID(正则匹配)
 
 	public Object intercept(Invocation ivk) throws Throwable {
 		if (ivk.getTarget() instanceof RoutingStatementHandler) {
@@ -55,7 +52,7 @@ public class PagePlugin implements Interceptor {
 			 * 方法1：通过ＩＤ来区分是否需要分页．.*query.*
 			 * 方法2：传入的参数是否有page参数，如果有，则分页，
 			 */
-			//if (mappedStatement.getId().matches(pageSqlId)) { // 拦截需要分页的SQL
+			if (mappedStatement.getId().matches(pageSqlId)) { // 拦截需要分页的SQL
 				BoundSql boundSql = delegate.getBoundSql();
 				Object parameterObject = boundSql.getParameterObject();// 分页SQL<select>中parameterType属性对应的实体参数，即Mapper接口中执行分页方法的参数,该参数不得为空
 				if (parameterObject == null) {
@@ -114,7 +111,7 @@ public class PagePlugin implements Interceptor {
 					String pageSql = generatePagesSql(sql, pageView);
 					ReflectHelper.setValueByFieldName(boundSql, "sql", pageSql); // 将分页sql语句反射回BoundSql.
 				}
-			//}
+			}
 		}
 		return ivk.proceed();
 	}
