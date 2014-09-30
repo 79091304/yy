@@ -106,7 +106,7 @@
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 					<div class="pro-agr-btn">
-						<a class="btn-base btn-red-h37 common-sprite" href="#" onclick="dosubmit();"><span class="common-sprite">立即发布课程</span></a>
+						<a class="btn-base btn-red-h37 common-sprite" href="#" onclick="dosubmit();"><span class="common-sprite">发布课程（请先登录）</span></a>
 					</div>
 				</form>
 			</div>

@@ -345,7 +345,7 @@ a:hover{
 }
 
 .icons{
-	background-image:url('../images/icons.png?v=381');
+	background-image:url('../images/icons.png');
 	 background-repeat: no-repeat;
 }
 
@@ -1928,17 +1928,17 @@ a:hover{
 }
 
 #code {
-	 background: url(../images/icon.png?v=381) -276px -258px no-repeat;
+	 background: url(../images/icon.png) -276px -258px no-repeat;
  }
 
 #code_hover {
-	 background: url(../images/icon.png?v=381) -316px -258px no-repeat;
+	 background: url(../images/icon.png) -316px -258px no-repeat;
  }
 
 #code_img {
 	width: 270px;
 	height: 355px;
-	background: url(../images/icon.png?v=381) -4px -3px no-repeat;
+	background: url(../images/icon.png) -4px -3px no-repeat;
 	position: fixed;
 	z-index: 9999;
 	right: 55px;
@@ -1948,7 +1948,7 @@ a:hover{
  }
 
 #gotop {
-	background: url(../images/icon.png?v=381) no-repeat -276px -310px;
+	background: url(../images/icon.png) no-repeat -276px -310px;
 	width: 36px;
 	height: 48px;
 	cursor: pointer;
