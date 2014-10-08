@@ -8,7 +8,7 @@
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Course">
-		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt,status,createdBy,liked)
+		insert into c_course(name,detail,videoUrl,imgUrl,scount,city,category,tag,tid,begin,end,createdAt,changedAt,status,createdBy,liked,period)
 		values 
 		(
 		#{name},
@@ -26,7 +26,8 @@
 		 #{changedAt},
 		 #{status},
 		 #{createdBy},
-		 #{liked}
+		 #{liked},
+		 #{period}
 		)
 	</insert>
 	

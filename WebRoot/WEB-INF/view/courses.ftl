@@ -136,7 +136,7 @@
 							<div class="item-rate clearfix">
 								<span class="rate1"> <em>${item.scount}人</em><br>
 								</span> <span class="rate2"> 
-								</span> <span class="rate3"> <em>19天</em><br>剩余时间
+								</span> <span class="rate3"> <em>${item.period}课时</em>
 								</span>
 							</div>
 						</div>

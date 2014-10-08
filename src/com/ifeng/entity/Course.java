@@ -18,6 +18,8 @@ public class Course implements Serializable{
 
 	private long id;
 	
+	private int period;//课时
+	
 	private String name;
 	
 	private String detail;
@@ -226,6 +228,14 @@ public class Course implements Serializable{
 
 	public void setTeacherId(String teacherId) {
 		this.teacherId = teacherId;
+	}
+
+	public int getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(int period) {
+		this.period = period;
 	}
 
 }
