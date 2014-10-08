@@ -263,7 +263,7 @@
 		<script>
 		var kindeditorOption = {
 				cssPath : '${ctx}/kindEditor/plugins/code/prettify.css',
-				uploadJson :"/upload.php",
+				uploadJson :"${ctx}/file/upload.htm",
 				resizeType : 1,
 				allowPreviewEmoticons : false,
 
