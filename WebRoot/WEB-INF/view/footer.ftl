@@ -62,35 +62,7 @@
     <div class="ft-links">
 		<div class="links-arrow">友情链接：</div>
 		<p>
-    	    		<a href="http://www.lanrenyuan/index.html" target="_blank">和讯网</a>
-    	    		<a href="http://www.leiphone.com/" target="_blank">雷锋网</a>
-    	    		<a href="http://www.36kr.com/" target="_blank">36氪</a>
-    	    		<a href="http://www.hao123.com/" target="_blank">hao123</a>
-    	    		<a href="http://hao.360.cn/" target="_blank">360安全网址</a>
-    	    		<a href="http://www.ynet.com/" target="_blank">北青网</a>
     	    		<a href="http://finance.ifeng.com/" target="_blank">凤凰网</a>
-    	    		<a href="http://jrj.com.cn/" target="_blank">金融界</a>
-    	    		<a href="http://www.caixin.com/" target="_blank">财新网</a>
-    	    		<a href="http://www.tmtpost.com/" target="_blank">钛媒体</a>
-    	    		<a href="http://www.imgii.com/" target="_blank">IMGII</a>
-    	    		<a href="http://www.m1905.com/film/" target="_blank">电影网</a>
-    	    		<a href="http://www.artron.net/" target="_blank">雅昌艺术网</a>
-    	    		<a href="http://www.vmovier.com/" target="_blank">V电影</a>
-    	    		<a href="http://www.eguan.cn/" target="_blank">易观网</a>
-    	    		<a href="http://www.pedaily.cn/" target="_blank">投资界          </a>
-    	    		<a href="http://home.ebrun.com/" target="_blank">亿邦动力社区</a>
-    	    		<a href="http://www.lagou.com/" target="_blank">拉勾网</a>
-    	    		<a href="http://www.9888.cn/" target="_blank">金融工场</a>
-    	    		<a href="http://www.trchina.org/" target="_blank">投融中国联盟</a>
-    	    		<a href="http://www.youcheng.org/" target="_blank">友成基金会</a>
-    	    		<a href="http://life.renren.com/" target="_blank">人人生活</a>
-    	    		<a href="http://www.meng800.com/" target="_blank">众筹导航</a>
-    	    		<a href="http://www.diaochapai.com/" target="_blank">调查派</a>
-    	    		<a href="http://www.qidic.com/" target="_blank">奇笛网</a>
-    	    		<a href="http://www.rong360.com/" target="_blank">融360</a>
-    	    		<a href="http://www.66money.com/" target="_blank">联信财富</a>
-    	    		<a href="http://www.diyifangdai.com/" target="_blank">第一房贷</a>
-    	    		<a href="http://finance.ifeng.com/itfinance/index.shtml" target="_blank">凤凰互联网金融</a>
     			</p>
 	</div>
       <p>©2014  北京懒人科技有限公司   lanrenyuan.com  版权所有    </p>

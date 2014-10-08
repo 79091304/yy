@@ -124,6 +124,26 @@
 
 <#include "footer.ftl">
 <script type="text/javascript">
+$(function(){
+	var uid = wx.cookie('uid');
+	var name = wx.cookie('uname');
+	if(undefined != uid && '' != uid){
+		$("#uname").text(name);
+	    $("#jsddm").show();
+	    $(".login-wrap").hide();
+	}else{
+		$("#jsddm").hide();
+	}
+	
+	//退出
+	$("#logout").click(function(){
+		wx.removeCookie("uid");
+		wx.removeCookie("uname");
+		window.location.href="www.lanrenyuan.com";
+	});
+})
+</script>
+<script type="text/javascript">
 $(function() {
 	var flag = '';  
 });

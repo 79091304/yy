@@ -8,12 +8,21 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/publish.css">
-<script type="text/javascript" src="${ctx}/js/address.js" ></script>
+<link rel="stylesheet"
+	href="${ctx}/kindEditor/themes/default/default.css" />
+<link rel="stylesheet"
+	href="${ctx}/kindEditor/plugins/code/prettify.css" />
+<script type="text/javascript" src="${ctx}/js/address.js"></script>
 <script type="text/javascript" src="${ctx}/js/ajaxupload.js"></script>
+<script charset="utf-8" src="${ctx}/kindEditor/kindeditor.js"></script>
+<script charset="utf-8" src="${ctx}/kindEditor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="${ctx}/kindEditor/plugins/code/prettify.js"></script>
+<script charset="utf-8" src="${ctx}/kindEditor/plugins/image/image.js"></script>
+<script charset="utf-8" src="${ctx}/kindEditor/plugins/link/link.js"></script>
 <body>
 	<!--header static-->
-	
-	
+
+
 	<div class="header">
 		<div class="wrap clearfix" pbid="header">
 			<div class="img-logo">
@@ -24,11 +33,11 @@
 			<!--menu start-->
 			<div class="menu">
 				<ul class="clearfix" id="headermenu">
-					<li ><a href="${ctx}/index.html">首页 </a></li>
-					<li ><a href="${ctx}/course/list.htm">课程</a></li>
+					<li><a href="${ctx}/index.html">首页 </a></li>
+					<li><a href="${ctx}/course/list.htm">课程</a></li>
 					<li><a href="${ctx}/teacher/list.htm">教师 </a></li>
 					<li><a href="${ctx}/teacher/list.htm">新人帮助</a></li>
-					<li class="select"  ><a href="${ctx}/course/prepublish.htm">发布课程</a></li>
+					<li class="select"><a href="${ctx}/course/prepublish.htm">发布课程</a></li>
 				</ul>
 			</div>
 			<!--menu end-->
@@ -47,23 +56,24 @@
 			<!-- user menu start-->
 			<div class="user-menu" id="jsddm">
 				<div class="menu-hd tx">
-					<a href="" class="tit"> <span class='avatar-box'>
-							<img id="headeravatar"
-							src="${ctx}/images/noavatar_small.gif" />
+					<a href="" class="tit"> <span class='avatar-box'> <img
+							id="headeravatar" src="${ctx}/images/noavatar_small.gif" />
 					</span> <span id="uname" class="user-name word-break ie6fixpic">游客</span>
 					</a>
 				</div>
 				<div class="menu-bd JS-myinfo">
 					<ul class="clearfix">
-							<li class="sup"><a class="ie6fixpic" href="/home/id-154415">报名的课程</a></li>
-							<li class="spo"><a class="ie6fixpic"
-								href="/home-build_deal/id-154415">发布的课程</a></li>
-							<li class="att"><a class="ie6fixpic"
-								href="/home-focus/id-154415">喜欢的课程</a></li>
-							<li class="msg"><a class="ie6fixpic" href="${ctx}/message/index.htm">消息中心</a></li>
-							<li class="set"><a class="ie6fixpic" href="${ctx}/settings/index.htm">个人设置</a></li>
-							<li class="exit bn"><a  class="ie6fixpic" id="logout"
-								href="${ctx}/log/logout.htm">退出</a></li>
+						<li class="sup"><a class="ie6fixpic" href="/home/id-154415">报名的课程</a></li>
+						<li class="spo"><a class="ie6fixpic"
+							href="/home-build_deal/id-154415">发布的课程</a></li>
+						<li class="att"><a class="ie6fixpic"
+							href="/home-focus/id-154415">喜欢的课程</a></li>
+						<li class="msg"><a class="ie6fixpic"
+							href="${ctx}/message/index.htm">消息中心</a></li>
+						<li class="set"><a class="ie6fixpic"
+							href="${ctx}/settings/index.htm">个人设置</a></li>
+						<li class="exit bn"><a class="ie6fixpic" id="logout"
+							href="${ctx}/log/logout.htm">退出</a></li>
 					</ul>
 				</div>
 			</div>
@@ -74,12 +84,12 @@
 				<span id="usertag"> <a rel="nofollow"
 					href="${ctx}/log/toLogin.htm">登录</a> <em>|</em> <a rel="nofollow"
 					href="${ctx}/register/toRegister.htm">注册</a>
-				</span> 
+				</span>
 			</div>
 			<!--login end-->
 		</div>
 	</div>
-	
+
 
 	<!--main static-->
 	<div class="main clearfix">
@@ -190,6 +200,29 @@
 								</div>
 
 								<div class="form-item clearfix">
+									<label>课程详情：</label>
+									<div class="ke-container ke-container-default"
+										style="width: 567px;">
+									<textarea id="Js-description" name="description"
+										wx-validator-rule="required" >
+										&lt;h2&gt;关于我（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;向支持者介绍你自己或你的团队，并详细说明你与所发起的项目之间的背景，让支持者能够在最短时间内了解你，以拉近彼此之间的距离。&lt;/p&gt;
+								&lt;h2&gt;我想要做什么（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;这是项目介绍中最关键的部分，建议上传5张以上高清图片（宽700、高不限），配合文字来简洁生动地说明你的项目，让支持者对你要做的事情一目了然并充满兴趣。&lt;/p&gt;
+								&lt;h2&gt;为什么我需要你的支持及资金用途（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;请在这一部分说明你的项目不同寻常的特色，为什么需要大家的支持以及详细的资金用途，这会增加你项目的可信度并由此提高筹资的成功率。&lt;/p&gt;
+								&lt;h2&gt;我的承诺与回报（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;请在此处展示你为支持者准备的回报，回报方式将是左右项目能否筹资成功的关键因素，建议设定两个以上的回报方式，保证有趣且可行，并明确实现回报的时间。&lt;/p&gt;
+								&lt;h2&gt;可能存在的风险（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;请在此标注你的项目在实施过程中可能存在的风险，让支持者对你的项目有全面而清晰的认识。&lt;/p&gt;
+								&lt;h2&gt;其他备注信息（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;其他需要支持者了解的信息。&lt;/p&gt;
+									</textarea>
+										
+									</div>
+								</div>
+
+								<div class="form-item clearfix">
 									<label>标签：</label> <input type="text" id="Js-tag" name="tags"
 										id="tags" class="inp-w310"
 										wx-validator-placeholder="请使用空格或逗号分隔不同标签" value=""
@@ -225,17 +258,46 @@
 		<!--main end-->
 		<!--footer static-->
 		<#include "footer.ftl">
+		
+		<!-- kindeditor -->
+		<script>
+		var kindeditorOption = {
+				cssPath : '${ctx}/kindEditor/plugins/code/prettify.css',
+				uploadJson :"/upload.php",
+				resizeType : 1,
+				allowPreviewEmoticons : false,
+
+				allowMediaUpload:false,
+				allowFileUpload:false,
+				allowFlashUpload:false,
+
+				allowFileManager:false,
+				allowImageRemote:false,
+				filePostName:"image_file",
+				minWidth : "567",
+				minHeight: "520",
+				items : ['formatblock', '|', 'image', 'link', 'removeformat']
+			}
+			var editor = KindEditor.create("#Js-description",kindeditorOption)
+			window['HwForm_before'] = function() {
+				$("#Js-description").val(editor.html());
+				return true;
+			}
+
+		
+			
+		</script>
 
 		<script>
 			$(function() {
-			
+
 				var uid = wx.cookie('uid');
 				var name = wx.cookie('uname');
-				if(undefined != uid && '' != uid){
+				if (undefined != uid && '' != uid) {
 					$("#uname").text(name);
-				    $("#jsddm").show();
-				    $(".login-wrap").hide();
-				}else{
+					$("#jsddm").show();
+					$(".login-wrap").hide();
+				} else {
 					$("#jsddm").hide();
 				}
 

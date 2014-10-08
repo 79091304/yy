@@ -11,26 +11,7 @@
 <script type="text/javascript" src="./js/jquery.js"></script>
 <script type="text/javascript" src="./js/promotuser.js"></script>
 <script type="text/javascript" src="./js/util.js"></script>
-<script type="text/javascript">
-$(function(){
-	var uid = wx.cookie('uid');
-	var name = wx.cookie('uname');
-	if(undefined != uid && '' != uid){
-		$("#uname").text(name);
-	    $("#jsddm").show();
-	    $(".login-wrap").hide();
-	}else{
-		$("#jsddm").hide();
-	}
-	
-	//退出
-	$("#logout").click(function(){
-		wx.removeCookie("uid");
-		wx.removeCookie("uname");
-		window.location.href="www.lanrenyuan.com";
-	});
-})
-</script>
+
 </head>
 
 <body>
@@ -554,7 +535,26 @@ $(function(){
 	<div id="code"></div>
 	<div id="code_img"></div>
 	<div id="gotop"></div>
-
+<script type="text/javascript">
+$(function(){
+	var uid = wx.cookie('uid');
+	var name = wx.cookie('uname');
+	if(undefined != uid && '' != uid){
+		$("#uname").text(name);
+	    $("#jsddm").show();
+	    $(".login-wrap").hide();
+	}else{
+		$("#jsddm").hide();
+	}
+	
+	//退出
+	$("#logout").click(function(){
+		wx.removeCookie("uid");
+		wx.removeCookie("uname");
+		window.location.href="www.lanrenyuan.com";
+	});
+})
+</script>
 <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe2b6fa1ff48b85f8c94d75e7a60f6e5f' type='text/javascript'%3E%3C/script%3E"));
