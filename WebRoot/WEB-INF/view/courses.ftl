@@ -94,7 +94,7 @@
 			</div>
 			<div class="filter-box clearfix">
 				<div class="rel-key-rec">
-					<a  sid="0" <#if sid==0 || sid ==null> class="select" </#if>   href="${ctx}/course/list.htm?sid=0">所有课程(95)</a>
+					<a  sid="0" <#if sid==0 || sid ==null> class="select" </#if>   href="${ctx}/course/list.htm?sid=0">所有课程(${pager.rowCount})</a>
 					<a sid="2" <#if sid==2> class="select" </#if> href="${ctx}/course/list.htm?sid=2">招生中(41)</a> 
 					<a sid="1" <#if sid==1> class="select" </#if> href="${ctx}/course/list.htm?sid=1">已完成(54)</a>
 				</div>
@@ -127,7 +127,9 @@
 							<div class="item-caption">
 								<span class="caption-title"></span> <span
 									class="btn-base btn-red-h20 common-sprite"> <span
-									class="common-sprite">报名中</span>
+									class="common-sprite">
+									${(item.status == 1)?string('报名中','已结束')}
+									</span>
 								</span>
 							</div>
 							<div class="progress-bar">
