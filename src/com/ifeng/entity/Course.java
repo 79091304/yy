@@ -22,6 +22,8 @@ public class Course implements Serializable{
 	
 	private String name;
 	
+	private String brief;
+	
 	private String detail;
 	
 	private String category;
@@ -236,6 +238,14 @@ public class Course implements Serializable{
 
 	public void setPeriod(int period) {
 		this.period = period;
+	}
+
+	public String getBrief() {
+		return brief;
+	}
+
+	public void setBrief(String brief) {
+		this.brief = brief;
 	}
 
 }

@@ -142,7 +142,7 @@
 									action="deal-save_comment/deal_id-2568">
 									<div class="ren">
 										<a href="javascript:void(0);"><img
-											src="images/noavatar_middle.gif" width="80" height="80"></a>
+											src="${ctx}/images/noavatar_middle.gif" width="80" height="80"></a>
 									</div>
 									<div class="pln_r">
 										<div class="kuang">
@@ -268,7 +268,7 @@
 										</font></a>
 								</strong></li>
 								<li><strong></strong><span></span></li>
-								<li><strong id="strong_like_count">14</strong><span>喜欢</span></li>
+								<li><strong id="strong_like_count">${item.liked}</strong><span>喜欢</span></li>
 							</ul>
 						</div>
 					</div>
@@ -314,7 +314,7 @@
 						dataType:"json",
 						success:function(obj){
 							if(obj.code ==1){
-								wx.alert("报名成功，请尽快保持联系方式畅通，我们会尽快联系您");
+								wx.alert("报名成功，请保持联系方式畅通，我们会尽快联系您");
 							}else{
 								wx.alert("请到个人设置中完善您的联系方式");
 							}

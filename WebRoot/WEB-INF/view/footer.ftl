@@ -82,7 +82,6 @@
     });
     
 $(window).scroll(function(){
-		
 		var s_top = $(document).scrollTop()+$(window).height()-70;
 		if($.browser.msie && $.browser.version =="6.0")
 		{
@@ -144,17 +143,24 @@ $(window).scroll(function(){
 	}
 	
 
-	
+	//显示用户昵称
 	$(function(){
-	
 			var uid = wx.cookie('uid');
 			var name = wx.cookie('uname');
 			if(undefined != uid && '' != uid){
-				$("#uname").html(name);
+				$("#uname").text(name);
 			    $("#jsddm").show();
+			    $(".login-wrap").hide();
 			}else{
 				$("#jsddm").hide();
 			}
+	
+			//退出
+			$("#logout").click(function(){
+				wx.removeCookie("uid");
+				wx.removeCookie("uname");
+				window.location.href="www.lanrenyuan.com";
+			});
 			
 		})
 

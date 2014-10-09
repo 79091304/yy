@@ -203,20 +203,20 @@
 									<label>课程详情：</label>
 									<div class="ke-container ke-container-default"
 										style="width: 567px;">
-									<textarea id="Js-description" name="description"
+									<textarea id="Js-description" name="detail"
 										wx-validator-rule="required" >
 										&lt;h2&gt;关于我（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;向支持者介绍你自己或你的团队，并详细说明你与所发起的项目之间的背景，让支持者能够在最短时间内了解你，以拉近彼此之间的距离。&lt;/p&gt;
-								&lt;h2&gt;我想要做什么（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;这是项目介绍中最关键的部分，建议上传5张以上高清图片（宽700、高不限），配合文字来简洁生动地说明你的项目，让支持者对你要做的事情一目了然并充满兴趣。&lt;/p&gt;
-								&lt;h2&gt;为什么我需要你的支持及资金用途（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;请在这一部分说明你的项目不同寻常的特色，为什么需要大家的支持以及详细的资金用途，这会增加你项目的可信度并由此提高筹资的成功率。&lt;/p&gt;
-								&lt;h2&gt;我的承诺与回报（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;请在此处展示你为支持者准备的回报，回报方式将是左右项目能否筹资成功的关键因素，建议设定两个以上的回报方式，保证有趣且可行，并明确实现回报的时间。&lt;/p&gt;
-								&lt;h2&gt;可能存在的风险（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;请在此标注你的项目在实施过程中可能存在的风险，让支持者对你的项目有全面而清晰的认识。&lt;/p&gt;
+								&lt;p&gt;介绍你自己或你的团队，并详细说明你的发布的课程之间的背景，让学生能够在最短时间内了解你，以拉近彼此之间的距离。&lt;/p&gt;
+								&lt;h2&gt;专业技能（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;介绍自己或你的团队的专业技能，建议上传5张以上高清图片（宽700、高不限），配合文字来简洁生动地说明你的课程，让学生对你的课程有更加浓厚的兴趣。&lt;/p&gt;
+								&lt;h2&gt;师资条件（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;请在这一部分说明你的团队所拥有的师资力量或者硬件条件等。&lt;/p&gt;
+								&lt;h2&gt;成功案例（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;请在此处展示你教授的课程的学生的成功案例，通过你的课程，学生能获得什么样的技能和发展。&lt;/p&gt;
+								&lt;h2&gt;可能存在的问题（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;请在此标注你的课程在教授过程中可能存在的问题，让学生对你的课程有全面而清晰的认识。&lt;/p&gt;
 								&lt;h2&gt;其他备注信息（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;其他需要支持者了解的信息。&lt;/p&gt;
+								&lt;p&gt;其他需要学生了解的信息。&lt;/p&gt;
 									</textarea>
 										
 									</div>
@@ -230,7 +230,7 @@
 								</div>
 
 								<input type="hidden" name="imageurl" id="imageurl" value="">
-								<input type="hidden" name="savenext" value="1"> <input
+								<input
 									type="hidden" name="id" value="">
 
 								<div class="action tr">
