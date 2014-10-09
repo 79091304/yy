@@ -92,13 +92,13 @@ public class CourseController {
 	@RequestMapping("save")
 	public Object saveCourse(HttpServletRequest request, String cname,
 			String cdays, String cid, String pro, String cty, String are,
-			String addre, String ved, String bri, String img,String uname,String uid) {
+			String addre, String ved, String bri, String img,String uname,String uid,String detail) {
 		int flag = 0;
 		Course course = new Course();
 		if (StringUtils.isNotEmpty(cname) && StringUtils.isNotEmpty(cdays)
 				&& StringUtils.isNotEmpty(cid) && StringUtils.isNotEmpty(pro)
 				&& StringUtils.isNotEmpty(cty) && StringUtils.isNotEmpty(are)
-				&& StringUtils.isNotEmpty(addre) && StringUtils.isNotEmpty(bri)) {
+				&& StringUtils.isNotEmpty(addre) && StringUtils.isNotEmpty(bri) && StringUtils.isNotEmpty(detail)) {
 			course.setCreatedAt(new Date());
 			course.setName(cname);
 			course.setCategory(cid);
@@ -112,6 +112,7 @@ public class CourseController {
 			course.setCreatedBy(uname);
 			course.setTeacherId(uid);
 			course.setStatus(Course.STATUS_OFF);
+			course.setDetail(detail);
 			flag = courseService.save(course);
 		}
 		if (flag > 0)

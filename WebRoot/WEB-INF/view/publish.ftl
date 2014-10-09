@@ -254,6 +254,23 @@
 			</div>
 			<!--content end-->
 			<!--side static-->
+			
+			<div class="sidebar fr">
+			<!--list item static-->
+			<div class="block-list">
+				<div class="list-item">
+					<a class="image item-figure" href="javascript:void(0);" title=""><img id="showimage" width="225" height="216" src="${ctx}/images/empty_thumb.gif" alt=""> </a>
+					<h3><a id="Js-name" href="javascript:;"></a></h3>
+					<div class="item-caption">
+						<span class="caption-title">目标：<span id="Js-days"></span>&nbsp;&nbsp;&nbsp;<span id="Js-price"></span></span>
+					</div>
+				</div>
+			</div>
+			</div>
+		<!--side end-->
+	</div>
+			
+			
 		</div>
 		<!--main end-->
 		<!--footer static-->
@@ -290,29 +307,7 @@
 
 		<script>
 			$(function() {
-
-				var uid = wx.cookie('uid');
-				var name = wx.cookie('uname');
-				if (undefined != uid && '' != uid) {
-					$("#uname").text(name);
-					$("#jsddm").show();
-					$(".login-wrap").hide();
-				} else {
-					$("#jsddm").hide();
-				}
-
-				$("input[name='name']").blur(
-						function() {
-							$("#Js-name").text($(this).val());
-
-							wx.sendData("/project-gettag", "name="
-									+ $("#Js-name").text(), function(data) {
-								$("#Js-tag").val(data.tags);
-							});
-						});
-				$("input[name='limit_price']").blur(function() {
-					$("#Js-price").text("￥" + $(this).val());
-				});
+				
 				$("input[name='deal_days']").blur(function() {
 					$("#Js-days").text($(this).val() + "天");
 				});
@@ -339,11 +334,23 @@
 							var vediourl = $("#vediourl").val();
 							var brief = $("#brief").val();
 							var imageurl = $("#imageurl").val();
+							var detail = $("#Js-description").val();
 							if ("" == cateid && undefined == cateid) {
 								wx.alert("请选择类别");
 								return;
 							}
-
+							if ("" == cname && undefined == cname) {
+								return;
+							}
+							if ("" == cdays && undefined == cdays) {
+								return;
+							}
+							if ("" == brief && undefined == brief) {
+								return;
+							}
+							if ("" == detail && undefined == detail) {
+								return;
+							}
 							$.ajax({
 								url : "${ctx}/course/save.htm",
 								type : "POST",
@@ -360,7 +367,8 @@
 									bri : brief,
 									img : imageurl,
 									uid : uid,
-									uname : name
+									uname : name,
+									detail : detail
 								},
 								success : function(data) {
 									if (data.code == 1) {
@@ -411,6 +419,7 @@
 						if (resdata.code == 1) {
 							$(".gray").text(file + "上传成功");
 							$("#imageurl").val(resdata.data);
+							$("#showimage").attr('src',resdata.data);
 							$('#upload').attr("disabled", "true");
 						} else {
 							$(".gray").text(file + "上传失败");

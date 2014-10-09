@@ -2,15 +2,19 @@ package com.ifeng.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
+import com.ifeng.util.AesSec;
+import com.ifeng.util.CookieHelper;
 import com.ifeng.util.EmailUtils;
 
 @Controller
@@ -23,8 +27,12 @@ public class SettingsController {
 	@RequestMapping("index")
 	public ModelAndView index(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView("settings");
-		User user = (User)request.getSession().getAttribute("user");
-		mv.addObject("user", user);
+		String uid = CookieHelper.getValue(Instant.COOKIE_USERID, request);
+		if(StringUtils.isNotEmpty(uid)){
+			String userid = AesSec.decrypt(uid, Instant.AES_PASSWORD);
+			User user = userService.getById(Long.parseLong(userid));
+			mv.addObject("user", user);
+		}
 		return mv;
 	}
 	

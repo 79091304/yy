@@ -22,7 +22,7 @@
 		<div class="setting wrap">
 			<div class="setting-title clearfix">
 				<h3>个人设置</h3>
-				<a href="/home/id-154415">返回个人中心</a>
+				
 			</div>
 			<div class="setting-content clearfix">
 				<div class="setting-menu">
