@@ -125,9 +125,9 @@
 										type="text"
 										onkeyup="return;this.value=this.value.replace(/[^\.\d]/g,'')"
 										wx-validator-rule="required|digits|range"
-										wx-validator-param="||10-90" wx-validator-placeholder="10~90天"
-										value="" placeholder="10~90天"><span
-										class="input-notes" style="margin-left: 5px">天</span><span
+										wx-validator-param="||10-90" wx-validator-placeholder="10~90"
+										value="" placeholder="10~90"><span
+										class="input-notes" style="margin-left: 5px">课时</span><span
 										id="wx-validator-deal_days-required" class="error-text hidden">不能为空</span><span
 										id="wx-validator-deal_days-digits" class="error-text hidden">请填写数字</span><span
 										id="wx-validator-deal_days-range" class="error-text hidden">10~90天</span>
@@ -307,7 +307,8 @@
 
 		<script>
 			$(function() {
-				
+				var uid =wx.cookie('uid');
+				var name =wx.cookie('uname');
 				$("input[name='deal_days']").blur(function() {
 					$("#Js-days").text($(this).val() + "天");
 				});

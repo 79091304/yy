@@ -113,6 +113,7 @@ public class CourseController {
 			course.setTeacherId(uid);
 			course.setStatus(Course.STATUS_OFF);
 			course.setDetail(detail);
+			course.setPeriod(Integer.parseInt(cdays));
 			flag = courseService.save(course);
 		}
 		if (flag > 0)

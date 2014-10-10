@@ -15,7 +15,7 @@ public class Instant {
 	
 	public static final String IMGSITE = "http://www.lanrenyuan.com/teacher/getInfo.htm?id=";
 	
-	public static final int COOKIE_EXPIRE = 60*60*24*3;
+	public static final int COOKIE_EXPIRE = 60*60*24*1;
 	
 	public static final String COOKIE_USERID = "uid";
 	
