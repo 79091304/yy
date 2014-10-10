@@ -63,11 +63,11 @@
 				</div>
 				<div class="menu-bd JS-myinfo">
 					<ul class="clearfix">
-						<li class="sup"><a class="ie6fixpic" href="/home/id-154415">报名的课程</a></li>
+						<li class="sup"><a class="ie6fixpic" href="${ctx}/user/index.htm?type=1">报名的课程</a></li>
 						<li class="spo"><a class="ie6fixpic"
-							href="/home-build_deal/id-154415">发布的课程</a></li>
+							href="${ctx}/user/index.htm?type=2">发布的课程</a></li>
 						<li class="att"><a class="ie6fixpic"
-							href="/home-focus/id-154415">喜欢的课程</a></li>
+							href="${ctx}/user/index.htm?type=3">喜欢的课程</a></li>
 						<li class="msg"><a class="ie6fixpic"
 							href="${ctx}/message/index.htm">消息中心</a></li>
 						<li class="set"><a class="ie6fixpic"

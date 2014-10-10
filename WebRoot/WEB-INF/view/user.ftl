@@ -25,7 +25,7 @@
 		<div class="mod-head clearfix">
 			<div class="info-left">
 				<div class="portrait">
-					<img src="">
+					<img src="${ctx}/images/noavatar_middle.gif">
 					<div class="change-img"><a href="/settings-avatar">更换头像</a></div>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 			<ul class="clearfix">
 				<li class="select">
 					<a href="/home/id-154415">
-						支持的项目
+						报名的课程
 						<span class="btn-base btn-red-h20 common-sprite">
 							<span class="common-sprite">0</span>
 						</span>
@@ -61,7 +61,7 @@
 				</li>
 				<li>
 					<a href="/home-build_deal/id-154415">
-						发起的项目
+						发布的课程
 						<span class="btn-base btn-gray-h20 common-sprite">
 							<span class="common-sprite">1</span>
 						</span>
@@ -69,7 +69,7 @@
 				</li>
 				<li>
 					<a href="/home-focus/id-154415">
-						喜欢的项目
+						喜欢的课程
 						<span class="btn-base btn-gray-h20 common-sprite">
 							<span class="common-sprite">2</span>
 						</span>
