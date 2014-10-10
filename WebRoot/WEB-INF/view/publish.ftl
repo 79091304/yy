@@ -295,13 +295,11 @@
 				minHeight: "520",
 				items : ['formatblock', '|', 'image', 'link', 'removeformat']
 			}
-			var editor = KindEditor.create("#Js-description",kindeditorOption)
+			var editor = KindEditor.create("#Js-description",kindeditorOption)	
 			window['HwForm_before'] = function() {
 				$("#Js-description").val(editor.html());
 				return true;
 			}
-
-		
 			
 		</script>
 

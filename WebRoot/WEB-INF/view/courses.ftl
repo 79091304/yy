@@ -113,9 +113,7 @@
 						<!--Deal Card Module-->
 						<div class="list-item">
 							<a class="item-figure" href="${ctx}/course/getInfo.htm?id=${item.id}" target="_blank">
-								<img
-								src="${item.imgUrl}"
-								alt="${item.name}" title="${item.name}" />
+								<img src="${item.imgUrl}" />
 							</a>
 							<div class="item-upvote">
 								<a class="icons " href="javascript:void(0);" rel="9"
