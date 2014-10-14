@@ -17,7 +17,7 @@ import com.ifeng.util.HtmlFileWriter;
 @RequestMapping("/courseWriter/")
 public class CourseWriterController {
 
-	private static final String COURSE_FOR_INDEX = "";//首页课程信息
+	private static final String COURSE_FOR_INDEX = "course.html";//首页课程信息
 	
 	private StringBuilder courseStr = new StringBuilder();
 	
@@ -26,12 +26,12 @@ public class CourseWriterController {
 	@Autowired
 	private CourseService courseService;
 
-	private static final String ONE = "<li><div class='list-item'><a class='item-figure' href='";
-	private static final String TWO = "' target='_blank'><img src='";
+	private static final String ONE = "<li><div class='list-item'><a class='item-figure' href='"+Instant.WEBSITE+"/course/getInfo.htm?id=";
+	private static final String TWO = "' target='_blank'><img src='"+Instant.WEBSITE+"/image/out.htm?uri=";
 	private static final String WHREE = "' alt='";
 	private static final String FORE = "'>";
 	private static final String FIVE = "</a><div class='item-upvote'><a class='icons ' href='javascript:void(0);' rel='8' onclick='like_deal_v2(3032, this)'>8</a>";
-	private static final String SIX = "</div><h3><a href='";
+	private static final String SIX = "</div><h3><a href='"+Instant.WEBSITE+"/course/getInfo.htm?id=";
 	private static final String SEVEN = "' target='_blank'>";
 	private static final String EIGHT = "</a></h3><div class='item-caption'><span class='caption-title'>";
 	private static final String NIGHT = "<em>11天</em> <em><i class='font-yen'>¥</i>3000</em></span> <span class='btn-base btn-red-h20 common-sprite'> <span class='common-sprite'>众筹中</span>";
@@ -39,11 +39,13 @@ public class CourseWriterController {
 	private static final String EVLEVEN = "<span class='rate1'> <em>0%</em><br>好评度</span> <span class='rate2'> <em><a>报名</a></em><br></span> <span class='rate3'> <em>9天</em><br>剩余时间</span></div></div></li>";
 		
 	
+	@RequestMapping("write")
 	public void writeCouresForIndex(){
 		List<Course> courses = courseService.listForIndex(COUNT);
 		for(int i=0; i< courses.size(); i++){
 			Course course = courses.get(i);
-			courseStr.append(ONE).append(Instant.COURSEWEBSITE+course.getId()).append(TWO);
+			courseStr.append(ONE).append(Instant.COURSEWEBSITE+course.getId()).append(TWO).append(course.getImgUrl()).append(WHREE)
+			.append(FORE).append(FIVE).append(SIX).append(course.getId()).append(SEVEN).append(EIGHT).append(NIGHT).append(TEN).append(EVLEVEN);
 		}
 		HtmlFileWriter.writeHtml(courseStr.toString(), COURSE_FOR_INDEX);
 	}

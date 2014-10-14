@@ -254,8 +254,8 @@
 			<div class="focus-box" style="overflow: hidden;">
 				<ul id="JS-recommend_ul" class="focus-con clearfix"
 					style="width: 980px;">
-					<li>
-						<!--Deal Card Module-->
+					<!-- <li>
+						Deal Card Module
 						<div class="list-item">
 							<a class="item-figure" href="/deal-show/id-2954" target="_blank">
 								<img src="images/teacher.jpg" alt="寻找身边优秀课程">
@@ -281,7 +281,8 @@
 								</span>
 							</div>
 						</div>
-					</li>
+					</li> -->
+					<!--include file="course.html"-->
 				</ul>
 				<ul id="JS-recommend_btns" class="focus-btn clearfix">
 					<li id="JS-recommend_pre" class="prev"><span

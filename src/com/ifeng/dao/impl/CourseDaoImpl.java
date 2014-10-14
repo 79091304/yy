@@ -17,9 +17,7 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 
 	@Override
 	public List<Course> queryByC(int count) {
-		Map<String , Integer> data = new HashMap<String, Integer>();
-		data.put("count", count);
-		return this.getSqlSession().selectList(this.getClassName()+".queryByC", data);
+		return this.getSqlSession().selectList(this.getClassName()+".queryByC", count);
 	}
 
 	@Override
