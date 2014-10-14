@@ -70,6 +70,7 @@ public class UploadController {
 								dir.mkdirs();
 							}
 							file.transferTo(localFile);
+							log.info("新增文件名称是"+newfileName);
 						}
 					}
 					// 记录上传该文件后的时间
