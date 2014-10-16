@@ -13,7 +13,7 @@
 					<dt>在线课程</dt>
 					<dd></dd>
 					<dd>
-						<#list category as item> <a rel="nofollow" href="browse/id-12"
+						<#list category as item> <a rel="nofollow" href="${ctx}/course/list.htm?cid=${item.id}"
 							title="${item.name}">${item.name}</a><em>/</em> 
 							<#if (item_index+1)%3==0>
 							</dd>

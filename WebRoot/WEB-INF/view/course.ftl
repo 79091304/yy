@@ -250,7 +250,7 @@
 						</div>
 						<h2>目前累计报名人数</h2>
 						<p class="item-sum">
-							<span>1</span><span>0</span>
+							<span>${item.scount}</span>
 						</p>
 						<div class="ratio-box">
 

@@ -14,7 +14,7 @@ import com.ifeng.service.CourseService;
 import com.ifeng.util.HtmlFileWriter;
 
 @Controller
-@RequestMapping("/courseWriter/")
+@RequestMapping("/cron/course/")
 public class CourseWriterController {
 
 	private static final String COURSE_FOR_INDEX = "course.html";//首页课程信息
@@ -30,13 +30,15 @@ public class CourseWriterController {
 	private static final String TWO = "' target='_blank'><img src='"+Instant.WEBSITE+"/image/out.htm?uri=";
 	private static final String WHREE = "' alt='";
 	private static final String FORE = "'>";
-	private static final String FIVE = "</a><div class='item-upvote'><a class='icons ' href='javascript:void(0);' rel='8' onclick='like_deal_v2(3032, this)'>8</a>";
+	private static final String FIVE01 = "</a><div class='item-upvote'><a class='icons ' href='javascript:void(0);' rel='";
+	private static final String FIVE02 = "' onclick='like_deal_v2(";
+	private static final String FIVE03 =", this)'>8</a>";
 	private static final String SIX = "</div><h3><a href='"+Instant.WEBSITE+"/course/getInfo.htm?id=";
 	private static final String SEVEN = "' target='_blank'>";
-	private static final String EIGHT = "</a></h3><div class='item-caption'><span class='caption-title'>";
-	private static final String NIGHT = "<em>11天</em> <em><i class='font-yen'>¥</i>3000</em></span> <span class='btn-base btn-red-h20 common-sprite'> <span class='common-sprite'>众筹中</span>";
-	private static final String TEN = "</span></div><div class='progress-bar'><span class='progress bg-red' style='width: 0%;'></span></div><div class='item-rate clearfix'>";	
-	private static final String EVLEVEN = "<span class='rate1'> <em>0%</em><br>好评度</span> <span class='rate2'> <em><a>报名</a></em><br></span> <span class='rate3'> <em>9天</em><br>剩余时间</span></div></div></li>";
+	private static final String EIGHT = "</a></h3><div class='item-caption'><span class='btn-base btn-red-h20 common-sprite'><span class='common-sprite'>已认证</span></span></div><div class='progress-bar'><span class='progress bg-red' style='width: 46%;'></span></div>";
+	private static final String NIGHT = "<div class='item-rate clearfix'><span class='rate1'> <em>";
+	private static final String TEN = 	"46%</em><br>好评度</span> <span class='rate3'> <em>";
+	private static final String EVLEVEN = "</em><br>报名人数</span></div></div></li>";
 		
 	
 	@RequestMapping("write")
@@ -44,8 +46,9 @@ public class CourseWriterController {
 		List<Course> courses = courseService.listForIndex(COUNT);
 		for(int i=0; i< courses.size(); i++){
 			Course course = courses.get(i);
-			courseStr.append(ONE).append(Instant.COURSEWEBSITE+course.getId()).append(TWO).append(course.getImgUrl()).append(WHREE)
-			.append(FORE).append(FIVE).append(SIX).append(course.getId()).append(SEVEN).append(EIGHT).append(NIGHT).append(TEN).append(EVLEVEN);
+			courseStr.append(ONE).append(course.getId()).append(TWO).append(course.getImgUrl()).append(WHREE).append(course.getName())
+			.append(FORE).append(FIVE01).append(course.getLiked()).append(FIVE02).append(course.getLiked()).append(FIVE03).append(SIX).append(course.getId())
+			.append(SEVEN).append(EIGHT).append(NIGHT).append(TEN).append(course.getScount()).append(EVLEVEN);
 		}
 		HtmlFileWriter.writeHtml(courseStr.toString(), COURSE_FOR_INDEX);
 	}
