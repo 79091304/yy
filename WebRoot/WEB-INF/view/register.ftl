@@ -52,7 +52,7 @@
 					<div class="form-item clearfix">
 						<label>验证码：</label>
 						<input class="inp-wst" type="text" name="verify">
-						<span class="code"><img title="点击更换" onclick="javascript:refresh(this);" src="../imageServlet"></span>
+						<span class="code"><img title="点击更换" onclick="javascript:refresh(this);" src="${ctx}/image/randCode.htm"></span>
 					</div>
 					<div class="login-form-btn">
 						<input type="submit" value="立即注册">
@@ -75,7 +75,7 @@
 				}
 				
 				 function refresh(obj) {
-				        obj.src = "${ctx}/imageServlet?"+Math.random();
+				        obj.src = "${ctx}/image/randCode.htm?"+Math.random();
 				    }
 				 
 					//ajax验证手机号是否已经注册

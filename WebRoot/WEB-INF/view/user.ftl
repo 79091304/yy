@@ -31,11 +31,11 @@
 			</div>
 			<div class="info-right">
 				<div class="user-fun">
-					<h2>kkllkkii</h2>
-					<a href="/settings" class="btn-red-h20 btn-base common-sprite">
+					<h2 id="unameh">游客</h2>
+					<a href="/settings/index.htm" class="btn-red-h20 btn-base common-sprite">
 						<span class="common-sprite"><i class="common-sprite icon-set"></i>个人设置</span>
 					</a>
-					<a href="/message" class="btn-red-h20 btn-base common-sprite">
+					<a href="/message/index.htm" class="btn-red-h20 btn-base common-sprite">
 						<span class="common-sprite"><i class="common-sprite icon-info"></i>消息中心</span>
 					</a>
 				</div>
@@ -86,7 +86,7 @@
 				<div class="operating-tips clearfix">
 			<div class="icon-message"></div>
 			<h3>很抱歉......这儿是个荒地：（</h3>
-			<p>您可以<a class="red" href="/browse" target="_blank">浏览更多项目</a>～～</p>
+			<p>您可以<a class="red" href="/browse" target="_blank">浏览更多课程</a>～～</p>
 		</div>
 			</div>
 </div>
@@ -256,5 +256,13 @@
 <!--footer static-->
 
 <#include "footer.ftl">
-
+<script>
+$(function(){
+	var name = wx.cookie('uname');
+	if(undefined != uid && '' != uid){
+		$("#unameh").text(name);
+	}
+	
+	
+</script>
 </body></html>
