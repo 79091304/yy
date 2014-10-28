@@ -33,7 +33,7 @@
 			<!--menu start-->
 			<div class="menu">
 				<ul class="clearfix" id="headermenu">
-					<li><a href="${ctx}/index.html">首页 </a></li>
+					<li><a href="${ctx}/index.shtml">首页 </a></li>
 					<li><a href="${ctx}/course/list.htm">课程</a></li>
 					<li><a href="${ctx}/teacher/list.htm">教师 </a></li>
 					<li><a href="${ctx}/teacher/list.htm">新人帮助</a></li>
@@ -418,7 +418,7 @@
 						if (resdata.code == 1) {
 							$(".gray").text(file + "上传成功");
 							$("#imageurl").val(resdata.data);
-							$("#showimage").attr('src',resdata.data);
+							$("#showimage").attr('src','${ctx}/image/out.htm?uri='+resdata.data);
 							$('#upload').attr("disabled", "true");
 						} else {
 							$(".gray").text(file + "上传失败");
