@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifeng.common.Instant;
 import com.ifeng.entity.Teacher;
-import com.ifeng.service.CourseService;
 import com.ifeng.service.TeacherService;
 import com.ifeng.util.HtmlFileWriter;
 
@@ -22,7 +21,6 @@ public class TeacherWriterController {
 
 	private static final String TEACHER_FOR_INDEX = "teacher.html";//首页课程信息
 	
-	private StringBuilder str = new StringBuilder();
 	
 	private static final int COUNT = 4; 
 	
@@ -46,6 +44,7 @@ public class TeacherWriterController {
 	
 	@RequestMapping("write")
 	public void writeCouresForIndex(){
+		StringBuilder str = new StringBuilder();
 		List<Teacher> teachers = teacherService.listForIndex(COUNT);
 		for(int i=0; i< teachers.size(); i++){
 			Teacher teacher = teachers.get(i);

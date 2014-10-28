@@ -62,7 +62,7 @@
                         <div class="form-item clearfix">
                             <label>请输入验证码：</label>
                             <input name="vcode" type="text" wx-validator-rule="required|rangelength|digits" wx-validator-param="|4-5|" class="inp-wst">
-                            <span class="code"><img src="${ctx}/imageServlet" title="点击更换" onclick="javascript:refresh(this);" ></span>
+                            <span class="code"><img src="${ctx}/image/randCode.htm" title="点击更换" onclick="javascript:refresh(this);" ></span>
                             <span id="wx-validator-vcode-required" class="error-text" style="display:none">不能为空</span>
                             <span id="wx-validator-vcode-rangelength" class="error-text" style="display:none">请输入4-5位的数字或字母</span>
                         </div>
@@ -117,7 +117,7 @@
                         <div class="form-item clearfix">
                         <label>请输入图形验证码：</label>
                         <input value="2861" name="vcode_pic" wx-validator-rule="required|digits" class="inp-wst" type="text"><span style="display: none;" id="wx-validator-vcode_pic-required" class="error-text">不能为空</span>
-                        <span class="code"><img src="${ctx}/imageServlet" onclick="this.src = '${ctx}/imageServlet'+Math.random();"></span>
+                        <span class="code"><img src="${ctx}/image/randCode.htm" onclick="this.src = '${ctx}/image/randCode.htm'+Math.random();"></span>
                         </div>
                         
                         <div class="step-submit">
@@ -145,7 +145,7 @@
 <script>
 
 	 function refresh(obj) {
-		obj.src = "${ctx}/imageServlet?"+Math.random();
+		obj.src = "${ctx}/image/randCode.htm?"+Math.random();
 	 }
 
 $(function(){

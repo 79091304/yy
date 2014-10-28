@@ -19,7 +19,7 @@ public class CourseWriterController {
 
 	private static final String COURSE_FOR_INDEX = "course.html";//首页课程信息
 	
-	private StringBuilder courseStr = new StringBuilder();
+	
 	
 	private static final int COUNT = 4; 
 	
@@ -43,12 +43,13 @@ public class CourseWriterController {
 	
 	@RequestMapping("write")
 	public void writeCouresForIndex(){
+		StringBuilder courseStr = new StringBuilder();
 		List<Course> courses = courseService.listForIndex(COUNT);
 		for(int i=0; i< courses.size(); i++){
 			Course course = courses.get(i);
 			courseStr.append(ONE).append(course.getId()).append(TWO).append(course.getImgUrl()).append(WHREE).append(course.getName())
 			.append(FORE).append(FIVE01).append(course.getLiked()).append(FIVE02).append(course.getLiked()).append(FIVE03).append(SIX).append(course.getId())
-			.append(SEVEN).append(EIGHT).append(NIGHT).append(TEN).append(course.getScount()).append(EVLEVEN);
+			.append(SEVEN).append(course.getName()).append(EIGHT).append(NIGHT).append(TEN).append(course.getScount()).append(EVLEVEN);
 		}
 		HtmlFileWriter.writeHtml(courseStr.toString(), COURSE_FOR_INDEX);
 	}
