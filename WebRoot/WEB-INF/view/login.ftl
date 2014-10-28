@@ -81,7 +81,7 @@
 					success: function(ajaxobj){
 						if(ajaxobj.code==1)
 						{
-							window.location.href = "${ctx}/index.html";
+							window.location.href = "${ctx}/index.shtml";
 						}
 						else
 						{

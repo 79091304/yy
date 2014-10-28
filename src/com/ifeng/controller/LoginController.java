@@ -17,6 +17,7 @@ import com.ifeng.common.ResponseMessage;
 import com.ifeng.entity.User;
 import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
+import com.ifeng.util.CoderUtils;
 import com.ifeng.util.CookieHelper;
 
 @Controller
@@ -56,7 +57,7 @@ public class LoginController {
 			Cookie cuid = new Cookie(Instant.COOKIE_USERID, encryptStr);
 			cuid.setPath(getPath(request));
 			cuid.setMaxAge(Instant.COOKIE_EXPIRE);
-			Cookie cuname = new Cookie(Instant.COOKIE_USERNAME, user.getUsername());
+			Cookie cuname = new Cookie(Instant.COOKIE_USERNAME, CoderUtils.string2Unicode(user.getUsername()));
 			cuname.setMaxAge(60*60*24*3);
 			cuname.setPath(getPath(request));
 			
