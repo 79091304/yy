@@ -120,7 +120,7 @@
 									onclick="like_deal_v2(${item.id}, this)">${item.liked}</a>
 							</div>
 							<h3>
-								<a href="/deal-show/id-16844" target="_blank">${item.name}</a>
+								<a href="${ctx}/course/getInfo.htm?id=${item.id}" target="_blank">${item.name}</a>
 							</h3>
 							<div class="item-caption">
 								<span class="caption-title"></span> <span

@@ -21,6 +21,7 @@ import com.ifeng.service.OrderService;
 import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
 import com.ifeng.util.MD5Sec;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 @Controller
 @RequestMapping("/user/")

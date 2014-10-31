@@ -13,6 +13,8 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.ifeng.common.Instant;
+
 public class AesSec {
 
     /**
@@ -115,4 +117,13 @@ public class AesSec {
             }
             return result;
     }
+    
+    public static void main(String[] args) {
+    	String cont = encrypt("test", Instant.AES_PASSWORD);
+		System.out.println(cont);
+		
+		String tt = decrypt(cont, Instant.AES_PASSWORD);
+		
+		System.out.println(tt);
+	}
 }

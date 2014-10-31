@@ -154,8 +154,8 @@ $(window).scroll(function(){
 	$(function(){
 			var uid = wx.cookie('uid');
 			var name = wx.cookie('uname');
-			name = unescape(name.replace(/\\(u[0-9a-fA-F]{4})/gm, '%$1'));
 			if(undefined != uid && '' != uid){
+			name = unescape(name.replace(/\\(u[0-9a-fA-F]{4})/gm, '%$1'));
 				$("#uname").text(name);
 			    $("#jsddm").show();
 			    $(".login-wrap").hide();
