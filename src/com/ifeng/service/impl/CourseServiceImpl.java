@@ -47,5 +47,10 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.getCount(course);
 	}
 
+	@Override
+	public int modify(Course course) {
+		return this.courseDao.modify(course);
+	}
+
 
 }

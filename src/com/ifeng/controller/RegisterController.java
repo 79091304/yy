@@ -5,6 +5,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,8 @@ import com.ifeng.util.MD5Sec;
 @RequestMapping("/register/")
 public class RegisterController {
 	
+	private static Log log = LogFactory.getLog(RegisterController.class);
+	
 	@Autowired
 	private UserService userService;
 
@@ -36,6 +40,7 @@ public class RegisterController {
 	@RequestMapping("register")
 	public Object register(String email,String phone,String password,String username,String verify,HttpServletRequest request) throws IOException{
 		ResponseMessage rm = null;
+		log.info("用户注册，用户邮箱："+email+"，用户手机号:"+phone+"用户名："+username+",验证码："+verify);
 		String code = (String)request.getSession().getAttribute(RandomValidateCode.RANDOMCODEKEY);
 		if(StringUtils.isNotEmpty(verify) && verify.equalsIgnoreCase(code)){
 			User user = new User();

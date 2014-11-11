@@ -7,6 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,9 @@ import com.ifeng.util.PageView;
 @RequestMapping("/course/")
 public class CourseController {
 
+	
+	private static Log log = LogFactory.getLog(CourseController.class);
+	
 	@Autowired
 	private CourseService courseService;
 
@@ -93,6 +98,7 @@ public class CourseController {
 	public Object saveCourse(HttpServletRequest request, String cname,
 			String cdays, String cid, String pro, String cty, String are,
 			String addre, String ved, String bri, String img,String uname,String uid,String detail) {
+		log.info("保存课程，课程名称："+cname+",课时:"+cdays+",类别:"+cid+"，省份："+pro+"，城市："+cty+"，地区："+are+"，地址："+addre+"，ved:"+ved+"简介："+bri+"，图片"+img+",用户名："+uname);
 		int flag = 0;
 		Course course = new Course();
 		if (StringUtils.isNotEmpty(cname) && StringUtils.isNotEmpty(cdays)

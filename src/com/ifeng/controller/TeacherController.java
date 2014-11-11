@@ -1,6 +1,7 @@
 package com.ifeng.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
+import com.ifeng.entity.Course;
 import com.ifeng.entity.Teacher;
 import com.ifeng.service.TeacherService;
 import com.ifeng.util.PageView;
@@ -73,6 +75,16 @@ public class TeacherController {
 	}
 	
 	/**
+	 * 教师发布页面
+	 * @return
+	 */
+	@RequestMapping("index")
+	public ModelAndView index(){
+		ModelAndView mv = new ModelAndView("publishTeacher");
+		return mv;
+	}
+	
+	/**
 	 * 增加教师
 	 * @param name
 	 * @param age
@@ -81,17 +93,30 @@ public class TeacherController {
 	 * @return
 	 */
 	@RequestMapping("add")
-	public Object add(String name,String age,String zone,String detail){
+	public Object add(String cname,String cage,String cid,String pro,String cty,String are,String addre,String bri,String detail,String ved,String img){
+		int flag = 0;
 		Teacher teacher = new Teacher();
-		teacher.setAge(Integer.parseInt(age));
-		teacher.setName(name);
-		teacher.setZone(zone);
-		teacher.setDetail(detail);
-		int result = teacherService.add(teacher);
-		if(result >0){
-			return ResponseMessage.SUCCESS;
-		}else{
-			return ResponseMessage.FAIL;
+		if (StringUtils.isNotEmpty(cname) && StringUtils.isNotEmpty(cage)
+				&& StringUtils.isNotEmpty(cid) && StringUtils.isNotEmpty(pro)
+				&& StringUtils.isNotEmpty(cty) && StringUtils.isNotEmpty(are)
+				&& StringUtils.isNotEmpty(addre) && StringUtils.isNotEmpty(bri) && StringUtils.isNotEmpty(detail)) {
+			teacher.setCreatedAt(new Date());
+			teacher.setName(cname);
+			teacher.setCategory(cid);
+			teacher.setProvince(pro);
+			teacher.setAddress(addre);
+			teacher.setCity(cty);
+			teacher.setArea(are);
+			teacher.setVideoUrl(ved);
+			teacher.setDetail(bri);
+			teacher.setImgUrl(img);
+			teacher.setStatus(Course.STATUS_OFF);
+			teacher.setDetail(detail);
+			teacher.setAge(Integer.parseInt(cage));
+			flag = teacherService.add(teacher);
 		}
+		if (flag > 0)
+			return ResponseMessage.SUCCESS;
+		return ResponseMessage.FAIL;
 	}
 }

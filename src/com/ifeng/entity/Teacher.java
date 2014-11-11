@@ -18,7 +18,13 @@ public class Teacher implements Serializable{
 	
 	private int sex;
 	
-	private String zone;//所属地区
+	private String province;//所属地区
+	
+	private String city;
+	
+	private String area;
+	
+	private String address;
 	
 	private String tag;//标签
 	
@@ -29,6 +35,10 @@ public class Teacher implements Serializable{
 	private Date changedAt;
 
 	private String imgUrl;
+	
+	private String videoUrl;
+	
+	private String category;
 	
 	private int status;
 	
@@ -72,14 +82,6 @@ public class Teacher implements Serializable{
 		this.sex = sex;
 	}
 
-	public String getZone() {
-		return zone;
-	}
-
-	public void setZone(String zone) {
-		this.zone = zone;
-	}
-
 	public String getTag() {
 		return tag;
 	}
@@ -118,5 +120,53 @@ public class Teacher implements Serializable{
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getVideoUrl() {
+		return videoUrl;
+	}
+
+	public void setVideoUrl(String videoUrl) {
+		this.videoUrl = videoUrl;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

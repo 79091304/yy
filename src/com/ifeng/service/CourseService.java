@@ -24,6 +24,13 @@ public interface CourseService {
 	public int save(Course course);
 	
 	/**
+	 * 修改课程
+	 * @param course
+	 * @return
+	 */
+	public int modify(Course course);
+	
+	/**
 	 * 喜欢
 	 * @param id
 	 * @return

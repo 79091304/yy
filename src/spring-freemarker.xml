@@ -10,7 +10,12 @@
 	<!-- 配置freeMarker的模板路径 -->
 	<bean id="freemarkerConfig"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="/WEB-INF/view/" />
+		<property name="templateLoaderPaths">
+		    <list>
+		        <value>/WEB-INF/view/</value>
+		         <value>/WEB-INF/view/audit/</value>
+		    </list>
+		</property>
 		<property name="freemarkerVariables">
 			<map>
 				<entry key="xml_escape" value-ref="fmXmlEscape" />
