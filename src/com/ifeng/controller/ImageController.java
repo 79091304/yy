@@ -14,6 +14,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ifeng.common.Instant;
 import com.ifeng.util.RandomValidateCode;
 
 @Controller
@@ -24,7 +25,7 @@ public class ImageController
   public void out(String uri, HttpServletResponse resp)
   {
     if (StringUtils.isNotEmpty(uri)) {
-      File picture = new File(uri);
+      File picture = new File(Instant.FILE_ROOT_PATH+uri);
       try
       {
         BufferedImage image = ImageIO.read(new FileInputStream(picture));

@@ -46,6 +46,7 @@ public class UploadController {
 				Iterator<String> iter = multiRequest.getFileNames();
 				String newfileName = null;
 				String filepath = null;
+				int month = DateUtils.getCurrentMonth();
 				while (iter.hasNext()) {
 					// 记录上传过程起始时的时间，用来计算上传时间
 					int pre = (int) System.currentTimeMillis();
@@ -62,7 +63,7 @@ public class UploadController {
 							String substr = oldfileName.substring(oldfileName.lastIndexOf("."));
 							newfileName = RandCodeUtils.caculateSeq(System.currentTimeMillis())+substr;
 							// 定义上传路径
-							int month = DateUtils.getCurrentMonth();
+							
 							filepath = Instant.FILE_ROOT_PATH + month+"/";
 							File dir = new File(filepath);
 							File localFile = new File(filepath+newfileName);
@@ -77,7 +78,7 @@ public class UploadController {
 					int finaltime = (int) System.currentTimeMillis();
 					log.info("上传耗时为：" + (finaltime - pre));
 				}
-				rm = new ResponseMessage(filepath+newfileName);
+				rm = new ResponseMessage(month+"/"+newfileName);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -47,15 +47,15 @@ public class CourseController {
 			HttpServletRequest request) throws IOException {
 		ModelAndView mv = new ModelAndView("courses");
 		int now = 0;
-		int pstatus = 1;
+		int pstatus = -1;
 		Course course = new Course();
 		if (StringUtils.isNotEmpty(pageNow)) {
 			now = Integer.parseInt(pageNow);
 		}
 		if (StringUtils.isNotEmpty(sid)) {
 			pstatus = Integer.parseInt(sid);
-			course.setScount(pstatus);
 		}
+		course.setStatus(pstatus);
 		if (StringUtils.isNotEmpty(cid)) {
 			course.setCategory(cid);
 		}

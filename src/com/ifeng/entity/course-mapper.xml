@@ -75,31 +75,23 @@
 	</select>
 	
 	<!-- 分页查询 -->
-	
+	<!-- 默认查询报名中 和已经结束的课程  -->
 	<select  id="pageQuery" resultType="Course"  parameterType="java.util.Map">
 	   select 
 		<include refid="selectId" />
 		 from c_course 
 		 <where>
 		 	1=1
-		 	<if test="t.status != -1 and t.status != null">
-		 		and status = #{t.status}
+		 	<if test="t.status == -1 ">
+		 		and status in (0,1)
+		 	</if>
+		 	<if test="t.status != -1">
+		 	    and status = #{status}
 		 	</if>
 		 </where>
 	</select>
 	
-	<!-- <select  id="pageQuery" resultType="Course"  parameterType="java.util.Map">
-	   select 
-		<include refid="selectId" />
-		 from c_course where id>=(select id from c_course
-		 <where>
-		 	1=1
-		 	<if test="t.status != -1">
-		 		and status = #{t.status}
-		 	</if>
-		 </where>
-		  limit #{page.startPage},1) limit #{page.pageSize}
-	</select> -->
+	
 	
 	<update id="liked"   parameterType="int"   >
 			update c_course set liked = liked +1 
