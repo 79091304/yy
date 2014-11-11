@@ -59,7 +59,7 @@ public class AdminController {
 	public ModelAndView auditList(){
 		ModelAndView mv = new ModelAndView("acourses");
 		Course course = new Course();
-		course.setStatus(Course.STATUS_OFF);
+		course.setStatus(Course.STATUS_ONLINE);
 		PageView pager = new PageView(Instant.PAGE_SIZE, 0);
 		List<Course> courses = courseService.queryPage(pager, course);
 		mv.addObject("courses", courses);

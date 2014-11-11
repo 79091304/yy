@@ -15,6 +15,8 @@ public class Course implements Serializable{
 	public static final int STATUS_NOMAL = 1;
 	
 	public static final int STATUS_OFFLINE = 2;
+	
+	public static final int STATUS_ONLINE = -1;
 
 	private long id;
 	

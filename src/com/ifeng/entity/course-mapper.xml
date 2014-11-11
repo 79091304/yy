@@ -4,7 +4,7 @@
 <mapper namespace="Course">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name,period,brief,detail,category,videoUrl,imgUrl,scount,city,tag,tid,begin,end,createdAt,changedAt,createdBy,liked
+		id,name,period,brief,detail,category,status,videoUrl,imgUrl,scount,city,tag,tid,begin,end,createdAt,changedAt,createdBy,liked
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Course">

@@ -126,6 +126,7 @@
 								<span class="caption-title"></span> <span
 									class="btn-base btn-red-h20 common-sprite"> <span
 									class="common-sprite">
+									${item.status}
 									${(item.status == 1)?string('报名中','已结束')}
 									</span>
 								</span>
