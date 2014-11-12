@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/css/detail.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/share.css">
 <body>
-	
+
 	<div class="jiathis_style"
 		style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div>
 	<div class="jiathis_style"
@@ -35,14 +35,14 @@
 							<h1 class="word-break">${course.name}</h1>
 							<div class="author">
 								<span class="author-lay common-sprite inline-block">发起人</span> <span><a
-									href="home/id-151182">${course.createdBy}</a></span> <span class="gray">${course.province}${course.area}${course.address}</span>
+									href="home/id-151182">${course.createdBy}</a></span> <span
+									class="gray">${course.province}${course.area}${course.address}</span>
 							</div>
 							<div class="tit-bar clearfix">
 								<div class="title-nav fl">
 									<ul class="clearfix">
 										<li class="select"><a
-											class="btn-base btn-nav common-sprite"
-											href=""> <span
+											class="btn-base btn-nav common-sprite" href=""> <span
 												class="common-sprite">详细介绍</span>
 										</a></li>
 										<li></li>
@@ -74,15 +74,28 @@
 							</div>
 						</div>
 						<div class="bd">
+							<#if course.videoUrl ??>
+								<div id="youku-playerBox" style="width: 570; height: 430;">
+									<object type="application/x-shockwave-flash"
+										data="${course.videoUrl}"
+										width="570" height="430" id="youku-player">
+										<param name="allowFullScreen" value="true">
+										<param name='wmode' value='transparent'>
+										<param name="allowScriptAccess" value="always">
+										<param name="movie"
+											value="${course.videoUrl}">
+										<param name="flashvars"
+											value="imglogo=&amp;paid=0&amp;partnerId=youkuind_">
+									</object>
+								</div>
+							</#if>
 							<div class="article">
 								<h2></h2>
 								<h2>
 									<span style="font-weight: normal;">${course.name}</span>
 								</h2>
 								<p>
-									<span style="font-weight: normal;">
-										${course.detail}
-									</span>
+									<span style="font-weight: normal;"> ${course.detail} </span>
 								</p>
 								<div>
 									<div>
@@ -100,11 +113,8 @@
 									分类： <a href="browse/id-18"><span class="red">${course.category}</span></a>
 								</div>
 								<div class="bqian">
-									标签：
-									<#list course.tag?split(",") as item>
-									 <a href="#" target="_blank"><span
-										class="red">${item}</span></a> 
-									</#list>
+									标签： <#list course.tag?split(",") as item> <a href="#"
+										target="_blank"><span class="red">${item}</span></a> </#list>
 								</div>
 								<div class="fr">
 									<div class="jiathis_style">
@@ -142,7 +152,8 @@
 									action="deal-save_comment/deal_id-2568">
 									<div class="ren">
 										<a href="javascript:void(0);"><img
-											src="${ctx}/images/noavatar_middle.gif" width="80" height="80"></a>
+											src="${ctx}/images/noavatar_middle.gif" width="80"
+											height="80"></a>
 									</div>
 									<div class="pln_r">
 										<div class="kuang">
@@ -264,7 +275,8 @@
 						</div>
 						<div class="detail-rate">
 							<ul class="clearfix">
-								<li><strong> <a id="signup" dataid="${item.id}" ><font color="red">立刻<br>报名
+								<li><strong> <a id="signup" dataid="${item.id}"><font
+											color="red">立刻<br>报名
 										</font></a>
 								</strong></li>
 								<li><strong></strong><span></span></li>
@@ -298,24 +310,27 @@
 	<!--main end-->
 	<!--footer static-->
 	<#include "footer.ftl">
-	
+
 	<script>
-		$(function(){
-			$("#signup").click(function(){
+		$(function() {
+			$("#signup").click(function() {
 				var dataid = $(this).attr("dataid");
 				var uid = wx.cookie("uid");
-				if(uid == '' || undefined== uid){
+				if (uid == '' || undefined == uid) {
 					wx.alert("您还没有登录哦");
-				}else{
+				} else {
 					$.ajax({
-						url:"${ctx}/user/checkInfo.htm",
-						type:"post",
-						data:{uid:uid,cid:dataid},
-						dataType:"json",
-						success:function(obj){
-							if(obj.code ==1){
+						url : "${ctx}/user/checkInfo.htm",
+						type : "post",
+						data : {
+							uid : uid,
+							cid : dataid
+						},
+						dataType : "json",
+						success : function(obj) {
+							if (obj.code == 1) {
 								wx.alert("报名成功，请保持联系方式畅通，我们会尽快联系您");
-							}else{
+							} else {
 								wx.alert("请到个人设置中完善您的联系方式");
 							}
 						}
@@ -325,9 +340,13 @@
 		});
 	</script>
 	<script type="text/javascript">
-	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe2b6fa1ff48b85f8c94d75e7a60f6e5f' type='text/javascript'%3E%3C/script%3E"));
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://"
+				: " http://");
+		document
+				.write(unescape("%3Cscript src='"
+						+ _bdhmProtocol
+						+ "hm.baidu.com/h.js%3Fe2b6fa1ff48b85f8c94d75e7a60f6e5f' type='text/javascript'%3E%3C/script%3E"));
 	</script>
-	
+
 </body>
 </html>
