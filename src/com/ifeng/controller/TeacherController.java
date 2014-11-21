@@ -92,6 +92,7 @@ public class TeacherController {
 	 * @param detail
 	 * @return
 	 */
+	
 	@RequestMapping("add")
 	public Object add(String cname,String cage,String cid,String pro,String cty,String are,String addre,String bri,String detail,String ved,String img){
 		int flag = 0;
