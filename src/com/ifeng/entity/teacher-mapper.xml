@@ -4,11 +4,11 @@
 <mapper namespace="Teacher">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name,sex,age,province,city,area,address,tag,detail,createdAt,changedAt,status,imgUrl,videoUrl,category
+		id,name,sex,age,province,city,area,address,tag,detail,createdAt,changedAt,status,imgUrl,videoUrl,category,brief
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Teacher">
-		insert into t_teacher(name,sex,age,province,city,area,address,tag,detail,imgUrl,createdAt,changedAt,status,videoUrl,category)
+		insert into t_teacher(name,sex,age,province,city,area,address,tag,detail,imgUrl,createdAt,changedAt,status,videoUrl,category,brief)
 		values 
 		(
 		#{name},
@@ -25,7 +25,8 @@
 		 #{changedAt},
 		 #{status},
 		 #{videoUrl},
-		 #{category}
+		 #{category},
+		 #{brief}
 		)
 	</insert>
 	

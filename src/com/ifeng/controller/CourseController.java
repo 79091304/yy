@@ -113,7 +113,7 @@ public class CourseController {
 			course.setCity(cty);
 			course.setArea(are);
 			course.setVideoUrl(ved);
-			course.setDetail(bri);
+			course.setBrief(bri);
 			course.setImgUrl(img);
 			course.setCreatedBy(uname);
 			course.setTeacherId(uid);

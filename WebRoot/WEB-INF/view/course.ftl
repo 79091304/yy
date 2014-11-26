@@ -74,7 +74,7 @@
 							</div>
 						</div>
 						<div class="bd">
-							<#if course.videoUrl ??>
+							<#if course.videoUrl >
 								<div id="youku-playerBox" style="width: 570; height: 430;">
 									<object type="application/x-shockwave-flash"
 										data="${course.videoUrl}"

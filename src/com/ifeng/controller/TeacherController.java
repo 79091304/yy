@@ -55,7 +55,7 @@ public class TeacherController {
 		}*/
 		page.setRecords(teachers);
 		mv.addObject("sid", sid);
-		mv.addObject("page", page);
+		mv.addObject("pager", page);
 		return mv;
 	}
 	
@@ -109,7 +109,7 @@ public class TeacherController {
 			teacher.setCity(cty);
 			teacher.setArea(are);
 			teacher.setVideoUrl(ved);
-			teacher.setDetail(bri);
+			teacher.setBrief(bri);
 			teacher.setImgUrl(img);
 			teacher.setStatus(Course.STATUS_OFF);
 			teacher.setDetail(detail);

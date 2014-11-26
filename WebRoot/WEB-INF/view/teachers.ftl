@@ -103,12 +103,12 @@
 			</div>
 			<div class="item-lists">
 				<ul class="clearfix">
-				<#list page.records as item>
+				<#list pager.records as item>
 					<li>
 						<!--Deal Card Module-->
 						<div class="list-item">
 							<a class="item-figure" href="${ctx}/teacher/getInfo.htm?id=${item.id}" target="_blank">
-								<img src="${item.imgUrl!'www.lanrenyuan.com/images/teacher.jpg'}" alt="${item.name}" title="${item.name}" />
+								<img src="${ctx}/image/out.htm?uri=${item.imgUrl}" alt="${item.name}" title="${item.name}" />
 							</a>
 							<div class="item-upvote">
 								<a class="icons " href="javascript:void(0);" rel="9"
@@ -118,19 +118,19 @@
 								<a href="${ctx}/teacher/getInfo.htm?id=${item.id}" target="_blank">${item.name}</a>
 							</h3>
 							<div class="item-caption">
-								<span class="caption-title">五朵花</span>
+								<span class="caption-title">${item.brief}</span>
 							</div>
 						</div>
 					</li>
 					</#list>
 				</ul>
-				<div class="page tr">
-					&nbsp;<A class='select common-sprite'>1</a>&nbsp;<a
-						class='common-sprite' href='/browse/id-22-p-2'>&nbsp;2&nbsp;</a>&nbsp;<a
-						class='common-sprite' href='/browse/id-22-p-3'>&nbsp;3&nbsp;</a>&nbsp;<a
-						class='common-sprite' href='/browse/id-22-p-4'>&nbsp;4&nbsp;</a>&nbsp;<a
-						class='common-sprite' href='/browse/id-22-p-5'>&nbsp;5&nbsp;</a> <a
-						class='next' href='/browse/id-22-p-2'>下一页</a>
+				<div class="page tr" id="pageDiv" >
+					<#list 1..(pager.pageCount) as pt>
+						<a class='common-sprite' pageNow=${pt} >&nbsp;${pt}&nbsp;
+					</#list>
+					<#if (pager.pageCount>1) >
+						<a class='next' href='/browse/id-22-p-2'>下一页</a>
+					</#if>
 				</div>
 			</div>
 		</div>

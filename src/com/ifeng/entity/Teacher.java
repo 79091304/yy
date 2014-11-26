@@ -18,6 +18,8 @@ public class Teacher implements Serializable{
 	
 	private int sex;
 	
+	private String brief;
+	
 	private String province;//所属地区
 	
 	private String city;
@@ -168,5 +170,13 @@ public class Teacher implements Serializable{
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getBrief() {
+		return brief;
+	}
+
+	public void setBrief(String brief) {
+		this.brief = brief;
 	}
 }
