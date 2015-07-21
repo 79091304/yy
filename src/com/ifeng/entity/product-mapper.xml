@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Product">
+	<!-- 以下与实体类的中字段一致 -->
+	<sql id="selectId">
+		id,name，status,attribute,created,vendorid,imgurl
+	</sql>
+	<!-- 增加用户 -->
+	<insert id="add" parameterType="Product">
+		insert into p_product(name,status,attribute,created,imgurl,vendorid)
+		values 
+		(
+		 #{name},
+		 #{status},
+		 #{attribute},
+		 #{created},
+		 #{imgurl},
+		 #{vendorid}
+		)
+	</insert>
+	
+	<update id="update"  parameterType="Product">
+	    update p_product 
+	    <set>
+	        <if test="status != null and status != ''">
+				status=#{status}
+			</if>
+			<if test="detail != null and detail != ''">
+				detail=#{detail}
+			</if>
+			<if test="videoUrl != null and videoUrl != ''">
+				videoUrl=#{videoUrl}
+			</if>
+			<if test="imgUrl != null and imgUrl != ''">
+				imgUrl=#{imgUrl}
+			</if>
+			<if test="scount != null and scount != ''">
+				scount=#{scount}
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+	<select id="queryByC" resultType="product" parameterType="int">
+		select
+		<include refid="selectId" />
+		from p_product order by createdAt desc
+		<if test="_parameter!=null ">
+		    limit #{_parameter}
+		</if> 
+	</select>
+	
+	<select  id="getById" resultType="Product"  parameterType="int">
+	    select 
+		<include refid="selectId" />
+		from p_product t 
+		<if test="_parameter!=null">
+		    <where>
+		        t.id = #{_parameter}
+		    </where>
+		</if>
+	</select>
+	
+	<!-- 分页查询 -->
+	<!-- 默认查询报名中 和已经结束的课程  -->
+	<select  id="pageQuery" resultType="Product"  parameterType="java.util.Map">
+	   select 
+		<include refid="selectId" />
+		 from p_product 
+		 <where>
+		 	1=1
+		 	<if test="t.status == -1 ">
+		 		and status in (0,1)
+		 	</if>
+		 	<if test="t.status != -1">
+		 	    and status = #{status}
+		 	</if>
+		 </where>
+	</select>
+	
+	
+	
+	<update id="liked"   parameterType="int"   >
+			update p_product set liked = liked +1 
+			<if test="_parameter!=null">
+		    <where>
+		        id = #{_parameter}
+		    </where>
+		</if>
+	</update>
+	
+	<select  id="getCount" resultType="int"  parameterType="Product">
+	    select 
+		 count(*)
+		from p_product t 
+		    <where>
+		        	1=1 
+				<if test="category != null">
+		        	and t.category = #{category}
+				</if>
+				<if test="status != null">
+		        	and t.status = #{status}
+				</if>
+		    </where>
+	</select>
+</mapper>
+	

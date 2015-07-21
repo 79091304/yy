@@ -10,6 +10,8 @@
 		<typeAlias type="com.ifeng.entity.Teacher" alias="Teacher" />
 		<typeAlias type="com.ifeng.entity.Course" alias="Course" />
 		<typeAlias type="com.ifeng.entity.Category" alias="Category" />
+		<typeAlias type="com.ifeng.entity.Product" alias="Product" />
 		<typeAlias type="com.ifeng.entity.Comment" alias="Comment" />
+		<typeAlias type="com.ifeng.entity.Vendor" alias="Vendor" />
 	</typeAliases>
 </configuration>

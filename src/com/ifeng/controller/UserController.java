@@ -83,7 +83,7 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("index");
 		if(StringUtils.isNotEmpty(uid) && StringUtils.isNotEmpty(checkcode)){
 			User user = userService.getById(Long.parseLong(uid));
-			user.setState(User.STATE_NOMAL);
+			user.setStatus(User.STATE_NOMAL);
 			int result = userService.modify(user);
 			String md5code = MD5Sec.md5(checkcode);
 			if(md5code.equals(user.getVerify()) && result > 0){
@@ -113,10 +113,7 @@ public class UserController {
 			user.setUsername(username);
 		if(StringUtils.isNotEmpty(password))
 			user.setPassword(password);
-		if(StringUtils.isNotEmpty(website))
-			user.setWebsite(website);
-		if(StringUtils.isNotEmpty(desc))
-			user.setIntro(desc);
+		
 		int result = userService.modify(user);
 		if(result > 0)
 			return ResponseMessage.SUCCESS;

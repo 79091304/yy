@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Vendor">
+	<!-- 以下与实体类的中字段一致 -->
+	<sql id="selectId">
+		id,name,phone,bussinessLicenceImgUrl,address,createdAt
+	</sql>
+	<select id="query" resultType="Vendor" parameterType="long">
+		select
+		<include refid="selectId" />
+		from v_vendor t
+		<where>
+			<if test="id != null and id  != ''">
+				id=#{id} 
+				</if>
+		</where>
+	</select>
+	
+	<select id="queryAll" resultType="Vendor" parameterType="Vendor">
+		select
+		<include refid="selectId" />
+		from v_vendor 
+	</select>
+	
+	
+	
+	
+	<!-- 总记录数 -->
+	<select id="count" parameterType="Vendor" resultType="int">
+		select count(0) from v_vendor
+	</select>
+
+
+	
+	
+	
+	
+</mapper>
