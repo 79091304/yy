@@ -14,13 +14,13 @@ public class Order implements Serializable{
 	
 	private int state;//状态
 	
-	private String cid;//课程id
+	private long productid;//
 	
 	private Date createdAt;
 	
 	private Date changedAt;
 	
-	private String userid;//用户id
+	private long userid;//用户id
 	
 
 	public long getId() {
@@ -58,21 +58,23 @@ public class Order implements Serializable{
 		this.changedAt = changedAt;
 	}
 
-	public String getCid() {
-		return cid;
+	public long getProductid() {
+		return productid;
 	}
 
-	public void setCid(String cid) {
-		this.cid = cid;
+	public void setProductid(long productid) {
+		this.productid = productid;
 	}
 
-	public String getUserid() {
+	public long getUserid() {
 		return userid;
 	}
 
-	public void setUserid(String userid) {
+	public void setUserid(long userid) {
 		this.userid = userid;
 	}
+
+	
 
 
 

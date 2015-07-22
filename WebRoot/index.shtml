@@ -27,24 +27,14 @@
 			<div class="menu">
 				<ul class="clearfix" id="headermenu">
 					<li class="select"><a href="index.shtml">首页 </a></li>
-					<li><a href="./course/list.htm">课程</a></li>
-					<li><a href="./teacher/list.htm">教师 </a></li>
-					<li><a href="./teacher/list.htm">新人帮助</a></li>
-					<li><a href="./course/prepublish.htm">发布课程</a></li>
+					<li><a href="./course/list.htm">产品与服务</a></li>
+					<li><a href="./teacher/list.htm">在线租赁</a></li>
+					<li><a href="./teacher/list.htm">租主招募</a></li>
+					
 				</ul>
 			</div>
 			<!--menu end-->
-			<!--search start-->
-			<div class="search common-sprite ie6fixpic sw">
-				<form autocomplete="off" action="/deals" method="post"
-					id="header_new_search_form" wx-validator="">
-					<input placeholder="搜索" name="k" wx-validator-placeholder="搜索"
-						wx-validator-rule="required" class="search-key gray"
-						wx-validator-notip="" type="text"> <input
-						id="Js-search-submit" class="btn-search ie6fixpic" type="submit">
-				</form>
-			</div>
-			<!--search end-->
+		
 
 			<!-- user menu start-->
 			<div class="user-menu" id="jsddm">
@@ -82,16 +72,14 @@
 		<div class="subnav">
 			<div class="nav clearfix">
 				<ul>
-					<li class="select"><a title="浏览全部" href="browse">浏览全部</a></li>
-					<li><a href="./course/list.htm?cid=0" title="中小学补习">中小学补习</a></li>
-					<li><a href="./course/list.htm?cid=1" title="瑜伽">瑜伽</a></li>
-					<li><a href="./course/list.htm?cid=2" title="托福">托福</a></li>
-					<li><a href="./course/list.htm?cid=3" title="健身">健身</a></li>
-					<li><a href="./course/list.htm?cid=4" title="音乐">音乐</a></li>
-					<li><a href="./course/list.htm?cid=5" title="母婴">母婴</a></li>
-					<li><a href="./course/list.htm?cid=6" title="心理">心理</a></li>
-					<li><a href="./course/list.htm?cid=7" title="游泳">游泳</a></li>
-					<li><a href="./course/list.htm?cid=8" title="公益">公益</a></li>
+					<li class="select"><a title="吊车" href="browse">吊车</a></li>
+					<li><a href="./course/list.htm?cid=0" title="挖掘机">挖掘机</a></li>
+					<li><a href="./course/list.htm?cid=1" title="推土机">推土机</a></li>
+					<li><a href="./course/list.htm?cid=2" title="脚手架">脚手架</a></li>
+					<li><a href="./course/list.htm?cid=3" title="扣件">扣件</a></li>
+					<li><a href="./course/list.htm?cid=4" title="搅拌机">搅拌机</a></li>
+					<li><a href="./course/list.htm?cid=5" title="模板">模板</a></li>
+					<li><a href="./course/list.htm?cid=6" title="管材">管材</a></li>
 					<li><a href="./course/list.htm?cid=9" title="其他">其他</a></li>
 				</ul>
 
@@ -235,19 +223,18 @@
 			<div class="mod-title clearfix">
 				<h2>热门课程</h2>
 				<div class="title-sub">
-					<a href="./course/list.htm?cid=0" title="中小学补习"
-						pbtag="hangye,hangye_12">中小学补习</a> <a
-						href="./course/list.htm?cid=1" title="瑜伽" pbtag="hangye,hangye_12">瑜伽</a>
-					<a href="./course/list.htm?cid=2" title="托福"
-						pbtag="hangye,hangye_22">托福</a> <a href="./course/list.htm?cid=3"
-						title="健身" pbtag="hangye,hangye_13">健身</a> <a
-						href="./course/list.htm?cid=4" title="音乐" pbtag="hangye,hangye_20">音乐</a>
-					<a href="./course/list.htm?cid=5" title="母婴"
-						pbtag="hangye,hangye_15">母婴</a> <a href="./course/list.htm?cid=6"
-						title="心理" pbtag="hangye,hangye_16">心理</a> <a
-						href="./course/list.htm?cid=7" title="游泳" pbtag="hangye,hangye_25">游泳</a>
-					<a href="./course/list.htm?cid=8" title="公益"
-						pbtag="hangye,hangye_23">公益</a> <a href="./course/list.htm?cid=9"
+					<a href="./course/list.htm?cid=0" title="吊车"
+						pbtag="hangye,hangye_12">吊车</a> <a
+						href="./course/list.htm?cid=1" title="推土机" pbtag="hangye,hangye_12">推土机</a>
+					<a href="./course/list.htm?cid=2" title="挖掘机"
+						pbtag="hangye,hangye_22">挖掘机</a> <a href="./course/list.htm?cid=3"
+						title="脚手架" pbtag="hangye,hangye_13">脚手架</a> <a
+						href="./course/list.htm?cid=4" title="扣件" pbtag="hangye,hangye_20">扣件</a>
+					<a href="./course/list.htm?cid=5" title="模板"
+						pbtag="hangye,hangye_15">模板</a> <a href="./course/list.htm?cid=6"
+						title="管材" pbtag="hangye,hangye_16">管材</a> <a
+						href="./course/list.htm?cid=7" title="搅拌机" pbtag="hangye,hangye_25">搅拌机</a>
+					 <a href="./course/list.htm?cid=9"
 						title="其他" pbtag="hangye,hangye_18">其他</a>
 				</div>
 			</div>

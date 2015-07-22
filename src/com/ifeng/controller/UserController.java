@@ -66,8 +66,7 @@ public class UserController {
 		if(StringUtils.isNotEmpty(phone)){
 			Order order = new Order();
 			order.setCreatedAt(new Date());
-			order.setCid(cid);
-			order.setUserid(userid);
+			
 			int result = orderService.createOrder(order);
 			if(result > 0)
 				return ResponseMessage.SUCCESS;

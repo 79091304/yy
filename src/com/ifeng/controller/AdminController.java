@@ -12,8 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.Instant;
 import com.ifeng.common.ResponseMessage;
-import com.ifeng.entity.Course;
-import com.ifeng.service.CourseService;
+import com.ifeng.entity.Product;
+import com.ifeng.service.ProductService;
 import com.ifeng.util.PageView;
 /**
  * 后台管理类
@@ -27,7 +27,7 @@ public class AdminController {
 	private static Log log = LogFactory.getLog(AdminController.class);
 	
 	@Autowired
-	private CourseService courseService;
+	private ProductService productService;
 	
 	/**
 	 * 审核课程
@@ -35,16 +35,16 @@ public class AdminController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping("auditCourse")
-	public Object auditCourse(int id,int state){
+	@RequestMapping("auditProduct")
+	public Object auditProduct(int id,int state){
 		int updatecount = 0;
 		if(0 != id && 0!= state)
 		{
 			log.info("审核课程，课程id:"+id+"，课程状态："+state);
-			Course course = new Course();
-			course.setId(id);
-			course.setStatus(state);
-			updatecount = courseService.modify(course);
+			Product product = new Product();
+			product.setId(id);
+			product.setStatus(state);
+			updatecount = productService.modify(product);
 		}
 		if(updatecount >0)
 			return ResponseMessage.SUCCESS;
@@ -57,12 +57,12 @@ public class AdminController {
 	 */
 	@RequestMapping("auditList")
 	public ModelAndView auditList(){
-		ModelAndView mv = new ModelAndView("acourses");
-		Course course = new Course();
-		course.setStatus(Course.STATUS_ONLINE);
+		ModelAndView mv = new ModelAndView("aproducts");
+		Product product = new Product();
+		product.setStatus(Product.STATUS_ONLINE);
 		PageView pager = new PageView(Instant.PAGE_SIZE, 0);
-		List<Course> courses = courseService.queryPage(pager, course);
-		mv.addObject("courses", courses);
+		List<Product> products = productService.queryPage(pager, product);
+		mv.addObject("products", products);
 		return mv;
 	}
 }

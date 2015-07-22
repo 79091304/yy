@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifeng.common.Instant;
-import com.ifeng.entity.Course;
-import com.ifeng.entity.Teacher;
+import com.ifeng.entity.Product;
 import com.ifeng.entity.User;
-import com.ifeng.service.CourseService;
-import com.ifeng.service.TeacherService;
+import com.ifeng.service.ProductService;
 import com.ifeng.service.UserService;
 import com.ifeng.util.AesSec;
 
@@ -28,10 +26,8 @@ public class IndexController {
 	private UserService userService;
 	
 	@Autowired
-	private CourseService courseService;
+	private ProductService productService;
 	
-	@Autowired
-	private TeacherService teacherService;
 	
 	/**
 	 * 首页
@@ -58,10 +54,8 @@ public class IndexController {
 		if(null != user){
 			mv.addObject("user", user);	
 		}
-		List<Course> courses = courseService.listForIndex(4);
-		List<Teacher> teachers = teacherService.listForIndex(4);
-		mv.addObject("courses", courses);
-		mv.addObject("teachers", teachers);	
+		List<Product> products = productService.listForIndex(4);
+		mv.addObject("products", products);
 		return mv;
 	}
 }

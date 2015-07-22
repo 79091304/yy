@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class Product {
 
+	public static final int STATUS_ONLINE = 1;
+
+	public static final int STATUS_OFF = 0;
+
 	private long id;
 	
 	private int status;
@@ -23,6 +27,8 @@ public class Product {
 	private String vendorid;//供应商id
 	
 	private String imgurl;//产品图片用","分隔开 最多四张图
+	
+	private Date changedAt;
 
 	public long getId() {
 		return id;
@@ -86,6 +92,14 @@ public class Product {
 
 	public void setDetail(String detail) {
 		this.detail = detail;
+	}
+
+	public Date getChangedAt() {
+		return changedAt;
+	}
+
+	public void setChangedAt(Date changedAt) {
+		this.changedAt = changedAt;
 	}
 	
 	
