@@ -9,12 +9,6 @@ import com.ifeng.util.PageView;
 
 public interface ProductDao extends BaseDao<Product>{
 
-	/**
-	 * 查询指定数目的
-	 * @param count
-	 * @return
-	 */
-	public List<Product> queryByC(int count);
 	
 	/**
 	 * 分页查询
@@ -22,12 +16,6 @@ public interface ProductDao extends BaseDao<Product>{
 	 */
 	public List<Product> queryForPage(PageView page,Product product);
 	
-	/**
-	 * 增加liked
-	 * @param id
-	 * @return
-	 */
-	public int increaseLiked(String id);
 	
 	/**
 	 * 获取记录数

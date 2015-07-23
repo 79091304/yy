@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> listForIndex(int count) {
-		return productDao.queryByC(count);
+		return null;
 	}
 
 	@Override
@@ -37,10 +37,6 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.add(product);
 	}
 
-	@Override
-	public int liked(String id) {
-		return productDao.increaseLiked(id);
-	}
 
 	@Override
 	public int queryAllCount(Product product) {

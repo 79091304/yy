@@ -15,20 +15,12 @@ import com.ifeng.util.PageView;
 @Repository("productDao")
 public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 
-	@Override
-	public List<Product> queryByC(int count) {
-		return this.getSqlSession().selectList(this.getClassName()+".queryByC", count);
-	}
 
 	@Override
 	public List<Product> queryForPage(PageView page,Product product) {
 		return this.query(page, product);
 	}
 
-	@Override
-	public int increaseLiked(String id) {
-		return this.getSqlSession().update(this.getClassName()+".liked", id);
-	}
 
 	@Override
 	public int getCount(Product product) {

@@ -4,17 +4,17 @@
 <mapper namespace="Product">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name，status,attribute,created,vendorid,imgurl
+		id,name,status,attribute,createdAt,vendorid,imgurl
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Product">
-		insert into p_product(name,status,attribute,created,imgurl,vendorid)
+		insert into p_product(name,status,attribute,createdAt,imgurl,vendorid)
 		values 
 		(
 		 #{name},
 		 #{status},
 		 #{attribute},
-		 #{created},
+		 #{createdAt},
 		 #{imgurl},
 		 #{vendorid}
 		)
@@ -23,20 +23,20 @@
 	<update id="update"  parameterType="Product">
 	    update p_product 
 	    <set>
-	        <if test="status != null and status != ''">
-				status=#{status}
+	        <if test="name != null and name != ''">
+				name=#{name}
 			</if>
 			<if test="detail != null and detail != ''">
-				detail=#{detail}
+				status=#{status}
 			</if>
-			<if test="videoUrl != null and videoUrl != ''">
-				videoUrl=#{videoUrl}
+			<if test="attribute != null and attribute != ''">
+				attribute=#{attribute}
 			</if>
-			<if test="imgUrl != null and imgUrl != ''">
-				imgUrl=#{imgUrl}
+			<if test="imgurl != null and imgurl != ''">
+				imgurl=#{imgurl}
 			</if>
-			<if test="scount != null and scount != ''">
-				scount=#{scount}
+			<if test="vendorid != null and vendorid != ''">
+				vendorid=#{vendorid}
 			</if>
 		</set>
 		where id=#{id}
@@ -81,28 +81,7 @@
 	
 	
 	
-	<update id="liked"   parameterType="int"   >
-			update p_product set liked = liked +1 
-			<if test="_parameter!=null">
-		    <where>
-		        id = #{_parameter}
-		    </where>
-		</if>
-	</update>
 	
-	<select  id="getCount" resultType="int"  parameterType="Product">
-	    select 
-		 count(*)
-		from p_product t 
-		    <where>
-		        	1=1 
-				<if test="category != null">
-		        	and t.category = #{category}
-				</if>
-				<if test="status != null">
-		        	and t.status = #{status}
-				</if>
-		    </where>
-	</select>
+
 </mapper>
 	

@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>懒人园</title>
-<meta name="keywords" content="家教 教育 英语 健身 母婴">
-<meta name="description" content="懒人园是国内最专业的私人教育学习平台 我们提供更多优质课程 资深教师">
+<title>租赁网</title>
+<meta name="keywords" content="吊车 吊篮 模板 搅拌机 扣件 管材">
+<meta name="description" content="国内最专业的建材租赁网站">
 <link rel="stylesheet" type="text/css" href="./css/common.css">
 <link rel="stylesheet" type="text/css" href="./css/index.css">
 <script type="text/javascript" src="./js/jquery.js"></script>
@@ -27,7 +27,7 @@
 			<div class="menu">
 				<ul class="clearfix" id="headermenu">
 					<li class="select"><a href="index.shtml">首页 </a></li>
-					<li><a href="./course/list.htm">产品与服务</a></li>
+					<li><a href="./product/list.htm">产品与服务</a></li>
 					<li><a href="./teacher/list.htm">在线租赁</a></li>
 					<li><a href="./teacher/list.htm">租主招募</a></li>
 					
@@ -73,14 +73,14 @@
 			<div class="nav clearfix">
 				<ul>
 					<li class="select"><a title="吊车" href="browse">吊车</a></li>
-					<li><a href="./course/list.htm?cid=0" title="挖掘机">挖掘机</a></li>
-					<li><a href="./course/list.htm?cid=1" title="推土机">推土机</a></li>
-					<li><a href="./course/list.htm?cid=2" title="脚手架">脚手架</a></li>
-					<li><a href="./course/list.htm?cid=3" title="扣件">扣件</a></li>
-					<li><a href="./course/list.htm?cid=4" title="搅拌机">搅拌机</a></li>
-					<li><a href="./course/list.htm?cid=5" title="模板">模板</a></li>
-					<li><a href="./course/list.htm?cid=6" title="管材">管材</a></li>
-					<li><a href="./course/list.htm?cid=9" title="其他">其他</a></li>
+					<li><a href="./product/list.htm?cid=0" title="挖掘机">挖掘机</a></li>
+					<li><a href="./product/list.htm?cid=1" title="推土机">推土机</a></li>
+					<li><a href="./product/list.htm?cid=2" title="脚手架">脚手架</a></li>
+					<li><a href="./product/list.htm?cid=3" title="扣件">扣件</a></li>
+					<li><a href="./product/list.htm?cid=4" title="搅拌机">搅拌机</a></li>
+					<li><a href="./product/list.htm?cid=5" title="模板">模板</a></li>
+					<li><a href="./product/list.htm?cid=6" title="管材">管材</a></li>
+					<li><a href="./product/list.htm?cid=9" title="其他">其他</a></li>
 				</ul>
 
 			</div>
@@ -93,11 +93,11 @@
 			<div class="wrap" style="overflow: hidden;">
 				<ul id="JS-banner_ul" class="clearfix"
 					style="height: 392px; width: 7680px; margin-left: 0px;">
-					<li><a target="_blank" href="http://www.lanrenyuan.com/course/getInfo.htm?id=14"> <img class="lz"
+					<li><a target="_blank" href="http://www.lanrenyuan.com/product/getInfo.htm?id=14"> <img class="lz"
 							width="960" height="392"
 							src="http://y2.ifengimg.com/fdca68b85c95a2e6/2014/1016/rdn_543f6681b69e8.jpg">
 					</a></li>
-					<li><a target="_blank" href="http://www.lanrenyuan.com/course/getInfo.htm?id=8"> <img class="lz"
+					<li><a target="_blank" href="http://www.lanrenyuan.com/product/getInfo.htm?id=8"> <img class="lz"
 							width="960" height="392"
 							src="http://y3.ifengimg.com/cmpp/2014/09/29/0d1a95b56eedf898e1991f15ecd36315_960_320.jpg">
 					</a></li>
@@ -105,7 +105,7 @@
 							width="960" height="392"
 							src="http://y0.ifengimg.com/cmpp/2014/09/29/3108da506558c407319859c9ea768d3e_960_320.jpg">
 					</a></li>
-					<li><a target="_blank" href="http://www.lanrenyuan.com/course/getInfo.htm?id=11"> <img class="lz"
+					<li><a target="_blank" href="http://www.lanrenyuan.com/product/getInfo.htm?id=11"> <img class="lz"
 							width="960" height="392"
 							src="http://y0.ifengimg.com/cmpp/2014/09/29/591e3f9326b29fd119d70eb90d1d6c4a_960_320.jpg">
 					</a></li>
@@ -113,11 +113,11 @@
 							width="960" height="392"
 							src="http://y1.ifengimg.com/cmpp/2014/09/29/852e313b0fe3d808f7398383359a1441_960_320.jpg">
 					</a></li>
-					<li><a target="_blank" href="http://www.lanrenyuan.com/course/getInfo.htm?id=12"> <img
+					<li><a target="_blank" href="http://www.lanrenyuan.com/product/getInfo.htm?id=12"> <img
 							src="http://y2.ifengimg.com/cmpp/2014/09/29/3d9edefe3edbb677c5505ad4510822a1_960_320.jpg"
 							width="960" height="392">
 					</a></li>
-					<li><a target="_blank" href="http://www.lanrenyuan.com/course/getInfo.htm?id=10"> <img class="lz"
+					<li><a target="_blank" href="http://www.lanrenyuan.com/product/getInfo.htm?id=10"> <img class="lz"
 							width="960" height="392"
 							src="http://y1.ifengimg.com/cmpp/2014/09/29/ff3068755766ef9f33fc883415a186b4_960_320.jpg">
 					</a></li>
@@ -223,25 +223,25 @@
 			<div class="mod-title clearfix">
 				<h2>热门课程</h2>
 				<div class="title-sub">
-					<a href="./course/list.htm?cid=0" title="吊车"
+					<a href="./product/list.htm?cid=0" title="吊车"
 						pbtag="hangye,hangye_12">吊车</a> <a
-						href="./course/list.htm?cid=1" title="推土机" pbtag="hangye,hangye_12">推土机</a>
-					<a href="./course/list.htm?cid=2" title="挖掘机"
-						pbtag="hangye,hangye_22">挖掘机</a> <a href="./course/list.htm?cid=3"
+						href="./product/list.htm?cid=1" title="推土机" pbtag="hangye,hangye_12">推土机</a>
+					<a href="./product/list.htm?cid=2" title="挖掘机"
+						pbtag="hangye,hangye_22">挖掘机</a> <a href="./product/list.htm?cid=3"
 						title="脚手架" pbtag="hangye,hangye_13">脚手架</a> <a
-						href="./course/list.htm?cid=4" title="扣件" pbtag="hangye,hangye_20">扣件</a>
-					<a href="./course/list.htm?cid=5" title="模板"
-						pbtag="hangye,hangye_15">模板</a> <a href="./course/list.htm?cid=6"
+						href="./product/list.htm?cid=4" title="扣件" pbtag="hangye,hangye_20">扣件</a>
+					<a href="./product/list.htm?cid=5" title="模板"
+						pbtag="hangye,hangye_15">模板</a> <a href="./product/list.htm?cid=6"
 						title="管材" pbtag="hangye,hangye_16">管材</a> <a
-						href="./course/list.htm?cid=7" title="搅拌机" pbtag="hangye,hangye_25">搅拌机</a>
-					 <a href="./course/list.htm?cid=9"
+						href="./product/list.htm?cid=7" title="搅拌机" pbtag="hangye,hangye_25">搅拌机</a>
+					 <a href="./product/list.htm?cid=9"
 						title="其他" pbtag="hangye,hangye_18">其他</a>
 				</div>
 			</div>
 			<div class="focus-box" style="overflow: hidden;">
 				<ul id="JS-recommend_ul" class="focus-con clearfix"
 					style="width: 980px;">
-					<!--#include file="/course.html"-->
+					<!--#include file="/product.html"-->
 				</ul>
 				<ul id="JS-recommend_btns" class="focus-btn clearfix">
 					<li id="JS-recommend_pre" class="prev"><span

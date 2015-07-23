@@ -143,18 +143,5 @@ public class ProductController {
 		return mv;
 	}
 
-	/**
-	 * 喜欢
-	 * 
-	 * @param id
-	 */
-	@ResponseBody
-	@RequestMapping("like")
-	public Object like(String id) {
-		int result = this.productService.liked(id);
-		if (result > 0)
-			return ResponseMessage.SUCCESS;
-		return ResponseMessage.FAIL;
-	}
 
 }
