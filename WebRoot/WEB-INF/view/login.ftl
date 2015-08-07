@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>用户登录-懒人园-中国最专业的私人教育平台</title>
-<meta name="keywords" content="家教 教育 英语">
-<meta name="description" content="懒人园是国内最权威的在线学习平台 我们提供更多优质课程 资深教师">
+<title>租赁网</title>
+<meta name="keywords" content="吊车 吊篮 模板 搅拌机 扣件 管材">
+<meta name="description" content="国内最专业的建材租赁网站">
 
 <link rel="stylesheet" type="text/css" href="${ctx }/css/login.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/common.css">

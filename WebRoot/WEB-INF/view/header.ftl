@@ -8,11 +8,10 @@
 			<!--menu start-->
 			<div class="menu">
 				<ul class="clearfix" id="headermenu">
-					<li class="select"  ><a href="${ctx}/index.shtml">首页 </a></li>
-					<li ><a href="${ctx}/course/list.htm">课程</a></li>
-					<li><a href="${ctx}/teacher/list.htm">教师 </a></li>
-					<li><a href="${ctx}/teacher/list.htm">新人帮助</a></li>
-					<li><a href="${ctx}/course/prepublish.htm">发布课程</a></li>
+					<li class="select"><a href="index.shtml">首页 </a></li>
+					<li><a href=""${ctx}/product/list.htm">产品与服务</a></li>
+					<li><a href=""${ctx}/teacher/list.htm">在线租赁</a></li>
+					<li><a href=""${ctx}/teacher/list.htm">租主招募</a></li>
 				</ul>
 			</div>
 			<!--menu end-->

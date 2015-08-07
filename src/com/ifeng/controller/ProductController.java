@@ -41,7 +41,6 @@ public class ProductController {
 	 * @return
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@RequestMapping("list")
 	public ModelAndView list(String sid, String pageNow, String cid,String orderby,
 			HttpServletRequest request) throws IOException {
