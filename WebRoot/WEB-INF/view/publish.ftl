@@ -2,9 +2,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>发布课程-懒人园-中国最具权威的教育平台</title>
-<meta name="keywords" content="家教 教育 英语 健身 母婴">
-<meta name="description" content="懒人园是国内最权威的在线学习平台 我们提供更多优质课程 资深教师">
+<title>租赁网</title>
+<meta name="keywords" content="吊车 吊篮 模板 搅拌机 扣件 管材">
+<meta name="description" content="国内最专业的建材租赁网站">
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/common.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/css/publish.css">
@@ -34,24 +34,14 @@
 			<div class="menu">
 				<ul class="clearfix" id="headermenu">
 					<li><a href="${ctx}/index.shtml">首页 </a></li>
-					<li><a href="${ctx}/course/list.htm">课程</a></li>
-					<li><a href="${ctx}/teacher/list.htm">教师 </a></li>
-					<li><a href="${ctx}/teacher/list.htm">新人帮助</a></li>
-					<li class="select"><a href="${ctx}/course/prepublish.htm">发布课程</a></li>
+					<li><a href="${ctx}/course/list.htm">产品与服务</a></li>
+					<li><a href="${ctx}/teacher/list.htm">在线租赁 </a></li>
+					<li><a href="${ctx}/publish/index.htm">租主招募</a></li>
+					
 				</ul>
 			</div>
 			<!--menu end-->
-			<!--search start-->
-			<div class="search common-sprite ie6fixpic sw">
-				<form autocomplete="off" action="/deals" method="post"
-					id="header_new_search_form" wx-validator="">
-					<input placeholder="搜索" name="k" wx-validator-placeholder="搜索"
-						wx-validator-rule="required" class="search-key gray"
-						wx-validator-notip="" type="text"> <input
-						id="Js-search-submit" class="btn-search ie6fixpic" type="submit">
-				</form>
-			</div>
-			<!--search end-->
+			
 
 			<!-- user menu start-->
 			<div class="user-menu" id="jsddm">
@@ -110,7 +100,7 @@
 							method="post" name="HwForm" id="HwForm" autocomplete="off">
 
 							<div class="tit-wrap">
-								<h3>课程信息</h3>
+								<h3>出租信息</h3>
 							</div>
 							<div class="project-edit">
 								<div class="form-item clearfix">
