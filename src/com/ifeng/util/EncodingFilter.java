@@ -49,6 +49,7 @@ public class EncodingFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request=(HttpServletRequest) req;
 		HttpSession session = request.getSession();
+		session.setAttribute("ctx", request.getContextPath());
 		if(request.getMethod().toUpperCase().equals("GET")){
 			req =new RequestWrapper((HttpServletRequest) req);
 		}else{
