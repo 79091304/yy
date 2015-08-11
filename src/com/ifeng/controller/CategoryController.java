@@ -44,6 +44,9 @@ public class CategoryController {
 	@RequestMapping("getAll")
 	public Object getAll(){
 		List<Category> categories = (List<Category>)manager.get(Instant.CATEGORY_KEY);
+		if(null == categories){
+			categories = categoryService.getAll();
+		}
 		return categories;
 	}
 	

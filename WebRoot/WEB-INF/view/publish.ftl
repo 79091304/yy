@@ -104,26 +104,26 @@
 							</div>
 							<div class="project-edit">
 								<div class="form-item clearfix">
-									<label>课程名称：</label> <input name="cname" type="text" id="cname"
+									<label>名称：</label> <input name="cname" type="text" id="cname"
 										class="inp-w310" wx-validator-rule="required|maxLength"
 										wx-validator-param="|40" wx-validator-placeholder="名称不可超过40个字"
 										wx-validator-name-maxlength="名称不可超过40个字" value=""
 										maxlength="40" placeholder="名称不可超过40个字">
 								</div>
 								<div class="form-item clearfix">
-									<label>课时：</label> <input name="deal_days" id="cdays"
+									<label>数量：</label> <input name="deal_days" id="cdays"
 										type="text"
 										onkeyup="return;this.value=this.value.replace(/[^\.\d]/g,'')"
 										wx-validator-rule="required|digits|range"
 										wx-validator-param="||10-90" wx-validator-placeholder="10~90"
 										value="" placeholder="10~90"><span
-										class="input-notes" style="margin-left: 5px">课时</span><span
+										class="input-notes" style="margin-left: 5px">辆</span><span
 										id="wx-validator-deal_days-required" class="error-text hidden">不能为空</span><span
 										id="wx-validator-deal_days-digits" class="error-text hidden">请填写数字</span><span
 										id="wx-validator-deal_days-range" class="error-text hidden">10~90天</span>
 								</div>
 								<div class="form-item clearfix">
-									<label>类别：</label>
+									<label>种类：</label>
 									<div id="Js-select-cate" class="option-sort">
 										<#list category as item> <span data-id="${item.id}">${item.name}</span>
 										</#list>
@@ -131,7 +131,7 @@
 									<input id="Js-cate" class="hidden" name="cate_id" value="">
 								</div>
 								<div class="form-item clearfix">
-									<label>授课地点：</label>
+									<label>所在地：</label>
 									<div class="option-box">
 										<select name="province" class="fl" id="province"
 											wx-validator-error-value="请选择省份">
@@ -159,7 +159,7 @@
 									</div>
 								</div>
 								<div class="form-item clearfix">
-									<label>课程展示封面：</label>
+									<label>产品展示封面：</label>
 									<div class="up-btn">
 										<div class="ipt-file">
 											<input type="button" id="upload" name="image_file" value="">
@@ -179,7 +179,7 @@
 										placeholder="请输入优酷视频的播放页地址">
 								</div>
 								<div class="form-item clearfix">
-									<label>课程简介：</label>
+									<label>产品简介：</label>
 									<textarea style="width: 60%; height: 30px" name="brief"
 										id="brief" wx-validator-rule="required|maxLength"
 										wx-validator-param="|75" wx-validator-placeholder="不超过75个字"
@@ -190,7 +190,7 @@
 								</div>
 
 								<div class="form-item clearfix">
-									<label>课程详情：</label>
+									<label>产品详情：</label>
 									<div class="ke-container ke-container-default"
 										style="width: 567px;">
 									<textarea id="Js-description" name="detail"

@@ -29,7 +29,7 @@
 					<li class="select"><a href="index.shtml">首页 </a></li>
 					<li><a href="./product/list.htm">产品与服务</a></li>
 					<li><a href="./teacher/list.htm">在线租赁</a></li>
-					<li><a href="./teacher/list.htm">租主招募</a></li>
+					<li><a href="./publish/index.htm">租主招募</a></li>
 				</ul>
 			</div>
 			<!--menu end-->

@@ -48,7 +48,10 @@
 		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 	
-	
+	<!-- 初始化listener -->
+	<listener>
+		<listener-class>com.ifeng.listener.InitListener</listener-class>
+	</listener>
 
 	
 	<!-- 对于请求的get方法，解决乱码问题 -->
