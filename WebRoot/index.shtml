@@ -328,7 +328,7 @@
 		<div class="hot-project-box">
 			<!--mod tit start-->
 			<div class="mod-title clearfix">
-				<h2>优秀教师</h2>
+				<h2>最热</h2>
 				<div class="title-sub"></div>
 			</div>
 			<!--mod tit end-->
@@ -344,7 +344,7 @@
 									onclick="like_deal_v2(2954, this)">27</a>
 							</div>
 							<h3>
-								<a href="/deal-show/id-2954" target="_blank">寻找身边的好老师</a>
+								<a href="/deal-show/id-2954" target="_blank">最优的价格、最好的服务 5公里内无路费</a>
 							</h3>
 							<div class="item-caption">
 								<span class="btn-base btn-red-h20 common-sprite"> <span
@@ -356,7 +356,7 @@
 							</div>
 							<div class="item-rate clearfix">
 								<span class="rate1"> <em>46%</em><br>好评度
-								</span> <span class="rate3"> <em>13</em><br>资历指数
+								</span> <span class="rate3"> <em>130元</em><br>单位：天
 								</span>
 							</div>
 						</div>

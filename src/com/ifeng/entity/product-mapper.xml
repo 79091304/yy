@@ -4,11 +4,11 @@
 <mapper namespace="Product">
 	<!-- 以下与实体类的中字段一致 -->
 	<sql id="selectId">
-		id,name,status,attribute,createdAt,vendorid,imgurl
+		id,name,status,attribute,createdAt,vendorid,imgurl,price
 	</sql>
 	<!-- 增加用户 -->
 	<insert id="add" parameterType="Product">
-		insert into p_product(name,status,attribute,createdAt,imgurl,vendorid)
+		insert into p_product(name,status,attribute,createdAt,imgurl,vendorid,price,brief,categoryid,address)
 		values 
 		(
 		 #{name},
@@ -16,7 +16,11 @@
 		 #{attribute},
 		 #{createdAt},
 		 #{imgurl},
-		 #{vendorid}
+		 #{vendorid},
+		 #{price},
+		 #{brief},
+		 #{categoryid},
+		 #{address},
 		)
 	</insert>
 	
@@ -37,6 +41,18 @@
 			</if>
 			<if test="vendorid != null and vendorid != ''">
 				vendorid=#{vendorid}
+			</if>
+			<if test="price != null and price != ''">
+				price=#{price}
+			</if>
+			<if test="brief != null and brief != ''">
+				brief=#{brief}
+			</if>
+			<if test="categoryid != null and categoryid != ''">
+				categoryid=#{categoryid}
+			</if>
+			<if test="address != null and address != ''">
+				address=#{address}
 			</if>
 		</set>
 		where id=#{id}

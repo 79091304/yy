@@ -115,12 +115,12 @@
 										type="text"
 										onkeyup="return;this.value=this.value.replace(/[^\.\d]/g,'')"
 										wx-validator-rule="required|digits|range"
-										wx-validator-param="||10-90" wx-validator-placeholder="10~90"
-										value="" placeholder="10~90"><span
+										wx-validator-param="||1-90" wx-validator-placeholder="1~90"
+										value="" placeholder="1~90"><span
 										class="input-notes" style="margin-left: 5px">辆</span><span
 										id="wx-validator-deal_days-required" class="error-text hidden">不能为空</span><span
 										id="wx-validator-deal_days-digits" class="error-text hidden">请填写数字</span><span
-										id="wx-validator-deal_days-range" class="error-text hidden">10~90天</span>
+										id="wx-validator-deal_days-range" class="error-text hidden">1~90</span>
 								</div>
 								<div class="form-item clearfix">
 									<label>种类：</label>
@@ -173,10 +173,17 @@
 									</div>
 								</div>
 								<div class="form-item clearfix">
-									<label>视频：</label> <input type="text" name="vedio"
-										id="vediourl" class="inp-w310" maxlength="200"
-										wx-validator-placeholder="请输入优酷视频的播放页地址" value=""
-										placeholder="请输入优酷视频的播放页地址">
+									<label>价格：</label> 
+									<input name="price" id="price"
+										type="text"
+										onkeyup="return;this.value=this.value.replace(/[^\.\d]/g,'')"
+										wx-validator-rule="required|digits|range"
+										wx-validator-param="||0-900" wx-validator-placeholder="0~900"
+										value="" placeholder="0~900"><span
+										class="input-notes" style="margin-left: 5px">元</span><span
+										id="wx-validator-deal_days-required" class="error-text hidden">不能为空</span><span
+										id="wx-validator-deal_days-digits" class="error-text hidden">请填写数字</span><span
+										id="wx-validator-deal_days-range" class="error-text hidden">0~900元</span>
 								</div>
 								<div class="form-item clearfix">
 									<label>产品简介：</label>
@@ -195,18 +202,13 @@
 										style="width: 567px;">
 									<textarea id="Js-description" name="detail"
 										wx-validator-rule="required" >
-										&lt;h2&gt;关于我（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;介绍你自己或你的团队，并详细说明你的发布的课程之间的背景，让学生能够在最短时间内了解你，以拉近彼此之间的距离。&lt;/p&gt;
-								&lt;h2&gt;专业技能（也可使用个性化小标题）&lt;/h2&gt;
+										&lt;h2&gt;关于车辆、设备（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;p&gt;介绍你自己的车辆设备的情况：如载重、车身长宽等。&lt;/p&gt;
+								&lt;h2&gt;关于个人（也可使用个性化小标题）&lt;/h2&gt;
 								&lt;p&gt;介绍自己或你的团队的专业技能，建议上传5张以上高清图片（宽700、高不限），配合文字来简洁生动地说明你的课程，让学生对你的课程有更加浓厚的兴趣。&lt;/p&gt;
-								&lt;h2&gt;师资条件（也可使用个性化小标题）&lt;/h2&gt;
+								&lt;h2&gt;条件限制、特殊要求等（也可使用个性化小标题）&lt;/h2&gt;
 								&lt;p&gt;请在这一部分说明你的团队所拥有的师资力量或者硬件条件等。&lt;/p&gt;
-								&lt;h2&gt;成功案例（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;请在此处展示你教授的课程的学生的成功案例，通过你的课程，学生能获得什么样的技能和发展。&lt;/p&gt;
-								&lt;h2&gt;可能存在的问题（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;请在此标注你的课程在教授过程中可能存在的问题，让学生对你的课程有全面而清晰的认识。&lt;/p&gt;
-								&lt;h2&gt;其他备注信息（也可使用个性化小标题）&lt;/h2&gt;
-								&lt;p&gt;其他需要学生了解的信息。&lt;/p&gt;
+							
 									</textarea>
 										
 									</div>

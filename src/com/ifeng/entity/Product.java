@@ -18,7 +18,11 @@ public class Product {
 	
 	private String name;
 	
+	private int price;
+	
 	private String attribute;//产品属性 长 宽 吨位
+	
+	private String brief;
 	
 	private String detail;//描述
 
@@ -29,7 +33,11 @@ public class Product {
 	private String imgurl;//产品图片用","分隔开 最多四张图
 	
 	private Date changedAt;
+	
+	private int categoryid;
 
+	private String address;
+	
 	public long getId() {
 		return id;
 	}
@@ -100,6 +108,38 @@ public class Product {
 
 	public void setChangedAt(Date changedAt) {
 		this.changedAt = changedAt;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getBrief() {
+		return brief;
+	}
+
+	public void setBrief(String brief) {
+		this.brief = brief;
+	}
+
+	public int getCategoryid() {
+		return categoryid;
+	}
+
+	public void setCategoryid(int categoryid) {
+		this.categoryid = categoryid;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	
