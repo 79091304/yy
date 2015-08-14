@@ -34,7 +34,7 @@
 			<div class="menu">
 				<ul class="clearfix" id="headermenu">
 					<li><a href="${ctx}/index.shtml">首页 </a></li>
-					<li><a href="${ctx}/course/list.htm">产品与服务</a></li>
+					<li><a href="${ctx}/product/list.htm">产品与服务</a></li>
 					<li><a href="${ctx}/teacher/list.htm">在线租赁 </a></li>
 					<li><a href="${ctx}/publish/index.htm">租主招募</a></li>
 					
@@ -111,7 +111,7 @@
 										maxlength="40" placeholder="名称不可超过40个字">
 								</div>
 								<div class="form-item clearfix">
-									<label>数量：</label> <input name="deal_days" id="cdays"
+									<label>数量：</label> <input name="deal_days" id="count"
 										type="text"
 										onkeyup="return;this.value=this.value.replace(/[^\.\d]/g,'')"
 										wx-validator-rule="required|digits|range"
@@ -315,7 +315,7 @@
 				$("#dosubmit").click(
 						function() {
 							var cname = $("#cname").val();
-							var cdays = $("#cdays").val();
+							var count = $("#count").val();
 							var cateid = $(".option-sort").children(
 									".select:first").attr("data-id");
 							var province = $("#province").val();
@@ -326,6 +326,7 @@
 							var brief = $("#brief").val();
 							var imageurl = $("#imageurl").val();
 							var detail = $("#Js-description").val();
+							var price = $("#price").val();
 							if ("" == cateid && undefined == cateid) {
 								wx.alert("请选择类别");
 								return;
@@ -333,7 +334,7 @@
 							if ("" == cname && undefined == cname) {
 								return;
 							}
-							if ("" == cdays && undefined == cdays) {
+							if ("" == count && undefined == count) {
 								return;
 							}
 							if ("" == brief && undefined == brief) {
@@ -342,13 +343,16 @@
 							if ("" == detail && undefined == detail) {
 								return;
 							}
+							if ("" == price && undefined == price) {
+								return;
+							}
 							$.ajax({
-								url : "${ctx}/course/save.htm",
+								url : "${ctx}/product/save.htm",
 								type : "POST",
 								dataType : "json",
 								data : {
 									cname : cname,
-									cdays : cdays,
+									count : count,
 									cid : cateid,
 									pro : province,
 									cty : city,
@@ -359,7 +363,8 @@
 									img : imageurl,
 									uid : uid,
 									uname : name,
-									detail : detail
+									detail : detail,
+									price:price
 								},
 								success : function(data) {
 									if (data.code == 1) {

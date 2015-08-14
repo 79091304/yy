@@ -85,18 +85,17 @@ public class ProductController {
 	@ResponseBody
 	@RequestMapping("save")
 	public Object saveProduct(HttpServletRequest request, String cname,
-			String cdays, String cid, String pro, String cty, String are,
-			String addre, String ved, String bri, String img,String uname,String uid,String detail) {
-		log.info("保存课程，课程名称："+cname+",课时:"+cdays+",类别:"+cid+"，省份："+pro+"，城市："+cty+"，地区："+are+"，地址："+addre+"，ved:"+ved+"简介："+bri+"，图片"+img+",用户名："+uname);
+			String count, String cid, String pro, String cty, String are,
+			String addre, String ved, String bri, String img,String uname,String uid,String detail,String price) {
 		int flag = 0;
 		Product product = new Product();
-		if (StringUtils.isNotEmpty(cname) && StringUtils.isNotEmpty(cdays)
+		if (StringUtils.isNotEmpty(cname) && StringUtils.isNotEmpty(count)
 				&& StringUtils.isNotEmpty(cid) && StringUtils.isNotEmpty(pro)
 				&& StringUtils.isNotEmpty(cty) && StringUtils.isNotEmpty(are)
 				&& StringUtils.isNotEmpty(addre) && StringUtils.isNotEmpty(bri) && StringUtils.isNotEmpty(detail)) {
 			product.setCreatedAt(new Date());
 			product.setName(cname);
-			
+			product.setPrice(Integer.parseInt(price));
 			product.setStatus(Product.STATUS_OFF);
 			product.setDetail(detail);
 			flag = productService.save(product);
